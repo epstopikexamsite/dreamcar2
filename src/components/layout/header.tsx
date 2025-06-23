@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Filter } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import AIRecommender from '../ai-recommender';
 
 interface HeaderProps {
     isFilterVisible?: boolean;
@@ -40,6 +41,9 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                     {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
                 </Button>
             )}
+             {pathname === '/' && (
+                <AIRecommender />
+             )}
              {pathname !== '/about' && (
                 <Link href="/about" className="md:hidden">
                     <Button variant="outline">
