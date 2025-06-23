@@ -14,6 +14,7 @@ export const cars: Car[] = [
     type: 'Sedan',
     exteriorColor: 'White',
     interiorColor: 'Black',
+    drivetrain: 'AWD',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -39,6 +40,7 @@ export const cars: Car[] = [
     type: 'Coupe',
     exteriorColor: 'Silver',
     interiorColor: 'Red',
+    drivetrain: 'RWD',
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -64,6 +66,7 @@ export const cars: Car[] = [
     type: 'Coupe',
     exteriorColor: 'Blue',
     interiorColor: 'Black',
+    drivetrain: 'RWD',
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -89,6 +92,7 @@ export const cars: Car[] = [
     type: 'SUV',
     exteriorColor: 'Gray',
     interiorColor: 'Beige',
+    drivetrain: 'AWD',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -114,6 +118,7 @@ export const cars: Car[] = [
     type: 'Sedan',
     exteriorColor: 'Green',
     interiorColor: 'Tan',
+    drivetrain: 'RWD',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -139,6 +144,7 @@ export const cars: Car[] = [
     type: 'Compact',
     exteriorColor: 'Red',
     interiorColor: 'Red',
+    drivetrain: 'FWD',
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -164,6 +170,7 @@ export const cars: Car[] = [
     type: 'Coupe',
     exteriorColor: 'Black',
     interiorColor: 'Black',
+    drivetrain: 'AWD',
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -189,6 +196,7 @@ export const cars: Car[] = [
     type: 'SUV',
     exteriorColor: 'Gray',
     interiorColor: 'Brown',
+    drivetrain: 'AWD',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,

@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, DollarSign } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, DollarSign, GitCommitHorizontal } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -37,6 +37,7 @@ interface CarFiltersProps {
   carTypes: (CarType['type'])[];
   exteriorColors: string[];
   interiorColors: string[];
+  drivetrains: string[];
   filters: { 
     brand: string[]; 
     priceRange: number[]; 
@@ -46,6 +47,7 @@ interface CarFiltersProps {
     type: string[];
     exteriorColor: string[];
     interiorColor: string[];
+    drivetrain: string[];
   };
   onFilterChange: (filters: any) => void;
 }
@@ -83,7 +85,7 @@ const colorMap: { [key: string]: string } = {
 };
 
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, filters, onFilterChange }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -132,6 +134,13 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         : [...filters.interiorColor, color];
     onFilterChange({ ...filters, interiorColor: newColors });
   };
+  
+  const handleDrivetrainChange = (drivetrainValue: string) => {
+    const newDrivetrains = filters.drivetrain.includes(drivetrainValue)
+      ? filters.drivetrain.filter((d) => d !== drivetrainValue)
+      : [...filters.drivetrain, drivetrainValue];
+    onFilterChange({ ...filters, drivetrain: newDrivetrains });
+  };
 
   const fuelTypeTranslations: {[key: string]: string} = {
     'Gasoline': 'Xăng',
@@ -143,6 +152,12 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
   const transmissionTranslations: {[key: string]: string} = {
     'Automatic': 'Số tự động',
     'Manual': 'Số tay'
+  }
+
+  const drivetrainTranslations: {[key: string]: string} = {
+    'FWD': 'Cầu trước',
+    'RWD': 'Cầu sau',
+    'AWD': '4 bánh'
   }
 
   const ColorButton = ({ color, isSelected, onClick }: { color: string; isSelected: boolean; onClick: () => void; }) => (
@@ -344,6 +359,29 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
               >
                 {Icon && <Icon className="w-4 h-4" />}
                 {transmissionTranslations[transmissionType] || transmissionType}
+              </button>
+            )})}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="font-semibold flex items-center gap-2"><GitCommitHorizontal className="w-4 h-4" /> Dẫn động</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {drivetrains.map((drivetrain) => {
+              const isSelected = filters.drivetrain.includes(drivetrain);
+              return (
+              <button
+                key={drivetrain}
+                onClick={() => handleDrivetrainChange(drivetrain)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  isSelected
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {drivetrainTranslations[drivetrain as keyof typeof drivetrainTranslations] || drivetrain}
               </button>
             )})}
           </div>

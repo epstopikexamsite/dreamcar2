@@ -19,6 +19,7 @@ export default function Home() {
     type: [] as string[],
     exteriorColor: [] as string[],
     interiorColor: [] as string[],
+    drivetrain: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
 
@@ -32,7 +33,8 @@ export default function Home() {
       const typeMatch = filters.type.length === 0 || filters.type.includes(car.type);
       const exteriorColorMatch = filters.exteriorColor.length === 0 || filters.exteriorColor.includes(car.exteriorColor);
       const interiorColorMatch = filters.interiorColor.length === 0 || filters.interiorColor.includes(car.interiorColor);
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch;
+      const drivetrainMatch = filters.drivetrain.length === 0 || filters.drivetrain.includes(car.drivetrain);
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch;
     });
   }, [filters]);
 
@@ -51,6 +53,7 @@ export default function Home() {
   const carTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.type)))].sort(), []);
   const exteriorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.exteriorColor)))].sort(), []);
   const interiorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.interiorColor)))].sort(), []);
+  const drivetrains = useMemo(() => [...Array.from(new Set(allCars.map(car => car.drivetrain)))].sort(), []);
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
@@ -68,6 +71,7 @@ export default function Home() {
               carTypes={carTypes}
               exteriorColors={exteriorColors}
               interiorColors={interiorColors}
+              drivetrains={drivetrains}
               filters={filters} 
               onFilterChange={setFilters} 
             />
