@@ -3,15 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Filter, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-
-interface HeaderProps {
-    isFilterVisible?: boolean;
-    onToggleFilter?: () => void;
-}
 
 const navLinks = [
     { href: "/", label: "Cửa hàng" },
@@ -22,9 +17,8 @@ const navLinks = [
     { href: "/contact", label: "Liên hệ" },
 ];
 
-export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps) {
+export default function Header() {
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -53,12 +47,6 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
             </nav>
         </div>
         <div className="flex items-center gap-2">
-            {isHomePage && onToggleFilter && (
-                <Button onClick={onToggleFilter} variant="destructive" className="hidden md:inline-flex">
-                    <Filter className="mr-2 h-4 w-4" />
-                    {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
-                </Button>
-            )}
             <div className="md:hidden">
                  <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
@@ -79,16 +67,6 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                             </Link>
                         </div>
                         <nav className="flex flex-col p-4 space-y-1">
-                            {isHomePage && onToggleFilter && (
-                                <Button 
-                                  onClick={() => { onToggleFilter(); setIsMobileMenuOpen(false); }} 
-                                  variant="destructive" 
-                                  className="w-full justify-start mb-2"
-                                >
-                                    <Filter className="mr-2 h-4 w-4" />
-                                    {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
-                                </Button>
-                            )}
                              {navLinks.map(link => (
                                 <Link 
                                     key={link.href}

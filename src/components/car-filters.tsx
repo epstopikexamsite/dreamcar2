@@ -186,7 +186,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
   );
 
   return (
-    <Card className="sticky top-24">
+    <Card>
       <CardHeader>
         <CardTitle className="font-headline text-2xl">Bộ lọc</CardTitle>
       </CardHeader>

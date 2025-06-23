@@ -7,8 +7,11 @@ import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare } from 'lucide-react';
+import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare, Filter } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
+
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 
@@ -52,7 +55,6 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 
 export default function Home() {
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [filters, setFilters] = useState({
     brand: [] as string[],
     priceRange: [0, NO_PRICE_LIMIT],
@@ -100,33 +102,57 @@ export default function Home() {
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
+  const filterPanel = (
+    <CarFilters 
+      brands={brands} 
+      years={years}
+      fuelTypes={fuelTypes}
+      transmissionTypes={transmissionTypes}
+      carTypes={carTypes}
+      exteriorColors={exteriorColors}
+      interiorColors={interiorColors}
+      drivetrains={drivetrains}
+      filters={filters} 
+      onFilterChange={setFilters} 
+    />
+  );
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header 
-        isFilterVisible={isFilterVisible}
-        onToggleFilter={() => setIsFilterVisible(!isFilterVisible)}
-      />
+      <Header />
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {isFilterVisible && (
-                <aside className="lg:col-span-1">
-                <CarFilters 
-                    brands={brands} 
-                    years={years}
-                    fuelTypes={fuelTypes}
-                    transmissionTypes={transmissionTypes}
-                    carTypes={carTypes}
-                    exteriorColors={exteriorColors}
-                    interiorColors={interiorColors}
-                    drivetrains={drivetrains}
-                    filters={filters} 
-                    onFilterChange={setFilters} 
-                />
-                </aside>
-            )}
-            <section className={isFilterVisible ? "lg:col-span-3" : "lg:col-span-4"}>
-                <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
+              <aside className="hidden lg:block lg:col-span-1">
+                <div className="sticky top-24">
+                  {filterPanel}
+                </div>
+              </aside>
+            
+            <section className="lg:col-span-3">
+                <div className="flex justify-between items-center mb-6">
+                  <h1 className="text-3xl font-headline font-bold text-foreground">Xe Nổi Bật</h1>
+                  <div className="lg:hidden">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button variant="outline">
+                                <Filter className="mr-2 h-4 w-4" />
+                                Bộ lọc
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="left" className="p-0">
+                            <SheetHeader className="p-4 border-b">
+                                <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
+                            </SheetHeader>
+                            <ScrollArea className="h-[calc(100%-4rem)]">
+                                <div className="p-4">
+                                  {filterPanel}
+                                </div>
+                            </ScrollArea>
+                        </SheetContent>
+                    </Sheet>
+                  </div>
+                </div>
                 
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -187,6 +213,29 @@ export default function Home() {
         </section>
 
         <section className="py-16 bg-background">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <Card className="border-2 border-primary/50 shadow-lg text-center">
+                    <CardHeader className="p-6">
+                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
+                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
+                        </div>
+                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
+                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
+                    </CardHeader>
+                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
+                        <p className="text-foreground/90">
+                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
+                        </p>
+                        <div className="border-t border-dashed my-4"></div>
+                        <p className="font-semibold text-foreground">
+                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
+                        </p>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+
+        <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
               Khách Hàng Nói Gì Về Chúng Tôi
@@ -215,29 +264,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
-
-        <section className="py-16 bg-primary/5">
-            <div className="container mx-auto px-4 max-w-4xl">
-                <Card className="border-2 border-primary/50 shadow-lg text-center">
-                    <CardHeader className="p-6">
-                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
-                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
-                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
-                    </CardHeader>
-                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
-                        <p className="text-foreground/90">
-                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
-                        </p>
-                        <div className="border-t border-dashed my-4"></div>
-                        <p className="font-semibold text-foreground">
-                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
-                        </p>
-                    </CardContent>
-                </Card>
-            </div>
         </section>
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-auto">
