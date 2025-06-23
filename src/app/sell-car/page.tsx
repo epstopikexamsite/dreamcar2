@@ -13,7 +13,7 @@ export default function SellCarPage() {
             <div className="container mx-auto px-4">
                 <Handshake className="mx-auto h-12 w-12 text-primary mb-4" />
                 <h1 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-4">
-                    Bán Xe Của Bạn Cho Chúng Tôi
+                    Thu Mua Xe Giá Cao
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                     TIME CARS AUTO chuyên thu mua ô tô đã qua sử dụng giá cao, thủ tục nhanh gọn. Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn ngay.
