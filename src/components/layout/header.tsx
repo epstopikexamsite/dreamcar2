@@ -31,7 +31,6 @@ export default function Header() {
                 alt="TimeCar"
                 width={180}
                 height={41}
-                priority
             />
             </Link>
             <nav className="hidden md:flex items-center gap-6">

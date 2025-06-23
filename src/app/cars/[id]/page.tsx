@@ -16,6 +16,12 @@ import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palet
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+export async function generateStaticParams() {
+  return cars.map((car) => ({
+    id: car.id.toString(),
+  }));
+}
+
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +128,6 @@ export default function CarDetailPage() {
                   alt={car.model}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
                   className="object-cover transition-opacity duration-300"
                   data-ai-hint="car detail view"
                 />

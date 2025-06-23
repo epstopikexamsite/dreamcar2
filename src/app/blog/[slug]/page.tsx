@@ -10,6 +10,12 @@ import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default function BlogPostPage() {
   const params = useParams();
   const slug = params.slug;
@@ -47,7 +53,6 @@ export default function BlogPostPage() {
                             alt={post.title}
                             fill
                             className="object-cover"
-                            priority
                             data-ai-hint={post.aiHint}
                         />
                     </div>
