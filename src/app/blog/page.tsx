@@ -4,8 +4,20 @@ import Header from '@/components/layout/header';
 import { blogPosts } from '@/lib/blog-data';
 import BlogPostCard from '@/components/blog-post-card';
 import { Rss } from 'lucide-react';
+import type { BlogPost } from '@/lib/types';
 
 export default function BlogPage() {
+  const groupedPosts = blogPosts.reduce((acc, post) => {
+    const { category } = post;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(post);
+    return acc;
+  }, {} as Record<string, BlogPost[]>);
+
+  const categories: (keyof typeof groupedPosts)[] = ['Loại nhiên liệu', 'Hộp số', 'Dẫn động', 'Loại xe'];
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -23,12 +35,19 @@ export default function BlogPage() {
         </section>
 
         <section className="py-16">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {blogPosts.map((post) => (
-                        <BlogPostCard key={post.slug} post={post} />
-                    ))}
-                </div>
+            <div className="container mx-auto px-4 space-y-16">
+                {categories.map(category => (
+                    groupedPosts[category] && (
+                        <div key={category}>
+                            <h2 className="text-3xl font-headline font-bold text-primary mb-8 border-b-2 border-primary/20 pb-4">{category}</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {groupedPosts[category].map((post) => (
+                                    <BlogPostCard key={post.slug} post={post} />
+                                ))}
+                            </div>
+                        </div>
+                    )
+                ))}
             </div>
         </section>
       </main>

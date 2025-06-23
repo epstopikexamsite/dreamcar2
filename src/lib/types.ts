@@ -53,4 +53,5 @@ export interface BlogPost {
   aiHint: string;
   excerpt: string;
   content: string;
+  category: 'Loại nhiên liệu' | 'Hộp số' | 'Dẫn động' | 'Loại xe';
 }
