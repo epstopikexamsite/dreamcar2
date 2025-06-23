@@ -1,3 +1,5 @@
+'use client';
+
 export interface Review {
   name: string;
   rating: number;
@@ -15,6 +17,8 @@ export interface Car {
   fuelType: string;
   transmission: 'Automatic' | 'Manual';
   type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV';
+  exteriorColor: string;
+  interiorColor: string;
   specs: {
     engine: string;
     horsepower: number;

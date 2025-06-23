@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -118,6 +118,8 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                     <span className="text-muted-foreground">{transmissionTranslations[car.transmission] || car.transmission}</span>
                   </li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><CarIcon className="w-4 h-4 mr-2 text-accent" /> <strong>Loại xe</strong></span> <span className="text-muted-foreground">{car.type}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Palette className="w-4 h-4 mr-2 text-accent" /> <strong>Exterior Color</strong></span> <span className="text-muted-foreground">{car.exteriorColor}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Armchair className="w-4 h-4 mr-2 text-accent" /> <strong>Interior Color</strong></span> <span className="text-muted-foreground">{car.interiorColor}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>

@@ -12,6 +12,8 @@ export const cars: Car[] = [
     fuelType: 'Electric',
     transmission: 'Automatic',
     type: 'Sedan',
+    exteriorColor: 'White',
+    interiorColor: 'Black',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -35,6 +37,8 @@ export const cars: Car[] = [
     fuelType: 'Gasoline',
     transmission: 'Automatic',
     type: 'Coupe',
+    exteriorColor: 'Silver',
+    interiorColor: 'Red',
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -58,6 +62,8 @@ export const cars: Car[] = [
     fuelType: 'Gasoline',
     transmission: 'Automatic',
     type: 'Coupe',
+    exteriorColor: 'Blue',
+    interiorColor: 'Black',
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -81,6 +87,8 @@ export const cars: Car[] = [
     fuelType: 'Hybrid',
     transmission: 'Automatic',
     type: 'SUV',
+    exteriorColor: 'Gray',
+    interiorColor: 'Beige',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -104,6 +112,8 @@ export const cars: Car[] = [
     fuelType: 'Gasoline',
     transmission: 'Manual',
     type: 'Sedan',
+    exteriorColor: 'Green',
+    interiorColor: 'Tan',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -127,6 +137,8 @@ export const cars: Car[] = [
     fuelType: 'Gasoline',
     transmission: 'Manual',
     type: 'Compact',
+    exteriorColor: 'Red',
+    interiorColor: 'Red',
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -150,6 +162,8 @@ export const cars: Car[] = [
     fuelType: 'Gasoline',
     transmission: 'Automatic',
     type: 'Coupe',
+    exteriorColor: 'Black',
+    interiorColor: 'Black',
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -173,6 +187,8 @@ export const cars: Car[] = [
     fuelType: 'Diesel',
     transmission: 'Automatic',
     type: 'SUV',
+    exteriorColor: 'Gray',
+    interiorColor: 'Brown',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,

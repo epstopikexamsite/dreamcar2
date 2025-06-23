@@ -35,7 +35,18 @@ interface CarFiltersProps {
   fuelTypes: string[];
   transmissionTypes: (CarType['transmission'])[];
   carTypes: (CarType['type'])[];
-  filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[]; transmission: string[]; type: string[]; };
+  exteriorColors: string[];
+  interiorColors: string[];
+  filters: { 
+    brand: string[]; 
+    priceRange: number[]; 
+    year: string[]; 
+    fuelType: string[]; 
+    transmission: string[]; 
+    type: string[];
+    exteriorColor: string[];
+    interiorColor: string[];
+  };
   onFilterChange: (filters: any) => void;
 }
 
@@ -58,8 +69,21 @@ const carTypeIcons: { [key: string]: React.ElementType } = {
   'SUV': Caravan,
 };
 
+const colorMap: { [key: string]: string } = {
+  'White': 'bg-white border',
+  'Black': 'bg-black',
+  'Silver': 'bg-slate-300',
+  'Gray': 'bg-gray-500',
+  'Red': 'bg-red-500',
+  'Blue': 'bg-blue-500',
+  'Green': 'bg-green-500',
+  'Beige': 'bg-amber-200',
+  'Tan': 'bg-amber-400',
+  'Brown': 'bg-amber-800'
+};
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, filters, onFilterChange }: CarFiltersProps) {
+
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -95,6 +119,20 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
     onFilterChange({ ...filters, type: newTypes });
   };
 
+  const handleExteriorColorChange = (color: string) => {
+    const newColors = filters.exteriorColor.includes(color)
+        ? filters.exteriorColor.filter((c) => c !== color)
+        : [...filters.exteriorColor, color];
+    onFilterChange({ ...filters, exteriorColor: newColors });
+  };
+
+  const handleInteriorColorChange = (color: string) => {
+    const newColors = filters.interiorColor.includes(color)
+        ? filters.interiorColor.filter((c) => c !== color)
+        : [...filters.interiorColor, color];
+    onFilterChange({ ...filters, interiorColor: newColors });
+  };
+
   const fuelTypeTranslations: {[key: string]: string} = {
     'Gasoline': 'Xăng',
     'Diesel': 'Dầu',
@@ -106,6 +144,22 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
     'Automatic': 'Số tự động',
     'Manual': 'Số tay'
   }
+
+  const ColorButton = ({ color, isSelected, onClick }: { color: string; isSelected: boolean; onClick: () => void; }) => (
+    <button
+      onClick={onClick}
+      className={cn(
+        "p-2 border rounded-md flex items-center justify-start h-10 transition-colors duration-200 text-sm font-medium gap-2",
+        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+        isSelected
+          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+          : "bg-card hover:bg-accent hover:text-accent-foreground"
+      )}
+    >
+      <span className={cn("w-4 h-4 rounded-full", colorMap[color] || 'bg-gray-200')}></span>
+      {color}
+    </button>
+  );
 
   return (
     <Card className="sticky top-24">
@@ -149,6 +203,49 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
+          <Label className="font-semibold">Price Range</Label>
+          <div className="flex items-center gap-2 pt-2">
+            <div className="relative flex-1">
+              <Label htmlFor="min-price" className="sr-only">Minimum Price</Label>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <Input
+                id="min-price"
+                type="number"
+                placeholder="Min"
+                value={filters.priceRange[0] === 0 ? '' : filters.priceRange[0]}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const numericValue = value === '' ? 0 : Number(value);
+                  onFilterChange({ ...filters, priceRange: [numericValue, filters.priceRange[1]] });
+                }}
+                min={0}
+                step={1000}
+                className="pl-6"
+              />
+            </div>
+            <span className="text-muted-foreground">-</span>
+            <div className="relative flex-1">
+              <Label htmlFor="max-price" className="sr-only">Maximum Price</Label>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <Input
+                id="max-price"
+                type="number"
+                placeholder="Max"
+                value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const numericValue = value === '' ? NO_PRICE_LIMIT : Number(value);
+                  onFilterChange({ ...filters, priceRange: [filters.priceRange[0], numericValue] });
+                }}
+                min={0}
+                step={1000}
+                className="pl-6"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div className="space-y-2">
           <Label className="font-semibold">Year</Label>
           <div className="grid grid-cols-4 gap-2 pt-2">
             {years.map((year) => (
@@ -169,6 +266,34 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
           </div>
         </div>
         
+        <div className="space-y-2">
+          <Label className="font-semibold">Exterior Color</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {exteriorColors.map((color) => (
+              <ColorButton
+                key={color}
+                color={color}
+                isSelected={filters.exteriorColor.includes(color)}
+                onClick={() => handleExteriorColorChange(color)}
+              />
+            ))}
+          </div>
+        </div>
+        
+        <div className="space-y-2">
+          <Label className="font-semibold">Interior Color</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {interiorColors.map((color) => (
+              <ColorButton
+                key={color}
+                color={color}
+                isSelected={filters.interiorColor.includes(color)}
+                onClick={() => handleInteriorColorChange(color)}
+              />
+            ))}
+          </div>
+        </div>
+
         <div className="space-y-2">
           <Label className="font-semibold">Loại nhiên liệu</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
@@ -249,48 +374,6 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Label className="font-semibold">Price Range</Label>
-          <div className="flex items-center gap-2 pt-2">
-            <div className="relative flex-1">
-              <Label htmlFor="min-price" className="sr-only">Minimum Price</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
-              <Input
-                id="min-price"
-                type="number"
-                placeholder="Min"
-                value={filters.priceRange[0] === 0 ? '' : filters.priceRange[0]}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  const numericValue = value === '' ? 0 : Number(value);
-                  onFilterChange({ ...filters, priceRange: [numericValue, filters.priceRange[1]] });
-                }}
-                min={0}
-                step={1000}
-                className="pl-6"
-              />
-            </div>
-            <span className="text-muted-foreground">-</span>
-            <div className="relative flex-1">
-              <Label htmlFor="max-price" className="sr-only">Maximum Price</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
-              <Input
-                id="max-price"
-                type="number"
-                placeholder="Max"
-                value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  const numericValue = value === '' ? NO_PRICE_LIMIT : Number(value);
-                  onFilterChange({ ...filters, priceRange: [filters.priceRange[0], numericValue] });
-                }}
-                min={0}
-                step={1000}
-                className="pl-6"
-              />
-            </div>
-          </div>
-        </div>
       </CardContent>
     </Card>
   );

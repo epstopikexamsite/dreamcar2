@@ -17,6 +17,8 @@ export default function Home() {
     fuelType: [] as string[],
     transmission: [] as string[],
     type: [] as string[],
+    exteriorColor: [] as string[],
+    interiorColor: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
 
@@ -28,7 +30,9 @@ export default function Home() {
       const fuelMatch = filters.fuelType.length === 0 || filters.fuelType.includes(car.fuelType);
       const transmissionMatch = filters.transmission.length === 0 || filters.transmission.includes(car.transmission);
       const typeMatch = filters.type.length === 0 || filters.type.includes(car.type);
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch;
+      const exteriorColorMatch = filters.exteriorColor.length === 0 || filters.exteriorColor.includes(car.exteriorColor);
+      const interiorColorMatch = filters.interiorColor.length === 0 || filters.interiorColor.includes(car.interiorColor);
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch;
     });
   }, [filters]);
 
@@ -45,6 +49,8 @@ export default function Home() {
   const fuelTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.fuelType)))].sort(), []);
   const transmissionTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.transmission)))].sort(), []);
   const carTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.type)))].sort(), []);
+  const exteriorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.exteriorColor)))].sort(), []);
+  const interiorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.interiorColor)))].sort(), []);
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
@@ -60,6 +66,8 @@ export default function Home() {
               fuelTypes={fuelTypes}
               transmissionTypes={transmissionTypes}
               carTypes={carTypes}
+              exteriorColors={exteriorColors}
+              interiorColors={interiorColors}
               filters={filters} 
               onFilterChange={setFilters} 
             />
