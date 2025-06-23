@@ -1,10 +1,11 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Car } from '@/lib/types';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -180,6 +181,21 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="pt-6 mt-6 border-t flex flex-col sm:flex-row gap-2 sm:justify-end">
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                    <Link href="/contact">
+                        <Phone className="mr-2 h-4 w-4"/>
+                        Liên hệ tư vấn
+                    </Link>
+                </Button>
+                <Button asChild className="w-full sm:w-auto">
+                    <Link href={`/cars/${car.id}`}>
+                        Xem trang chi tiết
+                        <ArrowRight className="ml-2 h-4 w-4"/>
+                    </Link>
+                </Button>
             </div>
           </div>
         </ScrollArea>
