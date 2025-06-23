@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -36,5 +37,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     );
   }
 
-  return <BlogPostPageContent post={post} />;
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <BlogPostPageContent post={post} />
+      <Footer />
+    </div>
+  );
 }
