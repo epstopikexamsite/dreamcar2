@@ -13,13 +13,16 @@ interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
   maxPrice: number;
-  filters: { brand: string; priceRange: number[]; year: string; };
+  filters: { brand: string[]; priceRange: number[]; year: string; };
   onFilterChange: (filters: any) => void;
 }
 
 export default function CarFilters({ brands, years, maxPrice, filters, onFilterChange }: CarFiltersProps) {
-  const handleBrandChange = (value: string) => {
-    onFilterChange({ ...filters, brand: value });
+  const handleBrandChange = (brandName: string) => {
+    const newBrands = filters.brand.includes(brandName)
+      ? filters.brand.filter((b) => b !== brandName)
+      : [...filters.brand, brandName];
+    onFilterChange({ ...filters, brand: newBrands });
   };
 
   const handlePriceChange = (value: number[]) => {
@@ -48,7 +51,7 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
                       className={cn(
                         "p-2 border rounded-md flex items-center justify-center h-16 transition-all duration-200 ease-in-out transform hover:scale-105",
                         "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
-                        filters.brand === brand.name
+                        filters.brand.includes(brand.name)
                           ? "bg-primary/10 border-primary"
                           : "bg-card hover:border-primary/50"
                       )}

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [filters, setFilters] = useState({
-    brand: 'all',
+    brand: [] as string[],
     priceRange: [0, 200000],
     year: 'all',
   });
@@ -17,7 +17,7 @@ export default function Home() {
 
   const filteredCars = useMemo(() => {
     return allCars.filter(car => {
-      const brandMatch = filters.brand === 'all' || car.brand === filters.brand;
+      const brandMatch = filters.brand.length === 0 || filters.brand.includes(car.brand);
       const priceMatch = car.price >= filters.priceRange[0] && car.price <= filters.priceRange[1];
       const yearMatch = filters.year === 'all' || car.year.toString() === filters.year;
       return brandMatch && priceMatch && yearMatch;
@@ -31,7 +31,7 @@ export default function Home() {
       }
       return acc;
     }, [] as { name: string; logo: string }[]);
-    return [{ name: 'all', logo: '/logos/all.svg' }, ...uniqueBrands];
+    return uniqueBrands;
   }, []);
   const years = useMemo(() => ['all', ...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => (b === 'all' ? -1 : a === 'all' ? 1 : Number(b) - Number(a))), []);
   const maxPrice = useMemo(() => Math.max(...allCars.map(car => car.price)), []);
