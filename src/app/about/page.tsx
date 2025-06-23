@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { HeartHandshake, ShieldCheck, Users, MapPin, BookOpen, Car, Globe, Gem, Truck, Crown, Award, UserCheck, Briefcase, User } from 'lucide-react';
+import { HeartHandshake, Users, MapPin, BookOpen, Car, Globe, Gem, Truck, Crown, Award, UserCheck, Briefcase, User } from 'lucide-react';
 import ContactForm from '@/components/contact-form';
 import { employees, Employee } from '@/lib/employees';
 import { cn } from '@/lib/utils';
@@ -142,7 +142,7 @@ export default function AboutPage() {
                         <p className="text-muted-foreground font-semibold">Xe Đã Giao</p>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <ShieldCheck className="h-10 w-10 text-primary"/>
+                        <Users className="h-10 w-10 text-primary"/>
                         <p className="text-4xl font-bold">176</p>
                         <p className="text-muted-foreground font-semibold">Hạng Mục Kiểm Định</p>
                     </div>
@@ -199,29 +199,6 @@ export default function AboutPage() {
         </section>
 
         <section className="py-16 bg-primary/5">
-            <div className="container mx-auto px-4 max-w-4xl">
-                <Card className="border-2 border-primary/50 shadow-lg text-center">
-                    <CardHeader className="p-6">
-                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
-                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
-                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
-                    </CardHeader>
-                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
-                        <p className="text-foreground/90">
-                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
-                        </p>
-                        <div className="border-t border-dashed my-4"></div>
-                        <p className="font-semibold text-foreground">
-                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
-                        </p>
-                    </CardContent>
-                </Card>
-            </div>
-        </section>
-
-        <section className="py-16">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-4">
