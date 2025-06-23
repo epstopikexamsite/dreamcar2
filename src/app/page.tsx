@@ -127,7 +127,6 @@ export default function Home() {
               </aside>
             
             <section className="lg:col-span-3">
-                <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
                 
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
