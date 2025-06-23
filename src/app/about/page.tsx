@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Building, HeartHandshake, Phone, ShieldCheck, Users } from 'lucide-react';
+import { Building, HeartHandshake, Phone, ShieldCheck, Users, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function AboutPage() {
@@ -11,12 +11,23 @@ export default function AboutPage() {
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <section className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary mb-4">
+            <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary mb-6">
               Về TIME CARS AUTO
             </h1>
-            <p className="text-lg text-muted-foreground">
-              79 Nguyễn Chánh, Trung Hòa, Cầu Giấy, Hà Nội
-            </p>
+            <div className="inline-block text-left text-lg text-muted-foreground space-y-3">
+                <p className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-accent shrink-0 mt-1" />
+                    <span><strong>Cơ sở 1:</strong> 79 Nguyễn Chánh, Trung Hòa, Cầu Giấy, Hà Nội</span>
+                </p>
+                <p className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-accent shrink-0 mt-1" />
+                    <span><strong>Cơ sở 2:</strong> 158 Việt Hưng, Long Biên, Hà Nội</span>
+                </p>
+                <p className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-accent shrink-0 mt-1" />
+                    <span><strong>Cơ sở 3:</strong> 68 Đinh Núp, Cầu Giấy, Hà Nội</span>
+                </p>
+            </div>
           </section>
 
           <section className="mb-12">
@@ -28,7 +39,7 @@ export default function AboutPage() {
                         </CardHeader>
                         <CardContent className="p-0 text-base text-foreground/80 space-y-4">
                             <p>
-                                <strong>TIME CARS AUTO - 79 Nguyễn Chánh</strong> được thành lập từ <strong>08/11/2021</strong>. Dưới sự dẫn dắt của ông <strong>Trần Mạnh Tuấn</strong>, chúng tôi đã không ngừng phát triển và vươn xa.
+                                <strong>TIME CARS AUTO</strong> được thành lập từ <strong>08/11/2021</strong>. Dưới sự dẫn dắt của ông <strong>Trần Mạnh Tuấn</strong>, chúng tôi đã không ngừng phát triển và vươn xa.
                             </p>
                             <p>
                                 Tính đến nay, chúng tôi tự hào đã giao tới tay khách hàng <strong>1.028 chiếc xe</strong> sau hơn 2 năm hoạt động, một minh chứng cho sự tin tưởng của quý khách.
