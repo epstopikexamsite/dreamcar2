@@ -8,12 +8,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Fuel, Zap, Leaf, Truck } from 'lucide-react';
 
+const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 
 interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
   fuelTypes: string[];
-  maxPrice: number;
   filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[] };
   onFilterChange: (filters: any) => void;
 }
@@ -25,7 +25,7 @@ const fuelTypeIcons: { [key: string]: React.ElementType } = {
   'Hybrid': Leaf,
 };
 
-export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters, onFilterChange }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -33,10 +33,6 @@ export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters
     onFilterChange({ ...filters, brand: newBrands });
   };
 
-  const handlePriceChange = (value: number[]) => {
-    onFilterChange({ ...filters, priceRange: value });
-  };
-  
   const handleYearChange = (yearValue: string) => {
     const newYears = filters.year.includes(yearValue)
       ? filters.year.filter((y) => y !== yearValue)
@@ -151,23 +147,45 @@ export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="max-price" className="font-semibold">Max Price</Label>
-          <div className="relative pt-2">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
-            <Input
-              id="max-price"
-              type="number"
-              placeholder="Any price"
-              value={filters.priceRange[1] === Number.MAX_SAFE_INTEGER ? '' : filters.priceRange[1]}
-              onChange={(e) => {
-                const value = e.target.value;
-                const numericValue = value === '' ? Number.MAX_SAFE_INTEGER : Number(value);
-                handlePriceChange([0, numericValue]);
-              }}
-              min={0}
-              step={1000}
-              className="pl-6"
-            />
+          <Label className="font-semibold">Price Range</Label>
+          <div className="flex items-center gap-2 pt-2">
+            <div className="relative flex-1">
+              <Label htmlFor="min-price" className="sr-only">Minimum Price</Label>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <Input
+                id="min-price"
+                type="number"
+                placeholder="Min"
+                value={filters.priceRange[0] === 0 ? '' : filters.priceRange[0]}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const numericValue = value === '' ? 0 : Number(value);
+                  onFilterChange({ ...filters, priceRange: [numericValue, filters.priceRange[1]] });
+                }}
+                min={0}
+                step={1000}
+                className="pl-6"
+              />
+            </div>
+            <span className="text-muted-foreground">-</span>
+            <div className="relative flex-1">
+              <Label htmlFor="max-price" className="sr-only">Maximum Price</Label>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <Input
+                id="max-price"
+                type="number"
+                placeholder="Max"
+                value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const numericValue = value === '' ? NO_PRICE_LIMIT : Number(value);
+                  onFilterChange({ ...filters, priceRange: [filters.priceRange[0], numericValue] });
+                }}
+                min={0}
+                step={1000}
+                className="pl-6"
+              />
+            </div>
           </div>
         </div>
       </CardContent>

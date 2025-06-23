@@ -39,7 +39,6 @@ export default function Home() {
   }, []);
   const years = useMemo(() => [...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => Number(b) - Number(a)), []);
   const fuelTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.fuelType)))].sort(), []);
-  const maxPrice = useMemo(() => Math.max(...allCars.map(car => car.price)), []);
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
@@ -53,7 +52,6 @@ export default function Home() {
               brands={brands} 
               years={years}
               fuelTypes={fuelTypes}
-              maxPrice={maxPrice}
               filters={filters} 
               onFilterChange={setFilters} 
             />
