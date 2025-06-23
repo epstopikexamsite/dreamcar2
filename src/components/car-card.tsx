@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tag, Cog, Route, GitCommitHorizontal, Fuel, Car as CarIcon, Palette, Armchair, Zap, Leaf, Truck, CarFront, Caravan } from 'lucide-react';
+import { Tag, Cog, Route, GitCommitHorizontal, Fuel, Car as CarIcon, Users, Zap, Leaf, Truck, CarFront, Caravan } from 'lucide-react';
 import CarDetailsDialog from './car-details-dialog';
 
 interface CarCardProps {
@@ -96,8 +96,8 @@ export default function CarCard({ car }: CarCardProps) {
 
         <div className="border-t pt-3 mt-auto grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2 truncate">
-            {TypeIcon && <TypeIcon className="w-4 h-4 text-accent shrink-0" />}
-            <span className="truncate">{car.type}</span>
+            <Route className="w-4 h-4 text-accent shrink-0" />
+            <span className="truncate">{car.mileage.toLocaleString()} km</span>
           </div>
           <div className="flex items-center gap-2 truncate">
             {FuelIcon && <FuelIcon className="w-4 h-4 text-accent shrink-0" />}
@@ -107,21 +107,17 @@ export default function CarCard({ car }: CarCardProps) {
             <TransmissionIcon className="w-4 h-4 text-accent shrink-0" />
             <span className="truncate">{transmissionTranslations[car.transmission] || car.transmission}</span>
           </div>
-           <div className="flex items-center gap-2 truncate">
+          <div className="flex items-center gap-2 truncate">
             <GitCommitHorizontal className="w-4 h-4 text-accent shrink-0" />
             <span className="truncate">{drivetrainTranslations[car.drivetrain as keyof typeof drivetrainTranslations] || car.drivetrain}</span>
           </div>
-          <div className="flex items-center gap-2 truncate col-span-2">
-            <Route className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.mileage.toLocaleString()} km</span>
+          <div className="flex items-center gap-2 truncate">
+            {TypeIcon && <TypeIcon className="w-4 h-4 text-accent shrink-0" />}
+            <span className="truncate">{car.type}</span>
           </div>
           <div className="flex items-center gap-2 truncate">
-            <Palette className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.exteriorColor}</span>
-          </div>
-          <div className="flex items-center gap-2 truncate">
-            <Armchair className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.interiorColor}</span>
+            <Users className="w-4 h-4 text-accent shrink-0" />
+            <span className="truncate">{car.seatingCapacity} chỗ</span>
           </div>
         </div>
       </CardContent>

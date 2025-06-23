@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -168,6 +168,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Mã lực</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Droplets className="w-4 h-4 mr-2 text-accent" /> <strong>Tiêu thụ nhiên liệu</strong></span> <span className="text-muted-foreground">{car.specs.fuelConsumption}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Ruler className="w-4 h-4 mr-2 text-accent" /> <strong>Kích thước (D x R x C)</strong></span> <span className="text-muted-foreground">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Users className="w-4 h-4 mr-2 text-accent" /> <strong>Số chỗ ngồi</strong></span> <span className="text-muted-foreground">{car.seatingCapacity}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Đánh giá an toàn</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>

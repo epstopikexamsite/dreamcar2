@@ -28,6 +28,7 @@ export interface Car {
   interiorColor: string;
   drivetrain: 'FWD' | 'RWD' | 'AWD' | '4WD';
   mileage: number;
+  seatingCapacity: number;
   specs: {
     engine: string;
     horsepower: number;
