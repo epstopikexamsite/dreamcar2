@@ -86,7 +86,7 @@ export default function Footer() {
                             <div className="flex items-center justify-center md:justify-start gap-3">
                                 <Phone className="w-5 h-5 shrink-0 mt-1" />
                                 <p>
-                                    098.150.2222 (Mr. Tuấn)
+                                    098.150.2222 (Hotline)
                                 </p>
                             </div>
                         </address>
