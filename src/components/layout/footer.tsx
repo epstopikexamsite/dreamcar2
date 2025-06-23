@@ -28,9 +28,9 @@ export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
             <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
                     
-                    <div className="space-y-4">
+                    <div className="md:col-span-5 lg:col-span-4 space-y-4">
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
@@ -51,7 +51,7 @@ export default function Footer() {
                         </div>
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="md:col-span-7 lg:col-span-8 space-y-4">
                         <h3 className="font-headline text-lg font-bold text-primary-foreground">Thông Tin Liên Hệ</h3>
                         <address className="space-y-4 text-sm not-italic text-primary-foreground/80">
                             <div className="flex items-center justify-center md:justify-start gap-3">
@@ -60,15 +60,17 @@ export default function Footer() {
                                     098.150.2222 (Hotline)
                                 </p>
                             </div>
-                             {locations.map((loc) => (
-                                <div key={loc.name} className="flex items-start justify-center md:justify-start gap-3">
-                                    <MapPin className="w-5 h-5 shrink-0 mt-1" />
-                                    <div>
-                                        <p className="font-semibold">{loc.name}</p>
-                                        <p>{loc.address}</p>
+                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6 pt-2">
+                                {locations.map((loc) => (
+                                    <div key={loc.name} className="flex items-start gap-3">
+                                        <MapPin className="w-5 h-5 shrink-0 mt-1" />
+                                        <div>
+                                            <p className="font-semibold">{loc.name}</p>
+                                            <p>{loc.address}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </address>
                     </div>
                 </div>
