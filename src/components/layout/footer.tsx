@@ -60,12 +60,19 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Right Side: Contact & Socials (takes 3/12 cols) */}
-                    <div className="md:col-span-3 flex flex-col items-center md:items-end gap-2">
-                         <div className="flex items-center gap-2 text-sm font-semibold">
-                            <Phone className="w-4 h-4 shrink-0" />
-                            <span>098.150.2222 (Hotline)</span>
-                        </div>
+                    {/* Right Side: Contact */}
+                    <div className="md:col-span-3 flex flex-col items-center md:items-end text-right">
+                         <p className="font-semibold text-sm text-primary-foreground/80">Hotline</p>
+                         <p className="font-bold text-lg">098.150.2222</p>
+                    </div>
+                </div>
+
+                {/* Bottom Bar: Copyright & Socials */}
+                <div className="border-t border-primary-foreground/20 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/60">
+                    <p>
+                        &copy; {new Date().getFullYear()} TIME CARS AUTO
+                    </p>
+                     <div className="flex items-center gap-x-4">
                         <div className="flex items-center gap-4">
                             {socialLinks.map(social => (
                                 <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label={social.label}>
@@ -73,15 +80,7 @@ export default function Footer() {
                                 </Link>
                             ))}
                         </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar: Copyright & Legal */}
-                <div className="border-t border-primary-foreground/20 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-primary-foreground/60">
-                    <p>
-                        &copy; {new Date().getFullYear()} TIME CARS AUTO
-                    </p>
-                     <div className="flex items-center gap-x-4">
+                        <div className="border-l h-4 border-primary-foreground/40"></div>
                         {legalLinks.map(link => (
                             <Link key={link.label} href={link.href} className="hover:text-primary-foreground transition-colors">
                                 {link.label}

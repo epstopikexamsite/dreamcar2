@@ -36,7 +36,7 @@ export default function ContactPage() {
                                     <Phone className="h-6 w-6 text-accent shrink-0 mt-1" />
                                     <div>
                                         <h3 className="font-bold text-lg">Hotline</h3>
-                                        <p className="text-muted-foreground">098.150.2222 (Hotline)</p>
+                                        <p className="text-muted-foreground">098.150.2222</p>
                                     </div>
                                 </CardContent>
                             </Card>
