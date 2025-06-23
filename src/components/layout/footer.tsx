@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Facebook, Youtube } from 'lucide-react';
+import { locations } from '@/lib/locations';
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -52,19 +53,22 @@ export default function Footer() {
                     
                     <div className="space-y-4">
                         <h3 className="font-headline text-lg font-bold text-primary-foreground">Thông Tin Liên Hệ</h3>
-                        <address className="space-y-3 text-sm not-italic text-primary-foreground/80">
+                        <address className="space-y-4 text-sm not-italic text-primary-foreground/80">
                             <div className="flex items-center justify-center md:justify-start gap-3">
-                                <MapPin className="w-5 h-5 shrink-0 mt-1" />
-                                <p>
-                                    79 Nguyễn Chánh, Cầu Giấy, Hà Nội
-                                </p>
-                            </div>
-                            <div className="flex items-center justify-center md:justify-start gap-3">
-                                <Phone className="w-5 h-5 shrink-0 mt-1" />
+                                <Phone className="w-5 h-5 shrink-0" />
                                 <p>
                                     098.150.2222 (Hotline)
                                 </p>
                             </div>
+                             {locations.map((loc) => (
+                                <div key={loc.name} className="flex items-start justify-center md:justify-start gap-3">
+                                    <MapPin className="w-5 h-5 shrink-0 mt-1" />
+                                    <div>
+                                        <p className="font-semibold">{loc.name}</p>
+                                        <p>{loc.address}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </address>
                     </div>
                 </div>
