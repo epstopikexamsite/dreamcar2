@@ -280,6 +280,59 @@ export const blogPosts: BlogPost[] = [
     category: 'Hộp số',
   },
   {
+    slug: 'hop-so-tay-so-sanh',
+    title: 'Hộp Số Tay – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Số Tự Động',
+    author: 'Chuyên gia TIME CARS',
+    date: '27/07/2024',
+    image: 'https://placehold.co/800x450.png',
+    aiHint: 'manual transmission stick',
+    excerpt: 'Hộp số tay (Manual Transmission) là loại truyền thống, yêu cầu người lái thao tác côn và cần số, được ưa chuộng bởi những người thích cảm giác lái chân thực.',
+    content: `
+<h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+<p>Hộp số tay (Manual Transmission) là loại truyền thống, yêu cầu người lái thao tác côn và cần số. Tuy không còn phổ biến như trước, nhưng hộp số tay vẫn được ưa chuộng ở một số nhóm người dùng thích cảm giác lái chân thực hoặc để tiết kiệm chi phí.</p>
+<h3 class="font-bold text-xl my-4">2. Ưu điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li>Chi phí thấp: Xe số tay thường rẻ hơn số tự động.</li>
+  <li>Bảo trì đơn giản, ít hỏng vặt.</li>
+  <li>Tiết kiệm nhiên liệu hơn (ở các mẫu cũ).</li>
+  <li>Kiểm soát tốt hơn trong một số tình huống (leo dốc, chở nặng).</li>
+</ul>
+<h3 class="font-bold text-xl my-4">3. Nhược điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li>Đòi hỏi kỹ năng lái xe tốt hơn.</li>
+  <li>Gây mệt mỏi khi lái trong thành phố, kẹt xe.</li>
+  <li>Khó bán lại hơn do nhu cầu thị trường thấp.</li>
+</ul>
+<h3 class="font-bold text-xl my-4">4. Chi tiết kỹ thuật:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li>Loại hộp số: 5 cấp hoặc 6 cấp (tùy xe)</li>
+  <li>Cơ chế: Lái xe điều khiển ly hợp (côn) và sang số bằng tay</li>
+  <li>Không có hệ thống điều khiển điện tử hộp số</li>
+</ul>
+<h3 class="font-bold text-xl my-4">5. So sánh:</h3>
+<div class="overflow-x-auto rounded-lg border">
+  <table class="w-full text-left border-collapse">
+    <thead>
+      <tr class="bg-muted">
+        <th class="p-3 border-b font-semibold">Tiêu chí</th>
+        <th class="p-3 border-b font-semibold">Số Tay</th>
+        <th class="p-3 border-b font-semibold">Số Tự Động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Dễ sử dụng</td><td class="p-3 border-r">Kém hơn</td><td class="p-3">Rất tốt</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Kiểm soát khi lái</td><td class="p-3 border-r">Cao</td><td class="p-3">Trung bình</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Tiết kiệm nhiên liệu</td><td class="p-3 border-r">Tốt hơn (đời cũ)</td><td class="p-3">Tốt hơn (đời mới CVT)</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Bảo trì</td><td class="p-3 border-r">Rẻ, đơn giản</td><td class="p-3">Đắt, cần kỹ thuật viên</td></tr>
+      <tr><td class="p-3 border-r font-medium">Giá thành xe</td><td class="p-3 border-r">Thấp hơn</td><td class="p-3">Cao hơn</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="mt-4"><strong>Kết luận:</strong> Hộp số tay phù hợp với người yêu thích trải nghiệm lái, hoặc muốn tiết kiệm chi phí. Tuy nhiên, với điều kiện giao thông đô thị hiện nay, số tự động ngày càng chiếm ưu thế nhờ tính tiện lợi.</p>
+`,
+    category: 'Hộp số',
+  },
+  {
     slug: 'dan-dong-4x4-so-sanh',
     title: 'Dẫn Động 4x4 – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, Cầu Trước, Cầu Sau',
     author: 'Chuyên gia TIME CARS',
