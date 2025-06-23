@@ -31,6 +31,21 @@ export default function AboutPage() {
           </section>
 
           <section className="mb-12">
+             <div className="relative w-full overflow-hidden rounded-lg shadow-lg border" style={{ height: '450px' }}>
+                <iframe
+                    src="https://maps.google.com/maps?q=79%20Nguyen%20Chanh%2C%20Trung%20Hoa%2C%20Cau%20Giay%2C%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Bản đồ vị trí TIME CARS AUTO - Cơ sở 1"
+                ></iframe>
+            </div>
+          </section>
+
+          <section className="mb-12">
             <Card className="overflow-hidden shadow-lg">
                 <div className="grid md:grid-cols-2 items-center">
                     <div className="p-8">
