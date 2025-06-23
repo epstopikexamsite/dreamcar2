@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Header from '@/components/layout/header';
 import { Card, CardContent, CardDescription } from '@/components/ui/card';
 import { galleryImages } from '@/lib/gallery-data';
-import { Camera } from 'lucide-react';
+import { Camera, Calendar } from 'lucide-react';
 
 export default function GalleryPage() {
   return (
@@ -33,11 +33,15 @@ export default function GalleryPage() {
                   data-ai-hint={item.aiHint}
                 />
               </div>
-              <CardContent className="p-4">
+              <CardContent className="p-4 space-y-2">
                 <CardDescription className="flex items-start gap-2 text-base">
                   <Camera className="w-4 h-4 text-accent shrink-0 mt-1" />
                   <span>{item.caption}</span>
                 </CardDescription>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span>{item.date}</span>
+                </div>
               </CardContent>
             </Card>
           ))}
