@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Filter } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import AIRecommender from '../ai-recommender';
 
 interface HeaderProps {
     isFilterVisible?: boolean;
@@ -14,6 +13,7 @@ interface HeaderProps {
 
 export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps) {
   const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   return (
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-40">
@@ -28,29 +28,38 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                 priority
             />
             </Link>
-            <nav className="hidden md:flex items-center gap-4">
+            <nav className="hidden md:flex items-center gap-6">
                 <Link href="/about" className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     Giới thiệu
                 </Link>
+                <Link href="/team" className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                    Đội ngũ
+                </Link>
             </nav>
         </div>
-        <div className="flex items-center gap-4">
-            {pathname === '/' && onToggleFilter && (
+        <div className="flex items-center gap-2">
+            {isHomePage && onToggleFilter && (
                 <Button onClick={onToggleFilter} variant="destructive">
                     <Filter className="mr-2 h-4 w-4" />
                     {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
                 </Button>
             )}
-             {pathname === '/' && (
-                <AIRecommender />
-             )}
-             {pathname !== '/about' && (
-                <Link href="/about" className="md:hidden">
-                    <Button variant="outline">
-                        Giới thiệu
-                    </Button>
-                </Link>
-             )}
+            <div className="flex items-center gap-2 md:hidden">
+                {pathname !== '/about' && (
+                    <Link href="/about">
+                        <Button variant="outline" size="sm">
+                            Giới thiệu
+                        </Button>
+                    </Link>
+                )}
+                {pathname !== '/team' && (
+                    <Link href="/team">
+                        <Button variant="outline" size="sm">
+                            Đội ngũ
+                        </Button>
+                    </Link>
+                )}
+            </div>
         </div>
       </div>
     </header>
