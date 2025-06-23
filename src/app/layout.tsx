@@ -2,9 +2,57 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
+// TODO: Replace with your actual production domain
+const siteUrl = 'https://time-cars-auto.example.com'; 
+const ogImageUrl = 'https://placehold.co/1200x630.png';
+
 export const metadata: Metadata = {
-  title: 'TIME CARS AUTO',
-  description: 'TIME CARS AUTO - Nơi Uy Tín Tạo Nên Thương Hiệu.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'TIME CARS AUTO - Uy Tín Tạo Nên Thương Hiệu',
+    template: `%s | TIME CARS AUTO`,
+  },
+  description: 'TIME CARS AUTO chuyên mua bán, trao đổi xe ô tô lướt và đã qua sử dụng. Cam kết chất lượng với quy trình 176 hạng mục, bảo hành 1 năm và giá tốt nhất.',
+  keywords: [
+    "mua bán ô tô",
+    "xe lướt",
+    "xe đã qua sử dụng",
+    "showroom ô tô",
+    "TIME CARS AUTO",
+    "ô tô cũ hà nội",
+    "xe sang lướt",
+    "định giá xe",
+  ],
+  authors: [{ name: "TIME CARS AUTO", url: siteUrl }],
+  creator: "TIME CARS AUTO",
+  
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: siteUrl,
+    title: 'TIME CARS AUTO - Uy Tín Tạo Nên Thương Hiệu',
+    description: 'Khám phá những chiếc xe sang lướt chất lượng hàng đầu tại TIME CARS AUTO. Dịch vụ chuyên nghiệp, giá cả cạnh tranh.',
+    siteName: 'TIME CARS AUTO',
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'Showroom của TIME CARS AUTO với nhiều xe sang',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: 'TIME CARS AUTO - Uy Tín Tạo Nên Thương Hiệu',
+    description: 'Khám phá những chiếc xe sang lướt chất lượng hàng đầu tại TIME CARS AUTO. Dịch vụ chuyên nghiệp, giá cả cạnh tranh.',
+    images: [ogImageUrl],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -13,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="vi" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
