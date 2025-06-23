@@ -5,7 +5,6 @@ import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { HeartHandshake, Users, MapPin, BookOpen, Car, Globe, Gem, Truck, Crown, Award, UserCheck, Briefcase, User } from 'lucide-react';
-import ContactForm from '@/components/contact-form';
 import { employees, Employee } from '@/lib/employees';
 import { cn } from '@/lib/utils';
 
@@ -217,55 +216,6 @@ export default function AboutPage() {
             </div>
         </section>
 
-
-        <section className="py-16">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="font-headline text-4xl font-bold text-primary mb-2">Hệ Thống Showroom</h2>
-                    <p className="text-muted-foreground text-lg">Ghé thăm chúng tôi tại các địa chỉ uy tín trên khắp Hà Nội.</p>
-                </div>
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="space-y-6">
-                        <Card>
-                            <CardContent className="p-6 flex items-start gap-4">
-                                <MapPin className="h-8 w-8 text-accent shrink-0 mt-1" />
-                                <div>
-                                    <h3 className="font-bold text-lg">Cơ sở 1</h3>
-                                    <p className="text-muted-foreground">79 Nguyễn Chánh, Trung Hòa, Cầu Giấy, Hà Nội</p>
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent className="p-6 flex items-start gap-4">
-                                <MapPin className="h-8 w-8 text-accent shrink-0 mt-1" />
-                                <div>
-                                    <h3 className="font-bold text-lg">Cơ sở 2</h3>
-                                    <p className="text-muted-foreground">158 Việt Hưng, Long Biên, Hà Nội</p>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className="relative w-full overflow-hidden rounded-lg shadow-lg border min-h-[450px]">
-                        <iframe
-                            src="https://maps.google.com/maps?q=79%20Nguyen%20Chanh%2C%20Trung%20Hoa%2C%20Cau%20Giay%2C%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
-                            allowFullScreen={true}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Bản đồ vị trí TIME CARS AUTO - Cơ sở 1"
-                        ></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section className="py-16 bg-primary/5">
-          <div className="container mx-auto px-4">
-            <ContactForm />
-          </div>
-        </section>
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-auto">
         <div className="container mx-auto text-center text-muted-foreground">
