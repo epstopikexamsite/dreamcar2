@@ -6,7 +6,7 @@ export const cars: Car[] = [
     brand: 'Tesla',
     model: 'Model S',
     year: 2023,
-    price: 79990,
+    price: 1999000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -42,7 +42,7 @@ export const cars: Car[] = [
     brand: 'Porsche',
     model: '911 Carrera',
     year: 2024,
-    price: 114400,
+    price: 2860000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -78,7 +78,7 @@ export const cars: Car[] = [
     brand: 'Ford',
     model: 'Mustang GT',
     year: 2024,
-    price: 42495,
+    price: 1060000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -114,7 +114,7 @@ export const cars: Car[] = [
     brand: 'Toyota',
     model: 'RAV4 Hybrid',
     year: 2023,
-    price: 31225,
+    price: 780000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -150,7 +150,7 @@ export const cars: Car[] = [
     brand: 'BMW',
     model: 'M3',
     year: 2024,
-    price: 76000,
+    price: 1900000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -186,7 +186,7 @@ export const cars: Car[] = [
     brand: 'Honda',
     model: 'Civic Type R',
     year: 2023,
-    price: 44795,
+    price: 1120000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -222,7 +222,7 @@ export const cars: Car[] = [
     brand: 'Audi',
     model: 'R8',
     year: 2023,
-    price: 158600,
+    price: 3965000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',
@@ -258,7 +258,7 @@ export const cars: Car[] = [
     brand: 'Jeep',
     model: 'Wrangler Rubicon',
     year: 2024,
-    price: 45390,
+    price: 1135000000,
     images: {
       front: 'https://placehold.co/600x400.png',
       rear: 'https://placehold.co/600x400.png',

@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, DollarSign, GitCommitHorizontal } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -230,11 +230,10 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><DollarSign className="w-4 h-4" /> Khoảng giá</Label>
+          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Khoảng giá</Label>
           <div className="flex items-center gap-2 pt-2">
             <div className="relative flex-1">
               <Label htmlFor="min-price" className="sr-only">Giá tối thiểu</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="min-price"
                 type="number"
@@ -246,14 +245,16 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                   onFilterChange({ ...filters, priceRange: [numericValue, filters.priceRange[1]] });
                 }}
                 min={0}
-                step={1000}
-                className="pl-8"
+                step={10000000}
+                className="pr-12"
               />
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
+                VNĐ
+              </span>
             </div>
             <span className="text-muted-foreground">-</span>
             <div className="relative flex-1">
               <Label htmlFor="max-price" className="sr-only">Giá tối đa</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="max-price"
                 type="number"
@@ -265,9 +266,12 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                   onFilterChange({ ...filters, priceRange: [filters.priceRange[0], numericValue] });
                 }}
                 min={0}
-                step={1000}
-                className="pl-8"
+                step={10000000}
+                className="pr-12"
               />
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
+                VNĐ
+              </span>
             </div>
           </div>
         </div>

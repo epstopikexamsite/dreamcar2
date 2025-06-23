@@ -91,13 +91,13 @@ export default function CarCard({ car }: CarCardProps) {
         <p className="text-sm text-muted-foreground">{car.year}</p>
         <div className="flex items-center text-primary font-bold text-lg my-2">
           <Tag className="h-4 w-4 mr-2" />
-          <span>${car.price.toLocaleString()}</span>
+          <span>{car.price.toLocaleString('vi-VN')} VNĐ</span>
         </div>
 
         <div className="border-t pt-3 mt-auto grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2 truncate">
             <Route className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.mileage.toLocaleString()} km</span>
+            <span className="truncate">{car.mileage.toLocaleString('vi-VN')} km</span>
           </div>
           <div className="flex items-center gap-2 truncate">
             {FuelIcon && <FuelIcon className="w-4 h-4 text-accent shrink-0" />}

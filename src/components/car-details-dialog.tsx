@@ -124,7 +124,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
               </div>
 
               <DialogTitle className="font-headline text-3xl pt-4">{car.brand} {car.model} ({car.year})</DialogTitle>
-              <DialogDescription className="text-primary font-bold text-xl">${car.price.toLocaleString()}</DialogDescription>
+              <DialogDescription className="text-primary font-bold text-xl">{car.price.toLocaleString('vi-VN')} VNĐ</DialogDescription>
             </DialogHeader>
             
             <div className="py-4 space-y-4">
@@ -142,7 +142,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                     <div className="flex flex-col items-center gap-1 w-1/3">
                         <Route className="w-6 h-6 mb-1 text-accent" />
                         <span className="text-xs text-muted-foreground">Số km đã chạy</span>
-                        <span className="font-semibold">{car.mileage.toLocaleString()} km</span>
+                        <span className="font-semibold">{car.mileage.toLocaleString('vi-VN')} km</span>
                     </div>
                 </div>
 
