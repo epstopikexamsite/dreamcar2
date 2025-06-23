@@ -31,10 +31,10 @@ export const cars: Car[] = [
       safetyRating: 5,
       dimensions: { length: 4979, width: 1964, height: 1445 },
     },
-    features: ['Autopilot', '17" Touchscreen', 'All-Wheel Drive', 'Premium Interior'],
+    features: ['Hệ thống lái tự động Autopilot', 'Màn hình cảm ứng 17"', 'Dẫn động 4 bánh toàn thời gian', 'Nội thất cao cấp'],
     reviews: [
-      { name: 'Alex', rating: 5, comment: 'Incredible speed and range. The future is here.' },
-      { name: 'Beth', rating: 4, comment: 'Love the tech, but charging can be a hassle on road trips.' },
+      { name: 'Alex', rating: 5, comment: 'Tốc độ và phạm vi hoạt động đáng kinh ngạc. Tương lai là đây.' },
+      { name: 'Beth', rating: 4, comment: 'Yêu công nghệ, nhưng việc sạc pin hơi bất tiện khi đi xa.' },
     ],
   },
   {
@@ -67,10 +67,10 @@ export const cars: Car[] = [
       safetyRating: 5,
       dimensions: { length: 4519, width: 1852, height: 1298 },
     },
-    features: ['Rear-Engine Layout', 'Porsche Active Suspension Management', 'Sport Chrono Package', 'Leather Interior'],
+    features: ['Động cơ đặt sau', 'Hệ thống treo chủ động Porsche (PASM)', 'Gói Sport Chrono', 'Nội thất da'],
     reviews: [
-      { name: 'Charlie', rating: 5, comment: 'The driving experience is unparalleled. A true driver\'s car.' },
-      { name: 'Diana', rating: 5, comment: 'Iconic design and thrilling performance.' },
+      { name: 'Charlie', rating: 5, comment: 'Trải nghiệm lái không thể so sánh. Một chiếc xe thực thụ cho người lái.' },
+      { name: 'Diana', rating: 5, comment: 'Thiết kế biểu tượng và hiệu suất phấn khích.' },
     ],
   },
   {
@@ -103,10 +103,10 @@ export const cars: Car[] = [
       safetyRating: 4,
       dimensions: { length: 4788, width: 1915, height: 1379 },
     },
-    features: ['10-Speed Automatic', 'Digital Instrument Cluster', 'MagneRide Damping System', 'Active Valve Exhaust'],
+    features: ['Hộp số tự động 10 cấp', 'Bảng đồng hồ kỹ thuật số', 'Hệ thống giảm xóc MagneRide', 'Hệ thống ống xả van chủ động'],
     reviews: [
-      { name: 'Ethan', rating: 4, comment: 'The V8 roar is addictive. Great value for the power.' },
-      { name: 'Fiona', rating: 4, comment: 'Fun to drive, but the interior could be more refined.' },
+      { name: 'Ethan', rating: 4, comment: 'Tiếng gầm V8 gây nghiện. Giá trị tuyệt vời cho sức mạnh.' },
+      { name: 'Fiona', rating: 4, comment: 'Lái vui, nhưng nội thất có thể tinh tế hơn.' },
     ],
   },
   {
@@ -139,10 +139,10 @@ export const cars: Car[] = [
       safetyRating: 5,
       dimensions: { length: 4600, width: 1855, height: 1685 },
     },
-    features: ['All-Wheel Drive', 'Toyota Safety Sense 2.5', 'Apple CarPlay', 'Blind Spot Monitor'],
+    features: ['Dẫn động 4 bánh toàn thời gian', 'Gói an toàn Toyota Safety Sense 2.5', 'Kết nối Apple CarPlay', 'Cảnh báo điểm mù'],
     reviews: [
-      { name: 'George', rating: 5, comment: 'Amazingly fuel efficient and very practical for my family.' },
-      { name: 'Hannah', rating: 4, comment: 'Solid, reliable SUV. Just wish it was a bit quicker.' },
+      { name: 'George', rating: 5, comment: 'Tiết kiệm nhiên liệu đáng kinh ngạc và rất thiết thực cho gia đình tôi.' },
+      { name: 'Hannah', rating: 4, comment: 'SUV vững chắc, đáng tin cậy. Chỉ mong nó nhanh hơn một chút.' },
     ],
   },
   {
@@ -175,10 +175,10 @@ export const cars: Car[] = [
       safetyRating: 5,
       dimensions: { length: 4794, width: 1903, height: 1437 },
     },
-    features: ['M Sport Differential', 'Adaptive M Suspension', 'Carbon Fiber Roof', 'M Sport Seats'],
+    features: ['Vi sai M Sport', 'Hệ thống treo thích ứng M', 'Mui xe bằng sợi carbon', 'Ghế thể thao M'],
     reviews: [
-      { name: 'Ian', rating: 5, comment: 'The perfect blend of a sports car and a daily driver.' },
-      { name: 'Jane', rating: 5, comment: 'The handling is razor-sharp. A joy to drive on any road.' },
+      { name: 'Ian', rating: 5, comment: 'Sự pha trộn hoàn hảo giữa xe thể thao và xe đi hàng ngày.' },
+      { name: 'Jane', rating: 5, comment: 'Khả năng xử lý sắc như dao cạo. Một niềm vui khi lái trên mọi con đường.' },
     ],
   },
   {
@@ -211,10 +211,10 @@ export const cars: Car[] = [
       safetyRating: 5,
       dimensions: { length: 4594, width: 1890, height: 1407 },
     },
-    features: ['6-Speed Manual', 'LogR Datalogger', 'Brembo Brakes', 'High-Wing Spoiler'],
+    features: ['Hộp số sàn 6 cấp', 'Hệ thống LogR Datalogger', 'Phanh hiệu suất cao Brembo', 'Cánh gió thể thao'],
     reviews: [
-      { name: 'Kevin', rating: 5, comment: 'The best front-wheel-drive car on the market. Period.' },
-      { name: 'Laura', rating: 4, comment: 'Incredibly fun, but the styling is a bit too aggressive for me.' },
+      { name: 'Kevin', rating: 5, comment: 'Chiếc xe dẫn động cầu trước tốt nhất trên thị trường. Chấm hết.' },
+      { name: 'Laura', rating: 4, comment: 'Cực kỳ thú vị, nhưng kiểu dáng hơi quá hầm hố đối với tôi.' },
     ],
   },
     {
@@ -247,10 +247,10 @@ export const cars: Car[] = [
       safetyRating: 4,
       dimensions: { length: 4429, width: 1940, height: 1236 },
     },
-    features: ['Quattro All-Wheel Drive', 'Virtual Cockpit', 'Bang & Olufsen Sound System', 'Carbon Fiber Trim'],
+    features: ['Dẫn động 4 bánh Quattro', 'Buồng lái ảo Virtual Cockpit', 'Hệ thống âm thanh Bang & Olufsen', 'Ốp nội thất sợi carbon'],
     reviews: [
-      { name: 'Mike', rating: 5, comment: 'The V10 sound is intoxicating. A supercar you can drive every day.' },
-      { name: 'Nina', rating: 5, comment: 'Stunning looks and blistering performance. Turns heads everywhere.' },
+      { name: 'Mike', rating: 5, comment: 'Âm thanh V10 say đắm. Một siêu xe bạn có thể lái hàng ngày.' },
+      { name: 'Nina', rating: 5, comment: 'Vẻ ngoài tuyệt đẹp và hiệu suất kinh ngạc. Thu hút mọi ánh nhìn.' },
     ],
   },
   {
@@ -283,10 +283,10 @@ export const cars: Car[] = [
       safetyRating: 3,
       dimensions: { length: 4882, width: 1894, height: 1838 },
     },
-    features: ['Rock-Trac 4x4 System', 'Electronic Locking Differentials', 'Sway Bar Disconnect', 'Removable Doors & Roof'],
+    features: ['Hệ thống 4x4 Rock-Trac', 'Khóa vi sai điện tử', 'Thanh cân bằng điện tử', 'Cửa và mui có thể tháo rời'],
     reviews: [
-      { name: 'Oscar', rating: 5, comment: 'Unstoppable off-road. It can go anywhere.' },
-      { name: 'Penny', rating: 3, comment: 'Amazing on the trails, but very rough and noisy on the highway.' },
+      { name: 'Oscar', rating: 5, comment: 'Không thể ngăn cản khi off-road. Nó có thể đi bất cứ đâu.' },
+      { name: 'Penny', rating: 3, comment: 'Tuyệt vời trên đường mòn, nhưng rất xóc và ồn trên đường cao tốc.' },
     ],
   },
 ];
