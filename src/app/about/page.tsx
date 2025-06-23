@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Building, HeartHandshake, Phone, ShieldCheck, Users, MapPin, BookOpen, Car, Globe, Gem, Truck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { HeartHandshake, ShieldCheck, Users, MapPin, BookOpen, Car, Globe, Gem, Truck } from 'lucide-react';
+import ContactForm from '@/components/contact-form';
 
 export default function AboutPage() {
   return (
@@ -200,16 +200,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="text-center pb-16">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-headline font-bold mb-4">Liên Hệ Ngay Với Chúng Tôi</h2>
-                <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Sẵn sàng tư vấn chính xác nhất về nhu cầu và tài chính của bạn. Đừng ngần ngại, hãy gọi cho chúng tôi!</p>
-                <Button asChild size="lg" variant="default" className="text-lg">
-                  <a href="tel:0812201201">
-                    <Phone className="mr-3" /> Mr. Tuấn: 0812 201 201
-                  </a>
-                </Button>
-            </div>
+        <section className="py-16 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <ContactForm />
+          </div>
         </section>
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-auto">
