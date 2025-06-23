@@ -244,15 +244,6 @@ export default function AboutPage() {
                                 </div>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="p-6 flex items-start gap-4">
-                                <MapPin className="h-8 w-8 text-accent shrink-0 mt-1" />
-                                <div>
-                                    <h3 className="font-bold text-lg">Cơ sở 3</h3>
-                                    <p className="text-muted-foreground">68 Đinh Núp, Cầu Giấy, Hà Nội</p>
-                                </div>
-                            </CardContent>
-                        </Card>
                     </div>
                     <div className="relative w-full overflow-hidden rounded-lg shadow-lg border min-h-[450px]">
                         <iframe
@@ -268,15 +259,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center bg-card border-2 border-dashed border-accent rounded-lg p-8 max-w-4xl mx-auto">
-                <h2 className="text-3xl font-headline font-bold text-accent mb-4">🔥 Thu Mua Ô Tô Đã Qua Sử Dụng Giá Cao 🔥</h2>
-                <p className="text-muted-foreground mb-4 text-lg">Chỉ còn <strong>55 ngày</strong> nữa là đến Tết Nguyên Đán, TIME CARS AUTO cần mua số lượng lớn ô tô đã qua sử dụng với chính sách hoa hồng hấp dẫn cho người giới thiệu!</p>
-            </div>
-          </div>
         </section>
 
         <section className="py-16 bg-primary/5">
