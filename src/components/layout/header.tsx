@@ -3,18 +3,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { LayoutGrid, Handshake, Users, Camera, Rss, Mail, Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-    { href: "/", label: "Cửa hàng" },
-    { href: "/sell-car", label: "Thu Mua Xe" },
-    { href: "/about", label: "Giới thiệu" },
-    { href: "/gallery", label: "Hoạt động" },
-    { href: "/blog", label: "Kiến thức" },
-    { href: "/contact", label: "Liên hệ" },
+    { href: "/", label: "Cửa hàng", icon: LayoutGrid },
+    { href: "/sell-car", label: "Thu Mua Xe", icon: Handshake },
+    { href: "/about", label: "Giới thiệu", icon: Users },
+    { href: "/gallery", label: "Hoạt động", icon: Camera },
+    { href: "/blog", label: "Kiến thức", icon: Rss },
+    { href: "/contact", label: "Liên hệ", icon: Mail },
 ];
 
 export default function Header() {
@@ -34,15 +34,19 @@ export default function Header() {
             />
             </Link>
             <nav className="hidden md:flex items-center gap-6">
-                {navLinks.map(link => (
-                    <Link 
-                        key={link.href}
-                        href={link.href} 
-                        className={`text-sm font-medium transition-colors ${pathname === link.href ? 'text-primary-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'}`}
-                    >
-                        {link.label}
-                    </Link>
-                ))}
+                {navLinks.map(link => {
+                    const Icon = link.icon;
+                    return (
+                        <Link 
+                            key={link.href}
+                            href={link.href} 
+                            className={`flex items-center gap-2 text-sm font-medium transition-colors ${pathname === link.href ? 'text-primary-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'}`}
+                        >
+                            <Icon className="h-4 w-4" />
+                            {link.label}
+                        </Link>
+                    )
+                })}
             </nav>
         </div>
         <div className="flex items-center gap-2">
@@ -66,16 +70,20 @@ export default function Header() {
                             </Link>
                         </div>
                         <nav className="flex flex-col p-4 space-y-1">
-                             {navLinks.map(link => (
-                                <Link 
-                                    key={link.href}
-                                    href={link.href} 
-                                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${pathname === link.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground hover:bg-muted'}`}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
+                             {navLinks.map(link => {
+                                const Icon = link.icon;
+                                return (
+                                    <Link 
+                                        key={link.href}
+                                        href={link.href} 
+                                        className={`flex items-center gap-4 px-3 py-2 rounded-md text-base font-medium transition-colors ${pathname === link.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground hover:bg-muted'}`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <Icon className="h-5 w-5" />
+                                        <span>{link.label}</span>
+                                    </Link>
+                                )
+                            })}
                         </nav>
                     </SheetContent>
                 </Sheet>
