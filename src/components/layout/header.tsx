@@ -58,7 +58,7 @@ export default function Header() {
                             <span className="sr-only">Mở menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-[280px] bg-card p-0 flex flex-col">
+                    <SheetContent side="left" className="w-[280px] bg-card p-0 flex flex-col">
                         <div className="p-4 border-b">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Image
