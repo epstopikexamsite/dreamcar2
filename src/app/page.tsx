@@ -133,6 +133,7 @@ export default function Home() {
 
   const isPriceFiltered = filters.priceRange[0] !== 0 || filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
+    .filter(([key]) => key !== 'priceRange')
     .flatMap(([key, values]) => {
         if (Array.isArray(values) && values.length > 0) {
             return values.map(value => ({ key, value }));
