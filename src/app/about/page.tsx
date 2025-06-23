@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { HeartHandshake, Users, MapPin, BookOpen, Car, Globe, Gem, Truck, Crown, Award, UserCheck, Briefcase, User } from 'lucide-react';
@@ -217,11 +218,7 @@ export default function AboutPage() {
         </section>
 
       </main>
-      <footer className="w-full py-6 bg-primary/10 mt-auto">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

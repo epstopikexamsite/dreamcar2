@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
@@ -273,11 +274,7 @@ export default function Home() {
           </Sheet>
         </div>
       </main>
-      <footer className="w-full py-6 bg-primary/10 mt-auto">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
