@@ -12,6 +12,7 @@ export interface Car {
   price: number;
   image: string;
   logo: string;
+  fuelType: string;
   specs: {
     engine: string;
     horsepower: number;

@@ -11,12 +11,13 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
+  fuelTypes: string[];
   maxPrice: number;
-  filters: { brand: string[]; priceRange: number[]; year: string[]; };
+  filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[] };
   onFilterChange: (filters: any) => void;
 }
 
-export default function CarFilters({ brands, years, maxPrice, filters, onFilterChange }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -34,6 +35,20 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
       : [...filters.year, yearValue];
     onFilterChange({ ...filters, year: newYears });
   };
+
+  const handleFuelTypeChange = (fuelTypeValue: string) => {
+    const newFuelTypes = filters.fuelType.includes(fuelTypeValue)
+      ? filters.fuelType.filter((ft) => ft !== fuelTypeValue)
+      : [...filters.fuelType, fuelTypeValue];
+    onFilterChange({ ...filters, fuelType: newFuelTypes });
+  };
+
+  const fuelTypeTranslations: {[key: string]: string} = {
+    'Gasoline': 'Xăng',
+    'Diesel': 'Dầu',
+    'Electric': 'Điện',
+    'Hybrid': 'Hybrid'
+  }
 
   return (
     <Card className="sticky top-24">
@@ -92,6 +107,27 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
                 )}
               >
                 {year}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <div className="space-y-2">
+          <Label className="font-semibold">Loại nhiên liệu</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {fuelTypes.map((fuelType) => (
+              <button
+                key={fuelType}
+                onClick={() => handleFuelTypeChange(fuelType)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                  filters.fuelType.includes(fuelType)
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {fuelTypeTranslations[fuelType] || fuelType}
               </button>
             ))}
           </div>

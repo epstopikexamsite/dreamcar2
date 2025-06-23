@@ -23,6 +23,12 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
+  const fuelTypeTranslations: {[key: string]: string} = {
+    'Gasoline': 'Xăng',
+    'Diesel': 'Dầu',
+    'Electric': 'Điện',
+    'Hybrid': 'Hybrid'
+  }
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -51,6 +57,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Type</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>
