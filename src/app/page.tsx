@@ -11,7 +11,7 @@ export default function Home() {
   const [filters, setFilters] = useState({
     brand: [] as string[],
     priceRange: [0, 200000],
-    year: 'all',
+    year: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Home() {
     return allCars.filter(car => {
       const brandMatch = filters.brand.length === 0 || filters.brand.includes(car.brand);
       const priceMatch = car.price >= filters.priceRange[0] && car.price <= filters.priceRange[1];
-      const yearMatch = filters.year === 'all' || car.year.toString() === filters.year;
+      const yearMatch = filters.year.length === 0 || filters.year.includes(car.year.toString());
       return brandMatch && priceMatch && yearMatch;
     });
   }, [filters]);
@@ -33,7 +33,7 @@ export default function Home() {
     }, [] as { name: string; logo: string }[]);
     return uniqueBrands;
   }, []);
-  const years = useMemo(() => ['all', ...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => (b === 'all' ? -1 : a === 'all' ? 1 : Number(b) - Number(a))), []);
+  const years = useMemo(() => [...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => Number(b) - Number(a)), []);
   const maxPrice = useMemo(() => Math.max(...allCars.map(car => car.price)), []);
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);

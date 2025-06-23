@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -13,7 +12,7 @@ interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
   maxPrice: number;
-  filters: { brand: string[]; priceRange: number[]; year: string; };
+  filters: { brand: string[]; priceRange: number[]; year: string[]; };
   onFilterChange: (filters: any) => void;
 }
 
@@ -29,8 +28,11 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
     onFilterChange({ ...filters, priceRange: value });
   };
   
-  const handleYearChange = (value: string) => {
-    onFilterChange({ ...filters, year: value });
+  const handleYearChange = (yearValue: string) => {
+    const newYears = filters.year.includes(yearValue)
+      ? filters.year.filter((y) => y !== yearValue)
+      : [...filters.year, yearValue];
+    onFilterChange({ ...filters, year: newYears });
   };
 
   return (
@@ -75,17 +77,24 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="year-select" className="font-semibold">Year</Label>
-          <Select value={filters.year} onValueChange={handleYearChange}>
-            <SelectTrigger id="year-select">
-              <SelectValue placeholder="Select year" />
-            </SelectTrigger>
-            <SelectContent>
-              {years.map(year => (
-                <SelectItem key={year} value={year}>{year}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <Label className="font-semibold">Year</Label>
+          <div className="grid grid-cols-4 gap-2 pt-2">
+            {years.map((year) => (
+              <button
+                key={year}
+                onClick={() => handleYearChange(year)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                  filters.year.includes(year)
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-3">
