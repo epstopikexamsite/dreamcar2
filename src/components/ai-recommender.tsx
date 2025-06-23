@@ -72,7 +72,7 @@ export default function AIRecommender() {
           </div>
           {loading && (
             <div className="space-y-2 p-4 bg-muted/50 rounded-md">
-              <p className="text-sm font-semibold text-primary">Đang tìm chiếc xe trong mơ của bạn...</p>
+              <p className="text-sm font-semibold text-primary">AI đang tìm kiếm chiếc xe phù hợp nhất cho bạn...</p>
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-3/4" />

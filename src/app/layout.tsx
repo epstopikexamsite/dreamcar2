@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'TIME CARS AUTO',
-  description: 'Tìm chiếc xe mơ ước của bạn.',
+  description: 'TIME CARS AUTO - Nơi Uy Tín Tạo Nên Thương Hiệu.',
 };
 
 export default function RootLayout({
