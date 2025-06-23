@@ -27,9 +27,10 @@ const legalLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
-            <div className="container mx-auto px-4 py-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center md:text-left">
-                    
+            <div className="container mx-auto px-4 py-8">
+                
+                {/* Main content: Logo + Locations */}
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
                     {/* Column 1: Logo & Slogan */}
                     <div className="lg:col-span-1 space-y-2">
                         <Link href="/" className="inline-block">
@@ -45,24 +46,29 @@ export default function Footer() {
                         </p>
                     </div>
                     
-                    {/* Columns 2-4: Locations */}
-                    {locations.map((loc) => (
-                        <div key={loc.name}>
-                            <address className="text-sm not-italic text-primary-foreground/80">
-                                <p className="font-semibold text-primary-foreground flex items-center justify-center md:justify-start gap-2">
-                                    <MapPin className="w-4 h-4 shrink-0" />
-                                    {loc.name}
-                                </p>
-                                <p className="mt-1">{loc.address}</p>
-                            </address>
-                        </div>
-                    ))}
+                    {/* Columns 2-4: Locations spread across 3 columns */}
+                    <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                        {locations.map((loc) => (
+                            <div key={loc.name}>
+                                <address className="text-sm not-italic text-primary-foreground/80">
+                                    <p className="font-semibold text-primary-foreground flex items-center justify-center lg:justify-start gap-2">
+                                        <MapPin className="w-4 h-4 shrink-0" />
+                                        {loc.name}
+                                    </p>
+                                    <p className="mt-1">{loc.address}</p>
+                                </address>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="mt-4 border-t border-primary-foreground/20 pt-3 flex flex-col sm:flex-row justify-between items-center gap-3">
-                    <p className="text-xs text-primary-foreground/60 order-2 sm:order-1">&copy; {new Date().getFullYear()} TIME CARS AUTO</p>
+                {/* Bottom Bar: Copyright, Socials, etc. */}
+                <div className="border-t border-primary-foreground/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p className="text-xs text-primary-foreground/60 order-2 sm:order-1">
+                        &copy; {new Date().getFullYear()} TIME CARS AUTO
+                    </p>
                      
-                    <div className="flex items-center gap-x-4 order-1 sm:order-2">
+                    <div className="flex items-center gap-x-6 order-1 sm:order-2">
                          <div className="flex items-center gap-2 text-sm font-semibold">
                             <Phone className="w-4 h-4 shrink-0" />
                             <span>098.150.2222 (Hotline)</span>
@@ -76,9 +82,9 @@ export default function Footer() {
                         </div>
                     </div>
 
-                     <div className="flex items-center gap-x-4 gap-y-2 order-3">
+                     <div className="flex items-center gap-x-4 order-3 text-xs">
                         {legalLinks.map(link => (
-                            <Link key={link.label} href={link.href} className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                            <Link key={link.label} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">
                                 {link.label}
                             </Link>
                         ))}
