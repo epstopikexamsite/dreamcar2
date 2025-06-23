@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import CarFilters from '@/components/car-filters';
@@ -17,6 +17,7 @@ import { cn } from '@/lib/utils';
 
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
+const CARS_PER_PAGE = 6;
 
 const testimonials = [
   {
@@ -69,7 +70,9 @@ export default function Home() {
     interiorColor: [] as string[],
     drivetrain: [] as string[],
   });
-  const [showAll, setShowAll] = useState(false);
+  
+  const [visibleCount, setVisibleCount] = useState(CARS_PER_PAGE);
+  const loadMoreTriggerRef = useRef(null);
 
   const filteredCars = useMemo(() => {
     return allCars.filter(car => {
@@ -85,6 +88,37 @@ export default function Home() {
       return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch;
     });
   }, [filters]);
+
+  // Reset visible count when filters change.
+  useEffect(() => {
+      setVisibleCount(CARS_PER_PAGE);
+  }, [filters]);
+
+  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
+      const target = entries[0];
+      if (target.isIntersecting) {
+          setVisibleCount((prev) => prev + CARS_PER_PAGE);
+      }
+  }, []);
+
+  useEffect(() => {
+      const option = {
+          root: null,
+          rootMargin: '200px',
+          threshold: 0
+      };
+      const observer = new IntersectionObserver(handleObserver, option);
+      const currentTrigger = loadMoreTriggerRef.current;
+      if (currentTrigger) {
+          observer.observe(currentTrigger);
+      }
+
+      return () => {
+          if (currentTrigger) {
+              observer.unobserve(currentTrigger);
+          }
+      }
+  }, [handleObserver]);
 
   const brands = useMemo(() => {
     const uniqueBrands = allCars.reduce((acc, car) => {
@@ -103,9 +137,10 @@ export default function Home() {
   const interiorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.interiorColor)))].sort(), []);
   const drivetrains = useMemo(() => [...Array.from(new Set(allCars.map(car => car.drivetrain)))].sort(), []);
 
-  const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
+  const visibleCars = filteredCars.slice(0, visibleCount);
 
   const handleRemoveFilter = (filterKey: keyof typeof filters, value: string) => {
+    if (filterKey === 'priceRange') return;
     const currentValues = filters[filterKey];
     if (Array.isArray(currentValues)) {
         const newValues = currentValues.filter((v: string) => v !== value);
@@ -133,10 +168,10 @@ export default function Home() {
 
   const isPriceFiltered = filters.priceRange[0] !== 0 || filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
-    .filter(([key]) => key !== 'priceRange')
+    .filter(([key]) => key !== 'priceRange' && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as string[]).length > 0)
     .flatMap(([key, values]) => {
-        if (Array.isArray(values) && values.length > 0) {
-            return values.map(value => ({ key, value }));
+        if (Array.isArray(values)) {
+            return values.map(value => ({ key: key as keyof typeof filters, value }));
         }
         return [];
     });
@@ -191,7 +226,7 @@ export default function Home() {
                         {activeFiltersList.map(({ key, value }) => (
                             <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
                                 {value}
-                                <button onClick={() => handleRemoveFilter(key as any, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
+                                <button onClick={() => handleRemoveFilter(key, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
                             </Badge>
                         ))}
                          {isPriceFiltered && (
@@ -238,10 +273,14 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground">Hãy thử điều chỉnh bộ lọc.</p>
                 </div>
                 )}
-                {filteredCars.length > 6 && !showAll && (
-                <div className="text-center mt-8">
-                    <Button onClick={() => setShowAll(true)} size="lg">Hiển thị tất cả</Button>
-                </div>
+                {visibleCount < filteredCars.length && (
+                    <div ref={loadMoreTriggerRef} className="flex justify-center items-center h-20">
+                        <svg className="animate-spin h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span className="ml-3 text-muted-foreground">Đang tải thêm...</span>
+                    </div>
                 )}
             </section>
             </div>
