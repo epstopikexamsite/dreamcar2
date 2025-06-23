@@ -6,8 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog } from 'lucide-react';
-import type { Car } from '@/lib/types';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan } from 'lucide-react';
+import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -33,8 +33,9 @@ interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
   fuelTypes: string[];
-  transmissionTypes: (Car['transmission'])[];
-  filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[]; transmission: string[] };
+  transmissionTypes: (CarType['transmission'])[];
+  carTypes: (CarType['type'])[];
+  filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[]; transmission: string[]; type: string[]; };
   onFilterChange: (filters: any) => void;
 }
 
@@ -50,8 +51,15 @@ const transmissionIcons: { [key: string]: React.ElementType } = {
   'Manual': ManualGearboxIcon,
 };
 
+const carTypeIcons: { [key: string]: React.ElementType } = {
+  'Compact': Car,
+  'Coupe': Car,
+  'Sedan': CarFront,
+  'SUV': Caravan,
+};
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, filters, onFilterChange }: CarFiltersProps) {
+
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -78,6 +86,13 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
       ? filters.transmission.filter((t) => t !== transmissionValue)
       : [...filters.transmission, transmissionValue];
     onFilterChange({ ...filters, transmission: newTransmissions });
+  };
+
+  const handleTypeChange = (typeValue: string) => {
+    const newTypes = filters.type.includes(typeValue)
+      ? filters.type.filter((t) => t !== typeValue)
+      : [...filters.type, typeValue];
+    onFilterChange({ ...filters, type: newTypes });
   };
 
   const fuelTypeTranslations: {[key: string]: string} = {
@@ -204,6 +219,31 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
               >
                 {Icon && <Icon className="w-4 h-4" />}
                 {transmissionTranslations[transmissionType] || transmissionType}
+              </button>
+            )})}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="font-semibold">Loại xe</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {carTypes.map((carType) => {
+              const Icon = carTypeIcons[carType];
+              const isSelected = filters.type.includes(carType);
+              return (
+              <button
+                key={carType}
+                onClick={() => handleTypeChange(carType)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  isSelected
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {Icon && <Icon className="w-4 h-4" />}
+                {carType}
               </button>
             )})}
           </div>

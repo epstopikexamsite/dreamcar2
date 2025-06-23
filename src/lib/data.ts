@@ -11,6 +11,7 @@ export const cars: Car[] = [
     logo: '/logos/tesla.svg',
     fuelType: 'Electric',
     transmission: 'Automatic',
+    type: 'Sedan',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -33,6 +34,7 @@ export const cars: Car[] = [
     logo: '/logos/porsche.svg',
     fuelType: 'Gasoline',
     transmission: 'Automatic',
+    type: 'Coupe',
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -55,6 +57,7 @@ export const cars: Car[] = [
     logo: '/logos/ford.svg',
     fuelType: 'Gasoline',
     transmission: 'Automatic',
+    type: 'Coupe',
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -77,6 +80,7 @@ export const cars: Car[] = [
     logo: '/logos/toyota.svg',
     fuelType: 'Hybrid',
     transmission: 'Automatic',
+    type: 'SUV',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -99,6 +103,7 @@ export const cars: Car[] = [
     logo: '/logos/bmw.svg',
     fuelType: 'Gasoline',
     transmission: 'Manual',
+    type: 'Sedan',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -121,6 +126,7 @@ export const cars: Car[] = [
     logo: '/logos/honda.svg',
     fuelType: 'Gasoline',
     transmission: 'Manual',
+    type: 'Compact',
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -143,6 +149,7 @@ export const cars: Car[] = [
     logo: '/logos/audi.svg',
     fuelType: 'Gasoline',
     transmission: 'Automatic',
+    type: 'Coupe',
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -165,6 +172,7 @@ export const cars: Car[] = [
     logo: '/logos/jeep.svg',
     fuelType: 'Diesel',
     transmission: 'Automatic',
+    type: 'SUV',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,

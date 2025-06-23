@@ -14,6 +14,7 @@ export interface Car {
   logo: string;
   fuelType: string;
   transmission: 'Automatic' | 'Manual';
+  type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV';
   specs: {
     engine: string;
     horsepower: number;

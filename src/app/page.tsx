@@ -16,6 +16,7 @@ export default function Home() {
     year: [] as string[],
     fuelType: [] as string[],
     transmission: [] as string[],
+    type: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
 
@@ -26,7 +27,8 @@ export default function Home() {
       const yearMatch = filters.year.length === 0 || filters.year.includes(car.year.toString());
       const fuelMatch = filters.fuelType.length === 0 || filters.fuelType.includes(car.fuelType);
       const transmissionMatch = filters.transmission.length === 0 || filters.transmission.includes(car.transmission);
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch;
+      const typeMatch = filters.type.length === 0 || filters.type.includes(car.type);
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch;
     });
   }, [filters]);
 
@@ -42,6 +44,7 @@ export default function Home() {
   const years = useMemo(() => [...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => Number(b) - Number(a)), []);
   const fuelTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.fuelType)))].sort(), []);
   const transmissionTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.transmission)))].sort(), []);
+  const carTypes = useMemo(() => [...Array.from(new Set(allCars.map(car => car.type)))].sort(), []);
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
@@ -56,6 +59,7 @@ export default function Home() {
               years={years}
               fuelTypes={fuelTypes}
               transmissionTypes={transmissionTypes}
+              carTypes={carTypes}
               filters={filters} 
               onFilterChange={setFilters} 
             />
