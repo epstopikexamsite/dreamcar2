@@ -384,6 +384,160 @@ export const blogPosts: BlogPost[] = [
 `,
     category: 'Dẫn động',
   },
+   {
+    slug: 'dan-dong-awd-so-sanh',
+    title: 'Dẫn Động AWD – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với 4x4, Cầu Trước, Cầu Sau',
+    author: 'Chuyên gia TIME CARS',
+    date: '28/07/2024',
+    image: 'https://placehold.co/800x450.png',
+    aiHint: 'awd system car',
+    excerpt: 'AWD (All-Wheel Drive) là hệ dẫn động toàn thời gian, phân bổ lực kéo tới cả bốn bánh tự động tùy điều kiện vận hành. Phổ biến trên SUV và crossover hiện đại.',
+    content: `
+<h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+<p>AWD (All-Wheel Drive) là hệ dẫn động toàn thời gian, phân bổ lực kéo tới cả bốn bánh tự động tùy điều kiện vận hành. Phổ biến trên SUV và crossover hiện đại.</p>
+<h3 class="font-bold text-xl my-4">2. Ưu điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Bám đường tốt hơn, đặc biệt trong điều kiện trơn trượt.</strong></li>
+  <li><strong>Tự động điều chỉnh mà không cần can thiệp từ người lái.</strong></li>
+  <li><strong>Vận hành êm và ổn định.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">3. Nhược điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Tiêu hao nhiên liệu hơn FWD.</strong></li>
+  <li><strong>Chi phí bảo trì, sửa chữa cao.</strong></li>
+  <li><strong>Trọng lượng xe nặng hơn.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">4. Chi tiết kỹ thuật:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+    <li><strong>Hệ thống truyền động:</strong> Phân bổ lực kéo 4 bánh qua vi sai trung tâm hoặc điện tử.</li>
+    <li><strong>Tự động điều chỉnh theo điều kiện mặt đường.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">5. So sánh:</h3>
+<div class="overflow-x-auto rounded-lg border">
+  <table class="w-full text-left border-collapse">
+    <thead>
+      <tr class="bg-muted">
+        <th class="p-3 border-b font-semibold">Tiêu chí</th>
+        <th class="p-3 border-b font-semibold">AWD</th>
+        <th class="p-3 border-b font-semibold">4x4</th>
+        <th class="p-3 border-b font-semibold">FWD (Cầu trước)</th>
+        <th class="p-3 border-b font-semibold">RWD (Cầu sau)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Tự động</td><td class="p-3 border-r">Có</td><td class="p-3 border-r">Không (phải gài cầu)</td><td class="p-3 border-r">Có</td><td class="p-3">Có</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Bám đường</td><td class="p-3 border-r">Rất tốt</td><td class="p-3 border-r">Tốt</td><td class="p-3 border-r">Trung bình</td><td class="p-3">Trung bình</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Địa hình</td><td class="p-3 border-r">Trung bình</td><td class="p-3 border-r">Rất tốt</td><td class="p-3 border-r">Kém</td><td class="p-3">Kém</td></tr>
+      <tr><td class="p-3 border-r font-medium">Tiết kiệm nhiên liệu</td><td class="p-3 border-r">Trung bình</td><td class="p-3 border-r">Kém</td><td class="p-3 border-r">Tốt nhất</td><td class="p-3">Trung bình</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="mt-4"><strong>Kết luận:</strong> AWD là lựa chọn lý tưởng cho người cần sự an toàn, ổn định và tiện lợi khi di chuyển ở mọi điều kiện đường sá, nhưng không cần khả năng off-road mạnh như 4x4.</p>
+`,
+    category: 'Dẫn động',
+  },
+  {
+    slug: 'dan-dong-fwd-so-sanh',
+    title: 'Dẫn Động Cầu Trước (FWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, RWD',
+    author: 'Chuyên gia TIME CARS',
+    date: '29/07/2024',
+    image: 'https://placehold.co/800x450.png',
+    aiHint: 'fwd car drivetrain',
+    excerpt: 'FWD (Front-Wheel Drive) là hệ dẫn động phổ biến nhất ở xe du lịch hiện đại. Lực kéo truyền đến 2 bánh trước.',
+    content: `
+<h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+<p>FWD (Front-Wheel Drive) là hệ dẫn động phổ biến nhất ở xe du lịch hiện đại. Lực kéo truyền đến 2 bánh trước.</p>
+<h3 class="font-bold text-xl my-4">2. Ưu điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Chi phí sản xuất và bảo trì thấp.</strong></li>
+  <li><strong>Tiết kiệm nhiên liệu.</strong></li>
+  <li><strong>Thiết kế nhỏ gọn, tiết kiệm không gian.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">3. Nhược điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Khả năng điều khiển kém hơn khi tải nặng hoặc tăng tốc mạnh.</strong></li>
+  <li><strong>Dễ mất lái trong các tình huống cực đoan.</strong></li>
+  <li><strong>Không phù hợp với xe thể thao hoặc xe hiệu suất cao.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">4. Chi tiết kỹ thuật:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Lực kéo:</strong> Truyền đến 2 bánh trước</li>
+  <li><strong>Bố trí động cơ:</strong> Thường đặt ngang</li>
+</ul>
+<h3 class="font-bold text-xl my-4">5. So sánh:</h3>
+<div class="overflow-x-auto rounded-lg border">
+  <table class="w-full text-left border-collapse">
+    <thead>
+      <tr class="bg-muted">
+        <th class="p-3 border-b font-semibold">Tiêu chí</th>
+        <th class="p-3 border-b font-semibold">FWD</th>
+        <th class="p-3 border-b font-semibold">AWD</th>
+        <th class="p-3 border-b font-semibold">RWD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Tiết kiệm nhiên liệu</td><td class="p-3 border-r">Tốt nhất</td><td class="p-3 border-r">Trung bình</td><td class="p-3">Trung bình</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Bám đường</td><td class="p-3 border-r">Tốt (đường khô)</td><td class="p-3 border-r">Rất tốt</td><td class="p-3">Kém (trơn trượt)</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Chi phí bảo trì</td><td class="p-3 border-r">Thấp</td><td class="p-3 border-r">Cao</td><td class="p-3">Trung bình</td></tr>
+      <tr><td class="p-3 border-r font-medium">Khả năng vận hành</td><td class="p-3 border-r">Trung bình</td><td class="p-3 border-r">Cao</td><td class="p-3">Cao (tốc độ cao)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="mt-4"><strong>Kết luận:</strong> FWD phù hợp với xe đô thị, xe phổ thông, nơi tiết kiệm chi phí và nhiên liệu là ưu tiên hàng đầu.</p>
+`,
+    category: 'Dẫn động',
+  },
+  {
+    slug: 'dan-dong-rwd-so-sanh',
+    title: 'Dẫn Động Cầu Sau (RWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, FWD',
+    author: 'Chuyên gia TIME CARS',
+    date: '30/07/2024',
+    image: 'https://placehold.co/800x450.png',
+    aiHint: 'rwd car drifting',
+    excerpt: 'RWD (Rear-Wheel Drive) là hệ dẫn động truyền thống, được ưa chuộng trong các dòng xe thể thao và xe sang nhờ phân bổ trọng lượng tối ưu.',
+    content: `
+<h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+<p>RWD (Rear-Wheel Drive) là hệ dẫn động truyền thống, được ưa chuộng trong các dòng xe thể thao và xe sang nhờ phân bổ trọng lượng tối ưu.</p>
+<h3 class="font-bold text-xl my-4">2. Ưu điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Phân bổ trọng lượng tốt hơn – cân bằng xe khi vào cua.</strong></li>
+  <li><strong>Tăng tốc mượt mà hơn.</strong></li>
+  <li><strong>Thích hợp cho xe hiệu suất cao.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">3. Nhược điểm:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Kém bám đường khi trời mưa hoặc trơn trượt.</strong></li>
+  <li><strong>Dễ mất kiểm soát nếu không có hệ thống hỗ trợ điện tử.</strong></li>
+  <li><strong>Không phù hợp đường tuyết, dốc, địa hình khó.</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">4. Chi tiết kỹ thuật:</h3>
+<ul class="list-disc list-inside space-y-2 pl-4">
+  <li><strong>Lực kéo:</strong> Truyền đến 2 bánh sau</li>
+  <li><strong>Thường đi với hệ thống treo sau độc lập</strong></li>
+</ul>
+<h3 class="font-bold text-xl my-4">5. So sánh:</h3>
+<div class="overflow-x-auto rounded-lg border">
+  <table class="w-full text-left border-collapse">
+    <thead>
+      <tr class="bg-muted">
+        <th class="p-3 border-b font-semibold">Tiêu chí</th>
+        <th class="p-3 border-b font-semibold">RWD</th>
+        <th class="p-3 border-b font-semibold">AWD</th>
+        <th class="p-3 border-b font-semibold">FWD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Cảm giác lái</td><td class="p-3 border-r">Rất tốt</td><td class="p-3 border-r">Tốt</td><td class="p-3">Trung bình</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Địa hình khó</td><td class="p-3 border-r">Kém</td><td class="p-3 border-r">Tốt</td><td class="p-3">Kém</td></tr>
+      <tr class="border-b"><td class="p-3 border-r font-medium">Khả năng kiểm soát</td><td class="p-3 border-r">Tốt (đường khô)</td><td class="p-3 border-r">Rất tốt</td><td class="p-3">Trung bình</td></tr>
+      <tr><td class="p-3 border-r font-medium">Tăng tốc</td><td class="p-3 border-r">Tốt</td><td class="p-3 border-r">Trung bình</td><td class="p-3">Trung bình</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="mt-4"><strong>Kết luận:</strong> RWD là lựa chọn cho người thích cảm giác lái thể thao, tuy nhiên cần kỹ năng điều khiển tốt và hạn chế sử dụng trên đường trơn trượt.</p>
+`,
+    category: 'Dẫn động',
+  },
   {
     slug: 'suv-so-sanh',
     title: 'SUV – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, Coupe, Compact',
