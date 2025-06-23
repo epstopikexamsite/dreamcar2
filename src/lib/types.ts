@@ -29,6 +29,7 @@ export interface Car {
   drivetrain: 'FWD' | 'RWD' | 'AWD' | '4WD';
   mileage: number;
   seatingCapacity: number;
+  status: 'Available' | 'Sold';
   specs: {
     engine: string;
     horsepower: number;

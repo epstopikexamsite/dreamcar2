@@ -92,7 +92,9 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-full">Xem chi tiết</Button>
+        <Button className="w-full" variant={car.status === 'Sold' ? 'outline' : 'default'}>
+            {car.status === 'Sold' ? 'Đã Bán - Xem Thông Tin' : 'Xem chi tiết'}
+        </Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl p-0">
         <ScrollArea className="max-h-[90vh]">
@@ -107,6 +109,14 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   className="transition-all duration-300"
                   data-ai-hint="car detail view"
                 />
+                 {car.status === 'Sold' && (
+                    <Badge
+                        variant="destructive"
+                        className="absolute top-4 right-4 z-10 text-lg py-2 px-4 rotate-12"
+                    >
+                        Đã Bán
+                    </Badge>
+                  )}
               </div>
 
                <div className="grid grid-cols-6 gap-2">
@@ -124,7 +134,10 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                 ))}
               </div>
 
-              <DialogTitle className="font-headline text-3xl pt-4">{car.brand} {car.model} ({car.year})</DialogTitle>
+              <DialogTitle className="font-headline text-3xl pt-4">
+                {car.brand} {car.model} ({car.year})
+                {car.status === 'Sold' && <Badge variant="destructive" className="ml-4 align-middle">Đã Bán</Badge>}
+              </DialogTitle>
               <DialogDescription className="text-primary font-bold text-xl">{car.price.toLocaleString('vi-VN')} VNĐ</DialogDescription>
             </DialogHeader>
             
@@ -184,10 +197,10 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
             </div>
 
             <div className="pt-6 mt-6 border-t flex flex-col sm:flex-row gap-2 sm:justify-end">
-                <Button asChild variant="outline" className="w-full sm:w-auto">
-                    <Link href="/contact">
+                <Button asChild variant="outline" className="w-full sm:w-auto" disabled={car.status === 'Sold'}>
+                    <Link href="/contact" className={cn(car.status === 'Sold' && 'pointer-events-none')}>
                         <Phone className="mr-2 h-4 w-4"/>
-                        Liên hệ tư vấn
+                        {car.status === 'Sold' ? 'Xe đã có chủ' : 'Liên hệ tư vấn'}
                     </Link>
                 </Button>
                 <Button asChild className="w-full sm:w-auto">

@@ -25,6 +25,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 12500,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -61,6 +62,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 5600,
     seatingCapacity: 4,
+    status: 'Available',
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -97,6 +99,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 21000,
     seatingCapacity: 4,
+    status: 'Sold',
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -133,6 +136,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 35000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -169,6 +173,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 8900,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -205,6 +210,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 15200,
     seatingCapacity: 4,
+    status: 'Sold',
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -241,6 +247,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 9500,
     seatingCapacity: 2,
+    status: 'Available',
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -277,6 +284,7 @@ export const cars: Car[] = [
     drivetrain: '4WD',
     mileage: 45000,
     seatingCapacity: 5,
+    status: 'Sold',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,
@@ -313,6 +321,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 22000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: 'Electric',
       horsepower: 283,
@@ -348,6 +357,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 18000,
     seatingCapacity: 7,
+    status: 'Available',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -383,6 +393,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 14000,
     seatingCapacity: 5,
+    status: 'Sold',
     specs: {
       engine: 'Electric',
       horsepower: 384,
@@ -418,6 +429,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 28000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '3.0L V6 Turbo + Electric Motor',
       horsepower: 455,
@@ -453,6 +465,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 32000,
     seatingCapacity: 4,
+    status: 'Available',
     specs: {
       engine: '2.9L Twin-Turbo V6',
       horsepower: 325,
@@ -488,6 +501,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 11000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.0L Turbo I4',
       horsepower: 261,
@@ -523,6 +537,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 45000,
     seatingCapacity: 7,
+    status: 'Available',
     specs: {
       engine: '2.3L EcoBoost I4',
       horsepower: 300,
@@ -558,6 +573,7 @@ export const cars: Car[] = [
     drivetrain: '4WD',
     mileage: 15000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.7L EcoBoost V6',
       horsepower: 330,
@@ -593,6 +609,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 65000,
     seatingCapacity: 5,
+    status: 'Sold',
     specs: {
       engine: '1.5L EcoBoost',
       horsepower: 180,
@@ -628,6 +645,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 38000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 208,
@@ -663,6 +681,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 55000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '1.8L 4-Cylinder',
       horsepower: 139,
@@ -698,6 +717,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 25000,
     seatingCapacity: 8,
+    status: 'Available',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 243,
@@ -733,6 +753,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 48000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '3.0L Inline 6-cylinder Turbodiesel',
       horsepower: 282,
@@ -768,6 +789,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 21000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.0L TwinPower Turbo I4',
       horsepower: 255,
@@ -803,6 +825,7 @@ export const cars: Car[] = [
     drivetrain: 'RWD',
     mileage: 19000,
     seatingCapacity: 2,
+    status: 'Sold',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 382,
@@ -838,6 +861,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 26000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.0L 4-Cylinder Hybrid',
       horsepower: 204,
@@ -873,6 +897,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 41000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.0L 4-Cylinder Hybrid',
       horsepower: 204,
@@ -908,6 +933,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 19000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '1.5L Turbo I4',
       horsepower: 177,
@@ -943,6 +969,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 60000,
     seatingCapacity: 7,
+    status: 'Available',
     specs: {
       engine: '3.0L V6 TDI',
       horsepower: 286,
@@ -978,6 +1005,7 @@ export const cars: Car[] = [
     drivetrain: 'AWD',
     mileage: 33000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.0L TFSI I4',
       horsepower: 248,
@@ -1013,6 +1041,7 @@ export const cars: Car[] = [
     drivetrain: 'FWD',
     mileage: 42000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '1.4L TFSI I4',
       horsepower: 150,
@@ -1048,6 +1077,7 @@ export const cars: Car[] = [
     drivetrain: '4WD',
     mileage: 31000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '3.6L V6',
       horsepower: 293,
@@ -1083,6 +1113,7 @@ export const cars: Car[] = [
     drivetrain: '4WD',
     mileage: 40000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '2.4L I4',
       horsepower: 177,
@@ -1118,6 +1149,7 @@ export const cars: Car[] = [
     drivetrain: '4WD',
     mileage: 45000,
     seatingCapacity: 5,
+    status: 'Available',
     specs: {
       engine: '1.3L Turbo I4',
       horsepower: 177,

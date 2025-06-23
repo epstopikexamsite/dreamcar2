@@ -2,8 +2,10 @@
 import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Tag, Cog, Route, GitCommitHorizontal, Fuel, Car as CarIcon, Users, Zap, Leaf, Truck, CarFront, Caravan } from 'lucide-react';
 import CarDetailsDialog from './car-details-dialog';
+import { cn } from '@/lib/utils';
 
 interface CarCardProps {
   car: Car;
@@ -72,7 +74,10 @@ export default function CarCard({ car }: CarCardProps) {
   const TypeIcon = carTypeIcons[car.type];
 
   return (
-    <Card className="overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">
+    <Card className={cn(
+      "overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card",
+      car.status === 'Sold' && 'opacity-70'
+      )}>
       <CardHeader className="p-0">
         <div className="relative h-48 w-full">
           <Image
@@ -84,6 +89,14 @@ export default function CarCard({ car }: CarCardProps) {
             className="group-hover:scale-105 transition-transform duration-300"
             data-ai-hint="car front"
           />
+          {car.status === 'Sold' && (
+            <Badge
+                variant="destructive"
+                className="absolute top-2 right-2 z-10 text-sm py-1 px-3 rotate-12"
+            >
+                Đã Bán
+            </Badge>
+          )}
         </div>
       </CardHeader>
       <CardContent className="p-4 flex-grow flex flex-col">

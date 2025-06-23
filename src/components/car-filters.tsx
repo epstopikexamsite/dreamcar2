@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal, Package, PackageCheck, PackageX } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -48,6 +48,7 @@ interface CarFiltersProps {
     exteriorColor: string[];
     interiorColor: string[];
     drivetrain: string[];
+    status: string;
   };
   onFilterChange: (filters: any) => void;
   showTitle?: boolean;
@@ -194,6 +195,38 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </CardHeader>
       )}
       <CardContent className={cn("space-y-6", !showTitle && "pt-6")}>
+        <div className="space-y-2">
+          <Label className="font-semibold flex items-center gap-2"><Package className="w-4 h-4" /> Trạng thái</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+              <button
+                onClick={() => onFilterChange({ ...filters, status: 'Available' })}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  filters.status === 'Available'
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                <PackageCheck className="w-4 h-4" />
+                Còn hàng
+              </button>
+              <button
+                onClick={() => onFilterChange({ ...filters, status: 'Sold' })}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  filters.status === 'Sold'
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                <PackageX className="w-4 h-4" />
+                Đã bán
+              </button>
+          </div>
+        </div>
+
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Hãng xe</Label>
           <div className="grid grid-cols-3 gap-2 pt-2">

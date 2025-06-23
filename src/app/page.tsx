@@ -69,6 +69,7 @@ export default function Home() {
     exteriorColor: [] as string[],
     interiorColor: [] as string[],
     drivetrain: [] as string[],
+    status: 'Available',
   });
   
   const [visibleCount, setVisibleCount] = useState(CARS_PER_PAGE);
@@ -85,7 +86,8 @@ export default function Home() {
       const exteriorColorMatch = filters.exteriorColor.length === 0 || filters.exteriorColor.includes(car.exteriorColor);
       const interiorColorMatch = filters.interiorColor.length === 0 || filters.interiorColor.includes(car.interiorColor);
       const drivetrainMatch = filters.drivetrain.length === 0 || filters.drivetrain.includes(car.drivetrain);
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch;
+      const statusMatch = car.status === filters.status;
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch && statusMatch;
     });
   }, [filters]);
 
@@ -140,8 +142,7 @@ export default function Home() {
   const visibleCars = filteredCars.slice(0, visibleCount);
 
   const handleRemoveFilter = (filterKey: keyof typeof filters, value: string) => {
-    if (filterKey === 'priceRange') return;
-    const currentValues = filters[filterKey];
+    const currentValues = filters[filterKey as keyof Omit<typeof filters, 'priceRange' | 'status'>];
     if (Array.isArray(currentValues)) {
         const newValues = currentValues.filter((v: string) => v !== value);
         setFilters({ ...filters, [filterKey]: newValues });
@@ -163,12 +164,13 @@ export default function Home() {
       exteriorColor: [],
       interiorColor: [],
       drivetrain: [],
+      status: 'Available',
     });
   };
 
   const isPriceFiltered = filters.priceRange[0] !== 0 || filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
-    .filter(([key]) => key !== 'priceRange' && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as string[]).length > 0)
+    .filter(([key]) => !['priceRange', 'status'].includes(key) && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as string[]).length > 0)
     .flatMap(([key, values]) => {
         if (Array.isArray(values)) {
             return values.map(value => ({ key: key as keyof typeof filters, value }));
