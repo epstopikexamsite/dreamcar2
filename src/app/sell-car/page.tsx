@@ -17,7 +17,7 @@ export default function SellCarPage() {
                     Thu Mua Xe Giá Cao
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    TIME CARS AUTO chuyên thu mua ô tô đã qua sử dụng giá cao, thủ tục nhanh gọn. Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn ngay.
+                    TimeCar chuyên thu mua ô tô đã qua sử dụng giá cao, thủ tục nhanh gọn. Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn ngay.
                 </p>
             </div>
         </section>

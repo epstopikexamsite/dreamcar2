@@ -4,7 +4,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'dau-diesel-so-sanh',
     title: 'Dầu Diesel – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Điện, Hybrid',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '17/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'diesel engine pump',
@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'dong-co-xang-so-sanh',
     title: 'Xăng – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Diesel, Điện, Hybrid',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '18/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'gasoline engine car',
@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'xe-hybrid-so-sanh',
     title: 'Hybrid – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Diesel, Điện',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '19/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'hybrid car engine',
@@ -174,7 +174,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'xe-dien-so-sanh',
     title: 'Xe Điện – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Diesel, Hybrid',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '20/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'electric car charging',
@@ -230,7 +230,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'hop-so-tu-dong-so-sanh',
     title: 'Hộp Số Tự Động – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Số Tay',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '21/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'automatic transmission gear',
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'hop-so-tay-so-sanh',
     title: 'Hộp Số Tay – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Số Tự Động',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '27/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'manual transmission stick',
@@ -335,7 +335,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'dan-dong-4x4-so-sanh',
     title: 'Dẫn Động 4x4 – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, Cầu Trước, Cầu Sau',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '22/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: '4x4 drivetrain offroad',
@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
    {
     slug: 'dan-dong-awd-so-sanh',
     title: 'Dẫn Động AWD – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với 4x4, Cầu Trước, Cầu Sau',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '28/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'awd system car',
@@ -439,7 +439,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'dan-dong-fwd-so-sanh',
     title: 'Dẫn Động Cầu Trước (FWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, RWD',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '29/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'fwd car drivetrain',
@@ -490,7 +490,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'dan-dong-rwd-so-sanh',
     title: 'Dẫn Động Cầu Sau (RWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, FWD',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '30/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'rwd car drifting',
@@ -541,7 +541,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'suv-so-sanh',
     title: 'SUV – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, Coupe, Compact',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '23/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'suv family car',
@@ -595,7 +595,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'sedan-so-sanh',
     title: 'Sedan – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với SUV, Coupe, Compact',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '24/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'sedan car street',
@@ -653,7 +653,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'coupe-so-sanh',
     title: 'Coupe – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, SUV, Compact',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '25/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'sports coupe sunset',
@@ -707,7 +707,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'xe-compact-so-sanh',
     title: 'Xe Compact – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, SUV, Coupe',
-    author: 'Chuyên gia TIME CARS',
+    author: 'Chuyên gia TimeCar',
     date: '26/07/2024',
     image: 'https://placehold.co/800x450.png',
     aiHint: 'compact car city',

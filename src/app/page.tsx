@@ -18,7 +18,7 @@ const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 
 const testimonials = [
   {
-    quote: "Dịch vụ ở TIME CARS AUTO thực sự tuyệt vời. Các bạn tư vấn rất nhiệt tình, xe thì chất lượng không chê vào đâu được. Tôi đã tìm được chiếc xe ưng ý cho gia đình mình.",
+    quote: "Dịch vụ ở TimeCar thực sự tuyệt vời. Các bạn tư vấn rất nhiệt tình, xe thì chất lượng không chê vào đâu được. Tôi đã tìm được chiếc xe ưng ý cho gia đình mình.",
     name: "Anh Hoàng Minh",
     role: "Khách hàng mua xe Toyota Camry",
     avatar: "https://placehold.co/100x100.png",
@@ -34,7 +34,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "Chất lượng xe lướt ở đây đúng như cam kết. Xe gần như mới, mọi thứ đều được kiểm tra kỹ lưỡng. Rất an tâm khi mua xe tại TIME CARS AUTO.",
+    quote: "Chất lượng xe lướt ở đây đúng như cam kết. Xe gần như mới, mọi thứ đều được kiểm tra kỹ lưỡng. Rất an tâm khi mua xe tại TimeCar.",
     name: "Anh Quốc Bảo",
     role: "Khách hàng mua xe Mercedes-Benz E-Class",
     avatar: "https://placehold.co/100x100.png",
@@ -153,7 +153,7 @@ export default function Home() {
         <section className="py-16 bg-primary/5">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
-                Tại sao bạn nên chọn mua xe tại TIME CARS AUTO?
+                Tại sao bạn nên chọn mua xe tại TimeCar?
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card className="text-center p-6 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -180,7 +180,7 @@ export default function Home() {
                             <CardTitle className="text-xl">Thương hiệu showroom TOP đầu</CardTitle>
                         </CardHeader>
                         <CardContent className="p-0 mt-2 text-muted-foreground flex-grow">
-                            <p>TIME CARS AUTO là một trong những thương hiệu bán xe sang lướt hàng đầu tại Việt Nam.</p>
+                            <p>TimeCar là một trong những thương hiệu bán xe sang lướt hàng đầu tại Việt Nam.</p>
                         </CardContent>
                     </Card>
                 </div>

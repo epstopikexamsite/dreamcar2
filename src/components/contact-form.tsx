@@ -53,7 +53,7 @@ export default function ContactForm() {
                 Để Lại Thông Tin, Chúng Tôi Sẽ Gọi Lại
             </CardTitle>
             <CardDescription>
-                Chỉ cần nhập số điện thoại, chuyên viên của TIME CARS AUTO sẽ chủ động liên hệ tư vấn miễn phí cho bạn.
+                Chỉ cần nhập số điện thoại, chuyên viên của TimeCar sẽ chủ động liên hệ tư vấn miễn phí cho bạn.
             </CardDescription>
         </CardHeader>
         <CardContent>

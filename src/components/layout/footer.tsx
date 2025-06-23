@@ -14,9 +14,9 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socialLinks = [
-    { href: 'https://www.facebook.com/timecarsauto', icon: Facebook, label: 'Facebook' },
-    { href: 'https://www.youtube.com/@timecarsauto', icon: Youtube, label: 'YouTube' },
-    { href: 'https://www.tiktok.com/@timecarsauto', icon: TiktokIcon, label: 'TikTok' },
+    { href: 'https://www.facebook.com/timecar', icon: Facebook, label: 'Facebook' },
+    { href: 'https://www.youtube.com/@timecar', icon: Youtube, label: 'YouTube' },
+    { href: 'https://www.tiktok.com/@timecar', icon: TiktokIcon, label: 'TikTok' },
 ];
 
 const legalLinks = [
@@ -35,7 +35,7 @@ export default function Footer() {
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
-                                alt="TIME CARS AUTO"
+                                alt="TimeCar"
                                 width={160}
                                 height={36}
                             />
@@ -63,7 +63,7 @@ export default function Footer() {
                     {/* Right Side: Contact */}
                     <div className="md:col-span-3 flex justify-center md:justify-end">
                         <div className="space-y-1">
-                            <h4 className="font-semibold flex items-center justify-center md:justify-start gap-2">
+                             <h4 className="font-semibold flex items-center justify-center sm:justify-start gap-2">
                                 <Phone className="w-4 h-4 shrink-0" /> 
                                 Hotline
                             </h4>
@@ -75,7 +75,7 @@ export default function Footer() {
                 {/* Bottom Bar: Copyright & Socials */}
                 <div className="border-t border-primary-foreground/20 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/60">
                     <p>
-                        &copy; {new Date().getFullYear()} TIME CARS AUTO
+                        &copy; {new Date().getFullYear()} TimeCar
                     </p>
                      <div className="flex items-center gap-x-4">
                         <div className="flex items-center gap-4">

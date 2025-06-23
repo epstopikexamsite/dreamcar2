@@ -26,10 +26,10 @@ export default function Header() {
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-40">
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center gap-6">
-            <Link href="/" aria-label="Trang chủ TIME CARS AUTO">
+            <Link href="/" aria-label="Trang chủ TimeCar">
             <Image
                 src="/logo.svg"
-                alt="TIME CARS AUTO"
+                alt="TimeCar"
                 width={180}
                 height={41}
                 priority
@@ -64,7 +64,7 @@ export default function Header() {
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Image
                                     src="/logo.svg"
-                                    alt="TIME CARS AUTO"
+                                    alt="TimeCar"
                                     width={200}
                                     height={45}
                                 />
