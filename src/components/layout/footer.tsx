@@ -6,7 +6,7 @@ import { MapPin, Phone, Facebook, Youtube } from 'lucide-react';
 import { locations } from '@/lib/locations';
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
         <path d="M21 7.4c-1.3-1.3-3-2-4.8-2h-2.4c-.8 0-1.5.3-2.1.9s-.9 1.3-.9 2.1v6.2c0 .8.3 1.5.9 2.1s1.3.9 2.1.9h2.4c1.8 0 3.5-.7 4.8-2 .5-.5.9-1.1 1.2-1.8"/>
         <path d="M9.1 12.3V5.4c0-1.7-1.4-3.1-3.1-3.1h-.2c-1.7 0-3.1 1.4-3.1 3.1v1.9"/>
         <path d="m9.1 12.3 8.3-4.2"/>
@@ -27,57 +27,56 @@ const legalLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
+            <div className="container mx-auto px-4 py-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center md:text-left">
                     
-                    <div className="md:col-span-5 lg:col-span-4 space-y-4">
+                    {/* Column 1: Logo & Slogan */}
+                    <div className="lg:col-span-1 space-y-2">
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
                                 alt="TIME CARS AUTO"
-                                width={180}
-                                height={41}
+                                width={160}
+                                height={36}
                             />
                         </Link>
                         <p className="text-sm text-primary-foreground/80">
                            Nơi Uy Tín Tạo Nên Thương Hiệu.
                         </p>
-                        <div className="flex items-center justify-center md:justify-start gap-4">
+                    </div>
+                    
+                    {/* Columns 2-4: Locations */}
+                    {locations.map((loc) => (
+                        <div key={loc.name}>
+                            <address className="text-sm not-italic text-primary-foreground/80">
+                                <p className="font-semibold text-primary-foreground flex items-center justify-center md:justify-start gap-2">
+                                    <MapPin className="w-4 h-4 shrink-0" />
+                                    {loc.name}
+                                </p>
+                                <p className="mt-1">{loc.address}</p>
+                            </address>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 border-t border-primary-foreground/20 pt-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <p className="text-xs text-primary-foreground/60 order-2 sm:order-1">&copy; {new Date().getFullYear()} TIME CARS AUTO</p>
+                     
+                    <div className="flex items-center gap-x-4 order-1 sm:order-2">
+                         <div className="flex items-center gap-2 text-sm font-semibold">
+                            <Phone className="w-4 h-4 shrink-0" />
+                            <span>098.150.2222 (Hotline)</span>
+                        </div>
+                        <div className="flex items-center gap-4">
                             {socialLinks.map(social => (
                                 <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label={social.label}>
-                                    <social.icon className="w-6 h-6" />
+                                    <social.icon className="w-5 h-5" />
                                 </Link>
                             ))}
                         </div>
                     </div>
-                    
-                    <div className="md:col-span-7 lg:col-span-8 space-y-4">
-                        <h3 className="font-headline text-lg font-bold text-primary-foreground">Thông Tin Liên Hệ</h3>
-                        <address className="space-y-4 text-sm not-italic text-primary-foreground/80">
-                            <div className="flex items-center justify-center md:justify-start gap-3">
-                                <Phone className="w-5 h-5 shrink-0" />
-                                <p>
-                                    098.150.2222 (Hotline)
-                                </p>
-                            </div>
-                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6 pt-2">
-                                {locations.map((loc) => (
-                                    <div key={loc.name} className="flex items-start gap-3">
-                                        <MapPin className="w-5 h-5 shrink-0 mt-1" />
-                                        <div>
-                                            <p className="font-semibold">{loc.name}</p>
-                                            <p>{loc.address}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </address>
-                    </div>
-                </div>
 
-                <div className="mt-8 border-t border-primary-foreground/20 pt-6 flex flex-col-reverse md:flex-row justify-between items-center text-center md:text-left gap-4">
-                    <p className="text-xs text-primary-foreground/60">&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
-                     <div className="flex items-center gap-x-6 gap-y-2">
+                     <div className="flex items-center gap-x-4 gap-y-2 order-3">
                         {legalLinks.map(link => (
                             <Link key={link.label} href={link.href} className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">
                                 {link.label}
