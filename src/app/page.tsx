@@ -6,6 +6,8 @@ import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Award, Tag, Trophy } from 'lucide-react';
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 
@@ -64,48 +66,87 @@ export default function Home() {
         isFilterVisible={isFilterVisible}
         onToggleFilter={() => setIsFilterVisible(!isFilterVisible)}
       />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {isFilterVisible && (
-            <aside className="lg:col-span-1">
-              <CarFilters 
-                brands={brands} 
-                years={years}
-                fuelTypes={fuelTypes}
-                transmissionTypes={transmissionTypes}
-                carTypes={carTypes}
-                exteriorColors={exteriorColors}
-                interiorColors={interiorColors}
-                drivetrains={drivetrains}
-                filters={filters} 
-                onFilterChange={setFilters} 
-              />
-            </aside>
-          )}
-          <section className={isFilterVisible ? "lg:col-span-3" : "lg:col-span-4"}>
-            <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
-            
-            {filteredCars.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {visibleCars.map(car => (
-                  <CarCard key={car.id} car={car} />
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-lg">
-                <p className="text-muted-foreground">Không có xe nào phù hợp với tiêu chí của bạn.</p>
-                <p className="text-sm text-muted-foreground">Hãy thử điều chỉnh bộ lọc.</p>
-              </div>
+      <main className="flex-grow">
+        <div className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {isFilterVisible && (
+                <aside className="lg:col-span-1">
+                <CarFilters 
+                    brands={brands} 
+                    years={years}
+                    fuelTypes={fuelTypes}
+                    transmissionTypes={transmissionTypes}
+                    carTypes={carTypes}
+                    exteriorColors={exteriorColors}
+                    interiorColors={interiorColors}
+                    drivetrains={drivetrains}
+                    filters={filters} 
+                    onFilterChange={setFilters} 
+                />
+                </aside>
             )}
-            {filteredCars.length > 6 && !showAll && (
-              <div className="text-center mt-8">
-                <Button onClick={() => setShowAll(true)} size="lg">Hiển thị tất cả</Button>
-              </div>
-            )}
-          </section>
+            <section className={isFilterVisible ? "lg:col-span-3" : "lg:col-span-4"}>
+                <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
+                
+                {filteredCars.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    {visibleCars.map(car => (
+                    <CarCard key={car.id} car={car} />
+                    ))}
+                </div>
+                ) : (
+                <div className="flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-lg">
+                    <p className="text-muted-foreground">Không có xe nào phù hợp với tiêu chí của bạn.</p>
+                    <p className="text-sm text-muted-foreground">Hãy thử điều chỉnh bộ lọc.</p>
+                </div>
+                )}
+                {filteredCars.length > 6 && !showAll && (
+                <div className="text-center mt-8">
+                    <Button onClick={() => setShowAll(true)} size="lg">Hiển thị tất cả</Button>
+                </div>
+                )}
+            </section>
+            </div>
         </div>
+
+        <section className="py-16 bg-primary/5">
+            <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
+                Tại sao bạn nên chọn mua xe tại TIME CARS AUTO?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <Card className="text-center p-6 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <Tag className="h-12 w-12 text-primary mb-4" />
+                        <CardHeader className="p-0">
+                            <CardTitle className="text-xl">Giá tốt nhất</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0 mt-2 text-muted-foreground flex-grow">
+                            <p>Chúng tôi luôn tìm kiếm các sản phẩm có giá trị tốt nhất để đưa đến với khách hàng.</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="text-center p-6 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <Award className="h-12 w-12 text-primary mb-4" />
+                        <CardHeader className="p-0">
+                            <CardTitle className="text-xl">Chất lượng đã được khẳng định</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0 mt-2 text-muted-foreground flex-grow">
+                            <p>Với hơn 7 năm kinh nghiệm trong việc mua bán xe đã qua sử dụng.</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="text-center p-6 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <Trophy className="h-12 w-12 text-primary mb-4" />
+                        <CardHeader className="p-0">
+                            <CardTitle className="text-xl">Thương hiệu showroom TOP đầu</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0 mt-2 text-muted-foreground flex-grow">
+                            <p>TIME CARS AUTO là một trong những thương hiệu bán xe sang lướt hàng đầu tại Việt Nam.</p>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
       </main>
-      <footer className="w-full py-6 bg-primary/10 mt-12">
+      <footer className="w-full py-6 bg-primary/10 mt-auto">
         <div className="container mx-auto text-center text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
         </div>
