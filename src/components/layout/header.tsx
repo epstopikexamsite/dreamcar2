@@ -19,10 +19,10 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-40">
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center gap-8">
-            <Link href="/" aria-label="Trang chủ DREAMCAR">
+            <Link href="/" aria-label="Trang chủ TIME CARS AUTO">
             <Image
                 src="/logo.svg"
-                alt="DREAMCAR"
+                alt="TIME CARS AUTO"
                 width={220}
                 height={50}
                 priority
@@ -34,6 +34,9 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                 </Link>
                 <Link href="/team" className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     Đội ngũ
+                </Link>
+                <Link href="/gallery" className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                    Hoạt động
                 </Link>
             </nav>
         </div>
@@ -56,6 +59,13 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                     <Link href="/team">
                         <Button variant="outline" size="sm">
                             Đội ngũ
+                        </Button>
+                    </Link>
+                )}
+                 {pathname !== '/gallery' && (
+                    <Link href="/gallery">
+                        <Button variant="outline" size="sm">
+                            Hoạt động
                         </Button>
                     </Link>
                 )}
