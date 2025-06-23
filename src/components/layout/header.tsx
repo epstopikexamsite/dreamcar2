@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import AIRecommender from '@/components/ai-recommender';
 import { Button } from '@/components/ui/button';
 import { Filter } from 'lucide-react';
 
@@ -25,11 +24,10 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
           />
         </Link>
         <div className="flex items-center gap-4">
-            <Button onClick={onToggleFilter} variant="outline" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button onClick={onToggleFilter}>
                 <Filter className="mr-2 h-4 w-4" />
                 {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
             </Button>
-            <AIRecommender />
         </div>
       </div>
     </header>
