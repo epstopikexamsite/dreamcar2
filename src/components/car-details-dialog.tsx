@@ -1,9 +1,10 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -42,6 +43,17 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
+  const [currentImage, setCurrentImage] = useState(car.images.front);
+  
+  const allImages = [
+    { src: car.images.front, alt: 'Front view', hint: 'car front' },
+    { src: car.images.rear, alt: 'Rear view', hint: 'car rear' },
+    { src: car.images.left, alt: 'Left side view', hint: 'car side left' },
+    { src: car.images.right, alt: 'Right side view', hint: 'car side right' },
+    { src: car.images.interiorFront, alt: 'Front interior', hint: 'car interior front' },
+    { src: car.images.interiorRear, alt: 'Rear interior', hint: 'car interior rear' },
+  ];
+  
   const fuelTypeTranslations: {[key: string]: string} = {
     'Gasoline': 'Xăng',
     'Diesel': 'Dầu',
@@ -81,20 +93,37 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
       <DialogTrigger asChild>
         <Button className="w-full">Xem chi tiết</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl p-0">
+      <DialogContent className="max-w-4xl p-0">
         <ScrollArea className="max-h-[90vh]">
           <div className="p-6">
             <DialogHeader className="mb-4">
-              <div className="relative h-64 w-full rounded-lg overflow-hidden mb-4">
+              <div className="relative h-96 w-full rounded-lg overflow-hidden mb-4 bg-muted">
                 <Image
-                  src={car.image}
+                  src={currentImage}
                   alt={`${car.brand} ${car.model}`}
                   fill
                   style={{objectFit: 'cover'}}
-                  data-ai-hint="car interior"
+                  className="transition-all duration-300"
+                  data-ai-hint="car detail view"
                 />
               </div>
-              <DialogTitle className="font-headline text-3xl">{car.brand} {car.model} ({car.year})</DialogTitle>
+
+               <div className="grid grid-cols-6 gap-2">
+                {allImages.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(img.src)}
+                    className={cn(
+                      'relative aspect-video rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
+                      currentImage === img.src && 'ring-2 ring-primary'
+                    )}
+                  >
+                    <Image src={img.src} alt={img.alt} fill className="object-cover" data-ai-hint={img.hint} />
+                  </button>
+                ))}
+              </div>
+
+              <DialogTitle className="font-headline text-3xl pt-4">{car.brand} {car.model} ({car.year})</DialogTitle>
               <DialogDescription className="text-primary font-bold text-xl">${car.price.toLocaleString()}</DialogDescription>
             </DialogHeader>
             
@@ -137,7 +166,8 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                 <ul className="space-y-3 text-sm pt-2">
                   <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Động cơ</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Mã lực</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Tiết kiệm nhiên liệu</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Droplets className="w-4 h-4 mr-2 text-accent" /> <strong>Tiêu thụ nhiên liệu</strong></span> <span className="text-muted-foreground">{car.specs.fuelConsumption}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Ruler className="w-4 h-4 mr-2 text-accent" /> <strong>Kích thước (D x R x C)</strong></span> <span className="text-muted-foreground">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Đánh giá an toàn</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>

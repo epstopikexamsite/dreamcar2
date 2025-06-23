@@ -12,7 +12,14 @@ export interface Car {
   model: string;
   year: number;
   price: number;
-  image: string;
+  images: {
+    front: string;
+    rear: string;
+    left: string;
+    right: string;
+    interiorFront: string;
+    interiorRear: string;
+  };
   logo: string;
   fuelType: 'Gasoline' | 'Diesel' | 'Hybrid' | 'Electric';
   transmission: 'Automatic' | 'Manual';
@@ -24,8 +31,13 @@ export interface Car {
   specs: {
     engine: string;
     horsepower: number;
-    fuelEfficiency: string;
+    fuelConsumption: string;
     safetyRating: number;
+    dimensions: {
+      length: number;
+      width: number;
+      height: number;
+    };
   };
   features: string[];
   reviews: Review[];
