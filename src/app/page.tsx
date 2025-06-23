@@ -7,10 +7,12 @@ import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 
+const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
+
 export default function Home() {
   const [filters, setFilters] = useState({
     brand: [] as string[],
-    priceRange: [0, 200000],
+    priceRange: [0, NO_PRICE_LIMIT],
     year: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
+import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
@@ -97,25 +97,25 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
           </div>
         </div>
 
-        <div className="space-y-3">
-          <div className="flex justify-between">
-            <Label className="font-semibold">Price Range</Label>
-            <span className="text-sm font-medium text-primary">
-              ${filters.priceRange[1].toLocaleString()}
-            </span>
+        <div className="space-y-2">
+          <Label htmlFor="max-price" className="font-semibold">Max Price</Label>
+          <div className="relative pt-2">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+            <Input
+              id="max-price"
+              type="number"
+              placeholder="Any price"
+              value={filters.priceRange[1] === Number.MAX_SAFE_INTEGER ? '' : filters.priceRange[1]}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? Number.MAX_SAFE_INTEGER : Number(value);
+                handlePriceChange([0, numericValue]);
+              }}
+              min={0}
+              step={1000}
+              className="pl-6"
+            />
           </div>
-          <Slider
-            min={0}
-            max={maxPrice}
-            step={1000}
-            value={[filters.priceRange[1]]}
-            onValueChange={(value) => handlePriceChange([0, value[0]])}
-            className="w-full"
-          />
-           <div className="text-xs text-muted-foreground flex justify-between">
-              <span>$0</span>
-              <span>${maxPrice.toLocaleString()}</span>
-           </div>
         </div>
       </CardContent>
     </Card>
