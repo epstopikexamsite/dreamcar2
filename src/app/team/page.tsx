@@ -2,7 +2,7 @@ import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { employees, Employee } from '@/lib/employees';
-import { User, MapPin } from 'lucide-react';
+import { User, MapPin, Crown, UserCheck, Briefcase } from 'lucide-react';
 
 const getInitials = (name: string) => {
     const names = name.split(' ');
@@ -10,6 +10,20 @@ const getInitials = (name: string) => {
         return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
     }
     return name[0] ? name[0].toUpperCase() : '';
+};
+
+const RoleIcon = ({ role }: { role: string }) => {
+    switch (role) {
+        case 'Chủ tịch HĐQT':
+            return <Crown className="w-4 h-4 text-accent" />;
+        case 'Phó Giám đốc':
+            return <UserCheck className="w-4 h-4 text-accent" />;
+        case 'Trưởng phòng':
+        case 'Trưởng phòng HC':
+            return <Briefcase className="w-4 h-4 text-accent" />;
+        default:
+            return <User className="w-4 h-4 text-accent" />;
+    }
 };
 
 const TeamSection = ({ title, members }: { title: string, members: Employee[] }) => {
@@ -29,7 +43,7 @@ const TeamSection = ({ title, members }: { title: string, members: Employee[] })
                         </CardHeader>
                         <CardContent className="p-0 mt-2 text-muted-foreground flex-grow space-y-2 flex flex-col items-center justify-center">
                             <div className="flex items-center justify-center gap-2">
-                                <User className="w-4 h-4 text-accent" />
+                                <RoleIcon role={employee.role} />
                                 <p>{employee.role}</p>
                             </div>
                             <div className="flex items-center justify-center gap-2">
