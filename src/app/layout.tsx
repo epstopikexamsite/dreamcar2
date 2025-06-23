@@ -19,7 +19,7 @@ const oswald = Oswald({
 
 // TODO: Replace with your actual production domain
 const siteUrl = 'https://timecar.example.com'; 
-const ogImageUrl = 'https://placehold.co/1200x630.png';
+const ogImageUrl = 'https://placehold.co/1200x630.png?text=TimeCar';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

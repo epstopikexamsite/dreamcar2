@@ -108,7 +108,7 @@ export default function AboutPage() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-80 md:h-full w-full rounded-lg overflow-hidden shadow-lg min-h-[350px]">
                         <Image
-                            src="https://placehold.co/600x400.png"
+                            src="https://placehold.co/600x400.png?text=TimeCar"
                             alt="Không gian showroom TimeCar"
                             fill
                             sizes="(max-width: 768px) 100vw, 50vw"

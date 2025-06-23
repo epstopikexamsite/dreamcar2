@@ -10,7 +10,7 @@ export interface GalleryImage {
 export const galleryImages: GalleryImage[] = [
     {
         id: 1,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Khách hàng nhận xe tại showroom',
         caption: 'Bàn giao xe cho khách hàng thân thiết.',
         aiHint: 'customer handshake dealership',
@@ -18,7 +18,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 2,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Đội ngũ nhân viên TIME CARS AUTO',
         caption: 'Buổi họp đầu tuần của đội ngũ.',
         aiHint: 'team meeting office',
@@ -26,7 +26,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 3,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Sự kiện tri ân khách hàng',
         caption: 'Tổ chức sự kiện tri ân cuối năm.',
         aiHint: 'corporate event award',
@@ -34,7 +34,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 4,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Một khách hàng vui vẻ bên chiếc xe mới',
         caption: 'Nụ cười hài lòng của vị khách hàng.',
         aiHint: 'happy person new car',
@@ -42,7 +42,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 5,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Xe được kiểm tra kỹ thuật',
         caption: 'Quy trình kiểm định 176 hạng mục.',
         aiHint: 'mechanic car check',
@@ -50,7 +50,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 6,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Toàn cảnh showroom TIME CARS AUTO',
         caption: 'Không gian trưng bày xe chuyên nghiệp.',
         aiHint: 'car dealership showroom',
@@ -58,7 +58,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 7,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Khách hàng được tư vấn tận tình',
         caption: 'Chuyên viên tư vấn hỗ trợ khách hàng.',
         aiHint: 'salesman client talking',
@@ -66,7 +66,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 8,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Hoạt động team building của công ty',
         caption: 'Chuyến đi team building gắn kết toàn đội.',
         aiHint: 'company team building',
@@ -74,7 +74,7 @@ export const galleryImages: GalleryImage[] = [
     },
     {
         id: 9,
-        src: 'https://placehold.co/600x400.png',
+        src: 'https://placehold.co/600x400.png?text=TimeCar',
         alt: 'Lễ ký kết hợp đồng với đối tác',
         caption: 'Hợp tác cùng phát triển với đối tác lớn.',
         aiHint: 'business partnership handshake',

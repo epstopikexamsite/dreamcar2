@@ -6,7 +6,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Dầu Diesel – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Điện, Hybrid',
     author: 'Chuyên gia TimeCar',
     date: '17/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'diesel engine pump',
     excerpt: 'Dầu Diesel là một trong những loại nhiên liệu phổ biến trong ngành công nghiệp ô tô, đặc biệt với các xe tải, SUV, và xe thương mại.',
     content: `
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Xăng – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Diesel, Điện, Hybrid',
     author: 'Chuyên gia TimeCar',
     date: '18/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'gasoline engine car',
     excerpt: 'Động cơ xăng là loại phổ biến nhất trên toàn cầu, được sử dụng rộng rãi trong các dòng xe phổ thông và xe cá nhân nhờ khả năng vận hành êm ái và giá thành hợp lý.',
     content: `
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Hybrid – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Diesel, Điện',
     author: 'Chuyên gia TimeCar',
     date: '19/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'hybrid car engine',
     excerpt: 'Xe Hybrid là sự kết hợp giữa động cơ xăng và mô-tơ điện, giúp tối ưu hiệu suất sử dụng nhiên liệu và giảm thiểu khí thải.',
     content: `
@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Xe Điện – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Diesel, Hybrid',
     author: 'Chuyên gia TimeCar',
     date: '20/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'electric car charging',
     excerpt: 'Xe điện là xu hướng tương lai nhờ khả năng vận hành êm ái, không phát thải và chi phí sử dụng thấp.',
     content: `
@@ -232,7 +232,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Hộp Số Tự Động – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Số Tay',
     author: 'Chuyên gia TimeCar',
     date: '21/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'automatic transmission gear',
     excerpt: 'Hộp số tự động (Automatic Transmission) ngày càng phổ biến nhờ vào sự tiện lợi và dễ sử dụng, đặc biệt ở môi trường đô thị đông đúc.',
     content: `
@@ -284,7 +284,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Hộp Số Tay – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Số Tự Động',
     author: 'Chuyên gia TimeCar',
     date: '27/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'manual transmission stick',
     excerpt: 'Hộp số tay (Manual Transmission) là loại truyền thống, yêu cầu người lái thao tác côn và cần số, được ưa chuộng bởi những người thích cảm giác lái chân thực.',
     content: `
@@ -337,7 +337,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Dẫn Động 4x4 – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, Cầu Trước, Cầu Sau',
     author: 'Chuyên gia TimeCar',
     date: '22/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: '4x4 drivetrain offroad',
     excerpt: 'Hệ thống dẫn động 4x4 được thiết kế cho khả năng vượt địa hình, thường xuất hiện trên xe bán tải, SUV off-road.',
     content: `
@@ -389,7 +389,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Dẫn Động AWD – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với 4x4, Cầu Trước, Cầu Sau',
     author: 'Chuyên gia TimeCar',
     date: '28/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'awd system car',
     excerpt: 'AWD (All-Wheel Drive) là hệ dẫn động toàn thời gian, phân bổ lực kéo tới cả bốn bánh tự động tùy điều kiện vận hành. Phổ biến trên SUV và crossover hiện đại.',
     content: `
@@ -441,7 +441,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Dẫn Động Cầu Trước (FWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, RWD',
     author: 'Chuyên gia TimeCar',
     date: '29/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'fwd car drivetrain',
     excerpt: 'FWD (Front-Wheel Drive) là hệ dẫn động phổ biến nhất ở xe du lịch hiện đại. Lực kéo truyền đến 2 bánh trước.',
     content: `
@@ -492,7 +492,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Dẫn Động Cầu Sau (RWD) – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với AWD, FWD',
     author: 'Chuyên gia TimeCar',
     date: '30/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'rwd car drifting',
     excerpt: 'RWD (Rear-Wheel Drive) là hệ dẫn động truyền thống, được ưa chuộng trong các dòng xe thể thao và xe sang nhờ phân bổ trọng lượng tối ưu.',
     content: `
@@ -543,7 +543,7 @@ export const blogPosts: BlogPost[] = [
     title: 'SUV – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, Coupe, Compact',
     author: 'Chuyên gia TimeCar',
     date: '23/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'suv family car',
     excerpt: 'SUV (Sport Utility Vehicle) là dòng xe đa dụng phổ biến nhờ thiết kế cao ráo, rộng rãi, phù hợp gia đình và di chuyển đa địa hình.',
     content: `
@@ -597,7 +597,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Sedan – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với SUV, Coupe, Compact',
     author: 'Chuyên gia TimeCar',
     date: '24/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'sedan car street',
     excerpt: 'Sedan là kiểu xe 4 cửa truyền thống, phổ biến nhất trên thị trường nhờ thiết kế cân đối, gầm thấp, và phù hợp nhiều mục đích.',
     content: `
@@ -655,7 +655,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Coupe – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, SUV, Compact',
     author: 'Chuyên gia TimeCar',
     date: '25/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'sports coupe sunset',
     excerpt: 'Coupe là dòng xe 2 cửa, thiên về thiết kế thể thao, trẻ trung và cá tính, phù hợp cho cá nhân hoặc cặp đôi.',
     content: `
@@ -709,7 +709,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Xe Compact – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Sedan, SUV, Coupe',
     author: 'Chuyên gia TimeCar',
     date: '26/07/2024',
-    image: 'https://placehold.co/800x450.png',
+    image: 'https://placehold.co/800x450.png?text=TimeCar',
     aiHint: 'compact car city',
     excerpt: 'Xe Compact là dòng xe cỡ nhỏ, gọn gàng, thích hợp đi trong thành phố và thường có giá thành rẻ.',
     content: `

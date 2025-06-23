@@ -88,7 +88,7 @@ export const employees: Employee[] = rawData.map(e => {
     name: e.name.trim(),
     role: role,
     hometown: e.hometown.trim(),
-    avatar: `https://placehold.co/128x128.png`,
+    avatar: `https://placehold.co/128x128.png?text=Avatar`,
     roleHint: getRoleHint(role)
   });
 });
