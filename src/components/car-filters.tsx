@@ -157,7 +157,8 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
   const drivetrainTranslations: {[key: string]: string} = {
     'FWD': 'Cầu trước',
     'RWD': 'Cầu sau',
-    'AWD': '4 bánh'
+    'AWD': 'AWD',
+    '4WD': '4x4'
   }
 
   const ColorButton = ({ color, isSelected, onClick }: { color: string; isSelected: boolean; onClick: () => void; }) => (

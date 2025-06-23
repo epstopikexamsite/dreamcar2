@@ -19,7 +19,7 @@ export interface Car {
   type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV';
   exteriorColor: string;
   interiorColor: string;
-  drivetrain: 'FWD' | 'RWD' | 'AWD';
+  drivetrain: 'FWD' | 'RWD' | 'AWD' | '4WD';
   specs: {
     engine: string;
     horsepower: number;

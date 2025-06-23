@@ -196,7 +196,7 @@ export const cars: Car[] = [
     type: 'SUV',
     exteriorColor: 'Gray',
     interiorColor: 'Brown',
-    drivetrain: 'AWD',
+    drivetrain: '4WD',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,

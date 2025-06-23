@@ -57,7 +57,8 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
   const drivetrainTranslations: {[key: string]: string} = {
     'FWD': 'Cầu trước',
     'RWD': 'Cầu sau',
-    'AWD': '4 bánh'
+    'AWD': 'AWD',
+    '4WD': '4x4'
   }
 
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
@@ -128,7 +129,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                       <GitCommitHorizontal className="w-4 h-4 mr-2 text-accent" />
                       <strong>Dẫn động</strong>
                     </span>
-                    <span className="text-muted-foreground">{drivetrainTranslations[car.drivetrain] || car.drivetrain}</span>
+                    <span className="text-muted-foreground">{drivetrainTranslations[car.drivetrain as keyof typeof drivetrainTranslations] || car.drivetrain}</span>
                   </li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><CarIcon className="w-4 h-4 mr-2 text-accent" /> <strong>Loại xe</strong></span> <span className="text-muted-foreground">{car.type}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Palette className="w-4 h-4 mr-2 text-accent" /> <strong>Exterior Color</strong></span> <span className="text-muted-foreground">{car.exteriorColor}</span></li>
