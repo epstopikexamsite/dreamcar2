@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 
@@ -32,7 +32,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
   
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
     Gasoline: Fuel,
-    Diesel: Fuel,
+    Diesel: Truck,
     Electric: Zap,
     Hybrid: Leaf,
   };

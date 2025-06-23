@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck } from 'lucide-react';
 
 
 interface CarFiltersProps {
@@ -20,7 +20,7 @@ interface CarFiltersProps {
 
 const fuelTypeIcons: { [key: string]: React.ElementType } = {
   'Gasoline': Fuel,
-  'Diesel': Fuel,
+  'Diesel': Truck,
   'Electric': Zap,
   'Hybrid': Leaf,
 };
