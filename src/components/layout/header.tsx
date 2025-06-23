@@ -12,7 +12,7 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="DREAMCAR"
-            width={240}
+            width={220}
             height={50}
             priority
           />
