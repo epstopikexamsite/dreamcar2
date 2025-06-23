@@ -3,10 +3,28 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
+
+const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M12 19V5" />
+      <circle cx="12" cy="5" r="2" />
+      <path d="M12 12H8" />
+      <path d="M12 12h4" />
+    </svg>
+  );
 
 interface CarDetailsDialogProps {
   car: Car;
@@ -31,6 +49,11 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
     'Hybrid': 'Hybrid'
   }
   
+  const transmissionTranslations: {[key: string]: string} = {
+    'Automatic': 'Số tự động',
+    'Manual': 'Số tay'
+  }
+
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
     Gasoline: Fuel,
     Diesel: Truck,
@@ -38,7 +61,13 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
     Hybrid: Leaf,
   };
 
+  const transmissionIcons: { [key: string]: React.ElementType } = {
+    'Automatic': Cog,
+    'Manual': ManualGearboxIcon,
+  };
+
   const FuelIcon = fuelTypeIcons[car.fuelType] || Fuel;
+  const TransmissionIcon = transmissionIcons[car.transmission];
 
   return (
     <Dialog>
@@ -80,6 +109,13 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                       <strong>Fuel Type</strong>
                     </span>
                     <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span>
+                  </li>
+                  <li className="flex items-center justify-between">
+                    <span className="flex items-center">
+                      {TransmissionIcon && <TransmissionIcon className="w-4 h-4 mr-2 text-accent" />}
+                      <strong>Hộp số</strong>
+                    </span>
+                    <span className="text-muted-foreground">{transmissionTranslations[car.transmission] || car.transmission}</span>
                   </li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>

@@ -13,6 +13,7 @@ export interface Car {
   image: string;
   logo: string;
   fuelType: string;
+  transmission: 'Automatic' | 'Manual';
   specs: {
     engine: string;
     horsepower: number;

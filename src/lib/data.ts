@@ -10,6 +10,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/tesla.svg',
     fuelType: 'Electric',
+    transmission: 'Automatic',
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -31,6 +32,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/porsche.svg',
     fuelType: 'Gasoline',
+    transmission: 'Automatic',
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -52,6 +54,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/ford.svg',
     fuelType: 'Gasoline',
+    transmission: 'Automatic',
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -73,6 +76,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/toyota.svg',
     fuelType: 'Hybrid',
+    transmission: 'Automatic',
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -94,6 +98,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/bmw.svg',
     fuelType: 'Gasoline',
+    transmission: 'Manual',
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -115,6 +120,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/honda.svg',
     fuelType: 'Gasoline',
+    transmission: 'Manual',
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -136,6 +142,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/audi.svg',
     fuelType: 'Gasoline',
+    transmission: 'Automatic',
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -157,6 +164,7 @@ export const cars: Car[] = [
     image: 'https://placehold.co/600x400.png',
     logo: '/logos/jeep.svg',
     fuelType: 'Diesel',
+    transmission: 'Automatic',
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,
