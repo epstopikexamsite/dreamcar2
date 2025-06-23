@@ -4,6 +4,7 @@ export interface Employee {
   role: string;
   hometown: string;
   avatar: string;
+  roleHint: string;
 }
 
 const roleMap: { [key: string]: string } = {
@@ -63,10 +64,28 @@ const rawData = [
   { id: 48, name: 'Phạm Thành Luân', roleRaw: '', hometown: 'Hà Nội' },
 ];
 
-export const employees: Employee[] = rawData.map(e => ({
-  id: e.id,
-  name: e.name.trim(),
-  role: roleMap[e.roleRaw] || 'Nhân viên',
-  hometown: e.hometown.trim(),
-  avatar: `https://placehold.co/128x128.png`
-}));
+const getRoleHint = (role: string): string => {
+    switch (role) {
+        case 'Chủ tịch HĐQT':
+            return 'ceo portrait';
+        case 'Phó Giám đốc':
+            return 'manager portrait';
+        case 'Trưởng phòng':
+        case 'Trưởng phòng HC':
+            return 'team lead portrait';
+        default:
+            return 'professional portrait';
+    }
+};
+
+export const employees: Employee[] = rawData.map(e => {
+  const role = roleMap[e.roleRaw] || 'Nhân viên';
+  return ({
+    id: e.id,
+    name: e.name.trim(),
+    role: role,
+    hometown: e.hometown.trim(),
+    avatar: `https://placehold.co/128x128.png`,
+    roleHint: getRoleHint(role)
+  });
+});

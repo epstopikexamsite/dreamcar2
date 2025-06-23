@@ -21,7 +21,7 @@ const TeamSection = ({ title, members }: { title: string, members: Employee[] })
                 {members.map((employee) => (
                     <Card key={employee.id} className="text-center flex flex-col items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">
                         <Avatar className="w-24 h-24 mb-4 border-4 border-primary/20">
-                            <AvatarImage src={employee.avatar} alt={employee.name} data-ai-hint="portrait professional" />
+                            <AvatarImage src={employee.avatar} alt={employee.name} data-ai-hint={employee.roleHint} />
                             <AvatarFallback className="text-3xl bg-muted">{getInitials(employee.name)}</AvatarFallback>
                         </Avatar>
                         <CardHeader className="p-0 text-center">
