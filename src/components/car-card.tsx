@@ -1,4 +1,4 @@
-'use client';
+
 import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
