@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Fuel, Zap, Leaf } from 'lucide-react';
 
 
 interface CarFiltersProps {
@@ -16,6 +17,13 @@ interface CarFiltersProps {
   filters: { brand: string[]; priceRange: number[]; year: string[]; fuelType: string[] };
   onFilterChange: (filters: any) => void;
 }
+
+const fuelTypeIcons: { [key: string]: React.ElementType } = {
+  'Gasoline': Fuel,
+  'Diesel': Fuel,
+  'Electric': Zap,
+  'Hybrid': Leaf,
+};
 
 export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters, onFilterChange }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
@@ -115,21 +123,24 @@ export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters
         <div className="space-y-2">
           <Label className="font-semibold">Loại nhiên liệu</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
-            {fuelTypes.map((fuelType) => (
+            {fuelTypes.map((fuelType) => {
+              const Icon = fuelTypeIcons[fuelType];
+              return (
               <button
                 key={fuelType}
                 onClick={() => handleFuelTypeChange(fuelType)}
                 className={cn(
-                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium",
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
                   "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
                   filters.fuelType.includes(fuelType)
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "bg-card hover:bg-accent hover:text-accent-foreground"
                 )}
               >
+                {Icon && <Icon className="w-4 h-4" />}
                 {fuelTypeTranslations[fuelType] || fuelType}
               </button>
-            ))}
+            )})}
           </div>
         </div>
 

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 
@@ -29,6 +29,16 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
     'Electric': 'Điện',
     'Hybrid': 'Hybrid'
   }
+  
+  const fuelTypeIcons: { [key: string]: React.ElementType } = {
+    Gasoline: Fuel,
+    Diesel: Fuel,
+    Electric: Zap,
+    Hybrid: Leaf,
+  };
+
+  const FuelIcon = fuelTypeIcons[car.fuelType] || Fuel;
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -57,7 +67,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Type</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><FuelIcon className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Type</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>
