@@ -6,10 +6,50 @@ import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
+
+const testimonials = [
+  {
+    quote: "Dịch vụ ở TIME CARS AUTO thực sự tuyệt vời. Các bạn tư vấn rất nhiệt tình, xe thì chất lượng không chê vào đâu được. Tôi đã tìm được chiếc xe ưng ý cho gia đình mình.",
+    name: "Anh Hoàng Minh",
+    role: "Khách hàng mua xe Toyota Camry",
+    avatar: "https://placehold.co/100x100.png",
+    aiHint: "happy man portrait",
+    rating: 5,
+  },
+  {
+    quote: "Tôi đã bán lại chiếc xe cũ của mình tại đây và được định giá rất cao, thủ tục lại nhanh gọn. Chắc chắn sẽ giới thiệu cho bạn bè và người thân.",
+    name: "Chị Thu Trang",
+    role: "Khách hàng bán xe Mazda CX-5",
+    avatar: "https://placehold.co/100x100.png",
+    aiHint: "professional woman portrait",
+    rating: 5,
+  },
+  {
+    quote: "Chất lượng xe lướt ở đây đúng như cam kết. Xe gần như mới, mọi thứ đều được kiểm tra kỹ lưỡng. Rất an tâm khi mua xe tại TIME CARS AUTO.",
+    name: "Anh Quốc Bảo",
+    role: "Khách hàng mua xe Mercedes-Benz E-Class",
+    avatar: "https://placehold.co/100x100.png",
+    aiHint: "man business portrait",
+    rating: 5,
+  },
+];
+
+const StarRating = ({ rating }: { rating: number }) => (
+    <div className="flex items-center gap-1">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className={`h-5 w-5 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+        />
+      ))}
+    </div>
+);
+
 
 export default function Home() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -147,6 +187,37 @@ export default function Home() {
         </section>
 
         <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
+              Khách Hàng Nói Gì Về Chúng Tôi
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="flex flex-col p-6 bg-card transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <CardContent className="p-0 pb-6 text-muted-foreground flex-grow">
+                    <MessageSquare className="w-8 h-8 text-primary/30 mb-4" />
+                    <p className="italic">"{testimonial.quote}"</p>
+                  </CardContent>
+                  <CardFooter className="p-0 mt-auto flex flex-col items-start gap-4 border-t pt-4">
+                    <StarRating rating={testimonial.rating} />
+                    <div className="flex items-center gap-4">
+                        <Avatar className="h-12 w-12 border-2 border-primary/20">
+                            <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.aiHint} />
+                            <AvatarFallback>{testimonial.name.split(' ').pop()?.[0]}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                            <p className="font-semibold text-foreground">{testimonial.name}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        </div>
+                    </div>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-primary/5">
             <div className="container mx-auto px-4 max-w-4xl">
                 <Card className="border-2 border-primary/50 shadow-lg text-center">
                     <CardHeader className="p-6">
