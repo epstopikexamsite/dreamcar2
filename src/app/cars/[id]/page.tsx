@@ -9,11 +9,12 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { cars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ArrowLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -113,14 +114,14 @@ export default function CarDetailPage() {
             <span className="font-medium text-foreground">{car.brand} {car.model}</span>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-8 lg:gap-12">
-          <div className="md:col-span-3">
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div>
             <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-4 bg-muted shadow-lg">
                 <Image
                   src={currentImage}
                   alt={car.model}
                   fill
-                  sizes="(max-width: 768px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                   className="object-cover transition-opacity duration-300"
                   data-ai-hint="car detail view"
@@ -142,7 +143,7 @@ export default function CarDetailPage() {
             </div>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <h1 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{car.brand} {car.model}</h1>
             <p className="text-lg text-muted-foreground mb-4">{car.year}</p>
             <p className="font-bold text-3xl text-primary mb-6">{car.price.toLocaleString('vi-VN')} VNĐ</p>
@@ -191,56 +192,67 @@ export default function CarDetailPage() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <Card>
-                <CardHeader><CardTitle>Thông số kỹ thuật</CardTitle></CardHeader>
-                <CardContent>
-                    <ul className="space-y-3 text-sm">
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Zap className="w-4 h-4" /> Động cơ</span> <strong className="text-right">{car.specs.engine}</strong></li>
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Gauge className="w-4 h-4" /> Mã lực</span> <strong>{car.specs.horsepower} hp</strong></li>
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Droplets className="w-4 h-4" /> Tiêu thụ nhiên liệu</span> <strong>{car.specs.fuelConsumption}</strong></li>
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Palette className="w-4 h-4" /> Màu ngoại thất</span> <strong>{car.exteriorColor}</strong></li>
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Armchair className="w-4 h-4" /> Màu nội thất</span> <strong>{car.interiorColor}</strong></li>
-                      <li className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2 text-muted-foreground"><Ruler className="w-4 h-4" /> Kích thước</span> <strong>{car.specs.dimensions.length}x{car.specs.dimensions.width}x{car.specs.dimensions.height}mm</strong></li>
-                      <li className="flex items-center justify-between"><span className="flex items-center gap-2 text-muted-foreground"><Shield className="w-4 h-4" /> Đánh giá an toàn</span> <strong><StarRating rating={car.specs.safetyRating} /></strong></li>
-                    </ul>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader><CardTitle>Tính năng nổi bật</CardTitle></CardHeader>
-                <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {car.features.map(feature => (
-                        <Badge key={feature} variant="secondary" className="text-base">{feature}</Badge>
-                      ))}
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
-
-        <Card className="mt-8">
-            <CardHeader><CardTitle>Đánh giá từ khách hàng</CardTitle></CardHeader>
-            <CardContent className="space-y-6">
-                {car.reviews.length > 0 ? (
-                    car.reviews.map((review, index) => (
-                        <div key={index} className="flex gap-4 border-b pb-4 last:border-b-0 last:pb-0">
-                            <Avatar className="h-10 w-10 border">
-                                <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                            </Avatar>
-                            <div>
-                                <div className="flex items-center gap-2 mb-1">
-                                    <p className="font-semibold">{review.name}</p>
-                                    <StarRating rating={review.rating} />
-                                </div>
-                                <p className="text-muted-foreground italic">"{review.comment}"</p>
+        <div className="mt-16">
+            <Tabs defaultValue="specs" className="w-full">
+                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
+                    <TabsTrigger value="specs">Thông số kỹ thuật</TabsTrigger>
+                    <TabsTrigger value="features">Tính năng nổi bật</TabsTrigger>
+                    <TabsTrigger value="reviews">Đánh giá ({car.reviews.length})</TabsTrigger>
+                </TabsList>
+                <TabsContent value="specs" className="mt-6">
+                    <Card>
+                        <CardContent className="p-6">
+                            <ul className="space-y-4 text-base">
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Zap className="w-5 h-5 text-accent" /> Động cơ</span> <strong className="text-right font-medium">{car.specs.engine}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Gauge className="w-5 h-5 text-accent" /> Mã lực</span> <strong className="font-medium">{car.specs.horsepower} hp</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Droplets className="w-5 h-5 text-accent" /> Tiêu thụ nhiên liệu</span> <strong className="font-medium">{car.specs.fuelConsumption}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Palette className="w-5 h-5 text-accent" /> Màu ngoại thất</span> <strong className="font-medium">{car.exteriorColor}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Armchair className="w-5 h-5 text-accent" /> Màu nội thất</span> <strong className="font-medium">{car.interiorColor}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Ruler className="w-5 h-5 text-accent" /> Kích thước (D x R x C)</span> <strong className="font-medium">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</strong></li>
+                              <li className="flex items-center justify-between"><span className="flex items-center gap-3 text-muted-foreground"><Shield className="w-5 h-5 text-accent" /> Đánh giá an toàn</span> <strong><StarRating rating={car.specs.safetyRating} /></strong></li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="features" className="mt-6">
+                    <Card>
+                        <CardContent className="p-6">
+                            <div className="flex flex-wrap gap-3">
+                              {car.features.map(feature => (
+                                <Badge key={feature} variant="secondary" className="text-base py-1 px-3">{feature}</Badge>
+                              ))}
                             </div>
-                        </div>
-                    ))
-                ) : (
-                    <p className="text-muted-foreground">Chưa có đánh giá nào cho xe này.</p>
-                )}
-            </CardContent>
-        </Card>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="reviews" className="mt-6">
+                    <Card>
+                        <CardContent className="p-6 space-y-8">
+                            {car.reviews.length > 0 ? (
+                                car.reviews.map((review, index) => (
+                                    <div key={index} className="flex flex-col sm:flex-row gap-4">
+                                        <Avatar className="h-12 w-12 border shrink-0">
+                                            <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                                        </Avatar>
+                                        <div className="flex-grow">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="font-semibold text-lg">{review.name}</p>
+                                                <StarRating rating={review.rating} />
+                                            </div>
+                                            <div className="p-4 bg-muted/50 rounded-lg">
+                                                <p className="text-muted-foreground italic">"{review.comment}"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className="text-muted-foreground text-center py-8">Chưa có đánh giá nào cho xe này.</p>
+                            )}
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+            </Tabs>
+        </div>
       </main>
       <Footer />
     </div>
