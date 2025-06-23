@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Phone, Facebook, Youtube } from 'lucide-react';
-import { locations } from '@/lib/locations';
+import { Phone, Facebook, Youtube } from 'lucide-react';
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -27,12 +26,10 @@ const legalLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
-            <div className="container mx-auto px-4 py-8">
-                
-                {/* Main content: Logo + Locations */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
-                    {/* Column 1: Logo & Slogan */}
-                    <div className="lg:col-span-1 space-y-2">
+            <div className="container mx-auto px-4 py-6">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+                    {/* Left Side: Logo & Slogan */}
+                    <div className="space-y-2 text-center sm:text-left">
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
@@ -46,29 +43,8 @@ export default function Footer() {
                         </p>
                     </div>
                     
-                    {/* Columns 2-4: Locations spread across 3 columns */}
-                    <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
-                        {locations.map((loc) => (
-                            <div key={loc.name}>
-                                <address className="text-sm not-italic text-primary-foreground/80">
-                                    <p className="font-semibold text-primary-foreground flex items-center justify-center lg:justify-start gap-2">
-                                        <MapPin className="w-4 h-4 shrink-0" />
-                                        {loc.name}
-                                    </p>
-                                    <p className="mt-1">{loc.address}</p>
-                                </address>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Bottom Bar: Copyright, Socials, etc. */}
-                <div className="border-t border-primary-foreground/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-primary-foreground/60 order-2 sm:order-1">
-                        &copy; {new Date().getFullYear()} TIME CARS AUTO
-                    </p>
-                     
-                    <div className="flex items-center gap-x-6 order-1 sm:order-2">
+                    {/* Right Side: Contact & Socials */}
+                    <div className="flex flex-col sm:flex-row items-center gap-6">
                          <div className="flex items-center gap-2 text-sm font-semibold">
                             <Phone className="w-4 h-4 shrink-0" />
                             <span>098.150.2222 (Hotline)</span>
@@ -81,10 +57,16 @@ export default function Footer() {
                             ))}
                         </div>
                     </div>
+                </div>
 
-                     <div className="flex items-center gap-x-4 order-3 text-xs">
+                {/* Bottom Bar: Copyright & Legal */}
+                <div className="border-t border-primary-foreground/20 pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-primary-foreground/60">
+                    <p>
+                        &copy; {new Date().getFullYear()} TIME CARS AUTO
+                    </p>
+                     <div className="flex items-center gap-x-4">
                         {legalLinks.map(link => (
-                            <Link key={link.label} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                            <Link key={link.label} href={link.href} className="hover:text-primary-foreground transition-colors">
                                 {link.label}
                             </Link>
                         ))}
