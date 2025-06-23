@@ -61,9 +61,14 @@ export default function Footer() {
                     </div>
 
                     {/* Right Side: Contact */}
-                    <div className="md:col-span-3 flex flex-col items-center md:items-end text-right">
-                         <p className="font-semibold text-sm text-primary-foreground/80">Hotline</p>
-                         <p className="font-bold text-lg">098.150.2222</p>
+                    <div className="md:col-span-3 flex justify-center md:justify-end">
+                        <div className="space-y-1">
+                            <h4 className="font-semibold flex items-center justify-center md:justify-start gap-2">
+                                <Phone className="w-4 h-4 shrink-0" /> 
+                                Hotline
+                            </h4>
+                            <p className="font-bold text-lg text-center md:text-left">098.150.2222</p>
+                        </div>
                     </div>
                 </div>
 
