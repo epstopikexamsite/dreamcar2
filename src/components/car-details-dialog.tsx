@@ -150,22 +150,6 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                 </div>
               </div>
             </div>
-            <div>
-              <h3 className="font-headline text-lg font-semibold mb-3 mt-4 border-b pb-2">Đánh giá & Xếp hạng</h3>
-              <div className="space-y-4">
-                {car.reviews.length > 0 ? car.reviews.map((review, index) => (
-                  <div key={index} className="border-t pt-4 first:border-t-0">
-                    <div className="flex items-center justify-between">
-                      <p className="font-semibold">{review.name}</p>
-                      <StarRating rating={review.rating} />
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-1 italic">"{review.comment}"</p>
-                  </div>
-                )) : (
-                  <p className="text-sm text-muted-foreground">Chưa có đánh giá nào cho mẫu xe này.</p>
-                )}
-              </div>
-            </div>
           </div>
         </ScrollArea>
       </DialogContent>
