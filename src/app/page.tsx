@@ -126,41 +126,7 @@ export default function Home() {
               </aside>
             
             <section className="lg:col-span-3">
-                <div className="flex justify-between items-center mb-6">
-                  <h1 className="text-3xl font-headline font-bold text-foreground">Xe Nổi Bật</h1>
-                  <div className="lg:hidden">
-                    <Sheet>
-                        <SheetTrigger asChild>
-                            <Button variant="outline">
-                                <Filter className="mr-2 h-4 w-4" />
-                                Bộ lọc
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="left" className="p-0">
-                            <SheetHeader className="p-4 border-b">
-                                <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
-                            </SheetHeader>
-                            <ScrollArea className="h-[calc(100%-4rem)]">
-                                <div className="p-4">
-                                  <CarFilters 
-                                    brands={brands} 
-                                    years={years}
-                                    fuelTypes={fuelTypes}
-                                    transmissionTypes={transmissionTypes}
-                                    carTypes={carTypes}
-                                    exteriorColors={exteriorColors}
-                                    interiorColors={interiorColors}
-                                    drivetrains={drivetrains}
-                                    filters={filters} 
-                                    onFilterChange={setFilters}
-                                    showTitle={false}
-                                  />
-                                </div>
-                            </ScrollArea>
-                        </SheetContent>
-                    </Sheet>
-                  </div>
-                </div>
+                <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
                 
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -273,6 +239,39 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="lg:hidden fixed bottom-6 right-6 z-40">
+          <Sheet>
+            <SheetTrigger asChild>
+                <Button size="lg" className="rounded-full shadow-lg h-16 w-16 p-0 flex items-center justify-center">
+                    <Filter className="h-6 w-6" />
+                    <span className="sr-only">Bộ lọc</span>
+                </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="p-0">
+                <SheetHeader className="p-4 border-b">
+                    <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
+                </SheetHeader>
+                <ScrollArea className="h-[calc(100%-4rem)]">
+                    <div className="p-4">
+                      <CarFilters 
+                        brands={brands} 
+                        years={years}
+                        fuelTypes={fuelTypes}
+                        transmissionTypes={transmissionTypes}
+                        carTypes={carTypes}
+                        exteriorColors={exteriorColors}
+                        interiorColors={interiorColors}
+                        drivetrains={drivetrains}
+                        filters={filters} 
+                        onFilterChange={setFilters}
+                        showTitle={false}
+                      />
+                    </div>
+                </ScrollArea>
+            </SheetContent>
+          </Sheet>
+        </div>
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-auto">
         <div className="container mx-auto text-center text-muted-foreground">
