@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'DREAMCAR',
-  description: 'Find your dream car.',
+  description: 'Tìm chiếc xe mơ ước của bạn.',
 };
 
 export default function RootLayout({

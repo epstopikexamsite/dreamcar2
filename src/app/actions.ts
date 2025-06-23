@@ -5,13 +5,13 @@ import { getPersonalizedCarRecommendations } from '@/ai/flows/personalized-car-r
 export async function getRecommendationsAction(preferences: string) {
   try {
     if (!preferences.trim()) {
-      return { success: false, error: 'Preferences cannot be empty.' };
+      return { success: false, error: 'Sở thích không được để trống.' };
     }
     const result = await getPersonalizedCarRecommendations({ preferences });
     return { success: true, data: result };
   } catch (e) {
     console.error(e);
-    const errorMessage = e instanceof Error ? e.message : 'An unknown error occurred.';
-    return { success: false, error: `Failed to get recommendations: ${errorMessage}` };
+    const errorMessage = e instanceof Error ? e.message : 'Đã xảy ra lỗi không xác định.';
+    return { success: false, error: `Lấy gợi ý thất bại: ${errorMessage}` };
   }
 }

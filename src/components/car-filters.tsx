@@ -12,7 +12,7 @@ import type { Car as CarType } from '@/lib/types';
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -188,11 +188,11 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
   return (
     <Card className="sticky top-24">
       <CardHeader>
-        <CardTitle className="font-headline text-2xl">Filters</CardTitle>
+        <CardTitle className="font-headline text-2xl">Bộ lọc</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Brand</Label>
+          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Hãng xe</Label>
           <div className="grid grid-cols-3 gap-2 pt-2">
             {brands.map((brand) => (
               <TooltipProvider key={brand.name} delayDuration={200}>
@@ -227,15 +227,15 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><DollarSign className="w-4 h-4" /> Price Range</Label>
+          <Label className="font-semibold flex items-center gap-2"><DollarSign className="w-4 h-4" /> Khoảng giá</Label>
           <div className="flex items-center gap-2 pt-2">
             <div className="relative flex-1">
-              <Label htmlFor="min-price" className="sr-only">Minimum Price</Label>
+              <Label htmlFor="min-price" className="sr-only">Giá tối thiểu</Label>
               <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="min-price"
                 type="number"
-                placeholder="Min"
+                placeholder="Tối thiểu"
                 value={filters.priceRange[0] === 0 ? '' : filters.priceRange[0]}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -249,12 +249,12 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
             </div>
             <span className="text-muted-foreground">-</span>
             <div className="relative flex-1">
-              <Label htmlFor="max-price" className="sr-only">Maximum Price</Label>
+              <Label htmlFor="max-price" className="sr-only">Giá tối đa</Label>
               <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="max-price"
                 type="number"
-                placeholder="Max"
+                placeholder="Tối đa"
                 value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -270,7 +270,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><Calendar className="w-4 h-4" /> Year</Label>
+          <Label className="font-semibold flex items-center gap-2"><Calendar className="w-4 h-4" /> Năm sản xuất</Label>
           <div className="grid grid-cols-4 gap-2 pt-2">
             {years.map((year) => (
               <button
@@ -291,7 +291,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><Palette className="w-4 h-4" /> Exterior Color</Label>
+          <Label className="font-semibold flex items-center gap-2"><Palette className="w-4 h-4" /> Màu ngoại thất</Label>
           <div className="flex flex-wrap gap-2 pt-2">
             {exteriorColors.map((color) => (
               <ColorButton
@@ -305,7 +305,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><Armchair className="w-4 h-4" /> Interior Color</Label>
+          <Label className="font-semibold flex items-center gap-2"><Armchair className="w-4 h-4" /> Màu nội thất</Label>
           <div className="flex flex-wrap gap-2 pt-2">
             {interiorColors.map((color) => (
               <ColorButton

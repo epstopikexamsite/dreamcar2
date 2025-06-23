@@ -13,12 +13,12 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const PersonalizedCarRecommendationsInputSchema = z.object({
-  preferences: z.string().describe('The user preferences for car recommendations.'),
+  preferences: z.string().describe('Sở thích của người dùng để gợi ý xe.'),
 });
 export type PersonalizedCarRecommendationsInput = z.infer<typeof PersonalizedCarRecommendationsInputSchema>;
 
 const PersonalizedCarRecommendationsOutputSchema = z.object({
-  recommendations: z.string().describe('The personalized car recommendations.'),
+  recommendations: z.string().describe('Các gợi ý xe được cá nhân hóa.'),
 });
 export type PersonalizedCarRecommendationsOutput = z.infer<typeof PersonalizedCarRecommendationsOutputSchema>;
 
@@ -32,11 +32,11 @@ const prompt = ai.definePrompt({
   name: 'personalizedCarRecommendationsPrompt',
   input: {schema: PersonalizedCarRecommendationsInputSchema},
   output: {schema: PersonalizedCarRecommendationsOutputSchema},
-  prompt: `You are an expert car recommendation agent.
+  prompt: `Bạn là một chuyên gia tư vấn xe hơi.
 
-  Based on the user's preferences, provide personalized car recommendations.
+  Dựa trên sở thích của người dùng, hãy đưa ra những gợi ý xe được cá nhân hóa.
 
-  User Preferences: {{{preferences}}}
+  Sở thích người dùng: {{{preferences}}}
   `,
 });
 

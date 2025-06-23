@@ -83,7 +83,7 @@ export default function Home() {
             </aside>
           )}
           <section className={isFilterVisible ? "lg:col-span-3" : "lg:col-span-4"}>
-            <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Featured Vehicles</h1>
+            <h1 className="text-3xl font-headline font-bold text-foreground mb-6">Xe Nổi Bật</h1>
             
             {filteredCars.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -93,13 +93,13 @@ export default function Home() {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-lg">
-                <p className="text-muted-foreground">No cars match your criteria.</p>
-                <p className="text-sm text-muted-foreground">Try adjusting your filters.</p>
+                <p className="text-muted-foreground">Không có xe nào phù hợp với tiêu chí của bạn.</p>
+                <p className="text-sm text-muted-foreground">Hãy thử điều chỉnh bộ lọc.</p>
               </div>
             )}
             {filteredCars.length > 6 && !showAll && (
               <div className="text-center mt-8">
-                <Button onClick={() => setShowAll(true)} size="lg">Show All</Button>
+                <Button onClick={() => setShowAll(true)} size="lg">Hiển thị tất cả</Button>
               </div>
             )}
           </section>
@@ -107,7 +107,7 @@ export default function Home() {
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-12">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} DREAMCAR. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} DREAMCAR. Đã đăng ký bản quyền.</p>
         </div>
       </footer>
     </div>

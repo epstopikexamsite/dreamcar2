@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -79,7 +79,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-full">View Details</Button>
+        <Button className="w-full">Xem chi tiết</Button>
       </DialogTrigger>
       <DialogContent className="max-w-3xl p-0">
         <ScrollArea className="max-h-[90vh]">
@@ -133,16 +133,16 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
 
             <div className="space-y-6 mt-6">
               <div>
-                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Technical Specifications</h3>
+                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Thông số kỹ thuật</h3>
                 <ul className="space-y-3 text-sm pt-2">
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Động cơ</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Mã lực</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Tiết kiệm nhiên liệu</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Đánh giá an toàn</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Features</h3>
+                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Tính năng</h3>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {car.features.map(feature => (
                     <Badge key={feature} variant="secondary">{feature}</Badge>
@@ -151,7 +151,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
               </div>
             </div>
             <div>
-              <h3 className="font-headline text-lg font-semibold mb-3 mt-4 border-b pb-2">Reviews & Ratings</h3>
+              <h3 className="font-headline text-lg font-semibold mb-3 mt-4 border-b pb-2">Đánh giá & Xếp hạng</h3>
               <div className="space-y-4">
                 {car.reviews.length > 0 ? car.reviews.map((review, index) => (
                   <div key={index} className="border-t pt-4 first:border-t-0">
@@ -162,7 +162,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                     <p className="text-sm text-muted-foreground mt-1 italic">"{review.comment}"</p>
                   </div>
                 )) : (
-                  <p className="text-sm text-muted-foreground">No reviews yet for this model.</p>
+                  <p className="text-sm text-muted-foreground">Chưa có đánh giá nào cho mẫu xe này.</p>
                 )}
               </div>
             </div>

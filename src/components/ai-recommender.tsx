@@ -28,8 +28,8 @@ export default function AIRecommender() {
     } else {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: response.error || "An unknown error occurred.",
+        title: "Lỗi",
+        description: response.error || "Đã xảy ra lỗi không xác định.",
       });
     }
     setLoading(false);
@@ -55,15 +55,15 @@ export default function AIRecommender() {
       <DialogContent className="sm:max-w-md">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle className="font-headline">Personalized Recommendations</DialogTitle>
+            <DialogTitle className="font-headline">Gợi ý cá nhân hóa</DialogTitle>
             <DialogDescription>
-              Describe your perfect car, and our AI will find the best matches for you.
+              Mô tả chiếc xe hoàn hảo của bạn và AI của chúng tôi sẽ tìm những chiếc phù hợp nhất.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <Textarea
               id="preferences"
-              placeholder="e.g., 'I need a family-friendly SUV with good gas mileage and advanced safety features. My budget is around $30,000.'"
+              placeholder="VD: 'Tôi cần một chiếc SUV cho gia đình, tiết kiệm xăng và có các tính năng an toàn tiên tiến. Ngân sách của tôi khoảng 700 triệu đồng.'"
               value={preferences}
               onChange={(e) => setPreferences(e.target.value)}
               rows={5}
@@ -72,7 +72,7 @@ export default function AIRecommender() {
           </div>
           {loading && (
             <div className="space-y-2 p-4 bg-muted/50 rounded-md">
-              <p className="text-sm font-semibold text-primary">Finding your dream ride...</p>
+              <p className="text-sm font-semibold text-primary">Đang tìm chiếc xe trong mơ của bạn...</p>
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-3/4" />
@@ -80,13 +80,13 @@ export default function AIRecommender() {
           )}
           {result && (
             <div className="p-4 bg-muted/50 rounded-md max-h-48 overflow-y-auto">
-              <h4 className="font-semibold mb-2">Our suggestions:</h4>
+              <h4 className="font-semibold mb-2">Gợi ý của chúng tôi:</h4>
               <p className="text-sm text-foreground whitespace-pre-wrap">{result}</p>
             </div>
           )}
           <DialogFooter className="mt-4">
             <Button type="submit" disabled={loading || !preferences.trim()}>
-              {loading ? 'Analyzing...' : 'Get Suggestions'}
+              {loading ? 'Đang phân tích...' : 'Nhận gợi ý'}
             </Button>
           </DialogFooter>
         </form>
