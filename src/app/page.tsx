@@ -5,13 +5,16 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
+import AIChat from '@/components/ai-chat';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare, Filter } from 'lucide-react';
+import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare, Filter, X, MessageCircle } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { cn } from '@/lib/utils';
 
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
@@ -68,6 +71,7 @@ export default function Home() {
     drivetrain: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const filteredCars = useMemo(() => {
     return allCars.filter(car => {
@@ -103,14 +107,114 @@ export default function Home() {
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
+  const handleRemoveFilter = (filterKey: keyof typeof filters, value: string) => {
+    const currentValues = filters[filterKey];
+    if (Array.isArray(currentValues)) {
+        const newValues = currentValues.filter((v: string) => v !== value);
+        setFilters({ ...filters, [filterKey]: newValues });
+    }
+  };
+
+  const handlePriceRemove = () => {
+    setFilters({ ...filters, priceRange: [0, NO_PRICE_LIMIT] });
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      brand: [],
+      priceRange: [0, NO_PRICE_LIMIT],
+      year: [],
+      fuelType: [],
+      transmission: [],
+      type: [],
+      exteriorColor: [],
+      interiorColor: [],
+      drivetrain: [],
+    });
+  };
+
+  const isPriceFiltered = filters.priceRange[0] !== 0 || filters.priceRange[1] !== NO_PRICE_LIMIT;
+  const activeFiltersList = Object.entries(filters)
+    .flatMap(([key, values]) => {
+        if (Array.isArray(values) && values.length > 0) {
+            return values.map(value => ({ key, value }));
+        }
+        return [];
+    });
+  const activeFiltersCount = activeFiltersList.length + (isPriceFiltered ? 1 : 0);
+
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
+        <div className="container mx-auto px-4 py-6 sticky top-[73px] bg-background/95 backdrop-blur-sm z-30 border-b">
+            <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                         <div className="lg:hidden">
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button variant="outline">
+                                        <Filter className="mr-2 h-4 w-4" />
+                                        Bộ lọc ({activeFiltersCount})
+                                    </Button>
+                                </SheetTrigger>
+                                <SheetContent side="left" className="p-0">
+                                    <SheetHeader className="p-4 border-b">
+                                        <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
+                                    </SheetHeader>
+                                    <ScrollArea className="h-[calc(100%-4rem)]">
+                                        <div className="p-4">
+                                        <CarFilters 
+                                            brands={brands} 
+                                            years={years}
+                                            fuelTypes={fuelTypes}
+                                            transmissionTypes={transmissionTypes}
+                                            carTypes={carTypes}
+                                            exteriorColors={exteriorColors}
+                                            interiorColors={interiorColors}
+                                            drivetrains={drivetrains}
+                                            filters={filters} 
+                                            onFilterChange={setFilters}
+                                            showTitle={false}
+                                        />
+                                        </div>
+                                    </ScrollArea>
+                                </SheetContent>
+                            </Sheet>
+                        </div>
+                        <Button onClick={() => setIsChatOpen(true)}>
+                            <MessageCircle className="mr-2 h-4 w-4" />
+                            AI Tư vấn
+                        </Button>
+                    </div>
+                </div>
+                 {activeFiltersCount > 0 && (
+                    <div className="flex items-center flex-wrap gap-2">
+                        <span className="text-sm font-medium">Đang lọc:</span>
+                        {activeFiltersList.map(({ key, value }) => (
+                            <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
+                                {value}
+                                <button onClick={() => handleRemoveFilter(key as any, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
+                            </Badge>
+                        ))}
+                         {isPriceFiltered && (
+                            <Badge variant="secondary" className="pl-2 pr-1 py-1">
+                                Giá: {filters.priceRange[0].toLocaleString('vi-VN')} - {filters.priceRange[1] === NO_PRICE_LIMIT ? 'Không giới hạn' : filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
+                                <button onClick={handlePriceRemove} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
+                            </Badge>
+                        )}
+                        <Button variant="ghost" size="sm" onClick={clearFilters} className="h-auto px-2 py-1 text-xs text-primary hover:bg-primary/10">Xóa tất cả</Button>
+                    </div>
+                )}
+            </div>
+        </div>
+
         <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               <aside className="hidden lg:block lg:col-span-1">
-                <div className="sticky top-24">
+                <div className="sticky top-[200px]">
                   <CarFilters 
                     brands={brands} 
                     years={years}
@@ -127,7 +231,6 @@ export default function Home() {
               </aside>
             
             <section className="lg:col-span-3">
-                
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {visibleCars.map(car => (
@@ -240,38 +343,8 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="lg:hidden fixed top-24 right-6 z-40">
-          <Sheet>
-            <SheetTrigger asChild>
-                <Button size="lg" className="rounded-full shadow-lg h-16 w-16 p-0 flex items-center justify-center">
-                    <Filter className="h-6 w-6" />
-                    <span className="sr-only">Bộ lọc</span>
-                </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="p-0">
-                <SheetHeader className="p-4 border-b">
-                    <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
-                </SheetHeader>
-                <ScrollArea className="h-[calc(100%-4rem)]">
-                    <div className="p-4">
-                      <CarFilters 
-                        brands={brands} 
-                        years={years}
-                        fuelTypes={fuelTypes}
-                        transmissionTypes={transmissionTypes}
-                        carTypes={carTypes}
-                        exteriorColors={exteriorColors}
-                        interiorColors={interiorColors}
-                        drivetrains={drivetrains}
-                        filters={filters} 
-                        onFilterChange={setFilters}
-                        showTitle={false}
-                      />
-                    </div>
-                </ScrollArea>
-            </SheetContent>
-          </Sheet>
-        </div>
+        {isChatOpen && <AIChat onClose={() => setIsChatOpen(false)} />}
+        
       </main>
       <Footer />
     </div>
