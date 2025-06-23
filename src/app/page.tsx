@@ -24,7 +24,15 @@ export default function Home() {
     });
   }, [filters]);
 
-  const brands = useMemo(() => ['all', ...Array.from(new Set(allCars.map(car => car.brand)))], []);
+  const brands = useMemo(() => {
+    const uniqueBrands = allCars.reduce((acc, car) => {
+      if (!acc.some(b => b.name === car.brand)) {
+        acc.push({ name: car.brand, logo: car.logo });
+      }
+      return acc;
+    }, [] as { name: string; logo: string }[]);
+    return [{ name: 'all', logo: '/logos/all.svg' }, ...uniqueBrands];
+  }, []);
   const years = useMemo(() => ['all', ...Array.from(new Set(allCars.map(car => car.year.toString())))].sort((a, b) => (b === 'all' ? -1 : a === 'all' ? 1 : Number(b) - Number(a))), []);
   const maxPrice = useMemo(() => Math.max(...allCars.map(car => car.price)), []);
 

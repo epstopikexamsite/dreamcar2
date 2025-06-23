@@ -1,12 +1,16 @@
 'use client';
 
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
 
 interface CarFiltersProps {
-  brands: string[];
+  brands: { name: string; logo: string }[];
   years: string[];
   maxPrice: number;
   filters: { brand: string; priceRange: number[]; year: string; };
@@ -33,17 +37,38 @@ export default function CarFilters({ brands, years, maxPrice, filters, onFilterC
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="brand-select" className="font-semibold">Brand</Label>
-          <Select value={filters.brand} onValueChange={handleBrandChange}>
-            <SelectTrigger id="brand-select" className="capitalize">
-              <SelectValue placeholder="Select brand" />
-            </SelectTrigger>
-            <SelectContent>
-              {brands.map(brand => (
-                <SelectItem key={brand} value={brand} className="capitalize">{brand}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <Label className="font-semibold">Brand</Label>
+          <div className="grid grid-cols-3 gap-2 pt-2">
+            {brands.map((brand) => (
+              <TooltipProvider key={brand.name} delayDuration={200}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => handleBrandChange(brand.name)}
+                      className={cn(
+                        "p-2 border rounded-md flex items-center justify-center h-16 transition-all duration-200 ease-in-out transform hover:scale-105",
+                        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                        filters.brand === brand.name
+                          ? "bg-primary/10 border-primary"
+                          : "bg-card hover:border-primary/50"
+                      )}
+                    >
+                      <Image
+                        src={brand.logo}
+                        alt={`${brand.name} logo`}
+                        width={80}
+                        height={32}
+                        className="object-contain"
+                      />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="capitalize">{brand.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2">

@@ -10,7 +10,7 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" aria-label="DREAMCAR homepage">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="DREAMCAR"
             width={220}
             height={50}
