@@ -15,6 +15,7 @@ interface HeaderProps {
 
 const navLinks = [
     { href: "/", label: "Cửa hàng" },
+    { href: "/sell-car", label: "Bán Xe" },
     { href: "/about", label: "Giới thiệu" },
     { href: "/team", label: "Đội ngũ" },
     { href: "/gallery", label: "Hoạt động" },
