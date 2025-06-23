@@ -5,12 +5,11 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
-import AIChat from '@/components/ai-chat';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare, Filter, X, MessageCircle } from 'lucide-react';
+import { Award, Tag, Trophy, ShieldCheck, Star, MessageSquare, Filter, X } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -71,7 +70,6 @@ export default function Home() {
     drivetrain: [] as string[],
   });
   const [showAll, setShowAll] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const filteredCars = useMemo(() => {
     return allCars.filter(car => {
@@ -162,7 +160,7 @@ export default function Home() {
                                 </SheetTrigger>
                                 <SheetContent side="left" className="p-0">
                                     <SheetHeader className="p-4 border-b">
-                                        <SheetTitle className="font-headline text-2xl">Bộ lọc</SheetTitle>
+                                        <SheetTitle className="sr-only">Menu chính</SheetTitle>
                                     </SheetHeader>
                                     <ScrollArea className="h-[calc(100%-4rem)]">
                                         <div className="p-4">
@@ -184,10 +182,6 @@ export default function Home() {
                                 </SheetContent>
                             </Sheet>
                         </div>
-                        <Button onClick={() => setIsChatOpen(true)}>
-                            <MessageCircle className="mr-2 h-4 w-4" />
-                            AI Tư vấn
-                        </Button>
                     </div>
                 </div>
                  {activeFiltersCount > 0 && (
@@ -343,7 +337,6 @@ export default function Home() {
           </div>
         </section>
 
-        {isChatOpen && <AIChat onClose={() => setIsChatOpen(false)} />}
         
       </main>
       <Footer />
