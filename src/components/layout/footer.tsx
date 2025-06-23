@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, Facebook, Youtube } from 'lucide-react';
+import { Phone, MapPin, Facebook, Youtube } from 'lucide-react';
+import { locations } from '@/lib/locations';
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -26,10 +27,11 @@ const legalLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
-            <div className="container mx-auto px-4 py-6">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-                    {/* Left Side: Logo & Slogan */}
-                    <div className="space-y-2 text-center sm:text-left">
+            <div className="container mx-auto px-4 py-8">
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    {/* Left Side: Logo & Slogan (takes 3/12 cols) */}
+                    <div className="md:col-span-3 space-y-2 text-center md:text-left">
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
@@ -43,8 +45,23 @@ export default function Footer() {
                         </p>
                     </div>
                     
-                    {/* Right Side: Contact & Socials */}
-                    <div className="flex flex-col items-center sm:items-end gap-2">
+                    {/* Middle: Locations (takes 6/12 cols) */}
+                    <div className="md:col-span-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+                            {locations.map((loc) => (
+                                <div key={loc.name} className="space-y-1">
+                                    <h4 className="font-semibold flex items-center justify-center sm:justify-start gap-2">
+                                      <MapPin className="w-4 h-4 shrink-0" /> 
+                                      {loc.name}
+                                    </h4>
+                                    <p className="text-sm text-primary-foreground/80">{loc.address}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right Side: Contact & Socials (takes 3/12 cols) */}
+                    <div className="md:col-span-3 flex flex-col items-center md:items-end gap-2">
                          <div className="flex items-center gap-2 text-sm font-semibold">
                             <Phone className="w-4 h-4 shrink-0" />
                             <span>098.150.2222 (Hotline)</span>
@@ -60,7 +77,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar: Copyright & Legal */}
-                <div className="border-t border-primary-foreground/20 pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-primary-foreground/60">
+                <div className="border-t border-primary-foreground/20 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-primary-foreground/60">
                     <p>
                         &copy; {new Date().getFullYear()} TIME CARS AUTO
                     </p>
