@@ -14,7 +14,7 @@ export interface Car {
   price: number;
   image: string;
   logo: string;
-  fuelType: string;
+  fuelType: 'Gasoline' | 'Diesel' | 'Hybrid' | 'Electric';
   transmission: 'Automatic' | 'Manual';
   type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV';
   exteriorColor: string;
