@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
 import { cn } from '@/lib/utils';
@@ -97,49 +97,53 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
               <DialogTitle className="font-headline text-3xl">{car.brand} {car.model} ({car.year})</DialogTitle>
               <DialogDescription className="text-primary font-bold text-xl">${car.price.toLocaleString()}</DialogDescription>
             </DialogHeader>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-              <div>
-                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Specifications</h3>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
-                  <li className="flex items-center justify-between">
-                    <span className="flex items-center">
-                      <FuelIcon className={cn("w-4 h-4 mr-2", {
+            
+            <div className="py-4 space-y-4">
+                <div className="flex items-center justify-around text-center border rounded-lg py-4">
+                    <div className="flex flex-col items-center gap-1 w-1/3">
+                        {TransmissionIcon && <TransmissionIcon className="w-6 h-6 mb-1 text-accent" />}
+                        <span className="text-xs text-muted-foreground">Hộp số</span>
+                        <span className="font-semibold">{transmissionTranslations[car.transmission] || car.transmission}</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 w-1/3">
+                        <GitCommitHorizontal className="w-6 h-6 mb-1 text-accent" />
+                        <span className="text-xs text-muted-foreground">Dẫn động</span>
+                        <span className="font-semibold">{drivetrainTranslations[car.drivetrain as keyof typeof drivetrainTranslations] || car.drivetrain}</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 w-1/3">
+                        <Route className="w-6 h-6 mb-1 text-accent" />
+                        <span className="text-xs text-muted-foreground">Số km đã chạy</span>
+                        <span className="font-semibold">{car.mileage.toLocaleString()} km</span>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm pt-2">
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><CarIcon className="w-4 h-4 text-accent" /> <strong>Loại xe</strong></span> <span className="text-muted-foreground">{car.type}</span></div>
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><FuelIcon className={cn("w-4 h-4", {
                         "text-chart-1": car.fuelType === 'Gasoline',
                         "text-chart-3": car.fuelType === 'Diesel',
                         "text-chart-4": car.fuelType === 'Electric',
                         "text-chart-2": car.fuelType === 'Hybrid',
                         "text-accent": !Object.keys(fuelTypeIcons).includes(car.fuelType)
-                      })} />
-                      <strong>Fuel Type</strong>
-                    </span>
-                    <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span>
-                  </li>
-                  <li className="flex items-center justify-between">
-                    <span className="flex items-center">
-                      {TransmissionIcon && <TransmissionIcon className="w-4 h-4 mr-2 text-accent" />}
-                      <strong>Hộp số</strong>
-                    </span>
-                    <span className="text-muted-foreground">{transmissionTranslations[car.transmission] || car.transmission}</span>
-                  </li>
-                  <li className="flex items-center justify-between">
-                    <span className="flex items-center">
-                      <GitCommitHorizontal className="w-4 h-4 mr-2 text-accent" />
-                      <strong>Dẫn động</strong>
-                    </span>
-                    <span className="text-muted-foreground">{drivetrainTranslations[car.drivetrain as keyof typeof drivetrainTranslations] || car.drivetrain}</span>
-                  </li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><CarIcon className="w-4 h-4 mr-2 text-accent" /> <strong>Loại xe</strong></span> <span className="text-muted-foreground">{car.type}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Palette className="w-4 h-4 mr-2 text-accent" /> <strong>Exterior Color</strong></span> <span className="text-muted-foreground">{car.exteriorColor}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Armchair className="w-4 h-4 mr-2 text-accent" /> <strong>Interior Color</strong></span> <span className="text-muted-foreground">{car.interiorColor}</span></li>
+                      })} /> <strong>Nhiên liệu</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></div>
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Palette className="w-4 h-4 text-accent" /> <strong>Màu ngoại thất</strong></span> <span className="text-muted-foreground">{car.exteriorColor}</span></div>
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Armchair className="w-4 h-4 text-accent" /> <strong>Màu nội thất</strong></span> <span className="text-muted-foreground">{car.interiorColor}</span></div>
+                </div>
+            </div>
+
+            <div className="space-y-6 mt-6">
+              <div>
+                <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Technical Specifications</h3>
+                <ul className="space-y-3 text-sm pt-2">
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Features</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 pt-2">
                   {car.features.map(feature => (
                     <Badge key={feature} variant="secondary">{feature}</Badge>
                   ))}

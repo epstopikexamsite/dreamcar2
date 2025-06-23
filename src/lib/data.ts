@@ -15,6 +15,7 @@ export const cars: Car[] = [
     exteriorColor: 'White',
     interiorColor: 'Black',
     drivetrain: 'AWD',
+    mileage: 12500,
     specs: {
       engine: 'Electric',
       horsepower: 670,
@@ -41,6 +42,7 @@ export const cars: Car[] = [
     exteriorColor: 'Silver',
     interiorColor: 'Red',
     drivetrain: 'RWD',
+    mileage: 5600,
     specs: {
       engine: '3.0L Twin-Turbo Boxer 6',
       horsepower: 379,
@@ -67,6 +69,7 @@ export const cars: Car[] = [
     exteriorColor: 'Blue',
     interiorColor: 'Black',
     drivetrain: 'RWD',
+    mileage: 21000,
     specs: {
       engine: '5.0L V8',
       horsepower: 480,
@@ -93,6 +96,7 @@ export const cars: Car[] = [
     exteriorColor: 'Gray',
     interiorColor: 'Beige',
     drivetrain: 'AWD',
+    mileage: 35000,
     specs: {
       engine: '2.5L 4-Cylinder Hybrid',
       horsepower: 219,
@@ -119,6 +123,7 @@ export const cars: Car[] = [
     exteriorColor: 'Green',
     interiorColor: 'Tan',
     drivetrain: 'RWD',
+    mileage: 8900,
     specs: {
       engine: '3.0L M TwinPower Turbo inline 6-cylinder',
       horsepower: 473,
@@ -145,6 +150,7 @@ export const cars: Car[] = [
     exteriorColor: 'Red',
     interiorColor: 'Red',
     drivetrain: 'FWD',
+    mileage: 15200,
     specs: {
       engine: '2.0L Turbocharged VTEC',
       horsepower: 315,
@@ -171,6 +177,7 @@ export const cars: Car[] = [
     exteriorColor: 'Black',
     interiorColor: 'Black',
     drivetrain: 'AWD',
+    mileage: 9500,
     specs: {
       engine: '5.2L V10',
       horsepower: 562,
@@ -197,6 +204,7 @@ export const cars: Car[] = [
     exteriorColor: 'Gray',
     interiorColor: 'Brown',
     drivetrain: '4WD',
+    mileage: 45000,
     specs: {
       engine: '3.0L V6 Turbodiesel',
       horsepower: 285,
