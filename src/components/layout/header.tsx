@@ -14,6 +14,7 @@ interface HeaderProps {
 }
 
 const navLinks = [
+    { href: "/", label: "Cửa hàng" },
     { href: "/about", label: "Giới thiệu" },
     { href: "/team", label: "Đội ngũ" },
     { href: "/gallery", label: "Hoạt động" },
@@ -43,7 +44,7 @@ export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps)
                     <Link 
                         key={link.href}
                         href={link.href} 
-                        className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                        className={`text-sm font-medium transition-colors ${pathname === link.href ? 'text-primary-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'}`}
                     >
                         {link.label}
                     </Link>
