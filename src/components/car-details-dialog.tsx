@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck } from 'lucide-react';
 import { Button } from './ui/button';
 import { ScrollArea } from './ui/scroll-area';
+import { cn } from '@/lib/utils';
 
 interface CarDetailsDialogProps {
   car: Car;
@@ -67,7 +68,19 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                   <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Engine</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Horsepower</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Fuel className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Efficiency</strong></span> <span className="text-muted-foreground">{car.specs.fuelEfficiency}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><FuelIcon className="w-4 h-4 mr-2 text-accent" /> <strong>Fuel Type</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></li>
+                  <li className="flex items-center justify-between">
+                    <span className="flex items-center">
+                      <FuelIcon className={cn("w-4 h-4 mr-2", {
+                        "text-chart-1": car.fuelType === 'Gasoline',
+                        "text-chart-3": car.fuelType === 'Diesel',
+                        "text-chart-4": car.fuelType === 'Electric',
+                        "text-chart-2": car.fuelType === 'Hybrid',
+                        "text-accent": !Object.keys(fuelTypeIcons).includes(car.fuelType)
+                      })} />
+                      <strong>Fuel Type</strong>
+                    </span>
+                    <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span>
+                  </li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Safety Rating</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
                 </ul>
               </div>

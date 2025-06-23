@@ -125,15 +125,21 @@ export default function CarFilters({ brands, years, fuelTypes, maxPrice, filters
           <div className="grid grid-cols-2 gap-2 pt-2">
             {fuelTypes.map((fuelType) => {
               const Icon = fuelTypeIcons[fuelType];
+              const isSelected = filters.fuelType.includes(fuelType);
               return (
               <button
                 key={fuelType}
                 onClick={() => handleFuelTypeChange(fuelType)}
                 className={cn(
                   "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
-                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
-                  filters.fuelType.includes(fuelType)
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  isSelected
+                    ? {
+                        'bg-chart-1 text-accent-foreground hover:bg-chart-1/90 border-chart-1': fuelType === 'Gasoline',
+                        'bg-chart-3 text-accent-foreground hover:bg-chart-3/90 border-chart-3': fuelType === 'Diesel',
+                        'bg-chart-4 text-accent-foreground hover:bg-chart-4/90 border-chart-4': fuelType === 'Electric',
+                        'bg-chart-2 text-accent-foreground hover:bg-chart-2/90 border-chart-2': fuelType === 'Hybrid',
+                      }
                     : "bg-card hover:bg-accent hover:text-accent-foreground"
                 )}
               >
