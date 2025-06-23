@@ -162,19 +162,27 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
   }
 
   const ColorButton = ({ color, isSelected, onClick }: { color: string; isSelected: boolean; onClick: () => void; }) => (
-    <button
-      onClick={onClick}
-      className={cn(
-        "p-2 border rounded-md flex items-center justify-start h-10 transition-colors duration-200 text-sm font-medium gap-2",
-        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
-        isSelected
-          ? "bg-primary text-primary-foreground hover:bg-primary/90"
-          : "bg-card hover:bg-accent hover:text-accent-foreground"
-      )}
-    >
-      <span className={cn("w-4 h-4 rounded-full", colorMap[color] || 'bg-gray-200')}></span>
-      {color}
-    </button>
+    <TooltipProvider delayDuration={100}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            onClick={onClick}
+            className={cn(
+              'h-7 w-7 rounded-full border border-black/10 transition-all duration-200',
+              colorMap[color] || 'bg-gray-200',
+              'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+              isSelected ? 'ring-2 ring-primary ring-offset-1' : 'hover:scale-110'
+            )}
+            title={color}
+          >
+            <span className="sr-only">{color}</span>
+          </button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{color}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 
   return (
@@ -284,7 +292,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Palette className="w-4 h-4" /> Exterior Color</Label>
-          <div className="grid grid-cols-2 gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             {exteriorColors.map((color) => (
               <ColorButton
                 key={color}
@@ -298,7 +306,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Armchair className="w-4 h-4" /> Interior Color</Label>
-          <div className="grid grid-cols-2 gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             {interiorColors.map((color) => (
               <ColorButton
                 key={color}
