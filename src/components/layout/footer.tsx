@@ -44,7 +44,7 @@ export default function Footer() {
                     </div>
                     
                     {/* Right Side: Contact & Socials */}
-                    <div className="flex flex-col sm:flex-row items-center gap-6">
+                    <div className="flex flex-col items-center sm:items-end gap-2">
                          <div className="flex items-center gap-2 text-sm font-semibold">
                             <Phone className="w-4 h-4 shrink-0" />
                             <span>098.150.2222 (Hotline)</span>
