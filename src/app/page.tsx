@@ -45,7 +45,7 @@ export default function Home() {
             />
           </aside>
           <section className="lg:col-span-3">
-            <h2 className="text-3xl font-headline font-bold mb-6 text-foreground">Featured Vehicles</h2>
+            <h1 className="text-3xl font-headline font-bold mb-6 text-foreground">Featured Vehicles</h1>
             {filteredCars.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {visibleCars.map(car => (
@@ -68,7 +68,7 @@ export default function Home() {
       </main>
       <footer className="w-full py-6 bg-primary/10 mt-12">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Dream Rides. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} DREAMCAR. All rights reserved.</p>
         </div>
       </footer>
     </div>
