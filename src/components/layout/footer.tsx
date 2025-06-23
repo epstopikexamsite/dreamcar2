@@ -18,15 +18,6 @@ const socialLinks = [
     { href: 'https://www.tiktok.com/@timecarsauto', icon: TiktokIcon, label: 'TikTok' },
 ];
 
-const quickLinks = [
-    { href: "/", label: "Cửa hàng" },
-    { href: "/sell-car", label: "Thu Mua Xe" },
-    { href: "/about", label: "Giới thiệu" },
-    { href: "/gallery", label: "Hoạt động" },
-    { href: "/blog", label: "Kiến thức" },
-    { href: "/contact", label: "Liên hệ" },
-];
-
 const legalLinks = [
     { href: "#", label: "Terms & Privacy" },
     { href: "#", label: "Careers" },
@@ -36,7 +27,7 @@ export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground mt-auto">
             <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
                     
                     <div className="space-y-4">
                         <Link href="/" className="inline-block">
@@ -58,21 +49,6 @@ export default function Footer() {
                             ))}
                         </div>
                     </div>
-
-                    
-                    <div className="space-y-4">
-                        <h3 className="font-headline text-lg font-bold text-primary-foreground">Truy Cập Nhanh</h3>
-                        <ul className="space-y-2">
-                            {quickLinks.map(link => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    
                     
                     <div className="space-y-4">
                         <h3 className="font-headline text-lg font-bold text-primary-foreground">Thông Tin Liên Hệ</h3>
