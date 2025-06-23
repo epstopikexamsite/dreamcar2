@@ -7,6 +7,7 @@ import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import AIRecommender from '../ai-recommender';
 
 const navLinks = [
     { href: "/", label: "Cửa hàng" },
@@ -47,6 +48,9 @@ export default function Header() {
             </nav>
         </div>
         <div className="flex items-center gap-2">
+            <div className="hidden md:block">
+              <AIRecommender />
+            </div>
             <div className="md:hidden">
                  <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
@@ -55,7 +59,7 @@ export default function Header() {
                             <span className="sr-only">Mở menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-[280px] bg-card p-0">
+                    <SheetContent side="right" className="w-[280px] bg-card p-0 flex flex-col">
                         <div className="p-4 border-b">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Image
@@ -78,6 +82,9 @@ export default function Header() {
                                 </Link>
                             ))}
                         </nav>
+                        <div className="p-4 mt-auto border-t">
+                            <AIRecommender />
+                        </div>
                     </SheetContent>
                 </Sheet>
             </div>

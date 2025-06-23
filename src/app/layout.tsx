@@ -1,6 +1,21 @@
 import type {Metadata} from 'next';
+import { Inter, Oswald } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+
+const inter = Inter({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['400', '700'],
+});
+
+const oswald = Oswald({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+  variable: '--font-oswald',
+  weight: ['700'],
+});
 
 // TODO: Replace with your actual production domain
 const siteUrl = 'https://time-cars-auto.example.com'; 
@@ -61,12 +76,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="vi" className={`${inter.variable} ${oswald.variable} scroll-smooth`}>
+      <head />
       <body className="font-body antialiased">
         {children}
         <Toaster />
