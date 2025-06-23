@@ -6,10 +6,12 @@ import CarFilters from '@/components/car-filters';
 import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
+import { Filter } from 'lucide-react';
 
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 
 export default function Home() {
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [filters, setFilters] = useState({
     brand: [] as string[],
     priceRange: [0, NO_PRICE_LIMIT],
@@ -62,22 +64,31 @@ export default function Home() {
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <aside className="lg:col-span-1">
-            <CarFilters 
-              brands={brands} 
-              years={years}
-              fuelTypes={fuelTypes}
-              transmissionTypes={transmissionTypes}
-              carTypes={carTypes}
-              exteriorColors={exteriorColors}
-              interiorColors={interiorColors}
-              drivetrains={drivetrains}
-              filters={filters} 
-              onFilterChange={setFilters} 
-            />
-          </aside>
-          <section className="lg:col-span-3">
-            <h1 className="text-3xl font-headline font-bold mb-6 text-foreground">Featured Vehicles</h1>
+          {isFilterVisible && (
+            <aside className="lg:col-span-1">
+              <CarFilters 
+                brands={brands} 
+                years={years}
+                fuelTypes={fuelTypes}
+                transmissionTypes={transmissionTypes}
+                carTypes={carTypes}
+                exteriorColors={exteriorColors}
+                interiorColors={interiorColors}
+                drivetrains={drivetrains}
+                filters={filters} 
+                onFilterChange={setFilters} 
+              />
+            </aside>
+          )}
+          <section className={isFilterVisible ? "lg:col-span-3" : "lg:col-span-4"}>
+            <div className="flex justify-between items-center mb-6">
+              <h1 className="text-3xl font-headline font-bold text-foreground">Featured Vehicles</h1>
+              <Button onClick={() => setIsFilterVisible(!isFilterVisible)} variant="outline">
+                <Filter className="mr-2 h-4 w-4" />
+                {isFilterVisible ? 'Ẩn bộ lọc' : 'Hiển thị bộ lọc'}
+              </Button>
+            </div>
+            
             {filteredCars.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {visibleCars.map(car => (
