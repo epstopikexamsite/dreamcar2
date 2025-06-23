@@ -240,7 +240,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="lg:hidden fixed bottom-6 right-6 z-40">
+        <div className="lg:hidden fixed top-24 right-6 z-40">
           <Sheet>
             <SheetTrigger asChild>
                 <Button size="lg" className="rounded-full shadow-lg h-16 w-16 p-0 flex items-center justify-center">
