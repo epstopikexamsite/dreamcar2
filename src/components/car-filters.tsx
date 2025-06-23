@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, DollarSign } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -168,7 +168,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label className="font-semibold">Brand</Label>
+          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Brand</Label>
           <div className="grid grid-cols-3 gap-2 pt-2">
             {brands.map((brand) => (
               <TooltipProvider key={brand.name} delayDuration={200}>
@@ -203,11 +203,11 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold">Price Range</Label>
+          <Label className="font-semibold flex items-center gap-2"><DollarSign className="w-4 h-4" /> Price Range</Label>
           <div className="flex items-center gap-2 pt-2">
             <div className="relative flex-1">
               <Label htmlFor="min-price" className="sr-only">Minimum Price</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="min-price"
                 type="number"
@@ -220,13 +220,13 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 }}
                 min={0}
                 step={1000}
-                className="pl-6"
+                className="pl-8"
               />
             </div>
             <span className="text-muted-foreground">-</span>
             <div className="relative flex-1">
               <Label htmlFor="max-price" className="sr-only">Maximum Price</Label>
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">$</span>
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground"><DollarSign className="h-4 w-4" /></span>
               <Input
                 id="max-price"
                 type="number"
@@ -239,14 +239,14 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 }}
                 min={0}
                 step={1000}
-                className="pl-6"
+                className="pl-8"
               />
             </div>
           </div>
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold">Year</Label>
+          <Label className="font-semibold flex items-center gap-2"><Calendar className="w-4 h-4" /> Year</Label>
           <div className="grid grid-cols-4 gap-2 pt-2">
             {years.map((year) => (
               <button
@@ -267,7 +267,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold">Exterior Color</Label>
+          <Label className="font-semibold flex items-center gap-2"><Palette className="w-4 h-4" /> Exterior Color</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
             {exteriorColors.map((color) => (
               <ColorButton
@@ -281,7 +281,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold">Interior Color</Label>
+          <Label className="font-semibold flex items-center gap-2"><Armchair className="w-4 h-4" /> Interior Color</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
             {interiorColors.map((color) => (
               <ColorButton
@@ -295,7 +295,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold">Loại nhiên liệu</Label>
+          <Label className="font-semibold flex items-center gap-2"><Fuel className="w-4 h-4" /> Loại nhiên liệu</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
             {fuelTypes.map((fuelType) => {
               const Icon = fuelTypeIcons[fuelType];
@@ -325,7 +325,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
         
         <div className="space-y-2">
-          <Label className="font-semibold">Hộp số</Label>
+          <Label className="font-semibold flex items-center gap-2"><Cog className="w-4 h-4" /> Hộp số</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
             {transmissionTypes.map((transmissionType) => {
               const Icon = transmissionIcons[transmissionType];
@@ -350,7 +350,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold">Loại xe</Label>
+          <Label className="font-semibold flex items-center gap-2"><Car className="w-4 h-4" /> Loại xe</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
             {carTypes.map((carType) => {
               const Icon = carTypeIcons[carType];
