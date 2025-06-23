@@ -34,59 +34,25 @@ const legalLinks = [
 
 export default function Footer() {
     return (
-        <footer className="bg-primary/5 border-t border-primary/10 mt-auto">
-            <div className="container mx-auto px-4 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <footer className="bg-primary text-primary-foreground mt-auto">
+            <div className="container mx-auto px-4 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                     
                     <div className="space-y-4">
-                        <Link href="/">
+                        <Link href="/" className="inline-block">
                             <Image
                                 src="/logo.svg"
                                 alt="TIME CARS AUTO"
-                                width={200}
-                                height={45}
+                                width={180}
+                                height={41}
                             />
                         </Link>
-                        <p className="text-muted-foreground text-sm">
-                            TIME CARS AUTO - Nơi Uy Tín Tạo Nên Thương Hiệu. Chuyên cung cấp các dòng xe sang đã qua sử dụng với chất lượng và dịch vụ hàng đầu.
+                        <p className="text-sm text-primary-foreground/80">
+                           Nơi Uy Tín Tạo Nên Thương Hiệu.
                         </p>
-                    </div>
-
-                    
-                    <div className="space-y-4">
-                        <h3 className="font-headline text-lg font-bold text-foreground">Truy Cập Nhanh</h3>
-                        <ul className="space-y-2">
-                            {quickLinks.map(link => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    
-                    
-                    <div className="space-y-4">
-                        <h3 className="font-headline text-lg font-bold text-foreground">Thông Tin Liên Hệ</h3>
-                        <address className="space-y-3 text-sm not-italic">
-                            <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-accent shrink-0 mt-1" />
-                                <p className="text-muted-foreground">
-                                    <span className="font-semibold text-foreground">Địa chỉ:</span> 79 Nguyễn Chánh, Trung Hòa, Cầu Giấy, Hà Nội
-                                </p>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <Phone className="w-5 h-5 text-accent shrink-0 mt-1" />
-                                <p className="text-muted-foreground">
-                                    <span className="font-semibold text-foreground">Hotline:</span> 098.150.2222 (Mr. Tuấn)
-                                </p>
-                            </div>
-                        </address>
-                        <h3 className="font-headline text-lg font-bold text-foreground pt-4">Mạng Xã Hội</h3>
-                         <div className="flex items-center gap-4">
+                        <div className="flex items-center justify-center md:justify-start gap-4">
                             {socialLinks.map(social => (
-                                <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={social.label}>
+                                <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label={social.label}>
                                     <social.icon className="w-6 h-6" />
                                 </Link>
                             ))}
@@ -95,21 +61,47 @@ export default function Footer() {
 
                     
                     <div className="space-y-4">
-                        <h3 className="font-headline text-lg font-bold text-foreground">Chính Sách & Cơ Hội</h3>
-                         <ul className="space-y-2">
-                            {legalLinks.map(link => (
-                                <li key={link.label}>
-                                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <h3 className="font-headline text-lg font-bold text-primary-foreground">Truy Cập Nhanh</h3>
+                        <ul className="space-y-2">
+                            {quickLinks.map(link => (
+                                <li key={link.href}>
+                                    <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                                         {link.label}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
+                    
+                    
+                    <div className="space-y-4">
+                        <h3 className="font-headline text-lg font-bold text-primary-foreground">Thông Tin Liên Hệ</h3>
+                        <address className="space-y-3 text-sm not-italic text-primary-foreground/80">
+                            <div className="flex items-center justify-center md:justify-start gap-3">
+                                <MapPin className="w-5 h-5 shrink-0 mt-1" />
+                                <p>
+                                    79 Nguyễn Chánh, Cầu Giấy, Hà Nội
+                                </p>
+                            </div>
+                            <div className="flex items-center justify-center md:justify-start gap-3">
+                                <Phone className="w-5 h-5 shrink-0 mt-1" />
+                                <p>
+                                    098.150.2222 (Mr. Tuấn)
+                                </p>
+                            </div>
+                        </address>
+                    </div>
                 </div>
 
-                <div className="mt-12 border-t border-primary/10 pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
+                <div className="mt-8 border-t border-primary-foreground/20 pt-6 flex flex-col-reverse md:flex-row justify-between items-center text-center md:text-left gap-4">
+                    <p className="text-xs text-primary-foreground/60">&copy; {new Date().getFullYear()} TIME CARS AUTO. Đã đăng ký bản quyền.</p>
+                     <div className="flex items-center gap-x-6 gap-y-2">
+                        {legalLinks.map(link => (
+                            <Link key={link.label} href={link.href} className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
         </footer>
