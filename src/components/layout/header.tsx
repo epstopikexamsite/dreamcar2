@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { LayoutGrid, Handshake, Users, Camera, Rss, Mail, Menu, Briefcase } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const navLinks = [
     { href: "/", label: "Cửa hàng", icon: LayoutGrid },
@@ -70,6 +70,7 @@ export default function Header() {
                                 />
                             </Link>
                         </div>
+                        <SheetTitle className="sr-only">Menu chính</SheetTitle>
                         <nav className="flex flex-col p-4 space-y-1">
                              {navLinks.map(link => {
                                 const Icon = link.icon;
