@@ -16,7 +16,7 @@ const getInitials = (name: string) => {
 const RoleIcon = ({ role }: { role: string }) => {
     switch (role) {
         case 'Chủ tịch HĐQT':
-            return <Crown className="w-4 h-4 text-accent" />;
+            return <Crown className="w-4 h-4 text-primary" />;
         case 'Phó Giám đốc':
             return <UserCheck className="w-4 h-4 text-accent" />;
         case 'Trưởng phòng':
@@ -27,16 +27,23 @@ const RoleIcon = ({ role }: { role: string }) => {
     }
 };
 
-const TeamSection = ({ title, members, tier }: { title: string, members: Employee[], tier: 'leadership' | 'management' | 'staff' }) => {
+const TeamSection = ({ title, members, tier, centerSingle = false }: { title: string, members: Employee[], tier: 'chairman' | 'leadership' | 'management' | 'staff', centerSingle?: boolean }) => {
     if (members.length === 0) return null;
+
+    const containerClasses = (members.length === 1 && centerSingle) 
+        ? "flex justify-center"
+        : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
+
     return (
         <section className="mb-16">
             <h2 className="text-3xl font-headline font-bold text-primary mb-8 text-center">{title}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className={containerClasses}>
                 {members.map((employee) => (
                     <Card key={employee.id} className={cn(
                         "text-center flex flex-col items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card",
+                        (members.length === 1 && centerSingle) ? 'sm:w-80' : '',
                         {
+                            'border-2 border-primary shadow-primary/20 shadow-lg': tier === 'chairman',
                             'border-2 border-primary/60': tier === 'leadership',
                             'border-2 border-accent/60': tier === 'management',
                         }
@@ -67,7 +74,8 @@ const TeamSection = ({ title, members, tier }: { title: string, members: Employe
 
 
 export default function TeamPage() {
-    const leadership = employees.filter(e => ['Chủ tịch HĐQT', 'Phó Giám đốc'].includes(e.role));
+    const chairman = employees.filter(e => e.role === 'Chủ tịch HĐQT');
+    const viceDirectors = employees.filter(e => e.role === 'Phó Giám đốc');
     const managers = employees.filter(e => e.role === 'Trưởng phòng' || e.role === 'Trưởng phòng HC');
     const staff = employees.filter(e => !['Chủ tịch HĐQT', 'Phó Giám đốc', 'Trưởng phòng', 'Trưởng phòng HC'].includes(e.role));
 
@@ -84,7 +92,8 @@ export default function TeamPage() {
                     </p>
                 </div>
 
-                <TeamSection title="Ban Lãnh Đạo" members={leadership} tier="leadership" />
+                <TeamSection title="Chủ Tịch Hội Đồng Quản Trị" members={chairman} tier="chairman" centerSingle={true} />
+                <TeamSection title="Ban Phó Giám Đốc" members={viceDirectors} tier="leadership" />
                 <TeamSection title="Quản Lý" members={managers} tier="management" />
                 <TeamSection title="Đội Ngũ Nhân Viên" members={staff} tier="staff" />
 
