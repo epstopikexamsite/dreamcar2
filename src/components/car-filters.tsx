@@ -50,6 +50,7 @@ interface CarFiltersProps {
     drivetrain: string[];
   };
   onFilterChange: (filters: any) => void;
+  showTitle?: boolean;
 }
 
 const fuelTypeIcons: { [key: string]: React.ElementType } = {
@@ -85,7 +86,7 @@ const colorMap: { [key: string]: string } = {
 };
 
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, filters, onFilterChange }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -187,10 +188,12 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="font-headline text-2xl">Bộ lọc</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
+      {showTitle && (
+        <CardHeader>
+          <CardTitle className="font-headline text-2xl">Bộ lọc</CardTitle>
+        </CardHeader>
+      )}
+      <CardContent className={cn("space-y-6", !showTitle && "pt-6")}>
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Hãng xe</Label>
           <div className="grid grid-cols-3 gap-2 pt-2">

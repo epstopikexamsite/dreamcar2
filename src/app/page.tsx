@@ -102,21 +102,6 @@ export default function Home() {
 
   const visibleCars = showAll ? filteredCars : filteredCars.slice(0, 6);
 
-  const filterPanel = (
-    <CarFilters 
-      brands={brands} 
-      years={years}
-      fuelTypes={fuelTypes}
-      transmissionTypes={transmissionTypes}
-      carTypes={carTypes}
-      exteriorColors={exteriorColors}
-      interiorColors={interiorColors}
-      drivetrains={drivetrains}
-      filters={filters} 
-      onFilterChange={setFilters} 
-    />
-  );
-
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -125,7 +110,18 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               <aside className="hidden lg:block lg:col-span-1">
                 <div className="sticky top-24">
-                  {filterPanel}
+                  <CarFilters 
+                    brands={brands} 
+                    years={years}
+                    fuelTypes={fuelTypes}
+                    transmissionTypes={transmissionTypes}
+                    carTypes={carTypes}
+                    exteriorColors={exteriorColors}
+                    interiorColors={interiorColors}
+                    drivetrains={drivetrains}
+                    filters={filters} 
+                    onFilterChange={setFilters} 
+                  />
                 </div>
               </aside>
             
@@ -146,7 +142,19 @@ export default function Home() {
                             </SheetHeader>
                             <ScrollArea className="h-[calc(100%-4rem)]">
                                 <div className="p-4">
-                                  {filterPanel}
+                                  <CarFilters 
+                                    brands={brands} 
+                                    years={years}
+                                    fuelTypes={fuelTypes}
+                                    transmissionTypes={transmissionTypes}
+                                    carTypes={carTypes}
+                                    exteriorColors={exteriorColors}
+                                    interiorColors={interiorColors}
+                                    drivetrains={drivetrains}
+                                    filters={filters} 
+                                    onFilterChange={setFilters}
+                                    showTitle={false}
+                                  />
                                 </div>
                             </ScrollArea>
                         </SheetContent>
