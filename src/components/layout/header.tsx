@@ -17,7 +17,7 @@ const navLinks = [
     { href: "/about", label: "Giới thiệu" },
     { href: "/team", label: "Đội ngũ" },
     { href: "/gallery", label: "Hoạt động" },
-    { href: "/blog", label: "Tin tức" },
+    { href: "/blog", label: "Kiến thức" },
 ];
 
 export default function Header({ isFilterVisible, onToggleFilter }: HeaderProps) {

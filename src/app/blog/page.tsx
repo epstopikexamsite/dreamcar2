@@ -14,10 +14,10 @@ export default function BlogPage() {
             <div className="container mx-auto px-4">
                 <Rss className="mx-auto h-12 w-12 text-primary mb-4" />
                 <h1 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-4">
-                    Tin Tức & Kiến Thức Về Xe
+                    Kiến Thức Về Xe
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Cập nhật những thông tin mới nhất, các bài đánh giá xe và kinh nghiệm hữu ích từ các chuyên gia của TIME CARS AUTO.
+                    Nơi chia sẻ các bài đánh giá, kinh nghiệm hữu ích và kiến thức chuyên sâu từ các chuyên gia của TIME CARS AUTO.
                 </p>
             </div>
         </section>

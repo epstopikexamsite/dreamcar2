@@ -25,7 +25,7 @@ export default function BlogPostPage() {
             <Link href="/blog">
                 <Button>
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Quay Lại Trang Tin Tức
+                    Quay Lại Trang Kiến Thức
                 </Button>
             </Link>
         </main>
