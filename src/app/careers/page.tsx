@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { jobOpenings } from '@/lib/careers-data';
-import { Briefcase, MapPin, Clock, Rocket, Users, Award, Mail } from 'lucide-react';
+import { Briefcase, MapPin, Clock, Rocket, Users, Award, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 const benefits = [
@@ -68,18 +68,33 @@ export default function CareersPage() {
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent className="pt-2 pb-6">
-                                    <p className="text-base text-foreground/80 mb-4">{job.description}</p>
+                                    <p className="text-base text-foreground/80 mb-4 whitespace-pre-line">{job.description}</p>
                                     <h4 className="font-semibold text-foreground mb-2">Yêu cầu công việc:</h4>
-                                    <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4">
+                                    <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 mb-6">
                                         {job.requirements.map((req, index) => (
                                             <li key={index}>{req}</li>
                                         ))}
                                     </ul>
-                                    <Button asChild className="mt-6">
-                                        <Link href="/contact">
-                                            <Mail className="mr-2 h-4 w-4" /> Ứng tuyển ngay
-                                        </Link>
-                                    </Button>
+                                    
+                                    {job.contact ? (
+                                        <div className="mt-4 p-4 bg-primary/10 rounded-lg">
+                                            <h4 className="font-semibold text-foreground mb-2">Thông tin ứng tuyển:</h4>
+                                            <p className="text-foreground/90">
+                                                Liên hệ trực tiếp: <strong>{job.contact.name} - {job.contact.phone}</strong>
+                                            </p>
+                                            <Button asChild className="mt-4">
+                                                <a href={`tel:${job.contact.phone.replace(/[\s.-]/g, '')}`}>
+                                                    <Phone className="mr-2 h-4 w-4" /> Gọi ngay
+                                                </a>
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <Button asChild className="mt-6">
+                                            <Link href="/contact">
+                                                <Mail className="mr-2 h-4 w-4" /> Ứng tuyển ngay
+                                            </Link>
+                                        </Button>
+                                    )}
                                 </AccordionContent>
                             </AccordionItem>
                         ))}

@@ -5,21 +5,32 @@ export interface JobOpening {
   type: 'Full-time' | 'Part-time';
   description: string;
   requirements: string[];
+  contact?: {
+    name: string;
+    phone: string;
+  }
 }
 
 export const jobOpenings: JobOpening[] = [
   {
     id: 1,
-    title: 'Chuyên viên Kinh doanh Ô tô',
+    title: 'Nhân viên Kinh doanh Ô tô',
     location: 'Hà Nội',
     type: 'Full-time',
-    description: 'Tìm kiếm, tư vấn và hỗ trợ khách hàng trong quá trình mua bán xe. Xây dựng và duy trì mối quan hệ tốt với khách hàng tiềm năng và hiện tại.',
+    description: `Lương cứng: 10.000.000 VNĐ/tháng
+Hoa hồng hấp dẫn: từ 5 – 10 triệu VNĐ/xe bán ra
+Thưởng thêm theo doanh số và hiệu quả công việc`,
     requirements: [
-      'Có ít nhất 1 năm kinh nghiệm trong lĩnh vực bán hàng ô tô.',
-      'Kỹ năng giao tiếp, đàm phán và thuyết phục tốt.',
-      'Đam mê ô tô và có kiến thức về các dòng xe.',
-      'Chủ động, nhiệt tình và có trách nhiệm trong công việc.',
+      'Có kinh nghiệm tư vấn bán hàng ô tô từ 2 năm trở lên.',
+      'Giao tiếp tốt, nhanh nhẹn, chăm chỉ, trung thực.',
+      'Biết sử dụng TikTok/Facebook để khai thác khách hàng online là một lợi thế lớn.',
+      'Ưu tiên ứng viên có kỹ năng tư vấn, chốt sale, và chăm sóc khách hàng sau bán.',
+      'Phỏng vấn là đi làm ngay nếu phù hợp.',
     ],
+    contact: {
+        name: 'Mr. Tuấn',
+        phone: '0812 201 201'
+    }
   },
   {
     id: 2,
