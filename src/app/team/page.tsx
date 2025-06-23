@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { employees, Employee } from '@/lib/employees';
 import { User, MapPin, Crown, UserCheck, Briefcase } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const getInitials = (name: string) => {
     const names = name.split(' ');
@@ -26,14 +27,20 @@ const RoleIcon = ({ role }: { role: string }) => {
     }
 };
 
-const TeamSection = ({ title, members }: { title: string, members: Employee[] }) => {
+const TeamSection = ({ title, members, tier }: { title: string, members: Employee[], tier: 'leadership' | 'management' | 'staff' }) => {
     if (members.length === 0) return null;
     return (
         <section className="mb-16">
             <h2 className="text-3xl font-headline font-bold text-primary mb-8 text-center">{title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {members.map((employee) => (
-                    <Card key={employee.id} className="text-center flex flex-col items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">
+                    <Card key={employee.id} className={cn(
+                        "text-center flex flex-col items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card",
+                        {
+                            'border-2 border-primary/60': tier === 'leadership',
+                            'border-2 border-accent/60': tier === 'management',
+                        }
+                    )}>
                         <Avatar className="w-24 h-24 mb-4 border-4 border-primary/20">
                             <AvatarImage src={employee.avatar} alt={employee.name} data-ai-hint={employee.roleHint} />
                             <AvatarFallback className="text-3xl bg-muted">{getInitials(employee.name)}</AvatarFallback>
@@ -77,9 +84,9 @@ export default function TeamPage() {
                     </p>
                 </div>
 
-                <TeamSection title="Ban Lãnh Đạo" members={leadership} />
-                <TeamSection title="Quản Lý" members={managers} />
-                <TeamSection title="Đội Ngũ Nhân Viên" members={staff} />
+                <TeamSection title="Ban Lãnh Đạo" members={leadership} tier="leadership" />
+                <TeamSection title="Quản Lý" members={managers} tier="management" />
+                <TeamSection title="Đội Ngũ Nhân Viên" members={staff} tier="staff" />
 
             </main>
             <footer className="w-full py-6 bg-primary/10 mt-auto">
