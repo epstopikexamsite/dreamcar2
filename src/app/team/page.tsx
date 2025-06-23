@@ -2,7 +2,7 @@ import Header from '@/components/layout/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { employees, Employee } from '@/lib/employees';
-import { User, MapPin, Crown, UserCheck, Briefcase } from 'lucide-react';
+import { User, MapPin, Crown, UserCheck, Briefcase, Award } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const getInitials = (name: string) => {
@@ -17,6 +17,8 @@ const RoleIcon = ({ role }: { role: string }) => {
     switch (role) {
         case 'Chủ tịch HĐQT':
             return <Crown className="w-4 h-4 text-primary" />;
+        case 'Giám đốc':
+            return <Award className="w-4 h-4 text-primary" />;
         case 'Phó Giám đốc':
             return <UserCheck className="w-4 h-4 text-accent" />;
         case 'Trưởng phòng':
@@ -27,7 +29,7 @@ const RoleIcon = ({ role }: { role: string }) => {
     }
 };
 
-const TeamSection = ({ title, members, tier, centerSingle = false }: { title: string, members: Employee[], tier: 'chairman' | 'leadership' | 'management' | 'staff', centerSingle?: boolean }) => {
+const TeamSection = ({ title, members, tier, centerSingle = false }: { title: string, members: Employee[], tier: 'chairman' | 'director' | 'leadership' | 'management' | 'staff', centerSingle?: boolean }) => {
     if (members.length === 0) return null;
 
     const containerClasses = (members.length === 1 && centerSingle) 
@@ -44,6 +46,7 @@ const TeamSection = ({ title, members, tier, centerSingle = false }: { title: st
                         (members.length === 1 && centerSingle) ? 'sm:w-80' : '',
                         {
                             'border-2 border-primary shadow-primary/20 shadow-lg': tier === 'chairman',
+                            'border-2 border-primary/80 shadow-primary/10 shadow-md': tier === 'director',
                             'border-2 border-primary/60': tier === 'leadership',
                             'border-2 border-accent/60': tier === 'management',
                         }
@@ -75,9 +78,10 @@ const TeamSection = ({ title, members, tier, centerSingle = false }: { title: st
 
 export default function TeamPage() {
     const chairman = employees.filter(e => e.role === 'Chủ tịch HĐQT');
+    const director = employees.filter(e => e.role === 'Giám đốc');
     const viceDirectors = employees.filter(e => e.role === 'Phó Giám đốc');
     const managers = employees.filter(e => e.role === 'Trưởng phòng' || e.role === 'Trưởng phòng HC');
-    const staff = employees.filter(e => !['Chủ tịch HĐQT', 'Phó Giám đốc', 'Trưởng phòng', 'Trưởng phòng HC'].includes(e.role));
+    const staff = employees.filter(e => !['Chủ tịch HĐQT', 'Giám đốc', 'Phó Giám đốc', 'Trưởng phòng', 'Trưởng phòng HC'].includes(e.role));
 
     return (
         <div className="flex flex-col min-h-screen bg-background">
@@ -93,6 +97,7 @@ export default function TeamPage() {
                 </div>
 
                 <TeamSection title="Chủ Tịch Hội Đồng Quản Trị" members={chairman} tier="chairman" centerSingle={true} />
+                <TeamSection title="Giám Đốc" members={director} tier="director" centerSingle={true} />
                 <TeamSection title="Ban Phó Giám Đốc" members={viceDirectors} tier="leadership" />
                 <TeamSection title="Quản Lý" members={managers} tier="management" />
                 <TeamSection title="Đội Ngũ Nhân Viên" members={staff} tier="staff" />

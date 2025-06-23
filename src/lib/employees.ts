@@ -9,6 +9,7 @@ export interface Employee {
 
 const roleMap: { [key: string]: string } = {
   'CT HĐQT': 'Chủ tịch HĐQT',
+  'GĐ': 'Giám đốc',
   'PGĐ': 'Phó Giám đốc',
   'Trưởng phòng': 'Trưởng phòng',
   'TP HC': 'Trưởng phòng HC'
@@ -17,7 +18,7 @@ const roleMap: { [key: string]: string } = {
 const rawData = [
   { id: 1, name: 'Trần Mạnh Tuấn', roleRaw: 'CT HĐQT', hometown: 'Hà Nội' },
   { id: 2, name: 'Nguyễn Thị Hằng', roleRaw: '', hometown: 'Nghệ An' },
-  { id: 4, name: 'Nguyễn Quốc Khánh', roleRaw: 'PGĐ', hometown: 'Hà Nội' },
+  { id: 4, name: 'Nguyễn Quốc Khánh', roleRaw: 'GĐ', hometown: 'Hà Nội' },
   { id: 5, name: 'Lê Duyên Giang', roleRaw: 'Trưởng phòng', hometown: 'Thanh Hóa' },
   { id: 6, name: 'Phan Xuân Nam', roleRaw: '', hometown: 'Hà Nội' },
   { id: 7, name: 'Phạm Bá Dũng', roleRaw: '', hometown: 'Thái Bình' },
@@ -57,7 +58,7 @@ const rawData = [
   { id: 41, name: 'Nguyễn Minh Dự', roleRaw: '', hometown: 'Hà Nội' },
   { id: 42, name: 'Nguyễn Quang Huy', roleRaw: '', hometown: 'Nam Định' },
   { id: 43, name: 'Phạm Thị Thanh Tâm', roleRaw: '', hometown: 'Hòa Bình' },
-  { id: 44, name: 'Phan Văn Hiếu', roleRaw: '', hometown: 'Hà Nội' },
+  { id: 44, name: 'Phan Văn Hiếu', roleRaw: '', hometown: ' Hà Nội' },
   { id: 45, name: 'Bùi Huy Linh', roleRaw: '', hometown: 'Hưng Yên' },
   { id: 46, name: 'Đồng Vương Hoàng', roleRaw: '', hometown: 'Thanh Hóa' },
   { id: 47, name: 'Nguyễn Văn Lâm', roleRaw: '', hometown: 'Hà Nội' },
@@ -68,6 +69,8 @@ const getRoleHint = (role: string): string => {
     switch (role) {
         case 'Chủ tịch HĐQT':
             return 'ceo portrait';
+        case 'Giám đốc':
+            return 'director portrait';
         case 'Phó Giám đốc':
             return 'manager portrait';
         case 'Trưởng phòng':
