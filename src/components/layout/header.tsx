@@ -17,7 +17,6 @@ const navLinks = [
     { href: "/", label: "Cửa hàng" },
     { href: "/sell-car", label: "Thu Mua Xe" },
     { href: "/about", label: "Giới thiệu" },
-    { href: "/team", label: "Đội ngũ" },
     { href: "/gallery", label: "Hoạt động" },
     { href: "/blog", label: "Kiến thức" },
 ];
