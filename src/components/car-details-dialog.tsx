@@ -92,8 +92,9 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-full" variant={car.status === 'Sold' ? 'outline' : 'default'}>
-            {car.status === 'Sold' ? 'Đã Bán - Xem Thông Tin' : 'Xem chi tiết'}
+        <Button className="w-full flex items-center justify-center gap-2" variant={car.status === 'Sold' ? 'outline' : 'default'}>
+            <span>{car.status === 'Sold' ? 'Đã Bán - Xem Thông Tin' : 'Xem chi tiết'}</span>
+            <ArrowRight className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl p-0">
