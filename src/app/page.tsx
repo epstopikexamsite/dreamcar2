@@ -246,6 +246,29 @@ export default function Home() {
             </div>
         </div>
 
+        <section className="py-12 bg-background">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <Card className="border-2 border-primary/50 shadow-lg text-center">
+                    <CardHeader className="p-6">
+                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
+                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
+                        </div>
+                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
+                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
+                    </CardHeader>
+                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
+                        <p className="text-foreground/90">
+                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
+                        </p>
+                        <div className="border-t border-dashed my-4"></div>
+                        <p className="font-semibold text-foreground">
+                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
+                        </p>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+
         <div className="container mx-auto px-4 py-8">
             <section>
                 {filteredCars.length > 0 ? (
@@ -306,29 +329,6 @@ export default function Home() {
                         </CardContent>
                     </Card>
                 </div>
-            </div>
-        </section>
-
-        <section className="py-16 bg-background">
-            <div className="container mx-auto px-4 max-w-4xl">
-                <Card className="border-2 border-primary/50 shadow-lg text-center">
-                    <CardHeader className="p-6">
-                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
-                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
-                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
-                    </CardHeader>
-                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
-                        <p className="text-foreground/90">
-                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
-                        </p>
-                        <div className="border-t border-dashed my-4"></div>
-                        <p className="font-semibold text-foreground">
-                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
-                        </p>
-                    </CardContent>
-                </Card>
             </div>
         </section>
 
