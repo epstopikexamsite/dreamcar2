@@ -147,6 +147,107 @@ const features: { title: string; excerpt: string; content: string, aiHint: strin
       <p class="mt-4"><strong>Kết luận:</strong> Hệ thống treo khí nén là một trang bị tiêu chuẩn trên các dòng xe sang và SUV cao cấp, mang đến một trải nghiệm vận hành đẳng cấp, kết hợp hoàn hảo giữa sự thoải mái và tính linh hoạt.</p>
     `,
     aiHint: 'air suspension car'
+  },
+  {
+    title: 'Cảm giác lái thú vị',
+    excerpt: 'Khám phá những yếu tố tạo nên một chiếc xe có cảm giác lái thú vị, từ hệ thống treo, khung gầm đến phản hồi của vô lăng.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>"Cảm giác lái thú vị" là một thuật ngữ tổng hợp để mô tả trải nghiệm lái xe đầy hứng khởi, kết nối và nhạy bén. Nó không chỉ đến từ sức mạnh động cơ mà còn là sự kết hợp hài hòa của nhiều yếu tố kỹ thuật.</p>
+        <h3 class="font-bold text-xl my-4">2. Các yếu tố chính</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Phản hồi từ vô lăng:</strong> Vô lăng nhạy, chính xác và cung cấp thông tin rõ ràng về những gì đang xảy ra với bánh xe trước.</li>
+            <li><strong>Khung gầm cân bằng:</strong> Một khung gầm cứng vững với sự phân bổ trọng lượng tốt giúp xe vào cua ổn định và linh hoạt.</li>
+            <li><strong>Hệ thống treo thể thao:</strong> Hệ thống treo được tinh chỉnh để giảm thiểu độ nghiêng của thân xe và tối đa hóa độ bám đường.</li>
+            <li><strong>Âm thanh động cơ:</strong> Tiếng gầm uy lực từ động cơ và ống xả góp phần tạo nên sự phấn khích.</li>
+        </ul>
+        <p class="mt-4"><strong>Kết luận:</strong> Cảm giác lái thú vị là mục tiêu mà nhiều hãng xe thể thao và xe sang hướng tới, biến việc lái xe hàng ngày trở thành một niềm vui.</p>
+    `,
+    aiHint: 'spirited driving canyon'
+  },
+  {
+    title: 'Cửa cánh chim Falcon Wing',
+    excerpt: 'Trải nghiệm sự độc đáo và tiện lợi của cửa cánh chim Falcon Wing, một thiết kế biểu tượng trên các mẫu xe Tesla Model X.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>Cửa cánh chim (Falcon Wing) là một thiết kế cửa sau độc đáo được trang bị trên Tesla Model X. Thay vì mở ra bên ngoài như cửa truyền thống, chúng mở lên trên theo cơ chế hai khớp nối, giống như đôi cánh chim.</p>
+        <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Tiếp cận dễ dàng:</strong> Tạo ra một lối vào cực lớn cho hàng ghế thứ hai và thứ ba, rất thuận tiện khi lắp ghế trẻ em hoặc cho người lớn tuổi.</li>
+            <li><strong>Hoạt động trong không gian hẹp:</strong> Nhờ các cảm biến tích hợp, cửa có thể tự điều chỉnh góc mở để tránh va chạm với các vật thể xung quanh, cho phép mở cửa ở những nơi đỗ xe chật hẹp.</li>
+            <li><strong>Thiết kế ấn tượng:</strong> Là một điểm nhấn công nghệ và thẩm mỹ, tạo nên sự khác biệt hoàn toàn cho chiếc xe.</li>
+        </ul>
+        <p class="mt-4"><strong>Kết luận:</strong> Cửa cánh chim Falcon Wing không chỉ là một chiêu trò marketing, mà là một giải pháp kỹ thuật thông minh, kết hợp giữa sự tiện dụng và phong cách tương lai.</p>
+    `,
+    aiHint: 'falcon wing doors'
+  },
+  {
+    title: 'Gói Sport Chrono',
+    excerpt: 'Nâng tầm trải nghiệm lái Porsche của bạn với Gói Sport Chrono, cung cấp các chế độ lái thể thao và tính năng đo hiệu suất chuyên nghiệp.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>Gói Sport Chrono là một tùy chọn cao cấp trên các dòng xe Porsche, tích hợp một loạt các tính năng giúp tối ưu hóa hiệu suất và mang lại trải nghiệm lái thể thao hơn.</p>
+        <h3 class="font-bold text-xl my-4">2. Các thành phần chính</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Công tắc chế độ lái trên vô lăng:</strong> Cho phép chuyển đổi nhanh chóng giữa các chế độ Normal, SPORT, SPORT PLUS và Individual.</li>
+            <li><strong>Nút Sport Response:</strong> Cung cấp 20 giây hiệu suất tối đa của động cơ và hộp số, lý tưởng cho việc vượt xe.</li>
+            <li><strong>Đồng hồ bấm giờ:</strong> Một đồng hồ bấm giờ analog và kỹ thuật số được đặt trên bảng táp-lô để đo thời gian hoàn thành vòng đua.</li>
+            <li><strong>Launch Control:</strong> Tối ưu hóa khả năng tăng tốc từ vị trí đứng yên trong chế độ SPORT PLUS.</li>
+        </ul>
+        <p class="mt-4"><strong>Kết luận:</strong> Gói Sport Chrono là một trang bị không thể thiếu cho những người đam mê tốc độ và muốn khai thác tối đa hiệu suất của một chiếc Porsche.</p>
+    `,
+    aiHint: 'porsche steering wheel'
+  },
+  {
+    title: 'Hệ thống lái tự động Autopilot',
+    excerpt: 'Tìm hiểu về Autopilot của Tesla, một trong những hệ thống hỗ trợ lái tiên tiến nhất, giúp giảm căng thẳng và tăng an toàn trên xa lộ.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>Autopilot là hệ thống hỗ trợ người lái tiên tiến (ADAS) của Tesla. Nó sử dụng một bộ camera và cảm biến để cho phép xe tự đánh lái, tăng tốc và phanh trong làn đường của mình.</p>
+        <h3 class="font-bold text-xl my-4">2. Tính năng chính</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Kiểm soát hành trình thích ứng (Traffic-Aware Cruise Control):</strong> Tự động điều chỉnh tốc độ của xe theo phương tiện phía trước.</li>
+            <li><strong>Tự động giữ làn (Autosteer):</strong> Hỗ trợ đánh lái để giữ xe đi đúng trong làn đường được đánh dấu rõ ràng.</li>
+            <li><strong>Tự động chuyển làn (Auto Lane Change):</strong> Tự động chuyển làn khi người lái bật xi-nhan trên đường cao tốc.</li>
+            <li><strong>Tự đỗ xe (Autopark):</strong> Hỗ trợ tự động đỗ xe song song hoặc vuông góc.</li>
+        </ul>
+        <p class="mt-4"><strong>Lưu ý quan trọng:</strong> Mặc dù có tên là "Autopilot", hệ thống này vẫn yêu cầu người lái phải luôn chú ý và đặt tay lên vô lăng, sẵn sàng can thiệp bất cứ lúc nào. Đây là một hệ thống hỗ trợ, không phải tự lái hoàn toàn.</p>
+    `,
+    aiHint: 'autopilot car driving'
+  },
+  {
+    title: 'Hệ thống âm thanh Bang & Olufsen',
+    excerpt: 'Đắm chìm trong không gian âm nhạc đỉnh cao với Hệ thống âm thanh Bang & Olufsen, một trang bị xa xỉ trên các dòng xe cao cấp.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>Bang & Olufsen là một thương hiệu âm thanh cao cấp đến từ Đan Mạch, nổi tiếng với thiết kế tinh xảo và chất lượng âm thanh vượt trội. Khi được tích hợp trên ô tô, hệ thống này biến cabin xe thành một phòng hòa nhạc di động.</p>
+        <h3 class="font-bold text-xl my-4">2. Đặc điểm nổi bật</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Chất lượng âm thanh trung thực:</strong> Tái tạo âm thanh một cách chi tiết, cân bằng và mạnh mẽ, từ những nốt cao trong trẻo đến âm trầm sâu lắng.</li>
+            <li><strong>Thiết kế loa độc đáo:</strong> Các màng loa thường được làm từ nhôm và có thiết kế đặc trưng, một số hệ thống còn có loa tweeter tự động trồi lên khỏi bảng táp-lô.</li>
+            <li><strong>Công nghệ âm thanh vòm 3D:</strong> Tạo ra một sân khấu âm thanh rộng và có chiều sâu, mang lại trải nghiệm âm thanh sống động như thật.</li>
+            <li><strong>Tùy chỉnh riêng cho từng mẫu xe:</strong> Mỗi hệ thống được tinh chỉnh cẩn thận để phù hợp với không gian và vật liệu nội thất của từng mẫu xe cụ thể.</li>
+        </ul>
+        <p class="mt-4"><strong>Kết luận:</strong> Hệ thống âm thanh Bang & Olufsen là một lựa chọn không thể bỏ qua cho những tín đồ âm nhạc, những người mong muốn một trải nghiệm nghe nhìn hoàn hảo trên mỗi chuyến đi.</p>
+    `,
+    aiHint: 'car audio system'
+  },
+  {
+    title: 'Màn hình cảm ứng 17"',
+    excerpt: 'Khám phá sự khác biệt của Màn hình cảm ứng 17" trên các mẫu xe Tesla, trung tâm điều khiển cho gần như mọi tính năng của xe.',
+    content: `
+        <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+        <p>Màn hình cảm ứng 17 inch đặt dọc (trên Model S/X) là một trong những đặc điểm nhận diện thương hiệu của Tesla. Nó thay thế gần như toàn bộ các nút bấm vật lý, trở thành trung tâm chỉ huy cho mọi hoạt động trên xe.</p>
+        <h3 class="font-bold text-xl my-4">2. Chức năng chính</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4">
+            <li><strong>Điều khiển phương tiện:</strong> Điều chỉnh hệ thống treo, chế độ lái, đèn, gương, và nhiều hơn nữa.</li>
+            <li><strong>Điều hướng:</strong> Hiển thị bản đồ lớn, trực quan với thông tin giao thông thời gian thực và kế hoạch chuyến đi tích hợp trạm sạc.</li>
+            <li><strong>Giải trí đa phương tiện:</strong> Truy cập Spotify, YouTube, Netflix, các trò chơi và trình duyệt web (khi xe đang đỗ).</li>
+            <li><strong>Điều hòa không khí:</strong> Điều khiển hệ thống HVAC một cách trực quan bằng cách kéo-thả luồng không khí.</li>
+        </ul>
+        <p class="mt-4"><strong>Kết luận:</strong> Màn hình cảm ứng khổng lồ của Tesla đã định nghĩa lại khái niệm về giao diện người dùng trên ô tô, mang đến một trải nghiệm tối giản, hiện đại và đậm chất công nghệ.</p>
+    `,
+    aiHint: 'large car touchscreen'
   }
 ];
 
@@ -933,3 +1034,4 @@ export const blogPosts: BlogPost[] = [
     category: 'Loại xe',
   },
 ];
+
