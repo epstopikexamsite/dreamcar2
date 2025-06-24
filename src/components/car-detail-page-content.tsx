@@ -245,7 +245,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                 </TabsList>
                 <TabsContent value="specs" className="mt-6">
                     <Card>
-                        <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <CardContent className="p-6 grid grid-cols-1 gap-y-8">
                             <div className="space-y-4">
                                 <CardTitle className="font-headline border-b pb-2">Động cơ & Hiệu suất</CardTitle>
                                 <ul className="space-y-4">
@@ -287,7 +287,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                                 </ul>
                             </div>
                             {car.fuelType === 'Điện' && (
-                                <div className="space-y-4 md:col-span-2">
+                                <div className="space-y-4">
                                     <CardTitle className="font-headline border-b pb-2">Thông số xe điện</CardTitle>
                                     <ul className="space-y-4">
                                         {car.specs.batteryCapacity && <SpecRow icon={Battery} label="Dung lượng pin" value={car.specs.batteryCapacity} />}
