@@ -1,9 +1,10 @@
+
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Car } from '@/lib/types';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription, DialogFooter } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
@@ -44,15 +45,15 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
-  const [currentImage, setCurrentImage] = useState(car.images.front);
+  const [currentImage, setCurrentImage] = useState(car.images.exterior.frontThreeQuarter);
   
-  const allImages = [
-    { src: car.images.front, alt: 'Front view', hint: 'car front' },
-    { src: car.images.rear, alt: 'Rear view', hint: 'car rear' },
-    { src: car.images.left, alt: 'Left side view', hint: 'car side left' },
-    { src: car.images.right, alt: 'Right side view', hint: 'car side right' },
-    { src: car.images.interiorFront, alt: 'Front interior', hint: 'car interior front' },
-    { src: car.images.interiorRear, alt: 'Rear interior', hint: 'car interior rear' },
+  const dialogImages = [
+    { src: car.images.exterior.frontThreeQuarter, alt: 'Góc chéo trước', hint: 'car 3/4 front' },
+    { src: car.images.exterior.front, alt: 'Chính diện trước', hint: 'car front' },
+    { src: car.images.exterior.rear, alt: 'Chính diện sau', hint: 'car rear' },
+    { src: car.images.exterior.side, alt: 'Góc ngang', hint: 'car side' },
+    { src: car.images.interior.dashboard, alt: 'Khoang lái', hint: 'car dashboard' },
+    { src: car.images.interior.seats, alt: 'Hàng ghế', hint: 'car seats' },
   ];
   
   const fuelTypeTranslations: {[key: string]: string} = {
@@ -121,7 +122,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
               </div>
 
                <div className="grid grid-cols-6 gap-2">
-                {allImages.map((img, index) => (
+                {dialogImages.map((img, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImage(img.src)}

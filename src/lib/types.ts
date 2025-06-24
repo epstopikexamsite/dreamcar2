@@ -5,20 +5,47 @@ export interface Review {
   comment: string;
 }
 
+export interface CarImages {
+  exterior: {
+    frontThreeQuarter: string;
+    rearThreeQuarter: string;
+    front: string;
+    rear: string;
+    side: string;
+    topDown: string;
+    wheel: string;
+  };
+  interior: {
+    dashboard: string;
+    dashboardCloseUp: string;
+    centerConsole: string;
+    seats: string;
+    trunk: string;
+  };
+  details: {
+    headlight: string;
+    taillight: string;
+    logo: string;
+    exhaust: string;
+    doorHandle: string;
+    mirror: string;
+    sensors: string;
+    sunroof: string;
+    key: string;
+  };
+  dynamic: {
+    rollingShot: string;
+    nightShot: string;
+  };
+}
+
 export interface Car {
   id: number;
   brand: string;
   model: string;
   year: number;
   price: number;
-  images: {
-    front: string;
-    rear: string;
-    left: string;
-    right: string;
-    interiorFront: string;
-    interiorRear: string;
-  };
+  images: CarImages;
   logo: string;
   fuelType: 'Gasoline' | 'Diesel' | 'Hybrid' | 'Electric';
   transmission: 'Automatic' | 'Manual';

@@ -81,13 +81,13 @@ export default function CarCard({ car }: CarCardProps) {
       <CardHeader className="p-0">
         <div className="relative h-48 w-full">
           <Image
-            src={car.images.front}
+            src={car.images.exterior.frontThreeQuarter}
             alt={`${car.brand} ${car.model}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{objectFit: 'cover'}}
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint="car front"
+            data-ai-hint="car front quarter"
           />
           {car.status === 'Sold' && (
             <Badge

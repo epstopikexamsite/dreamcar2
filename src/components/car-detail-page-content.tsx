@@ -44,15 +44,43 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 
 export default function CarDetailPageContent({ car }: { car: Car }) {
-  const [currentImage, setCurrentImage] = useState(car.images.front);
+  const [currentImage, setCurrentImage] = useState(car.images.exterior.frontThreeQuarter);
   
-  const allImages = [
-    { src: car.images.front, alt: 'Front view', hint: 'car front' },
-    { src: car.images.rear, alt: 'Rear view', hint: 'car rear' },
-    { src: car.images.left, alt: 'Left side view', hint: 'car side left' },
-    { src: car.images.right, alt: 'Right side view', hint: 'car side right' },
-    { src: car.images.interiorFront, alt: 'Front interior', hint: 'car interior front' },
-    { src: car.images.interiorRear, alt: 'Rear interior', hint: 'car interior rear' },
+  const imageGroups = [
+    {
+      label: 'Ngoại thất',
+      images: [
+        { src: car.images.exterior.frontThreeQuarter, alt: 'Góc chéo trước', hint: 'car 3/4 front' },
+        { src: car.images.exterior.rearThreeQuarter, alt: 'Góc chéo sau', hint: 'car 3/4 rear' },
+        { src: car.images.exterior.front, alt: 'Chính diện trước', hint: 'car front' },
+        { src: car.images.exterior.rear, alt: 'Chính diện sau', hint: 'car rear' },
+        { src: car.images.exterior.side, alt: 'Góc ngang', hint: 'car side' },
+        { src: car.images.exterior.topDown, alt: 'Góc từ trên cao', hint: 'car top down' },
+        { src: car.images.exterior.wheel, alt: 'Mâm xe', hint: 'car wheel' },
+      ],
+    },
+    {
+      label: 'Nội thất',
+      images: [
+        { src: car.images.interior.dashboard, alt: 'Khoang lái tổng thể', hint: 'car dashboard' },
+        { src: car.images.interior.dashboardCloseUp, alt: 'Vô lăng & màn hình', hint: 'car cockpit' },
+        { src: car.images.interior.centerConsole, alt: 'Bảng điều khiển trung tâm', hint: 'car console' },
+        { src: car.images.interior.seats, alt: 'Ghế ngồi', hint: 'car seats' },
+        { src: car.images.interior.trunk, alt: 'Khoang hành lý', hint: 'car trunk' },
+      ],
+    },
+    {
+      label: 'Chi tiết',
+      images: [
+        { src: car.images.details.headlight, alt: 'Đèn trước', hint: 'car headlight' },
+        { src: car.images.details.taillight, alt: 'Đèn sau', hint: 'car taillight' },
+        { src: car.images.details.logo, alt: 'Logo', hint: 'car logo' },
+        { src: car.images.details.exhaust, alt: 'Ống xả', hint: 'car exhaust' },
+        { src: car.images.details.doorHandle, alt: 'Tay nắm cửa', hint: 'car door handle' },
+        { src: car.images.details.sunroof, alt: 'Cửa sổ trời', hint: 'car sunroof' },
+        { src: car.images.details.key, alt: 'Chìa khóa', hint: 'car key' },
+      ],
+    },
   ];
 
   const fuelTypeTranslations: {[key: string]: string} = {
@@ -104,20 +132,31 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                     </Badge>
                   )}
             </div>
-            <div className="grid grid-cols-6 gap-2">
-              {allImages.map((img) => (
-                <button
-                  key={img.src}
-                  onClick={() => setCurrentImage(img.src)}
-                  className={cn(
-                    'relative aspect-video rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
-                    currentImage === img.src && 'ring-2 ring-primary'
-                  )}
-                >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" data-ai-hint={img.hint} />
-                </button>
+            <Tabs defaultValue={imageGroups[0].label} className="w-full">
+              <TabsList>
+                {imageGroups.map(group => (
+                  <TabsTrigger key={group.label} value={group.label}>{group.label}</TabsTrigger>
+                ))}
+              </TabsList>
+              {imageGroups.map(group => (
+                <TabsContent key={group.label} value={group.label}>
+                  <div className="grid grid-cols-4 md:grid-cols-6 gap-2">
+                    {group.images.map((img) => (
+                      <button
+                        key={img.src}
+                        onClick={() => setCurrentImage(img.src)}
+                        className={cn(
+                          'relative aspect-video rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
+                          currentImage === img.src && 'ring-2 ring-primary'
+                        )}
+                      >
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" data-ai-hint={img.hint} />
+                      </button>
+                    ))}
+                  </div>
+                </TabsContent>
               ))}
-            </div>
+            </Tabs>
           </div>
 
           <div>
