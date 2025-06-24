@@ -10,7 +10,8 @@ import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid, Grid2x2, Grid3x3 } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid, Grid2x2, Grid3x3, Car, Armchair, Cog, Wrench, BatteryCharging, Shield, Droplets, FileText } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -52,6 +53,106 @@ const colorMap: { [key: string]: string } = {
   'Tan': 'bg-amber-400',
   'Brown': 'bg-amber-800'
 };
+
+const inspectionCategories = [
+    {
+      icon: Car,
+      title: '1. Ngoại thất (30–40 mục)',
+      items: [
+        'Thân vỏ: trầy xước, móp méo, sơn lại',
+        'Kính: nứt, thay mới, mã số kính (có đồng bộ không)',
+        'Đèn: trước, sau, sương mù – còn sáng, bị vỡ, ố màu',
+        'Gương chiếu hậu: chỉnh điện, gập điện, nứt vỡ',
+        'Tay nắm cửa, khóa cửa',
+        'Cản trước/sau, hốc bánh, khe cửa',
+        'Dấu hiệu tai nạn: vết hàn, sơn dặm, sai khe hở',
+        'Nắp capo, cửa xe, cốp – đóng mở trơn tru không',
+      ],
+    },
+    {
+      icon: Armchair,
+      title: '2. Nội thất (30–40 mục)',
+      items: [
+        'Ghế: chất liệu, độ mòn, chỉnh điện/cơ',
+        'Trần xe, sàn xe, thảm lót',
+        'Điều hòa: lạnh sâu, thổi đều, lọc bụi',
+        'Taplo, bảng điều khiển, màn hình',
+        'Vô lăng, cần số: mòn, rung lắc, hoạt động',
+        'Các nút bấm: kính, gương, đèn, còi...',
+        'Hệ thống giải trí: âm thanh, kết nối bluetooth',
+        'Túi khí: đèn báo, đã bung hay chưa (xem ECU)',
+      ],
+    },
+    {
+      icon: Cog,
+      title: '3. Động cơ & hộp số (20–30 mục)',
+      items: [
+        'Máy nổ êm, không rung giật',
+        'Không rò rỉ nhớt, nước',
+        'Kiểm tra que nhớt, màu nhớt',
+        'Dây curoa, dây điện, cổ hút – nứt, mục',
+        'Kiểm tra ECU: lỗi động cơ (qua máy đọc lỗi)',
+        'Hộp số chuyển số mượt không giật',
+        'Tiếng ồn bất thường khi chạy',
+      ],
+    },
+    {
+      icon: Wrench,
+      title: '4. Gầm xe & khung sườn (15–20 mục)',
+      items: [
+        'Sàn xe: dấu hiệu mục, gỉ, vá hàn',
+        'Ống xả: rò rỉ, gỉ sét',
+        'Hệ thống treo: phuộc, thanh ổn định',
+        'Trục các đăng, láp, cao su chân máy',
+        'Đánh lái – có tiếng động bất thường?',
+      ],
+    },
+    {
+      icon: BatteryCharging,
+      title: '5. Điện – điện tử (20–25 mục)',
+      items: [
+        'Ắc quy: dung lượng, tuổi thọ',
+        'Hệ thống đèn: pha, cốt, sương mù, lùi',
+        'Gạt mưa, rửa kính, đèn báo táp lô',
+        'Màn hình trung tâm, cảm biến',
+        'Hệ thống cảnh báo, hỗ trợ lái (ADAS)',
+        'Camera lùi, 360, cảm biến lùi',
+      ],
+    },
+    {
+      icon: Shield,
+      title: '6. Lốp, phanh & an toàn (15–20 mục)',
+      items: [
+        'Lốp: mòn đều không, có nứt không',
+        'Mâm: trầy xước, cong vênh',
+        'Hệ thống phanh: má phanh, đĩa, phanh ABS',
+        'Dầu phanh, tay phanh, đèn phanh',
+        'Hệ thống cân bằng điện tử, hỗ trợ xuống dốc',
+      ],
+    },
+    {
+      icon: Droplets,
+      title: '7. Kiểm tra dấu hiệu thủy kích/tai nạn (10+ mục)',
+      items: [
+        'Gầm xe có bùn tích tụ bất thường?',
+        'Dây điện bị oxy hóa, mục?',
+        'Ốc vít bị rỉ trong khoang nội thất?',
+        'Có thay thế ECU, túi khí, cụm đèn không?',
+        'Phần sơn mới – có lệch màu?',
+      ],
+    },
+    {
+      icon: FileText,
+      title: '8. Giấy tờ & pháp lý (5–10 mục)',
+      items: [
+        'Giấy đăng ký xe',
+        'Số khung, số máy trùng giấy tờ',
+        'Kiểm tra phạt nguội',
+        'Có đang thế chấp ngân hàng không?',
+        'Lịch sử bảo dưỡng (nếu có)',
+      ],
+    },
+  ];
 
 export default function Home() {
   const [filters, setFilters] = useState({
@@ -361,22 +462,47 @@ export default function Home() {
 
         <section className="py-12 bg-background">
             <div className="container mx-auto px-4 max-w-4xl">
-                <Card className="border-2 border-primary/50 shadow-lg text-center">
-                    <CardHeader className="p-6">
+                <Card className="border-2 border-primary/50 shadow-lg">
+                    <CardHeader className="p-6 text-center">
                         <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
                             <ShieldCheck className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
                         <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
                     </CardHeader>
-                    <CardContent className="text-lg space-y-4 px-6 sm:px-8 pb-6">
-                        <p className="text-foreground/90">
-                           Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
-                        </p>
-                        <div className="border-t border-dashed my-4"></div>
-                        <p className="font-semibold text-foreground">
-                            Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
-                        </p>
+                    <CardContent className="text-lg space-y-6 px-4 sm:px-6 pb-6 text-left">
+                        <div className="space-y-4 text-center">
+                            <p className="text-foreground/90">
+                                Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
+                            </p>
+                            <div className="border-t border-dashed my-4"></div>
+                            <p className="font-semibold text-foreground">
+                                Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
+                            </p>
+                        </div>
+
+                        <div className="pt-4">
+                            <h4 className="font-headline text-2xl text-center mb-4 text-primary font-bold">176 Hạng mục kiểm định chất lượng</h4>
+                            <Accordion type="single" collapsible className="w-full bg-primary/5 p-4 rounded-lg">
+                                {inspectionCategories.map((category, index) => (
+                                    <AccordionItem value={`item-${index}`} key={index} className="border-b last:border-b-0">
+                                        <AccordionTrigger className="hover:no-underline text-base font-semibold py-3">
+                                            <div className="flex items-center gap-3">
+                                                <category.icon className="h-5 w-5 text-accent" />
+                                                <span>{category.title}</span>
+                                            </div>
+                                        </AccordionTrigger>
+                                        <AccordionContent>
+                                            <ul className="list-disc list-inside space-y-2 pt-2 pl-6 text-base text-muted-foreground">
+                                                {category.items.map((item, itemIndex) => (
+                                                    <li key={itemIndex}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        </div>
                     </CardContent>
                 </Card>
             </div>
