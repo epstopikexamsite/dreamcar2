@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from '@/hooks/use-auth';
 
 const ptSans = PT_Sans({
-  subsets: ['latin', 'vietnamese'],
+  subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'latin-ext'],
   display: 'swap',
   variable: '--font-pt-sans',
   weight: ['400', '700'],
