@@ -89,14 +89,15 @@ export interface Car {
   price: number;
   images: CarImages;
   logo: string;
-  fuelType: 'Gasoline' | 'Diesel' | 'Hybrid' | 'Electric';
-  transmission: 'Automatic' | 'Manual';
+  fuelType: 'Xăng' | 'Dầu' | 'Hybrid' | 'Điện';
+  transmission: 'Số tự động' | 'Số tay';
   type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV' | 'Truck';
   exteriorColor: string;
   interiorColor: string;
   drivetrain: 'FWD' | 'RWD' | 'AWD' | '4WD';
   mileage: number;
   seatingCapacity: number;
+  engineCategory: string;
   status: 'Available' | 'Sold';
   specs: CarSpec;
   features: string[];

@@ -43,23 +43,11 @@ const colorMap: { [key: string]: string } = {
 };
 
 export default function CarCard({ car }: CarCardProps) {
-  const transmissionTranslations: {[key: string]: string} = {
-    'Automatic': 'Số tự động',
-    'Manual': 'Số tay'
-  }
-
   const drivetrainTranslations: {[key:string]: string} = {
     'FWD': 'Cầu trước',
     'RWD': 'Cầu sau',
     'AWD': 'AWD',
     '4WD': '4x4'
-  }
-
-  const fuelTypeTranslations: {[key: string]: string} = {
-    'Gasoline': 'Xăng',
-    'Diesel': 'Dầu',
-    'Electric': 'Điện',
-    'Hybrid': 'Hybrid'
   }
 
   const colorTranslations: { [key: string]: string } = {
@@ -76,14 +64,14 @@ export default function CarCard({ car }: CarCardProps) {
   };
 
   const transmissionIcons: { [key: string]: React.ElementType } = {
-    'Automatic': Cog,
-    'Manual': ManualGearboxIcon,
+    'Số tự động': Cog,
+    'Số tay': ManualGearboxIcon,
   };
 
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
-    'Gasoline': Fuel,
-    'Diesel': Truck,
-    'Electric': Zap,
+    'Xăng': Fuel,
+    'Dầu': Truck,
+    'Điện': Zap,
     'Hybrid': Leaf,
   };
 
@@ -140,11 +128,11 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
           <div className="flex items-center gap-2 truncate">
             {FuelIcon && <FuelIcon className="w-4 h-4 text-accent shrink-0" />}
-            <span className="truncate">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span>
+            <span className="truncate">{car.fuelType}</span>
           </div>
           <div className="flex items-center gap-2 truncate">
-            <TransmissionIcon className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{transmissionTranslations[car.transmission] || car.transmission}</span>
+            {TransmissionIcon && <TransmissionIcon className="w-4 h-4 text-accent shrink-0" />}
+            <span className="truncate">{car.transmission}</span>
           </div>
           <div className="flex items-center gap-2 truncate">
             <GitCommitHorizontal className="w-4 h-4 text-accent shrink-0" />

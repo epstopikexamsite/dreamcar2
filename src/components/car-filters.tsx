@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal, Package, PackageCheck, PackageX, Users, Star } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal, Package, PackageCheck, PackageX, Users, Star, Cpu } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -33,7 +33,7 @@ const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 interface CarFiltersProps {
   brands: { name: string; logo: string }[];
   years: string[];
-  fuelTypes: string[];
+  fuelTypes: (CarType['fuelType'])[];
   transmissionTypes: (CarType['transmission'])[];
   carTypes: (CarType['type'])[];
   exteriorColors: string[];
@@ -41,6 +41,7 @@ interface CarFiltersProps {
   drivetrains: string[];
   seatingCapacities: number[];
   features: string[];
+  engineCategories: string[];
   filters: { 
     brand: string[]; 
     priceRange: number[]; 
@@ -53,6 +54,7 @@ interface CarFiltersProps {
     drivetrain: string[];
     seatingCapacity: number[];
     features: string[];
+    engineCategory: string[];
     status: string;
   };
   onFilterChange: (filters: any) => void;
@@ -60,15 +62,15 @@ interface CarFiltersProps {
 }
 
 const fuelTypeIcons: { [key: string]: React.ElementType } = {
-  'Gasoline': Fuel,
-  'Diesel': Truck,
-  'Electric': Zap,
+  'Xăng': Fuel,
+  'Dầu': Truck,
+  'Điện': Zap,
   'Hybrid': Leaf,
 };
 
 const transmissionIcons: { [key: string]: React.ElementType } = {
-  'Automatic': Cog,
-  'Manual': ManualGearboxIcon,
+  'Số tự động': Cog,
+  'Số tay': ManualGearboxIcon,
 };
 
 const carTypeIcons: { [key: string]: React.ElementType } = {
@@ -76,6 +78,7 @@ const carTypeIcons: { [key: string]: React.ElementType } = {
   'Coupe': Car,
   'Sedan': CarFront,
   'SUV': Caravan,
+  'Truck': Truck,
 };
 
 const colorMap: { [key: string]: string } = {
@@ -105,7 +108,7 @@ const colorTranslations: { [key: string]: string } = {
 };
 
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, seatingCapacities, features, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, seatingCapacities, features, engineCategories, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -175,18 +178,13 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
       : [...filters.features, feature];
     onFilterChange({ ...filters, features: newFeatures });
   };
-
-  const fuelTypeTranslations: {[key: string]: string} = {
-    'Gasoline': 'Xăng',
-    'Diesel': 'Dầu',
-    'Electric': 'Điện',
-    'Hybrid': 'Hybrid'
-  }
-
-  const transmissionTranslations: {[key: string]: string} = {
-    'Automatic': 'Số tự động',
-    'Manual': 'Số tay'
-  }
+  
+  const handleEngineCategoryChange = (engineCategoryValue: string) => {
+    const newEngineCategories = filters.engineCategory.includes(engineCategoryValue)
+        ? filters.engineCategory.filter((ec) => ec !== engineCategoryValue)
+        : [...filters.engineCategory, engineCategoryValue];
+    onFilterChange({ ...filters, engineCategory: newEngineCategories });
+  };
 
   const drivetrainTranslations: {[key: string]: string} = {
     'FWD': 'Cầu trước',
@@ -411,16 +409,16 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                   "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
                   isSelected
                     ? {
-                        'bg-chart-1 text-accent-foreground hover:bg-chart-1/90 border-chart-1': fuelType === 'Gasoline',
-                        'bg-chart-3 text-accent-foreground hover:bg-chart-3/90 border-chart-3': fuelType === 'Diesel',
-                        'bg-chart-4 text-accent-foreground hover:bg-chart-4/90 border-chart-4': fuelType === 'Electric',
+                        'bg-chart-1 text-accent-foreground hover:bg-chart-1/90 border-chart-1': fuelType === 'Xăng',
+                        'bg-chart-3 text-accent-foreground hover:bg-chart-3/90 border-chart-3': fuelType === 'Dầu',
+                        'bg-chart-4 text-accent-foreground hover:bg-chart-4/90 border-chart-4': fuelType === 'Điện',
                         'bg-chart-2 text-accent-foreground hover:bg-chart-2/90 border-chart-2': fuelType === 'Hybrid',
                       }
                     : "bg-card hover:bg-accent hover:text-accent-foreground"
                 )}
               >
                 {Icon && <Icon className="w-4 h-4" />}
-                {fuelTypeTranslations[fuelType] || fuelType}
+                {fuelType}
               </button>
             )})}
           </div>
@@ -445,7 +443,7 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 )}
               >
                 {Icon && <Icon className="w-4 h-4" />}
-                {transmissionTranslations[transmissionType] || transmissionType}
+                {transmissionType}
               </button>
             )})}
           </div>
@@ -469,6 +467,29 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 )}
               >
                 {drivetrainTranslations[drivetrain as keyof typeof drivetrainTranslations] || drivetrain}
+              </button>
+            )})}
+          </div>
+        </div>
+        
+        <div className="space-y-2">
+          <Label className="font-semibold flex items-center gap-2"><Cpu className="w-4 h-4" /> Loại động cơ</Label>
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {engineCategories.map((engineCategory) => {
+              const isSelected = filters.engineCategory.includes(engineCategory);
+              return (
+              <button
+                key={engineCategory}
+                onClick={() => handleEngineCategoryChange(engineCategory)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
+                  isSelected
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {engineCategory}
               </button>
             )})}
           </div>

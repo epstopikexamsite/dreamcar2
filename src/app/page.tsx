@@ -32,6 +32,7 @@ export default function Home() {
     drivetrain: [] as string[],
     seatingCapacity: [] as number[],
     features: [] as string[],
+    engineCategory: [] as string[],
     status: 'Available',
   });
   
@@ -51,8 +52,9 @@ export default function Home() {
       const drivetrainMatch = filters.drivetrain.length === 0 || filters.drivetrain.includes(car.drivetrain);
       const seatingMatch = filters.seatingCapacity.length === 0 || filters.seatingCapacity.includes(car.seatingCapacity);
       const featuresMatch = filters.features.length === 0 || filters.features.every(feature => car.features.includes(feature));
+      const engineCategoryMatch = filters.engineCategory.length === 0 || filters.engineCategory.includes(car.engineCategory);
       const statusMatch = car.status === filters.status;
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch && seatingMatch && featuresMatch && statusMatch;
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch && seatingMatch && featuresMatch && statusMatch && engineCategoryMatch;
     });
   }, [filters]);
 
@@ -105,6 +107,7 @@ export default function Home() {
   const drivetrains = useMemo(() => [...Array.from(new Set(allCars.map(car => car.drivetrain)))].sort(), []);
   const seatingCapacities = useMemo(() => [...new Set(allCars.map(car => car.seatingCapacity))].sort((a, b) => a - b), []);
   const features = useMemo(() => [...new Set(allCars.flatMap(car => car.features))].sort(), []);
+  const engineCategories = useMemo(() => [...new Set(allCars.map(car => car.engineCategory))].sort(), []);
 
 
   const visibleCars = filteredCars.slice(0, visibleCount);
@@ -134,6 +137,7 @@ export default function Home() {
       drivetrain: [],
       seatingCapacity: [],
       features: [],
+      engineCategory: [],
       status: 'Available',
     });
   };
@@ -191,6 +195,7 @@ export default function Home() {
                                               drivetrains={drivetrains}
                                               seatingCapacities={seatingCapacities}
                                               features={features}
+                                              engineCategories={engineCategories}
                                               filters={filters} 
                                               onFilterChange={setFilters}
                                               showTitle={false}
