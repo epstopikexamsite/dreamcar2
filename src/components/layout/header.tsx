@@ -36,7 +36,7 @@ export default function Header() {
         </Link>
         
         <div className="flex items-center gap-6">
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden xl:flex items-center gap-6">
                 {navLinks.map(link => {
                     const Icon = link.icon;
                     const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
@@ -52,7 +52,7 @@ export default function Header() {
                     )
                 })}
             </nav>
-            <div className="lg:hidden">
+            <div className="xl:hidden">
                  <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
