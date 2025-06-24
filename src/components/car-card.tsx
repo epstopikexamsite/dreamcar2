@@ -92,6 +92,7 @@ export default function CarCard({ car }: CarCardProps) {
     'Coupe': CarIcon,
     'Sedan': CarFront,
     'SUV': Caravan,
+    'Truck': Truck,
   };
 
   const TransmissionIcon = transmissionIcons[car.transmission];

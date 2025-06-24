@@ -49,7 +49,7 @@ export interface Car {
   logo: string;
   fuelType: 'Gasoline' | 'Diesel' | 'Hybrid' | 'Electric';
   transmission: 'Automatic' | 'Manual';
-  type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV';
+  type: 'Compact' | 'Coupe' | 'Sedan' | 'SUV' | 'Truck';
   exteriorColor: string;
   interiorColor: string;
   drivetrain: 'FWD' | 'RWD' | 'AWD' | '4WD';
