@@ -14,6 +14,18 @@ export default {
         headline: ['var(--font-playfair-display)', 'serif'],
         code: ['monospace'],
       },
+      fontSize: {
+        'xs': ['0.82rem', { lineHeight: '1.4' }],
+        'sm': ['0.92rem', { lineHeight: '1.5' }],
+        'base': ['1.05rem', { lineHeight: '1.6' }],
+        'lg': ['1.15rem', { lineHeight: '1.6' }],
+        'xl': ['1.3rem', { lineHeight: '1.5' }],
+        '2xl': ['1.6rem', { lineHeight: '1.4' }],
+        '3xl': ['2rem', { lineHeight: '1.3' }],
+        '4xl': ['2.5rem', { lineHeight: '1.2' }],
+        '5xl': ['3.5rem', { lineHeight: '1.1' }],
+        '6xl': ['4.5rem', { lineHeight: '1' }],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
