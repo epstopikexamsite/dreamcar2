@@ -1,6 +1,5 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Star, MessageSquare } from 'lucide-react';
+import { Star, MessageSquare, MapPin } from 'lucide-react';
 import type { Testimonial } from '@/lib/testimonials-data';
 
 const StarRating = ({ rating }: { rating: number }) => (
@@ -23,14 +22,12 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
       </CardContent>
       <CardFooter className="p-0 mt-auto flex flex-col items-start gap-4 border-t pt-4">
         <StarRating rating={testimonial.rating} />
-        <div className="flex items-center gap-4">
-            <Avatar className="h-12 w-12 border-2 border-primary/20">
-                <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.aiHint} />
-                <AvatarFallback>{testimonial.name.split(' ').pop()?.[0]}</AvatarFallback>
-            </Avatar>
-            <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+        <div>
+            <p className="font-semibold text-foreground">{testimonial.name}</p>
+            <p className="text-sm text-muted-foreground mt-1">{testimonial.role}</p>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
+                <MapPin className="w-4 h-4 text-accent" />
+                <span>{testimonial.province}</span>
             </div>
         </div>
       </CardFooter>
