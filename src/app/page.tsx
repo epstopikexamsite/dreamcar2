@@ -168,7 +168,7 @@ export default function Home() {
     });
   };
 
-  const isPriceFiltered = filters.priceRange[0] !== 0 || filters.priceRange[1] !== NO_PRICE_LIMIT;
+  const isPriceFiltered = filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
     .filter(([key]) => !['priceRange', 'status'].includes(key) && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as string[]).length > 0)
     .flatMap(([key, values]) => {
@@ -233,7 +233,7 @@ export default function Home() {
                         ))}
                          {isPriceFiltered && (
                             <Badge variant="secondary" className="pl-2 pr-1 py-1">
-                                Giá: {filters.priceRange[0].toLocaleString('vi-VN')} - {filters.priceRange[1] === NO_PRICE_LIMIT ? 'Không giới hạn' : filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
+                                Giá tối đa: {filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
                                 <button onClick={handlePriceRemove} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
                             </Badge>
                         )}
@@ -243,7 +243,7 @@ export default function Home() {
             </div>
         </div>
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="px-4 lg:px-8 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               <aside className="hidden lg:block lg:col-span-1">
                 <div className="sticky top-[200px]">

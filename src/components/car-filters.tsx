@@ -263,49 +263,26 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Khoảng giá</Label>
-          <div className="flex items-center gap-2 pt-2">
-            <div className="relative flex-1">
-              <Label htmlFor="min-price" className="sr-only">Giá tối thiểu</Label>
-              <Input
-                id="min-price"
-                type="number"
-                placeholder="Tối thiểu"
-                value={filters.priceRange[0] === 0 ? '' : filters.priceRange[0]}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  const numericValue = value === '' ? 0 : Number(value);
-                  onFilterChange({ ...filters, priceRange: [numericValue, filters.priceRange[1]] });
-                }}
-                min={0}
-                step={10000000}
-                className="pr-12"
-              />
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
-                VNĐ
-              </span>
-            </div>
-            <span className="text-muted-foreground">-</span>
-            <div className="relative flex-1">
-              <Label htmlFor="max-price" className="sr-only">Giá tối đa</Label>
-              <Input
-                id="max-price"
-                type="number"
-                placeholder="Tối đa"
-                value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  const numericValue = value === '' ? NO_PRICE_LIMIT : Number(value);
-                  onFilterChange({ ...filters, priceRange: [filters.priceRange[0], numericValue] });
-                }}
-                min={0}
-                step={10000000}
-                className="pr-12"
-              />
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
-                VNĐ
-              </span>
-            </div>
+          <Label className="font-semibold flex items-center gap-2"><Tag className="w-4 h-4" /> Giá tối đa</Label>
+          <div className="relative pt-2">
+            <Label htmlFor="max-price" className="sr-only">Giá tối đa</Label>
+            <Input
+              id="max-price"
+              type="number"
+              placeholder="Nhập giá tối đa"
+              value={filters.priceRange[1] === NO_PRICE_LIMIT ? '' : filters.priceRange[1]}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? NO_PRICE_LIMIT : Number(value);
+                onFilterChange({ ...filters, priceRange: [0, numericValue] });
+              }}
+              min={0}
+              step={10000000}
+              className="pr-12"
+            />
+            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
+              VNĐ
+            </span>
           </div>
         </div>
         
