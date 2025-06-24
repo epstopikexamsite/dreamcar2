@@ -51,7 +51,7 @@ export const cars: Car[] = [
     mileage: 12500,
     seatingCapacity: 5,
     engineCategory: 'Điện',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "N/A",
         enginePower: "670 mã lực",
@@ -130,7 +130,7 @@ export const cars: Car[] = [
     mileage: 5600,
     seatingCapacity: 4,
     engineCategory: 'Boxer',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "379 mã lực",
@@ -207,7 +207,7 @@ export const cars: Car[] = [
     mileage: 21000,
     seatingCapacity: 4,
     engineCategory: 'V8',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "5.0L",
         enginePower: "480 mã lực",
@@ -283,7 +283,7 @@ export const cars: Car[] = [
     mileage: 35000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.5L",
         enginePower: "219 mã lực (kết hợp)",
@@ -359,7 +359,7 @@ export const cars: Car[] = [
     mileage: 8900,
     seatingCapacity: 5,
     engineCategory: 'I6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "473 mã lực",
@@ -435,7 +435,7 @@ export const cars: Car[] = [
     mileage: 15200,
     seatingCapacity: 4,
     engineCategory: 'I4',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "315 mã lực",
@@ -511,7 +511,7 @@ export const cars: Car[] = [
     mileage: 9500,
     seatingCapacity: 2,
     engineCategory: 'V10',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "5.2L",
         enginePower: "562 mã lực",
@@ -588,7 +588,7 @@ export const cars: Car[] = [
     mileage: 45000,
     seatingCapacity: 5,
     engineCategory: 'V6',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "285 mã lực",
@@ -664,7 +664,7 @@ export const cars: Car[] = [
     mileage: 22000,
     seatingCapacity: 5,
     engineCategory: 'Điện',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "N/A",
         enginePower: "283 mã lực",
@@ -742,7 +742,7 @@ export const cars: Car[] = [
     mileage: 18000,
     seatingCapacity: 7,
     engineCategory: 'Điện',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "N/A",
         enginePower: "670 mã lực",
@@ -820,7 +820,7 @@ export const cars: Car[] = [
     mileage: 14000,
     seatingCapacity: 5,
     engineCategory: 'Điện',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "N/A",
         enginePower: "384 mã lực",
@@ -898,7 +898,7 @@ export const cars: Car[] = [
     mileage: 28000,
     seatingCapacity: 5,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "455 mã lực (kết hợp)",
@@ -973,7 +973,7 @@ export const cars: Car[] = [
     mileage: 32000,
     seatingCapacity: 4,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.9L",
         enginePower: "325 mã lực",
@@ -1048,7 +1048,7 @@ export const cars: Car[] = [
     mileage: 11000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "261 mã lực",
@@ -1123,7 +1123,7 @@ export const cars: Car[] = [
     mileage: 45000,
     seatingCapacity: 7,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.3L",
         enginePower: "300 mã lực",
@@ -1198,7 +1198,7 @@ export const cars: Car[] = [
     mileage: 15000,
     seatingCapacity: 5,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.7L",
         enginePower: "330 mã lực",
@@ -1273,7 +1273,7 @@ export const cars: Car[] = [
     mileage: 65000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "1.5L",
         enginePower: "180 mã lực",
@@ -1348,7 +1348,7 @@ export const cars: Car[] = [
     mileage: 38000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.5L",
         enginePower: "208 mã lực (kết hợp)",
@@ -1423,7 +1423,7 @@ export const cars: Car[] = [
     mileage: 55000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.8L",
         enginePower: "139 mã lực",
@@ -1498,7 +1498,7 @@ export const cars: Car[] = [
     mileage: 25000,
     seatingCapacity: 8,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.5L",
         enginePower: "243 mã lực (kết hợp)",
@@ -1573,7 +1573,7 @@ export const cars: Car[] = [
     mileage: 48000,
     seatingCapacity: 5,
     engineCategory: 'I6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "282 mã lực",
@@ -1648,7 +1648,7 @@ export const cars: Car[] = [
     mileage: 21000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "255 mã lực",
@@ -1723,7 +1723,7 @@ export const cars: Car[] = [
     mileage: 19000,
     seatingCapacity: 2,
     engineCategory: 'I6',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "382 mã lực",
@@ -1798,7 +1798,7 @@ export const cars: Car[] = [
     mileage: 26000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "204 mã lực (kết hợp)",
@@ -1873,7 +1873,7 @@ export const cars: Car[] = [
     mileage: 41000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "204 mã lực (kết hợp)",
@@ -1948,7 +1948,7 @@ export const cars: Car[] = [
     mileage: 19000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.5L",
         enginePower: "177 mã lực",
@@ -2023,7 +2023,7 @@ export const cars: Car[] = [
     mileage: 60000,
     seatingCapacity: 7,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.0L",
         enginePower: "286 mã lực",
@@ -2098,7 +2098,7 @@ export const cars: Car[] = [
     mileage: 33000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "248 mã lực",
@@ -2173,7 +2173,7 @@ export const cars: Car[] = [
     mileage: 42000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.4L",
         enginePower: "150 mã lực",
@@ -2248,7 +2248,7 @@ export const cars: Car[] = [
     mileage: 31000,
     seatingCapacity: 5,
     engineCategory: 'V6',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "3.6L",
         enginePower: "293 mã lực",
@@ -2323,7 +2323,7 @@ export const cars: Car[] = [
     mileage: 40000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.4L",
         enginePower: "177 mã lực",
@@ -2398,7 +2398,7 @@ export const cars: Car[] = [
     mileage: 45000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.3L",
         enginePower: "177 mã lực",
@@ -2473,7 +2473,7 @@ export const cars: Car[] = [
     mileage: 45000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.5L",
         enginePower: "106 mã lực",
@@ -2548,7 +2548,7 @@ export const cars: Car[] = [
     mileage: 62000,
     seatingCapacity: 7,
     engineCategory: 'I4',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "2.8L",
         enginePower: "201 mã lực",
@@ -2623,7 +2623,7 @@ export const cars: Car[] = [
     mileage: 25000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.4L",
         enginePower: "100 mã lực",
@@ -2698,7 +2698,7 @@ export const cars: Car[] = [
     mileage: 38000,
     seatingCapacity: 7,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.2L",
         enginePower: "202 mã lực",
@@ -2773,7 +2773,7 @@ export const cars: Car[] = [
     mileage: 18000,
     seatingCapacity: 5,
     engineCategory: 'Điện',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "N/A",
         enginePower: "402 mã lực",
@@ -2851,7 +2851,7 @@ export const cars: Car[] = [
     mileage: 55000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "228 mã lực",
@@ -2926,7 +2926,7 @@ export const cars: Car[] = [
     mileage: 31000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "2.5L",
         enginePower: "188 mã lực",
@@ -3001,7 +3001,7 @@ export const cars: Car[] = [
     mileage: 22000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.4L",
         enginePower: "138 mã lực",
@@ -3076,7 +3076,7 @@ export const cars: Car[] = [
     mileage: 29000,
     seatingCapacity: 7,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "210 mã lực",
@@ -3151,7 +3151,7 @@ export const cars: Car[] = [
     mileage: 35000,
     seatingCapacity: 7,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.5L",
         enginePower: "104 mã lực",
@@ -3226,7 +3226,7 @@ export const cars: Car[] = [
     mileage: 30000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "1.5L",
         enginePower: "204 mã lực",
@@ -3301,7 +3301,7 @@ export const cars: Car[] = [
     mileage: 20000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Available',
+    status: 'Còn hàng',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "258 mã lực",
@@ -3376,7 +3376,7 @@ export const cars: Car[] = [
     mileage: 35000,
     seatingCapacity: 5,
     engineCategory: 'I4',
-    status: 'Sold',
+    status: 'Đã bán',
     specs: {
         engineDisplacement: "2.0L",
         enginePower: "184 mã lực",
