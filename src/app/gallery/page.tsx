@@ -23,7 +23,7 @@ export default function GalleryPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((item) => (
             <Card key={item.id} className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <div className="relative aspect-video w-full">
+              <div className="relative aspect-[3/2] w-full">
                 <Image
                   src={item.src}
                   alt={item.alt}

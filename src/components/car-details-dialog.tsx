@@ -140,7 +140,7 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                     key={index}
                     onClick={() => setCurrentImage(img.src)}
                     className={cn(
-                      'relative aspect-video rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
+                      'relative aspect-[3/2] rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
                       currentImage === img.src && 'ring-2 ring-primary'
                     )}
                   >

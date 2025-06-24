@@ -15,7 +15,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
     <Card className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       <Link href={`/blog/${post.slug}`} className="block">
         <CardHeader className="p-0">
-          <div className="relative aspect-video w-full">
+          <div className="relative aspect-[3/2] w-full">
             <Image
               src={post.image}
               alt={post.title}

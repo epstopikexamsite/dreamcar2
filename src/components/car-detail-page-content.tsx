@@ -138,7 +138,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-4 bg-muted shadow-lg">
+            <div className="relative aspect-[3/2] w-full rounded-lg overflow-hidden mb-4 bg-muted shadow-lg">
                 <Image
                   src={currentImage}
                   alt={car.model}
@@ -170,7 +170,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                         key={img.src}
                         onClick={() => setCurrentImage(img.src)}
                         className={cn(
-                          'relative aspect-video rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
+                          'relative aspect-[3/2] rounded-md overflow-hidden ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring',
                           currentImage === img.src && 'ring-2 ring-primary'
                         )}
                       >

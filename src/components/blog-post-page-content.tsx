@@ -12,7 +12,7 @@ export default function BlogPostPageContent({ post }: { post: BlogPost }) {
       <div className="container mx-auto px-4 max-w-4xl">
           <article>
               <header className="mb-8">
-                  <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8 shadow-lg">
+                  <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden mb-8 shadow-lg">
                       <Image
                           src={post.image}
                           alt={post.title}
