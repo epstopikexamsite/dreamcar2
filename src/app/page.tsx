@@ -188,7 +188,7 @@ export default function Home() {
             <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                         <div className="lg:hidden">
+                         <div>
                             <Sheet>
                                 <SheetTrigger asChild>
                                     <Button variant="outline">
@@ -243,26 +243,8 @@ export default function Home() {
             </div>
         </div>
 
-        <div className="px-4 lg:px-8 py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-              <aside className="hidden lg:block lg:col-span-1">
-                <div className="sticky top-[200px]">
-                  <CarFilters 
-                    brands={brands} 
-                    years={years}
-                    fuelTypes={fuelTypes}
-                    transmissionTypes={transmissionTypes}
-                    carTypes={carTypes}
-                    exteriorColors={exteriorColors}
-                    interiorColors={interiorColors}
-                    drivetrains={drivetrains}
-                    filters={filters} 
-                    onFilterChange={setFilters} 
-                  />
-                </div>
-              </aside>
-            
-            <section className="lg:col-span-3">
+        <div className="container mx-auto px-4 py-8">
+            <section>
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {visibleCars.map(car => (
@@ -285,7 +267,6 @@ export default function Home() {
                     </div>
                 )}
             </section>
-            </div>
         </div>
 
         <section className="py-16 bg-primary/5">
