@@ -147,11 +147,11 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
           <div className="flex items-center gap-2 truncate">
             <Palette className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{colorTranslations[car.exteriorColor] || car.exteriorColor}</span>
+            <span className="truncate">Ngoại thất {colorTranslations[car.exteriorColor] || car.exteriorColor}</span>
           </div>
           <div className="flex items-center gap-2 truncate">
             <Armchair className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{colorTranslations[car.interiorColor] || car.interiorColor}</span>
+            <span className="truncate">Nội thất {colorTranslations[car.interiorColor] || car.interiorColor}</span>
           </div>
         </div>
       </CardContent>
