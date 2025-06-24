@@ -19,8 +19,8 @@ const socialLinks = [
 ];
 
 const legalLinks = [
-    { href: "#", label: "Terms & Privacy" },
-    { href: "#", label: "Careers" },
+    { href: "/about", label: "Điều khoản & Bảo mật" },
+    { href: "/careers", label: "Tuyển dụng" },
 ];
 
 export default function Footer() {

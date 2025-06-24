@@ -3,7 +3,7 @@ export interface JobOpening {
   id: number;
   title: string;
   location: string;
-  type: 'Full-time' | 'Part-time';
+  type: 'Toàn thời gian' | 'Bán thời gian';
   description: string;
   requirements: string[];
   contact?: {
@@ -17,7 +17,7 @@ export const jobOpenings: JobOpening[] = [
     id: 1,
     title: 'Nhân viên Kinh doanh Ô tô',
     location: 'Hà Nội',
-    type: 'Full-time',
+    type: 'Toàn thời gian',
     description: `Lương cứng: 10.000.000 VNĐ/tháng
 Hoa hồng hấp dẫn: từ 5 – 10 triệu VNĐ/xe bán ra
 Thưởng thêm theo doanh số và hiệu quả công việc`,
@@ -37,7 +37,7 @@ Thưởng thêm theo doanh số và hiệu quả công việc`,
     id: 2,
     title: 'Chuyên viên Digital Marketing',
     location: 'Hà Nội (Hybrid)',
-    type: 'Full-time',
+    type: 'Toàn thời gian',
     description: 'Lập kế hoạch và triển khai các chiến dịch marketing trên các kênh kỹ thuật số (Facebook, Google, TikTok). Quản lý và phát triển nội dung cho website và mạng xã hội.',
     requirements: [
       'Kinh nghiệm 2 năm trở lên ở vị trí tương đương.',
@@ -50,7 +50,7 @@ Thưởng thêm theo doanh số và hiệu quả công việc`,
     id: 3,
     title: 'Kỹ thuật viên Sửa chữa Ô tô',
     location: 'Hà Nội & Long Biên',
-    type: 'Full-time',
+    type: 'Toàn thời gian',
     description: 'Thực hiện kiểm tra, bảo dưỡng và sửa chữa các dòng xe ô tô theo quy trình 176 hạng mục của TimeCarsAuto. Đảm bảo chất lượng xe trước khi bàn giao cho khách.',
     requirements: [
       'Có chứng chỉ nghề hoặc kinh nghiệm thực tế từ 2 năm.',

@@ -19,7 +19,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 const siteUrl = 'https://timecarsauto.com'; 
-const ogImageUrl = 'https://placehold.co/1200x630.png?text=TimeCarsAuto';
+const ogImageUrl = 'https://placehold.co/1200x630.png?text=TimeCarsAuto+-+Uy+Tín+Tạo+Nên+Thương+Hiệu';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
