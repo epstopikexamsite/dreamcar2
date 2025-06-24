@@ -1,20 +1,20 @@
 import type {Metadata} from 'next';
-import { Inter, Oswald } from 'next/font/google';
+import { PT_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
+const ptSans = PT_Sans({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-pt-sans',
   weight: ['400', '700'],
 });
 
-const oswald = Oswald({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  variable: '--font-oswald',
-  weight: ['700'],
+  variable: '--font-playfair-display',
+  weight: ['400', '700'],
 });
 
 // TODO: Replace with your actual production domain
@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${inter.variable} ${oswald.variable} scroll-smooth`}>
+    <html lang="vi" className={`${ptSans.variable} ${playfairDisplay.variable} scroll-smooth`}>
       <head />
       <body className="font-body antialiased">
         {children}
