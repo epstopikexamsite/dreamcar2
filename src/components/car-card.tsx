@@ -29,6 +29,18 @@ const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
   );
 
+const colorMap: { [key: string]: string } = {
+  'White': 'bg-white border',
+  'Black': 'bg-black',
+  'Silver': 'bg-slate-300',
+  'Gray': 'bg-gray-500',
+  'Red': 'bg-red-500',
+  'Blue': 'bg-blue-500',
+  'Green': 'bg-green-500',
+  'Beige': 'bg-amber-200',
+  'Tan': 'bg-amber-400',
+  'Brown': 'bg-amber-800',
+};
 
 export default function CarCard({ car }: CarCardProps) {
   const transmissionTranslations: {[key: string]: string} = {
@@ -147,11 +159,17 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
           <div className="flex items-center gap-2 truncate">
             <Palette className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">Ngoại thất {colorTranslations[car.exteriorColor] || car.exteriorColor}</span>
+            <span className="truncate flex items-center gap-2">
+              Ngoại thất {colorTranslations[car.exteriorColor] || car.exteriorColor}
+              <span className={cn('h-3 w-3 rounded-full border border-black/20', colorMap[car.exteriorColor] || 'bg-gray-300')} />
+            </span>
           </div>
           <div className="flex items-center gap-2 truncate">
             <Armchair className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">Nội thất {colorTranslations[car.interiorColor] || car.interiorColor}</span>
+            <span className="truncate flex items-center gap-2">
+              Nội thất {colorTranslations[car.interiorColor] || car.interiorColor}
+              <span className={cn('h-3 w-3 rounded-full border border-black/20', colorMap[car.interiorColor] || 'bg-gray-300')} />
+            </span>
           </div>
         </div>
       </CardContent>
