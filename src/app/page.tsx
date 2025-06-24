@@ -33,7 +33,7 @@ export default function Home() {
     seatingCapacity: [] as number[],
     features: [] as string[],
     engineCategory: [] as string[],
-    status: 'Available',
+    status: 'Còn hàng',
   });
   
   const [visibleCount, setVisibleCount] = useState(CARS_PER_PAGE);
@@ -138,7 +138,7 @@ export default function Home() {
       seatingCapacity: [],
       features: [],
       engineCategory: [],
-      status: 'Available',
+      status: 'Còn hàng',
     });
   };
 

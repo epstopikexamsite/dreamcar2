@@ -98,7 +98,7 @@ export interface Car {
   mileage: number;
   seatingCapacity: number;
   engineCategory: string;
-  status: 'Available' | 'Sold';
+  status: 'Còn hàng' | 'Đã bán';
   specs: CarSpec;
   features: string[];
   reviews: Review[];

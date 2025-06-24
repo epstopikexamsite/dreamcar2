@@ -90,10 +90,10 @@ export default function CarCard({ car }: CarCardProps) {
   return (
     <Card className={cn(
       "overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card",
-      car.status === 'Sold' && 'opacity-70'
+      car.status === 'Đã bán' && 'opacity-70'
       )}>
       <CardHeader className="p-0">
-        <div className="relative h-48 w-full">
+        <div className="relative w-full aspect-[3/2]">
           <Image
             src={car.images.exterior.frontThreeQuarter}
             alt={`${car.brand} ${car.model}`}
@@ -103,12 +103,12 @@ export default function CarCard({ car }: CarCardProps) {
             className="group-hover:scale-105 transition-transform duration-300"
             data-ai-hint="car front quarter"
           />
-          {car.status === 'Sold' && (
+          {car.status === 'Đã bán' && (
             <Badge
                 variant="destructive"
                 className="absolute top-2 right-2 z-10 text-sm py-1 px-3 rotate-12"
             >
-                Đã Bán
+                Đã bán
             </Badge>
           )}
         </div>

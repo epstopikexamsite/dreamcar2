@@ -205,11 +205,11 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
           <Label className="font-semibold flex items-center gap-2"><Package className="w-4 h-4" /> Trạng thái</Label>
           <div className="grid grid-cols-2 gap-2 pt-2">
               <button
-                onClick={() => onFilterChange({ ...filters, status: 'Available' })}
+                onClick={() => onFilterChange({ ...filters, status: 'Còn hàng' })}
                 className={cn(
                   "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
                   "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
-                  filters.status === 'Available'
+                  filters.status === 'Còn hàng'
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "bg-card hover:bg-accent hover:text-accent-foreground"
                 )}
@@ -218,11 +218,11 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 Còn hàng
               </button>
               <button
-                onClick={() => onFilterChange({ ...filters, status: 'Sold' })}
+                onClick={() => onFilterChange({ ...filters, status: 'Đã bán' })}
                 className={cn(
                   "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium gap-2",
                   "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
-                  filters.status === 'Sold'
+                  filters.status === 'Đã bán'
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "bg-card hover:bg-accent hover:text-accent-foreground"
                 )}
