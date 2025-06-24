@@ -92,6 +92,18 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
   const drivetrainTranslations: {[key:string]: string} = {
     'FWD': 'Cầu trước', 'RWD': 'Cầu sau', 'AWD': 'AWD', '4WD': '4x4'
   };
+  const colorTranslations: { [key: string]: string } = {
+    'White': 'Trắng',
+    'Black': 'Đen',
+    'Silver': 'Bạc',
+    'Gray': 'Xám',
+    'Red': 'Đỏ',
+    'Blue': 'Xanh lam',
+    'Green': 'Xanh lá',
+    'Beige': 'Be',
+    'Tan': 'Nâu tan',
+    'Brown': 'Nâu',
+  };
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
     Gasoline: Fuel, Diesel: Truck, Electric: Zap, Hybrid: Leaf,
   };
@@ -226,8 +238,8 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                               <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Zap className="w-5 h-5 text-accent" /> Động cơ</span> <strong className="text-right font-medium">{car.specs.engine}</strong></li>
                               <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Gauge className="w-5 h-5 text-accent" /> Mã lực</span> <strong className="font-medium">{car.specs.horsepower} hp</strong></li>
                               <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Droplets className="w-5 h-5 text-accent" /> Tiêu thụ nhiên liệu</span> <strong className="font-medium">{car.specs.fuelConsumption}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Palette className="w-5 h-5 text-accent" /> Màu ngoại thất</span> <strong className="font-medium">{car.exteriorColor}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Armchair className="w-5 h-5 text-accent" /> Màu nội thất</span> <strong className="font-medium">{car.interiorColor}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Palette className="w-5 h-5 text-accent" /> Màu ngoại thất</span> <strong className="font-medium">{colorTranslations[car.exteriorColor] || car.exteriorColor}</strong></li>
+                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Armchair className="w-5 h-5 text-accent" /> Màu nội thất</span> <strong className="font-medium">{colorTranslations[car.interiorColor] || car.interiorColor}</strong></li>
                               <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Ruler className="w-5 h-5 text-accent" /> Kích thước (D x R x C)</span> <strong className="font-medium">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</strong></li>
                               <li className="flex items-center justify-between"><span className="flex items-center gap-3 text-muted-foreground"><Shield className="w-5 h-5 text-accent" /> Đánh giá an toàn</span> <strong><StarRating rating={car.specs.safetyRating} /></strong></li>
                             </ul>

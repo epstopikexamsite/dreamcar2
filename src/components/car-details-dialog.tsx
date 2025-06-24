@@ -75,6 +75,19 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
     '4WD': '4x4'
   }
 
+  const colorTranslations: { [key: string]: string } = {
+    'White': 'Trắng',
+    'Black': 'Đen',
+    'Silver': 'Bạc',
+    'Gray': 'Xám',
+    'Red': 'Đỏ',
+    'Blue': 'Xanh lam',
+    'Green': 'Xanh lá',
+    'Beige': 'Be',
+    'Tan': 'Nâu tan',
+    'Brown': 'Nâu',
+  };
+
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
     Gasoline: Fuel,
     Diesel: Truck,
@@ -171,8 +184,8 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
                         "text-chart-2": car.fuelType === 'Hybrid',
                         "text-accent": !Object.keys(fuelTypeIcons).includes(car.fuelType)
                       })} /> <strong>Nhiên liệu</strong></span> <span className="text-muted-foreground">{fuelTypeTranslations[car.fuelType] || car.fuelType}</span></div>
-                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Palette className="w-4 h-4 text-accent" /> <strong>Màu ngoại thất</strong></span> <span className="text-muted-foreground">{car.exteriorColor}</span></div>
-                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Armchair className="w-4 h-4 text-accent" /> <strong>Màu nội thất</strong></span> <span className="text-muted-foreground">{car.interiorColor}</span></div>
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Palette className="w-4 h-4 text-accent" /> <strong>Màu ngoại thất</strong></span> <span className="text-muted-foreground">{colorTranslations[car.exteriorColor] || car.exteriorColor}</span></div>
+                    <div className="flex items-center justify-between border-b pb-2"><span className="flex items-center gap-2"><Armchair className="w-4 h-4 text-accent" /> <strong>Màu nội thất</strong></span> <span className="text-muted-foreground">{colorTranslations[car.interiorColor] || car.interiorColor}</span></div>
                 </div>
             </div>
 

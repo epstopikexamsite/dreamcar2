@@ -50,6 +50,19 @@ export default function CarCard({ car }: CarCardProps) {
     'Hybrid': 'Hybrid'
   }
 
+  const colorTranslations: { [key: string]: string } = {
+    'White': 'Trắng',
+    'Black': 'Đen',
+    'Silver': 'Bạc',
+    'Gray': 'Xám',
+    'Red': 'Đỏ',
+    'Blue': 'Xanh lam',
+    'Green': 'Xanh lá',
+    'Beige': 'Be',
+    'Tan': 'Nâu tan',
+    'Brown': 'Nâu',
+  };
+
   const transmissionIcons: { [key: string]: React.ElementType } = {
     'Automatic': Cog,
     'Manual': ManualGearboxIcon,
@@ -134,11 +147,11 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
           <div className="flex items-center gap-2 truncate">
             <Palette className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.exteriorColor}</span>
+            <span className="truncate">{colorTranslations[car.exteriorColor] || car.exteriorColor}</span>
           </div>
           <div className="flex items-center gap-2 truncate">
             <Armchair className="w-4 h-4 text-accent shrink-0" />
-            <span className="truncate">{car.interiorColor}</span>
+            <span className="truncate">{colorTranslations[car.interiorColor] || car.interiorColor}</span>
           </div>
         </div>
       </CardContent>
