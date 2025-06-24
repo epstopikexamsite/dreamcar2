@@ -1,3 +1,4 @@
+
 export interface JobOpening {
   id: number;
   title: string;
@@ -50,7 +51,7 @@ Thưởng thêm theo doanh số và hiệu quả công việc`,
     title: 'Kỹ thuật viên Sửa chữa Ô tô',
     location: 'Hà Nội & Long Biên',
     type: 'Full-time',
-    description: 'Thực hiện kiểm tra, bảo dưỡng và sửa chữa các dòng xe ô tô theo quy trình 176 hạng mục của TimeCar. Đảm bảo chất lượng xe trước khi bàn giao cho khách.',
+    description: 'Thực hiện kiểm tra, bảo dưỡng và sửa chữa các dòng xe ô tô theo quy trình 176 hạng mục của TimeCarsAuto. Đảm bảo chất lượng xe trước khi bàn giao cho khách.',
     requirements: [
       'Có chứng chỉ nghề hoặc kinh nghiệm thực tế từ 2 năm.',
       'Am hiểu về cơ điện tử ô tô đời mới.',

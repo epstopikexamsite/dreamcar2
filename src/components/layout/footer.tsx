@@ -33,8 +33,8 @@ export default function Footer() {
                     <div className="md:col-span-3 space-y-2 text-center md:text-left">
                         <Link href="/" className="inline-block">
                             <Image
-                                src="/logo.svg"
-                                alt="TimeCar"
+                                src="/logo-white.svg"
+                                alt="TimeCarsAuto"
                                 width={160}
                                 height={36}
                             />
@@ -74,7 +74,7 @@ export default function Footer() {
                 {/* Bottom Bar: Copyright & Socials */}
                 <div className="border-t border-primary-foreground/20 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/60">
                     <p>
-                        &copy; {new Date().getFullYear()} TimeCar
+                        &copy; {new Date().getFullYear()} TimeCarsAuto
                     </p>
                      <div className="flex items-center gap-x-4">
                         <div className="flex items-center gap-4">

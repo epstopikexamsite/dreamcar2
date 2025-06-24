@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -26,10 +27,10 @@ export default function Header() {
   return (
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-40">
       <div className="flex items-center justify-between p-4">
-        <Link href="/" aria-label="Trang chủ TimeCar">
+        <Link href="/" aria-label="Trang chủ TimeCarsAuto">
           <Image
-              src="/logo.svg"
-              alt="TimeCar"
+              src="/time-car-white.svg"
+              alt="TimeCarsAuto"
               width={180}
               height={41}
           />
@@ -64,8 +65,8 @@ export default function Header() {
                         <div className="p-4 border-b">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Image
-                                    src="/logo-dark.svg"
-                                    alt="TimeCar"
+                                    src="/time-car-red.svg"
+                                    alt="TimeCarsAuto"
                                     width={180}
                                     height={41}
                                 />

@@ -94,7 +94,7 @@ export default function AboutPage() {
         <section className="bg-primary/5 py-16 text-center">
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary mb-4">
-                    TimeCar
+                    TimeCarsAuto
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                     Nơi Uy Tín Tạo Nên Thương Hiệu - Mang Những Chiếc Xe Chất Lượng Đến Mọi Nhà.
@@ -107,8 +107,8 @@ export default function AboutPage() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-80 md:h-full w-full rounded-lg overflow-hidden shadow-lg min-h-[350px]">
                         <Image
-                            src="https://placehold.co/600x400.png?text=Showroom+TimeCar"
-                            alt="Không gian showroom TimeCar"
+                            src="https://placehold.co/600x400.png?text=Showroom+TimeCarsAuto"
+                            alt="Không gian showroom TimeCarsAuto"
                             fill
                             sizes="(max-width: 768px) 100vw, 50vw"
                             style={{objectFit: 'cover'}}
@@ -121,7 +121,7 @@ export default function AboutPage() {
                         </h2>
                         <div className="text-foreground/80 space-y-4 text-lg">
                             <p>
-                                Được thành lập vào ngày <strong>08/11/2021</strong> bởi nhà sáng lập tâm huyết <strong>Trần Mạnh Tuấn</strong>, TimeCar đã nhanh chóng khẳng định vị thế của mình trên thị trường ô tô đã qua sử dụng.
+                                Được thành lập vào ngày <strong>08/11/2021</strong> bởi nhà sáng lập tâm huyết <strong>Trần Mạnh Tuấn</strong>, TimeCarsAuto đã nhanh chóng khẳng định vị thế của mình trên thị trường ô tô đã qua sử dụng.
                             </p>
                             <p>
                                 Với sứ mệnh <strong>"Mang xe đẹp tới mọi nhà"</strong>, chúng tôi không chỉ cung cấp những chiếc xe chất lượng vượt trội mà còn xây dựng một dịch vụ khách hàng tận tâm, chuyên nghiệp, đặt sự hài lòng của quý khách làm kim chỉ nam cho mọi hoạt động.
@@ -163,7 +163,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-12">
                     <h2 className="font-headline text-4xl font-bold text-foreground mb-2">Giá Trị Cốt Lõi</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Chúng tôi cam kết mang đến sự an tâm tuyệt đối qua những giá trị nền tảng đã làm nên thương hiệu TimeCar.</p>
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Chúng tôi cam kết mang đến sự an tâm tuyệt đối qua những giá trị nền tảng đã làm nên thương hiệu TimeCarsAuto.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     <Card className="text-center flex flex-col items-center p-6">
@@ -204,7 +204,7 @@ export default function AboutPage() {
                         Gặp Gỡ Đội Ngũ Của Chúng Tôi
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                        Những con người tận tâm đứng sau thành công của TimeCar, luôn sẵn sàng phục vụ và mang đến cho bạn những trải nghiệm tốt nhất.
+                        Những con người tận tâm đứng sau thành công của TimeCarsAuto, luôn sẵn sàng phục vụ và mang đến cho bạn những trải nghiệm tốt nhất.
                     </p>
                 </div>
 

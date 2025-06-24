@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
@@ -260,7 +261,7 @@ export default function Home() {
         <section className="py-16 bg-primary/5">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
-                Tại sao bạn nên chọn mua xe tại TimeCar?
+                Tại sao bạn nên chọn mua xe tại TimeCarsAuto?
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card className="text-center p-6 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -287,7 +288,7 @@ export default function Home() {
                             <CardTitle className="text-xl">Thương hiệu showroom TOP đầu</CardTitle>
                         </CardHeader>
                         <CardContent className="p-0 mt-2 text-muted-foreground flex-grow">
-                            <p>TimeCar là một trong những thương hiệu bán xe sang lướt hàng đầu tại Việt Nam.</p>
+                            <p>TimeCarsAuto là một trong những thương hiệu bán xe sang lướt hàng đầu tại Việt Nam.</p>
                         </CardContent>
                     </Card>
                 </div>

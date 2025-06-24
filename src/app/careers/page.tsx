@@ -23,17 +23,17 @@ export default function CareersPage() {
             <div className="container mx-auto px-4">
                 <Briefcase className="mx-auto h-12 w-12 text-primary mb-4" />
                 <h1 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-4">
-                    Cơ Hội Nghề Nghiệp Tại TimeCar
+                    Cơ Hội Nghề Nghiệp Tại TimeCarsAuto
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Gia nhập đội ngũ TimeCar để cùng chúng tôi kiến tạo những giá trị bền vững và chinh phục những đỉnh cao mới.
+                    Gia nhập đội ngũ TimeCarsAuto để cùng chúng tôi kiến tạo những giá trị bền vững và chinh phục những đỉnh cao mới.
                 </p>
             </div>
         </section>
 
         <section className="py-16">
             <div className="container mx-auto px-4 max-w-5xl">
-                <h2 className="font-headline text-4xl font-bold text-foreground text-center mb-12">Tại Sao Chọn TimeCar?</h2>
+                <h2 className="font-headline text-4xl font-bold text-foreground text-center mb-12">Tại Sao Chọn TimeCarsAuto?</h2>
                 <div className="grid md:grid-cols-3 gap-8 text-center">
                     {benefits.map((benefit, index) => (
                         <Card key={index} className="p-6 flex flex-col items-center border-0 shadow-none bg-transparent">
@@ -108,7 +108,7 @@ export default function CareersPage() {
              <div className="container mx-auto px-4 max-w-3xl">
                 <h2 className="font-headline text-3xl font-bold text-foreground mb-4">Chưa tìm thấy vị trí phù hợp?</h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                    Đừng ngần ngại gửi CV của bạn cho chúng tôi. TimeCar luôn chào đón những nhân tài có cùng đam mê và định hướng.
+                    Đừng ngần ngại gửi CV của bạn cho chúng tôi. TimeCarsAuto luôn chào đón những nhân tài có cùng đam mê và định hướng.
                 </p>
                 <Button size="lg" asChild>
                     <Link href="/contact">

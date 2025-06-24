@@ -16,7 +16,7 @@ export default function GalleryPage() {
             Khoảnh Khắc Đáng Nhớ
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cùng nhìn lại những hình ảnh hoạt động của chúng tôi và những khách hàng đã tin tưởng lựa chọn TimeCar.
+            Cùng nhìn lại những hình ảnh hoạt động của chúng tôi và những khách hàng đã tin tưởng lựa chọn TimeCarsAuto.
           </p>
         </div>
 

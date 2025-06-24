@@ -29,7 +29,7 @@ export default function BlogPage() {
                     Kiến Thức Về Xe
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Nơi chia sẻ các bài đánh giá, kinh nghiệm hữu ích và kiến thức chuyên sâu từ các chuyên gia của TimeCar.
+                    Nơi chia sẻ các bài đánh giá, kinh nghiệm hữu ích và kiến thức chuyên sâu từ các chuyên gia của TimeCarsAuto.
                 </p>
             </div>
         </section>

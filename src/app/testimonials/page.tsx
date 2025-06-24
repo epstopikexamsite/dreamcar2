@@ -1,3 +1,4 @@
+
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Star } from 'lucide-react';
@@ -16,7 +17,7 @@ export default function TestimonialsPage() {
                     Khách Hàng Nói Gì Về Chúng Tôi
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Sự hài lòng của bạn là thước đo thành công của TimeCar. Cùng xem những chia sẻ chân thực từ những khách hàng đã tin tưởng chúng tôi.
+                    Sự hài lòng của bạn là thước đo thành công của TimeCarsAuto. Cùng xem những chia sẻ chân thực từ những khách hàng đã tin tưởng chúng tôi.
                 </p>
             </div>
         </section>

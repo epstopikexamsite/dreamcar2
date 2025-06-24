@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -53,7 +54,7 @@ export default function ContactForm() {
                 Để Lại Thông Tin, Chúng Tôi Sẽ Gọi Lại
             </CardTitle>
             <CardDescription>
-                Chỉ cần nhập số điện thoại, chuyên viên của TimeCar sẽ chủ động liên hệ tư vấn miễn phí cho bạn.
+                Chỉ cần nhập số điện thoại, chuyên viên của TimeCarsAuto sẽ chủ động liên hệ tư vấn miễn phí cho bạn.
             </CardDescription>
         </CardHeader>
         <CardContent>
