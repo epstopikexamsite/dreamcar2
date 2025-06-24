@@ -96,10 +96,10 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
   ];
 
   const fuelTypeTranslations: {[key: string]: string} = {
-    'Gasoline': 'Xăng', 'Diesel': 'Dầu', 'Electric': 'Điện', 'Hybrid': 'Hybrid'
+    'Xăng': 'Xăng', 'Dầu': 'Dầu', 'Điện': 'Điện', 'Hybrid': 'Hybrid'
   };
   const transmissionTranslations: {[key: string]: string} = {
-    'Automatic': 'Số tự động', 'Manual': 'Số tay'
+    'Số tự động': 'Số tự động', 'Số tay': 'Số tay'
   };
   const drivetrainTranslations: {[key:string]: string} = {
     'FWD': 'Cầu trước', 'RWD': 'Cầu sau', 'AWD': 'AWD', '4WD': '4x4'
@@ -117,10 +117,10 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
     'Brown': 'Nâu',
   };
   const fuelTypeIcons: { [key: string]: React.ElementType } = {
-    Gasoline: Fuel, Diesel: Truck, Electric: Zap, Hybrid: Leaf,
+    'Xăng': Fuel, 'Dầu': Truck, 'Điện': Zap, 'Hybrid': Leaf,
   };
   const transmissionIcons: { [key: string]: React.ElementType } = {
-    'Automatic': Cog, 'Manual': ManualGearboxIcon,
+    'Số tự động': Cog, 'Số tay': ManualGearboxIcon,
   };
   const FuelIcon = fuelTypeIcons[car.fuelType] || Fuel;
   const TransmissionIcon = transmissionIcons[car.transmission];
@@ -147,7 +147,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                   className="object-cover transition-opacity duration-300"
                   data-ai-hint="car detail view"
                 />
-                 {car.status === 'Sold' && (
+                 {car.status === 'Đã bán' && (
                     <Badge
                         variant="destructive"
                         className="absolute top-4 right-4 z-10 text-lg py-2 px-4 rotate-12"
@@ -189,7 +189,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
             
             <div className="flex items-center gap-4 mb-6">
                 <p className="font-bold text-3xl text-primary">{car.price.toLocaleString('vi-VN')} VNĐ</p>
-                {car.status === 'Sold' && <Badge variant="destructive" className="text-lg">Đã Bán</Badge>}
+                {car.status === 'Đã bán' && <Badge variant="destructive" className="text-lg">Đã Bán</Badge>}
             </div>
             
             <div className="grid grid-cols-3 gap-x-2 gap-y-4 text-center border rounded-lg p-4 mb-6 bg-card">
@@ -226,10 +226,10 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className={cn("w-full", car.status === 'Sold' && "pointer-events-none")}>
-                    <Button size="lg" className="w-full text-lg" disabled={car.status === 'Sold'}>
+                <Link href="/contact" className={cn("w-full", car.status === 'Đã bán' && "pointer-events-none")}>
+                    <Button size="lg" className="w-full text-lg" disabled={car.status === 'Đã bán'}>
                         <Phone className="mr-2 h-5 w-5" />
-                        {car.status === 'Sold' ? 'Xe đã có chủ' : 'Liên Hệ Tư Vấn'}
+                        {car.status === 'Đã bán' ? 'Xe đã có chủ' : 'Liên Hệ Tư Vấn'}
                     </Button>
                 </Link>
             </div>
@@ -272,7 +272,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                                 <CardTitle className="font-headline border-b pb-2">Hệ thống truyền động</CardTitle>
                                 <ul className="space-y-4">
                                     <SpecRow icon={Cog} label="Hộp số" value={car.specs.transmissionDetail} />
-                                    <SpecRow icon={GitCommitHorizontal} label="Dẫn động" value={car.drivetrain} />
+                                    <SpecRow icon={GitCommitHorizontal} label="Dẫn động" value={drivetrainTranslations[car.drivetrain]} />
                                     <SpecRow icon={HardDrive} label="Hệ thống treo" value={car.specs.suspension} />
                                     <SpecRow icon={Shield} label="Hệ thống phanh" value={car.specs.brakes} />
                                 </ul>
@@ -286,7 +286,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                                     <SpecRow icon={Star} label="An toàn" value={car.specs.safetyFeatures} />
                                 </ul>
                             </div>
-                            {car.fuelType === 'Electric' && (
+                            {car.fuelType === 'Điện' && (
                                 <div className="space-y-4 md:col-span-2">
                                     <CardTitle className="font-headline border-b pb-2">Thông số xe điện</CardTitle>
                                     <ul className="space-y-4">
