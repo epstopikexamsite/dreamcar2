@@ -10,9 +10,10 @@ import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Filter, X } from 'lucide-react';
+import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 
 
@@ -70,6 +71,7 @@ export default function Home() {
   });
   
   const [visibleCount, setVisibleCount] = useState(CARS_PER_PAGE);
+  const [columns, setColumns] = useState(2);
   const loadMoreTriggerRef = useRef(null);
 
   const filteredCars = useMemo(() => {
@@ -232,8 +234,48 @@ export default function Home() {
                               </Sheet>
                           </div>
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                          Hiển thị <span className="font-bold text-foreground">{filteredCars.length}</span> trên tổng số <span className="font-bold text-foreground">{allCars.length}</span> xe
+                      <div className="flex items-center gap-4">
+                          <div className="text-sm text-muted-foreground">
+                              Hiển thị <span className="font-bold text-foreground">{filteredCars.length}</span> trên tổng số <span className="font-bold text-foreground">{allCars.length}</span> xe
+                          </div>
+                          <div className="hidden sm:flex items-center gap-1 border p-1 rounded-md">
+                              <TooltipProvider>
+                                  <Tooltip>
+                                      <TooltipTrigger asChild>
+                                          <Button
+                                              variant={columns === 1 ? 'secondary' : 'ghost'}
+                                              size="icon"
+                                              className="h-7 w-7"
+                                              onClick={() => setColumns(1)}
+                                              aria-label="Hiển thị một cột"
+                                          >
+                                              <List className="h-4 w-4" />
+                                          </Button>
+                                      </TooltipTrigger>
+                                      <TooltipContent>
+                                          <p>Dạng danh sách</p>
+                                      </TooltipContent>
+                                  </Tooltip>
+                              </TooltipProvider>
+                              <TooltipProvider>
+                                  <Tooltip>
+                                      <TooltipTrigger asChild>
+                                          <Button
+                                              variant={columns === 2 ? 'secondary' : 'ghost'}
+                                              size="icon"
+                                              className="h-7 w-7"
+                                              onClick={() => setColumns(2)}
+                                              aria-label="Hiển thị hai cột"
+                                          >
+                                              <LayoutGrid className="h-4 w-4" />
+                                          </Button>
+                                      </TooltipTrigger>
+                                      <TooltipContent>
+                                          <p>Dạng lưới</p>
+                                      </TooltipContent>
+                                  </Tooltip>
+                              </TooltipProvider>
+                          </div>
                       </div>
                   </div>
                   {activeFiltersCount > 0 && (
@@ -307,7 +349,11 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8">
             <section>
                 {filteredCars.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className={cn(
+                    'grid gap-6',
+                    columns === 1 && 'grid-cols-1',
+                    columns === 2 && 'grid-cols-1 md:grid-cols-2'
+                  )}>
                     {visibleCars.map(car => (
                     <CarCard key={car.id} car={car} />
                     ))}
