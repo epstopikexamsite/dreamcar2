@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ChevronRight, Weight, CalendarDays, Maximize, CircleArrowRight, Wind, BarChart, HardDrive, Cpu, Battery, BatteryCharging, ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -29,17 +28,6 @@ const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
       <path d="M12 12H8" />
       <path d="M12 12h4" />
     </svg>
-);
-
-const StarRating = ({ rating }: { rating: number }) => (
-  <div className="flex items-center">
-    {[...Array(5)].map((_, i) => (
-      <Star
-        key={i}
-        className={`h-5 w-5 ${i < Math.round(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
-      />
-    ))}
-  </div>
 );
 
 const SpecRow = ({ icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) => {
@@ -241,7 +229,7 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                 <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
                     <TabsTrigger value="specs">Thông số kỹ thuật</TabsTrigger>
                     <TabsTrigger value="features">Tính năng nổi bật</TabsTrigger>
-                    <TabsTrigger value="reviews">Đánh giá ({car.reviews.length})</TabsTrigger>
+                    <TabsTrigger value="description">Giới thiệu</TabsTrigger>
                 </TabsList>
                 <TabsContent value="specs" className="mt-6">
                     <Card>
@@ -310,29 +298,22 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                         </CardContent>
                     </Card>
                 </TabsContent>
-                <TabsContent value="reviews" className="mt-6">
+                <TabsContent value="description" className="mt-6">
                     <Card>
-                        <CardContent className="p-6 space-y-8">
-                            {car.reviews.length > 0 ? (
-                                car.reviews.map((review, index) => (
-                                    <div key={index} className="flex flex-col sm:flex-row gap-4">
-                                        <Avatar className="h-12 w-12 border shrink-0">
-                                            <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                                        </Avatar>
-                                        <div className="flex-grow">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <p className="font-semibold text-lg">{review.name}</p>
-                                                <StarRating rating={review.rating} />
-                                            </div>
-                                            <div className="p-4 bg-muted/50 rounded-lg">
-                                                <p className="text-muted-foreground italic">"{review.comment}"</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                <p className="text-muted-foreground text-center py-8">Chưa có đánh giá nào cho xe này.</p>
-                            )}
+                        <CardContent className="p-6">
+                            <div className="text-foreground/90 space-y-4 text-lg">
+                                <p>
+                                    <strong>{car.brand} {car.model} {car.year}</strong> là một mẫu xe <strong>{car.type}</strong> nổi bật, đại diện cho sự kết hợp hoàn hảo giữa 
+                                    {car.type === 'SUV' ? ' sự đa dụng, ' : car.type === 'Coupe' || car.type === 'Sedan' ? ' sự sang trọng, ' : ' sự nhỏ gọn, '} 
+                                    hiệu suất và công nghệ tiên tiến.
+                                </p>
+                                <p>
+                                    Với động cơ <strong>{car.specs.engineType}</strong> mạnh mẽ và hộp số <strong>{car.specs.transmissionDetail}</strong>, chiếc xe mang lại khả năng vận hành {car.drivetrain === 'RWD' || car.drivetrain === 'AWD' || car.drivetrain === '4WD' ? 'phấn khích và ổn định' : 'êm ái và tiết kiệm'}. Hệ thống dẫn động <strong>{drivetrainTranslations[car.drivetrain]}</strong> đảm bảo độ bám đường và an toàn trong nhiều điều kiện khác nhau.
+                                </p>
+                                <p>
+                                    Không gian nội thất được chăm chút tỉ mỉ với các vật liệu cao cấp, cùng các tính năng tiện nghi như {car.features.slice(0, 3).join(', ')}. Đây là lựa chọn lý tưởng cho những ai tìm kiếm một chiếc xe vừa thể hiện phong cách, vừa đáp ứng tốt các nhu cầu sử dụng hàng ngày và những chuyến đi xa.
+                                </p>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
