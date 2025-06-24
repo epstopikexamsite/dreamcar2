@@ -193,12 +193,12 @@ export default function CarDetailsDialog({ car }: CarDetailsDialogProps) {
               <div>
                 <h3 className="font-headline text-lg font-semibold mb-3 border-b pb-2">Thông số kỹ thuật</h3>
                 <ul className="space-y-3 text-sm pt-2">
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Động cơ</strong></span> <span className="text-muted-foreground">{car.specs.engine}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Mã lực</strong></span> <span className="text-muted-foreground">{car.specs.horsepower} hp</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Zap className="w-4 h-4 mr-2 text-accent" /> <strong>Động cơ</strong></span> <span className="text-muted-foreground">{car.specs.engineType}</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Gauge className="w-4 h-4 mr-2 text-accent" /> <strong>Công suất</strong></span> <span className="text-muted-foreground">{car.specs.enginePower}</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Droplets className="w-4 h-4 mr-2 text-accent" /> <strong>Tiêu thụ nhiên liệu</strong></span> <span className="text-muted-foreground">{car.specs.fuelConsumption}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Ruler className="w-4 h-4 mr-2 text-accent" /> <strong>Kích thước (D x R x C)</strong></span> <span className="text-muted-foreground">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Ruler className="w-4 h-4 mr-2 text-accent" /> <strong>Kích thước (DxRxC)</strong></span> <span className="text-muted-foreground">{car.specs.dimensions} mm</span></li>
                   <li className="flex items-center justify-between"><span className="flex items-center"><Users className="w-4 h-4 mr-2 text-accent" /> <strong>Số chỗ ngồi</strong></span> <span className="text-muted-foreground">{car.seatingCapacity}</span></li>
-                  <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>Đánh giá an toàn</strong></span> <span><StarRating rating={car.specs.safetyRating} /></span></li>
+                  <li className="flex items-center justify-between"><span className="flex items-center"><Shield className="w-4 h-4 mr-2 text-accent" /> <strong>An toàn</strong></span> <span className="text-muted-foreground">{car.specs.safetyFeatures}</span></li>
                 </ul>
               </div>
               <div>

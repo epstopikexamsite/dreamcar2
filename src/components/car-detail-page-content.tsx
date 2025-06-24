@@ -5,13 +5,13 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ChevronRight } from 'lucide-react';
+import { Star, Zap, Gauge, Shield, Fuel, Leaf, Truck, Cog, Car as CarIcon, Palette, Armchair, GitCommitHorizontal, Route, Ruler, Droplets, Users, Phone, ChevronRight, Weight, CalendarDays, Maximize, CircleArrowRight, Wind, BarChart, HardDrive, Cpu, Battery, BatteryCharging, ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { Car } from '@/lib/types';
+import type { Car, CarSpec } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -41,6 +41,18 @@ const StarRating = ({ rating }: { rating: number }) => (
     ))}
   </div>
 );
+
+const SpecRow = ({ icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) => {
+    const IconComponent = icon;
+    return (
+        <li className="flex items-center justify-between border-b pb-3 text-base">
+            <span className="flex items-center gap-3 text-muted-foreground">
+                <IconComponent className="w-5 h-5 text-accent" /> {label}
+            </span> 
+            <strong className="text-right font-medium text-foreground/90">{value}</strong>
+        </li>
+    );
+};
 
 
 export default function CarDetailPageContent({ car }: { car: Car }) {
@@ -233,16 +245,57 @@ export default function CarDetailPageContent({ car }: { car: Car }) {
                 </TabsList>
                 <TabsContent value="specs" className="mt-6">
                     <Card>
-                        <CardContent className="p-6">
-                            <ul className="space-y-4 text-base">
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Zap className="w-5 h-5 text-accent" /> Động cơ</span> <strong className="text-right font-medium">{car.specs.engine}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Gauge className="w-5 h-5 text-accent" /> Mã lực</span> <strong className="font-medium">{car.specs.horsepower} hp</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Droplets className="w-5 h-5 text-accent" /> Tiêu thụ nhiên liệu</span> <strong className="font-medium">{car.specs.fuelConsumption}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Palette className="w-5 h-5 text-accent" /> Màu ngoại thất</span> <strong className="font-medium">{colorTranslations[car.exteriorColor] || car.exteriorColor}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Armchair className="w-5 h-5 text-accent" /> Màu nội thất</span> <strong className="font-medium">{colorTranslations[car.interiorColor] || car.interiorColor}</strong></li>
-                              <li className="flex items-center justify-between border-b pb-3"><span className="flex items-center gap-3 text-muted-foreground"><Ruler className="w-5 h-5 text-accent" /> Kích thước (D x R x C)</span> <strong className="font-medium">{car.specs.dimensions.length} x {car.specs.dimensions.width} x {car.specs.dimensions.height} (mm)</strong></li>
-                              <li className="flex items-center justify-between"><span className="flex items-center gap-3 text-muted-foreground"><Shield className="w-5 h-5 text-accent" /> Đánh giá an toàn</span> <strong><StarRating rating={car.specs.safetyRating} /></strong></li>
-                            </ul>
+                        <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                            <div className="space-y-4">
+                                <CardTitle className="font-headline border-b pb-2">Động cơ & Hiệu suất</CardTitle>
+                                <ul className="space-y-4">
+                                    <SpecRow icon={Cpu} label="Loại động cơ" value={car.specs.engineType} />
+                                    <SpecRow icon={Maximize} label="Dung tích" value={car.specs.engineDisplacement} />
+                                    <SpecRow icon={Zap} label="Công suất" value={car.specs.enginePower} />
+                                    <SpecRow icon={CircleArrowRight} label="Mô-men xoắn" value={car.specs.engineTorque} />
+                                    <SpecRow icon={Gauge} label="Tăng tốc 0-100km/h" value={car.specs.acceleration} />
+                                    {car.specs.topSpeed && <SpecRow icon={Wind} label="Tốc độ tối đa" value={`${car.specs.topSpeed} km/h`} />}
+                                    <SpecRow icon={Fuel} label="Mức tiêu thụ" value={car.specs.fuelConsumption} />
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <CardTitle className="font-headline border-b pb-2">Kích thước & Trọng lượng</CardTitle>
+                                <ul className="space-y-4">
+                                    <SpecRow icon={Ruler} label="Dài x Rộng x Cao" value={`${car.specs.dimensions} (mm)`} />
+                                    <SpecRow icon={GitCommitHorizontal} label="Chiều dài cơ sở" value={`${car.specs.wheelbase} mm`} />
+                                    {car.specs.groundClearance && <SpecRow icon={ArrowUp} label="Khoảng sáng gầm" value={`${car.specs.groundClearance} mm`} />}
+                                    <SpecRow icon={Weight} label="Trọng lượng" value={car.specs.weight} />
+                                    <SpecRow icon={BarChart} label="Dung tích cốp" value={car.specs.trunkCapacity ? `${car.specs.trunkCapacity} L` : 'N/A'} />
+                                </ul>
+                            </div>
+                             <div className="space-y-4">
+                                <CardTitle className="font-headline border-b pb-2">Hệ thống truyền động</CardTitle>
+                                <ul className="space-y-4">
+                                    <SpecRow icon={Cog} label="Hộp số" value={car.specs.transmissionDetail} />
+                                    <SpecRow icon={GitCommitHorizontal} label="Dẫn động" value={car.drivetrain} />
+                                    <SpecRow icon={HardDrive} label="Hệ thống treo" value={car.specs.suspension} />
+                                    <SpecRow icon={Shield} label="Hệ thống phanh" value={car.specs.brakes} />
+                                </ul>
+                            </div>
+                             <div className="space-y-4">
+                                <CardTitle className="font-headline border-b pb-2">Trang bị & An toàn</CardTitle>
+                                <ul className="space-y-4">
+                                    <SpecRow icon={Palette} label="Màu ngoại thất" value={colorTranslations[car.exteriorColor] || car.exteriorColor} />
+                                    <SpecRow icon={Armchair} label="Màu nội thất" value={colorTranslations[car.interiorColor] || car.interiorColor} />
+                                    <SpecRow icon={Users} label="Số chỗ ngồi" value={`${car.seatingCapacity} chỗ`} />
+                                    <SpecRow icon={Star} label="An toàn" value={car.specs.safetyFeatures} />
+                                </ul>
+                            </div>
+                            {car.fuelType === 'Electric' && (
+                                <div className="space-y-4 md:col-span-2">
+                                    <CardTitle className="font-headline border-b pb-2">Thông số xe điện</CardTitle>
+                                    <ul className="space-y-4">
+                                        {car.specs.batteryCapacity && <SpecRow icon={Battery} label="Dung lượng pin" value={car.specs.batteryCapacity} />}
+                                        {car.specs.electricRange && <SpecRow icon={Route} label="Quãng đường/lần sạc" value={`${car.specs.electricRange} km`} />}
+                                        {car.specs.chargingTime && <SpecRow icon={BatteryCharging} label="Thời gian sạc" value={car.specs.chargingTime} />}
+                                    </ul>
+                                </div>
+                            )}
                         </CardContent>
                     </Card>
                 </TabsContent>

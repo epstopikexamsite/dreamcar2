@@ -39,6 +39,48 @@ export interface CarImages {
   };
 }
 
+export interface CarSpec {
+  // Động cơ
+  engineDisplacement: string; // "1.5L"
+  enginePower: string; // "180 hp"
+  engineTorque: string; // "240 Nm"
+  engineType: string; // "4-cylinder, Turbocharged"
+
+  // Hộp số & Dẫn động
+  transmissionDetail: string; // "8-speed Automatic"
+  
+  // Kích thước & Trọng lượng
+  dimensions: string; // "4,788 x 1,915 x 1,379" (D x R x C mm)
+  wheelbase: number; // 2870 mm
+  groundClearance?: number; // 135 mm
+  weight: string; // "1,750 kg"
+
+  // Hiệu suất & Tiêu thụ
+  acceleration: string; // "4.5s (0-100 km/h)"
+  topSpeed?: number; // 250 km/h
+  fuelConsumption: string; // "8.5L/100km (combined)"
+
+  // Lốp & Treo
+  tireSize: string; // "19-inch"
+  suspension: string; // "Front: MacPherson, Rear: Multi-link"
+
+  // Phanh & An toàn
+  brakes: string; // "Front/Rear Disc Brakes (ABS, EBD)"
+  safetyFeatures: string; // "6 Airbags, ESP, Blind Spot Warning"
+
+  // Tiện nghi
+  infotainment: string; // "12.3-inch screen, Apple CarPlay"
+  seats: string; // "Leather, Power-adjustable, Heated"
+
+  // Khoang hành lý & Chỗ ngồi
+  trunkCapacity?: number; // 480 liters
+
+  // Thông số điện
+  electricRange?: number; // km
+  batteryCapacity?: string; // "82 kWh"
+  chargingTime?: string; // "DC Fast Charge: 30 min (10-80%)"
+}
+
 export interface Car {
   id: number;
   brand: string;
@@ -56,17 +98,7 @@ export interface Car {
   mileage: number;
   seatingCapacity: number;
   status: 'Available' | 'Sold';
-  specs: {
-    engine: string;
-    horsepower: number;
-    fuelConsumption: string;
-    safetyRating: number;
-    dimensions: {
-      length: number;
-      width: number;
-      height: number;
-    };
-  };
+  specs: CarSpec;
   features: string[];
   reviews: Review[];
 }
