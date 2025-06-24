@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Car } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tag, Cog, Route, GitCommitHorizontal, Fuel, Car as CarIcon, Users, Zap, Leaf, Truck, CarFront, Caravan } from 'lucide-react';
+import { Tag, Cog, Route, GitCommitHorizontal, Fuel, Car as CarIcon, Users, Zap, Leaf, Truck, CarFront, Caravan, Palette, Armchair } from 'lucide-react';
 import CarDetailsDialog from './car-details-dialog';
 import { cn } from '@/lib/utils';
 
@@ -100,7 +100,7 @@ export default function CarCard({ car }: CarCardProps) {
         </div>
       </CardHeader>
       <CardContent className="p-4 flex-grow flex flex-col">
-        <CardTitle className="font-headline text-xl mb-1 truncate">{car.brand} {car.model}</CardTitle>
+        <CardTitle className="font-headline text-xl mb-1 truncate font-bold">{car.brand} {car.model}</CardTitle>
         <p className="text-sm text-muted-foreground">{car.year}</p>
         <div className="flex items-center text-primary font-bold text-lg my-2">
           <Tag className="h-4 w-4 mr-2" />
@@ -131,6 +131,14 @@ export default function CarCard({ car }: CarCardProps) {
           <div className="flex items-center gap-2 truncate">
             <Users className="w-4 h-4 text-accent shrink-0" />
             <span className="truncate">{car.seatingCapacity} chỗ</span>
+          </div>
+          <div className="flex items-center gap-2 truncate">
+            <Palette className="w-4 h-4 text-accent shrink-0" />
+            <span className="truncate">{car.exteriorColor}</span>
+          </div>
+          <div className="flex items-center gap-2 truncate">
+            <Armchair className="w-4 h-4 text-accent shrink-0" />
+            <span className="truncate">{car.interiorColor}</span>
           </div>
         </div>
       </CardContent>
