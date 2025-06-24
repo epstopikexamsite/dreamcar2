@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -10,6 +9,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { app } from '@/lib/firebase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Email không hợp lệ.' }),
@@ -19,6 +22,10 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function AdminLoginPage() {
+    const router = useRouter();
+    const { toast } = useToast();
+    const auth = getAuth(app);
+
     const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -27,10 +34,22 @@ export default function AdminLoginPage() {
         },
     });
 
-    const onSubmit = (data: LoginFormValues) => {
-        console.log('Login attempt:', data);
-        // Trong một ứng dụng thực tế, chúng ta sẽ xử lý xác thực tại đây
-        alert(`Đang đăng nhập với:\nEmail: ${data.email}\n(Chức năng đang được phát triển)`);
+    const onSubmit = async (data: LoginFormValues) => {
+        try {
+            await signInWithEmailAndPassword(auth, data.email, data.password);
+            router.push('/admin/dashboard');
+        } catch (error: any) {
+            console.error('Login failed:', error);
+            let errorMessage = 'Đăng nhập thất bại. Vui lòng thử lại.';
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                errorMessage = 'Email hoặc mật khẩu không chính xác.';
+            }
+            toast({
+                variant: 'destructive',
+                title: 'Lỗi Đăng Nhập',
+                description: errorMessage,
+            });
+        }
     };
 
     return (
@@ -64,6 +83,7 @@ export default function AdminLoginPage() {
                                                 type="email"
                                                 placeholder="admin@timecarsauto.com"
                                                 {...field}
+                                                disabled={form.formState.isSubmitting}
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -81,6 +101,7 @@ export default function AdminLoginPage() {
                                                 type="password"
                                                 placeholder="••••••••"
                                                 {...field}
+                                                disabled={form.formState.isSubmitting}
                                             />
                                         </FormControl>
                                         <FormMessage />
