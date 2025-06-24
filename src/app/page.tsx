@@ -19,6 +19,39 @@ import { cn } from '@/lib/utils';
 const NO_PRICE_LIMIT = Number.MAX_SAFE_INTEGER;
 const CARS_PER_PAGE = 6;
 
+const drivetrainTranslations: {[key:string]: string} = {
+    'FWD': 'Cầu trước',
+    'RWD': 'Cầu sau',
+    'AWD': 'AWD',
+    '4WD': '4x4'
+}
+
+const colorTranslations: { [key: string]: string } = {
+  'White': 'Trắng',
+  'Black': 'Đen',
+  'Silver': 'Bạc',
+  'Gray': 'Xám',
+  'Red': 'Đỏ',
+  'Blue': 'Xanh lam',
+  'Green': 'Xanh lá',
+  'Beige': 'Be',
+  'Tan': 'Nâu tan',
+  'Brown': 'Nâu',
+};
+
+const colorMap: { [key: string]: string } = {
+  'White': 'bg-white border',
+  'Black': 'bg-black',
+  'Silver': 'bg-slate-300',
+  'Gray': 'bg-gray-500',
+  'Red': 'bg-red-500',
+  'Blue': 'bg-blue-500',
+  'Green': 'bg-green-500',
+  'Beige': 'bg-amber-200',
+  'Tan': 'bg-amber-400',
+  'Brown': 'bg-amber-800'
+};
+
 export default function Home() {
   const [filters, setFilters] = useState({
     brand: [] as string[],
@@ -142,13 +175,6 @@ export default function Home() {
     });
   };
 
-  const getFilterBadgeLabel = (key: string, value: any): string => {
-    if (key === 'seatingCapacity') {
-        return `${value} chỗ`;
-    }
-    return value.toString();
-  }
-
   const isPriceFiltered = filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
     .filter(([key]) => !['priceRange', 'status'].includes(key) && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as any[]).length > 0)
@@ -213,12 +239,35 @@ export default function Home() {
                   {activeFiltersCount > 0 && (
                       <div className="flex items-center flex-wrap gap-2">
                           <span className="text-sm font-medium">Đang lọc:</span>
-                          {activeFiltersList.map(({ key, value }) => (
-                              <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
-                                  {getFilterBadgeLabel(key, value)}
-                                  <button onClick={() => handleRemoveFilter(key, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
-                              </Badge>
-                          ))}
+                          {activeFiltersList.map(({ key, value }) => {
+                              const isColor = key === 'exteriorColor' || key === 'interiorColor';
+                              let label = value.toString();
+
+                              if (key === 'drivetrain') {
+                                label = drivetrainTranslations[value as keyof typeof drivetrainTranslations] || value.toString();
+                              } else if (isColor) {
+                                label = colorTranslations[value as keyof typeof colorTranslations] || value.toString();
+                              } else if (key === 'seatingCapacity') {
+                                label = `${value} chỗ`;
+                              }
+
+                              return (
+                                <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1 flex items-center">
+                                  {isColor && (
+                                    <span
+                                      className={cn(
+                                        'h-3 w-3 rounded-full border border-black/20 mr-1.5',
+                                        colorMap[value as keyof typeof colorMap] || 'bg-gray-200'
+                                      )}
+                                    />
+                                  )}
+                                  {label}
+                                  <button onClick={() => handleRemoveFilter(key as keyof typeof filters, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10">
+                                    <X className="h-3 w-3" />
+                                  </button>
+                                </Badge>
+                              );
+                          })}
                           {isPriceFiltered && (
                               <Badge variant="secondary" className="pl-2 pr-1 py-1">
                                   Giá tối đa: {filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
@@ -323,3 +372,4 @@ export default function Home() {
     </div>
   );
 }
+
