@@ -1769,9 +1769,202 @@ const featureBlogPosts: BlogPost[] = featuresData.map(feature => ({
   category: 'Tính năng',
 }));
 
+const engineTypeBlogPosts: BlogPost[] = [
+  {
+    slug: 'dong-co-boxer',
+    title: 'Động cơ Boxer - Thiết kế độc đáo, trọng tâm thấp',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+Boxer',
+    aiHint: 'boxer engine',
+    excerpt: 'Khám phá động cơ Boxer với thiết kế xy-lanh đối xứng độc đáo, mang lại trọng tâm thấp và sự cân bằng vượt trội, là trái tim của các dòng xe Subaru và Porsche.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ Boxer, còn được gọi là động cơ phẳng, là một loại động cơ đốt trong có các pít-tông di chuyển đối xứng nhau theo chiều ngang. Hãy tưởng tượng các pít-tông như những võ sĩ quyền Anh (boxer) đang tung cú đấm ra hai bên, đó là nguồn gốc của cái tên này. Đây là thiết kế đặc trưng của các hãng xe như Porsche và Subaru.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Trọng tâm thấp:</strong> Vì các xy-lanh nằm phẳng, động cơ có chiều cao thấp, giúp hạ thấp trọng tâm của xe. Điều này cải thiện đáng kể sự ổn định và khả năng xử lý khi vào cua.</li>
+        <li><strong>Độ rung thấp:</strong> Chuyển động đối xứng của các pít-tông giúp triệt tiêu lẫn nhau các lực quán tính, làm cho động cơ vận hành cực kỳ êm ái mà không cần đến trục cân bằng phức tạp.</li>
+        <li><strong>An toàn hơn khi va chạm trực diện:</strong> Do thiết kế phẳng, động cơ có xu hướng trượt xuống dưới gầm xe thay vì bị đẩy vào khoang hành khách khi có va chạm từ phía trước.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Cấu tạo phức tạp:</strong> Cần hai nắp máy (cylinder head) và hệ thống van phức tạp hơn so với động cơ thẳng hàng (I4, I6).</li>
+        <li><strong>Chi phí bảo dưỡng cao:</strong> Việc tiếp cận để sửa chữa, ví dụ như thay bugi, thường khó khăn và tốn kém hơn.</li>
+        <li><strong>Rộng hơn:</strong> Động cơ chiếm nhiều không gian theo chiều ngang, gây khó khăn cho việc thiết kế hệ thống treo.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Động cơ Boxer là một tuyệt tác kỹ thuật, mang lại cảm giác lái thể thao và sự cân bằng độc đáo. Mặc dù có chi phí bảo dưỡng cao hơn, nhưng những lợi ích về hiệu suất mà nó mang lại là không thể phủ nhận, đặc biệt trên các dòng xe thể thao và xe hiệu suất cao.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+  {
+    slug: 'dong-co-i4',
+    title: 'Động cơ I4 - Sự lựa chọn phổ biến, cân bằng và hiệu quả',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+I4',
+    aiHint: 'inline 4 engine',
+    excerpt: 'Tìm hiểu về động cơ I4 (4 xy-lanh thẳng hàng), loại động cơ phổ biến nhất trên thế giới nhờ sự cân bằng giữa hiệu suất, chi phí và sự đơn giản.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ I4, hay động cơ 4 xy-lanh thẳng hàng (Inline-4), là loại động cơ đốt trong phổ biến nhất trên các dòng xe ô tô hiện nay. Đúng như tên gọi, bốn xy-lanh của nó được xếp thành một hàng duy nhất.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Đơn giản và tiết kiệm chi phí:</strong> Với chỉ một nắp máy và cấu trúc đơn giản, động cơ I4 có chi phí sản xuất, lắp đặt và bảo dưỡng thấp.</li>
+        <li><strong>Nhỏ gọn:</strong> Thiết kế nhỏ gọn giúp nó dễ dàng được lắp đặt trên nhiều loại khung gầm, kể cả các xe nhỏ và xe dẫn động cầu trước.</li>
+        <li><strong>Tiết kiệm nhiên liệu:</strong> Do dung tích nhỏ và ít tổn thất ma sát hơn các động cơ lớn, động cơ I4 thường rất tiết kiệm nhiên liệu.</li>
+        <li><strong>Cân bằng tốt:</strong> Động cơ I4 có sự cân bằng sơ cấp tốt, nghĩa là các lực tạo ra bởi các pít-tông tự triệt tiêu nhau.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Rung ở vòng tua cao:</strong> Mặc dù cân bằng sơ cấp, động cơ I4 vẫn có sự mất cân bằng thứ cấp, gây ra rung động khi hoạt động ở vòng tua cao.</li>
+        <li><strong>Giới hạn công suất:</strong> Khó để chế tạo động cơ I4 có dung tích lớn (thường dưới 2.5L-3.0L) mà không gặp vấn đề về độ rung và kích thước.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Với sự cân bằng hoàn hảo giữa chi phí, hiệu quả và kích thước, động cơ I4 là sự lựa chọn mặc định và hợp lý cho đại đa số các mẫu xe du lịch trên toàn thế giới, từ xe hạng A đến các mẫu SUV cỡ trung.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+  {
+    slug: 'dong-co-i6',
+    title: 'Động cơ I6 - Biểu tượng của sự mượt mà và cân bằng',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+I6',
+    aiHint: 'inline 6 engine',
+    excerpt: 'Khám phá sự mượt mà gần như hoàn hảo của động cơ I6 (6 xy-lanh thẳng hàng), một thiết kế được các thương hiệu cao cấp như BMW và Mercedes-Benz ưa chuộng.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ I6, hay 6 xy-lanh thẳng hàng, được nhiều kỹ sư coi là một trong những cấu hình động cơ đốt trong hoàn hảo nhất về mặt lý thuyết. Sáu xy-lanh được xếp thành một hàng dài, tạo nên một bản giao hưởng cơ khí độc đáo.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Cân bằng hoàn hảo:</strong> Đây là ưu điểm lớn nhất. Động cơ I6 có sự cân bằng tự nhiên cả về lực sơ cấp và thứ cấp. Điều này có nghĩa là nó hoạt động cực kỳ êm ái và mượt mà mà không cần đến trục cân bằng, mang lại trải nghiệm vận hành tinh tế.</li>
+        <li><strong>Mô-men xoắn đều:</strong> Cung cấp sức mạnh một cách liền mạch và mượt mà trên toàn bộ dải vòng tua.</li>
+        <li><strong>Cấu tạo đơn giản (so với V6):</strong> Chỉ có một nắp máy và hệ thống van đơn giản hơn, giúp việc bảo dưỡng dễ dàng hơn.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Kích thước dài:</strong> Chiều dài lớn khiến nó khó được lắp đặt trên các xe dẫn động cầu trước và chiếm nhiều không gian trong khoang máy.</li>
+        <li><strong>Độ cứng vững:</strong> Trục khuỷu dài hơn có thể bị uốn cong ở vòng tua rất cao nếu không được thiết kế cẩn thận.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Động cơ I6 là biểu tượng của sự sang trọng và kỹ thuật đỉnh cao. Sự mượt mà vốn có của nó là lý do tại sao các thương hiệu xe sang như BMW vẫn luôn trung thành với cấu hình này trong nhiều thập kỷ.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+    {
+    slug: 'dong-co-v6',
+    title: 'Động cơ V6 - Sự kết hợp linh hoạt giữa sức mạnh và sự nhỏ gọn',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+V6',
+    aiHint: 'v6 engine',
+    excerpt: 'Tìm hiểu về động cơ V6, giải pháp phổ biến cho các dòng xe cần nhiều sức mạnh hơn I4 nhưng vẫn phải đảm bảo sự nhỏ gọn trong khoang máy.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ V6 là loại động cơ có sáu xy-lanh được xếp thành hai hàng, mỗi hàng ba xy-lanh, tạo thành hình chữ V. Đây là một trong những cấu hình động cơ phổ biến nhất, là bước nâng cấp từ động cơ I4 trên nhiều dòng sedan, SUV và xe bán tải.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Nhỏ gọn:</strong> Chiều dài của động cơ V6 chỉ bằng một nửa so với động cơ I6. Điều này giúp nó dễ dàng được lắp đặt vào nhiều loại xe hơn, kể cả những xe có khoang máy nhỏ hoặc xe dẫn động cầu trước.</li>
+        <li><strong>Mạnh mẽ hơn I4:</strong> Cung cấp một bước nhảy vọt về công suất và mô-men xoắn so với động cơ 4 xy-lanh, phù hợp cho các xe lớn hơn hoặc cần hiệu suất cao hơn.</li>
+        <li><strong>Mượt mà hơn I4:</strong> Mặc dù không êm ái bằng I6, nhưng động cơ V6 vẫn vận hành mượt mà hơn đáng kể so với động cơ I4, đặc biệt ở vòng tua cao.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Kém cân bằng hơn I6:</strong> Về bản chất, động cơ V6 không cân bằng tự nhiên và cần sử dụng các trục cân bằng để giảm độ rung.</li>
+        <li><strong>Cấu tạo phức tạp:</strong> Có hai nắp máy và gấp đôi số lượng trục cam so với động cơ I6, làm tăng chi phí sản xuất và bảo dưỡng.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Động cơ V6 là một giải pháp kỹ thuật thông minh, dung hòa giữa yêu cầu về sức mạnh và sự nhỏ gọn. Sự linh hoạt này đã khiến nó trở thành lựa chọn hàng đầu cho rất nhiều mẫu xe trên thị trường.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+  {
+    slug: 'dong-co-v8',
+    title: 'Động cơ V8 - Biểu tượng của sức mạnh và âm thanh cơ bắp',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+V8',
+    aiHint: 'v8 engine',
+    excerpt: 'Khám phá sức mạnh và âm thanh gầm gừ đặc trưng của động cơ V8, trái tim của những chiếc xe cơ bắp Mỹ, xe sang và SUV hiệu suất cao.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ V8 là động cơ có tám xy-lanh xếp thành hình chữ V. Trong nhiều thập kỷ, nó đã là biểu tượng của sức mạnh, hiệu suất và văn hóa xe hơi, đặc biệt là ở Mỹ. Âm thanh gầm gừ đặc trưng của nó là không thể nhầm lẫn.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Công suất và mô-men xoắn lớn:</strong> Động cơ V8 có khả năng tạo ra một lượng lớn sức mạnh và lực kéo, lý tưởng cho xe thể thao, xe tải nặng và SUV cỡ lớn.</li>
+        <li><strong>Vận hành mượt mà:</strong> Chu kỳ đốt cháy diễn ra thường xuyên hơn, giúp động cơ cung cấp sức mạnh một cách liền mạch và ít rung động.</li>
+        <li><strong>Âm thanh phấn khích:</strong> Âm thanh trầm, gầm gừ của động cơ V8 là một phần quan trọng của trải nghiệm lái, mang lại cảm xúc mạnh mẽ.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tiêu thụ nhiều nhiên liệu:</strong> Do dung tích lớn và nhiều xy-lanh, động cơ V8 rất "khát" xăng.</li>
+        <li><strong>Kích thước và trọng lượng:</strong> Động cơ V8 lớn và nặng, ảnh hưởng đến sự phân bổ trọng lượng và không gian khoang máy.</li>
+        <li><strong>Chi phí cao:</strong> Chi phí sản xuất, mua bán và bảo dưỡng đều cao hơn đáng kể so với các động cơ nhỏ hơn.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Mặc dù xu hướng chung đang hướng tới các động cơ nhỏ hơn và hiệu quả hơn, động cơ V8 vẫn giữ một vị trí đặc biệt trong lòng những người đam mê xe hơi nhờ sức mạnh thuần túy và cảm xúc mà nó mang lại. Nó là hiện thân của triết lý "không có gì thay thế được dung tích xy-lanh".</p>
+    `,
+    category: 'Loại động cơ',
+  },
+  {
+    slug: 'dong-co-v10',
+    title: 'Động cơ V10 - Cỗ máy hiếm hoi từ đường đua',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+V10',
+    aiHint: 'v10 engine',
+    excerpt: 'Tìm hiểu về động cơ V10, một cấu hình động cơ hiếm và độc đáo, nổi tiếng với âm thanh cao vút và mối liên hệ mật thiết với thế giới siêu xe và xe đua.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ V10 là một cấu hình rất hiếm, với mười xy-lanh xếp hình chữ V. Nó không phổ biến như V8 hay V12, nhưng lại chiếm một vị trí đặc biệt trong lịch sử xe hơi, gắn liền với những chiếc xe huyền thoại như Porsche Carrera GT, Dodge Viper, Lamborghini Gallardo/Huracan, Audi R8 và kỷ nguyên âm thanh huy hoàng của giải đua Công thức 1.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Âm thanh độc đáo:</strong> Động cơ V10 tạo ra một âm thanh cao, sắc và phức tạp, khác biệt hoàn toàn so với tiếng gầm của V8 hay tiếng rít của V12. Đây được coi là một trong những âm thanh động cơ hay nhất từng được tạo ra.</li>
+        <li><strong>Công suất ở vòng tua cao:</strong> Với các pít-tông nhỏ và nhẹ hơn so với V8 có cùng dung tích, động cơ V10 có thể đạt đến vòng tua máy rất cao, tạo ra công suất đỉnh ấn tượng.</li>
+        <li><strong>Sự cân bằng tốt hơn V8:</strong> Cung cấp sức mạnh mượt mà hơn so với động cơ V8.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Phức tạp và đắt đỏ:</strong> Cực kỳ tốn kém để sản xuất và bảo dưỡng.</li>
+        <li><strong>Kích thước lớn:</strong> Dài hơn V8, gây khó khăn cho việc thiết kế.</li>
+        <li><strong>Không cân bằng hoàn hảo:</strong> Không có sự cân bằng tự nhiên như I6 hay V12, vẫn cần các giải pháp kỹ thuật để giảm rung.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Động cơ V10 là một kiệt tác cơ khí, một lời tuyên bố về kỹ thuật đỉnh cao hơn là một giải pháp thực tế. Chúng là những cỗ máy dành cho cảm xúc, mang lại một trải nghiệm âm thanh và hiệu suất mà các công nghệ động cơ hiện đại khó lòng tái tạo được.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+  {
+    slug: 'dong-co-dien',
+    title: 'Động cơ Điện - Tương lai của ngành công nghiệp ô tô',
+    author: 'Chuyên gia TimeCarsAuto',
+    date: '31/07/2024',
+    image: 'https://placehold.co/600x400.png?text=Dong+co+Dien',
+    aiHint: 'electric car motor',
+    excerpt: 'Khám phá nguyên lý hoạt động và những ưu điểm vượt trội của động cơ điện, công nghệ đang định hình lại tương lai của ngành ô tô thế giới.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Động cơ điện hoạt động dựa trên nguyên lý cơ bản của điện từ học, chuyển đổi năng lượng điện từ pin thành năng lượng cơ học để làm quay bánh xe. Khác với động cơ đốt trong với hàng trăm bộ phận chuyển động phức tạp, động cơ điện chỉ có một bộ phận chuyển động chính là rô-to.</p>
+      <h3 class="font-bold text-xl my-4">2. Ưu điểm chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tăng tốc tức thì:</strong> Động cơ điện cung cấp 100% mô-men xoắn ngay từ khi bắt đầu quay. Điều này mang lại khả năng tăng tốc cực nhanh và mạnh mẽ từ vị trí đứng yên.</li>
+        <li><strong>Vận hành êm ái và yên tĩnh:</strong> Do không có quá trình đốt cháy và ít bộ phận chuyển động, xe điện vận hành gần như không có tiếng ồn và độ rung.</li>
+        <li><strong>Hiệu quả năng lượng cao:</strong> Động cơ điện có hiệu suất chuyển đổi năng lượng lên tới hơn 90%, so với chỉ khoảng 30-40% của động cơ đốt trong.</li>
+        <li><strong>Không phát thải tại chỗ:</strong> Xe điện không thải ra khí CO2 hay các chất ô nhiễm khác từ ống xả, giúp cải thiện chất lượng không khí tại các đô thị.</li>
+        <li><strong>Chi phí bảo dưỡng thấp:</strong> Không cần thay dầu, bugi, lọc gió hay các bộ phận liên quan đến động cơ đốt trong.</li>
+      </ul>
+      <h3 class="font-bold text-xl my-4">3. Nhược điểm</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Phụ thuộc vào pin:</strong> Phạm vi hoạt động, thời gian sạc và tuổi thọ pin vẫn là những mối quan tâm lớn nhất.</li>
+        <li><strong>Trọng lượng:</strong> Bộ pin lớn làm cho xe điện nặng hơn đáng kể so với xe xăng có cùng kích thước.</li>
+        <li><strong>Hạ tầng trạm sạc:</strong> Việc thiếu các trạm sạc công cộng, đặc biệt là sạc nhanh, là một rào cản lớn.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Động cơ điện đại diện cho một bước nhảy vọt về công nghệ ô tô. Nó mang lại một trải nghiệm lái xe hoàn toàn khác biệt: nhanh, êm ái, thông minh và sạch sẽ. Khi công nghệ pin và hạ tầng sạc tiếp tục phát triển, động cơ điện chắc chắn sẽ là tương lai của giao thông cá nhân.</p>
+    `,
+    category: 'Loại động cơ',
+  },
+];
+
 
 export const blogPosts: BlogPost[] = [
   ...featureBlogPosts,
+  ...engineTypeBlogPosts,
   {
     slug: 'dau-diesel-so-sanh',
     title: 'Dầu Diesel – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Điện, Hybrid',
@@ -2530,6 +2723,3 @@ export const blogPosts: BlogPost[] = [
     category: 'Loại xe',
   },
 ];
-
-
-

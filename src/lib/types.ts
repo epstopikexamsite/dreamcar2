@@ -43,7 +43,7 @@ export interface CarSpec {
   // Động cơ
   engineDisplacement: string; // "1.5L"
   enginePower: string; // "180 hp"
-  engineTorque: string; // "240 Nm"
+  engineTorque: string; // "450 Nm"
   engineType: string; // "4-cylinder, Turbocharged"
 
   // Hộp số & Dẫn động
@@ -58,7 +58,7 @@ export interface CarSpec {
   // Hiệu suất & Tiêu thụ
   acceleration: string; // "4.5s (0-100 km/h)"
   topSpeed?: number; // 250 km/h
-  fuelConsumption: string; // "8.5L/100km (combined)"
+  fuelConsumption: string; // "8.5L/100km (kết hợp)"
 
   // Lốp & Treo
   tireSize: string; // "19-inch"
@@ -113,5 +113,5 @@ export interface BlogPost {
   aiHint: string;
   excerpt: string;
   content: string;
-  category: 'Loại nhiên liệu' | 'Hộp số' | 'Dẫn động' | 'Loại xe' | 'Tính năng';
+  category: 'Loại nhiên liệu' | 'Hộp số' | 'Dẫn động' | 'Loại xe' | 'Tính năng' | 'Loại động cơ';
 }
