@@ -78,7 +78,7 @@ export default function Home() {
   const filteredCars = useMemo(() => {
     return allCars.filter(car => {
       const brandMatch = filters.brand.length === 0 || filters.brand.includes(car.brand);
-      const priceMatch = car.price >= filters.priceRange[0] && car.price <= filters.priceRange[1];
+      const priceMatch = car.price <= filters.priceRange[1];
       const yearMatch = filters.year.length === 0 || filters.year.includes(car.year.toString());
       const fuelMatch = filters.fuelType.length === 0 || filters.fuelType.includes(car.fuelType);
       const transmissionMatch = filters.transmission.length === 0 || filters.transmission.includes(car.transmission);
@@ -220,6 +220,9 @@ export default function Home() {
                                 </SheetContent>
                             </Sheet>
                         </div>
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                        Hiển thị <span className="font-bold text-foreground">{filteredCars.length}</span> trên tổng số <span className="font-bold text-foreground">{allCars.length}</span> xe
                     </div>
                 </div>
                  {activeFiltersCount > 0 && (
