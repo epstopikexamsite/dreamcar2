@@ -1,6 +1,180 @@
+
 import type { BlogPost } from './types';
 
+const features: { title: string; excerpt: string; content: string, aiHint: string }[] = [
+  {
+    title: '3 hàng ghế',
+    excerpt: 'Khám phá sự tiện nghi và rộng rãi của những chiếc xe được trang bị 3 hàng ghế, lựa chọn lý tưởng cho các gia đình đông thành viên.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Tính năng 3 hàng ghế mang đến không gian ngồi linh hoạt và rộng rãi, có khả năng chở đến 7 hoặc 8 hành khách. Đây là một trong những trang bị quan trọng nhất đối với các dòng xe SUV và MPV dành cho gia đình.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tối đa hóa không gian:</strong> Dễ dàng chở thêm thành viên gia đình, bạn bè trong những chuyến đi.</li>
+        <li><strong>Linh hoạt:</strong> Hàng ghế thứ ba thường có thể gập phẳng, tạo ra không gian chứa đồ cực lớn khi không sử dụng.</li>
+        <li><strong>Tăng tính thực dụng:</strong> Giúp chiếc xe của bạn trở nên đa năng hơn, sẵn sàng cho mọi nhu cầu từ đi lại hàng ngày đến những kỳ nghỉ dài.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Với khả năng chở nhiều người và sự linh hoạt trong việc sắp xếp không gian, những chiếc xe có 3 hàng ghế là giải pháp hoàn hảo cho các gia đình hiện đại.</p>
+    `,
+    aiHint: 'car third row'
+  },
+  {
+    title: '7 chỗ ngồi rộng rãi',
+    excerpt: 'Trải nghiệm không gian nội thất thoải mái và rộng rãi với xe 7 chỗ, đảm bảo mọi hành trình đều là những kỷ niệm đáng nhớ.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Những chiếc xe 7 chỗ ngồi rộng rãi được thiết kế để mang lại sự thoải mái tối đa cho tất cả hành khách, ngay cả trong những chuyến đi dài. Không gian được tối ưu hóa từ khoảng để chân đến khoảng không trên đầu.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Thoải mái cho mọi người:</strong> Cung cấp đủ không gian cho 7 người lớn ngồi một cách thoải mái.</li>
+        <li><strong>Lý tưởng cho gia đình:</strong> Hoàn hảo cho các gia đình có trẻ em, với không gian để lắp ghế trẻ em và vẫn còn chỗ cho người lớn.</li>
+        <li><strong>Hành lý thoải mái:</strong> Ngay cả khi sử dụng cả 7 ghế, vẫn có không gian cho hành lý, phù hợp cho các kỳ nghỉ của gia đình.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Một chiếc xe 7 chỗ rộng rãi là sự đầu tư thông minh cho những ai đặt sự thoải mái và tính thực dụng của gia đình lên hàng đầu.</p>
+    `,
+    aiHint: 'spacious car interior'
+  },
+  {
+    title: 'Buồng lái ảo Virtual Cockpit',
+    excerpt: 'Đắm mình vào công nghệ tương lai với Buồng lái ảo Virtual Cockpit, nơi mọi thông tin hiển thị sắc nét và tùy biến theo ý muốn.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Buồng lái ảo (Virtual Cockpit) là một màn hình kỹ thuật số hoàn toàn thay thế cho cụm đồng hồ cơ truyền thống. Nó cho phép hiển thị đa dạng thông tin từ tốc độ, vòng tua máy, đến bản đồ điều hướng và thông tin giải trí.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Hiển thị tùy biến:</strong> Người lái có thể chọn các chế độ hiển thị khác nhau, ưu tiên thông tin quan trọng với họ.</li>
+        <li><strong>Tích hợp bản đồ:</strong> Hiển thị bản đồ định vị ngay trước tầm mắt, giúp lái xe an toàn và tiện lợi hơn.</li>
+        <li><strong>Hiện đại và sang trọng:</strong> Mang lại vẻ ngoài công nghệ cao và đẳng cấp cho khoang nội thất.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Virtual Cockpit không chỉ là một nâng cấp về mặt thẩm mỹ mà còn là một công cụ mạnh mẽ giúp người lái kiểm soát thông tin và tập trung hơn trên đường.</p>
+    `,
+    aiHint: 'virtual cockpit dashboard'
+  },
+  {
+    title: 'Bơm nhiệt hiệu quả',
+    excerpt: 'Tối ưu hóa phạm vi hoạt động của xe điện ngay cả trong mùa đông khắc nghiệt nhờ công nghệ Bơm nhiệt hiệu quả.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Hệ thống bơm nhiệt trên xe điện là một giải pháp thông minh để sưởi ấm cabin mà không tiêu tốn quá nhiều năng lượng từ pin. Nó hoạt động bằng cách tái sử dụng nhiệt lượng từ môi trường và các bộ phận của xe.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tăng phạm vi di chuyển:</strong> Giảm đáng kể lượng điện năng tiêu thụ cho việc sưởi ấm, giúp xe đi được xa hơn trong thời tiết lạnh.</li>
+        <li><strong>Tiết kiệm năng lượng:</strong> Hiệu quả hơn nhiều so với hệ thống sưởi điện trở truyền thống.</li>
+        <li><strong>Thân thiện với môi trường:</strong> Giảm gánh nặng cho hệ thống pin và tối ưu hóa hiệu suất tổng thể của xe.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Đối với xe điện, hệ thống bơm nhiệt là một tính năng cực kỳ giá trị, giúp giải quyết bài toán về phạm vi hoạt động trong điều kiện thời tiết không thuận lợi.</p>
+    `,
+    aiHint: 'electric car winter'
+  },
+  {
+    title: 'Bảng đồng hồ kỹ thuật số',
+    excerpt: 'Trải nghiệm sự rõ ràng và hiện đại với Bảng đồng hồ kỹ thuật số, mang đến một giao diện trực quan và dễ dàng theo dõi.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Bảng đồng hồ kỹ thuật số là một màn hình LCD hoặc LED thay thế cho các đồng hồ analog truyền thống, cung cấp thông tin về tốc độ, quãng đường, và các chỉ số khác của xe một cách sinh động.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Rõ ràng và sắc nét:</strong> Thông tin được hiển thị với độ phân giải cao, dễ đọc trong mọi điều kiện ánh sáng.</li>
+        <li><strong>Giao diện hiện đại:</strong> Nâng cao tính thẩm mỹ và công nghệ cho khoang lái.</li>
+        <li><strong>Hiển thị đa thông tin:</strong> Có thể tích hợp các cảnh báo, thông tin về chuyến đi, và các dữ liệu quan trọng khác.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Bảng đồng hồ kỹ thuật số là một bước tiến so với đồng hồ cơ, mang lại trải nghiệm lái xe thông minh và hiện đại hơn.</p>
+    `,
+    aiHint: 'digital car dashboard'
+  },
+  {
+    title: 'Cánh gió sau thích ứng',
+    excerpt: 'Tối ưu hóa lực ép và tính khí động học ở mọi tốc độ với công nghệ Cánh gió sau thích ứng, một biểu tượng của xe hiệu suất cao.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Cánh gió sau thích ứng là một bộ phận khí động học có khả năng tự động thay đổi góc nghiêng hoặc vị trí tùy thuộc vào tốc độ của xe và chế độ lái được chọn.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tăng lực ép xuống mặt đường (Downforce):</strong> Khi xe chạy ở tốc độ cao, cánh gió sẽ nâng lên để tăng độ bám đường và sự ổn định.</li>
+        <li><strong>Giảm lực cản:</strong> Ở tốc độ thấp hoặc khi không cần thiết, cánh gió sẽ thu lại để giảm lực cản không khí, giúp tiết kiệm nhiên liệu.</li>
+        <li><strong>Tăng hiệu quả phanh:</strong> Một số hệ thống có thể điều chỉnh cánh gió để hoạt động như một phanh không khí, hỗ trợ giảm tốc.</li>
+        <li><strong>Thẩm mỹ và công nghệ:</strong> Là một điểm nhấn thiết kế, thể hiện đẳng cấp công nghệ của chiếc xe.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Cánh gió sau thích ứng là một minh chứng cho sự kết hợp hoàn hảo giữa kỹ thuật và thiết kế, mang lại cả hiệu suất lẫn phong cách cho những chiếc xe thể thao hàng đầu.</p>
+    `,
+    aiHint: 'car active spoiler'
+  },
+  {
+    title: 'Cảnh báo điểm mù',
+    excerpt: 'An toàn hơn trên mọi hành trình với hệ thống Cảnh báo điểm mù, người trợ lý đáng tin cậy giúp bạn phát hiện các phương tiện khuất tầm nhìn.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Hệ thống Cảnh báo điểm mù (Blind Spot Monitoring - BSM) sử dụng các cảm biến radar hoặc camera để phát hiện các phương tiện đang di chuyển trong khu vực điểm mù của người lái, thường là ở hai bên hông và phía sau xe.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Tăng cường an toàn khi chuyển làn:</strong> Hệ thống sẽ cảnh báo bằng đèn báo trên gương chiếu hậu hoặc âm thanh nếu có xe trong điểm mù khi bạn bật xi-nhan.</li>
+        <li><strong>Giảm căng thẳng cho người lái:</strong> Giúp người lái tự tin hơn khi di chuyển trên đường cao tốc đông đúc.</li>
+        <li><strong>Phòng tránh va chạm:</strong> Là một trong những tính năng an toàn chủ động quan trọng giúp ngăn ngừa các tai nạn do không quan sát được.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Cảnh báo điểm mù là một tính năng an toàn không thể thiếu trên các mẫu xe hiện đại, giúp bảo vệ bạn và những người xung quanh.</p>
+    `,
+    aiHint: 'blind spot monitoring'
+  },
+  {
+    title: 'Dẫn động 4 bánh toàn thời gian',
+    excerpt: 'Trải nghiệm sự ổn định và khả năng bám đường vượt trội trong mọi điều kiện thời tiết với hệ thống Dẫn động 4 bánh toàn thời gian (AWD).',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Hệ thống dẫn động 4 bánh toàn thời gian (All-Wheel Drive - AWD) tự động phân bổ lực kéo đến cả bốn bánh xe. Khác với hệ thống 4x4 gài cầu, AWD hoạt động liên tục và thông minh để tối ưu hóa độ bám đường.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>An toàn trên đường trơn trượt:</strong> Cải thiện đáng kể khả năng kiểm soát trên đường mưa, tuyết hoặc bùn lầy.</li>
+        <li><strong>Tăng tốc tốt hơn:</strong> Lực kéo được phân bổ đều giúp xe tăng tốc nhanh và ổn định hơn từ vị trí đứng yên.</li>
+        <li><strong>Vào cua ổn định:</strong> Giúp xe bám cua tốt hơn ở tốc độ cao.</li>
+        <li><strong>Hoạt động tự động:</strong> Người lái không cần can thiệp, hệ thống sẽ tự điều chỉnh để phù hợp với điều kiện vận hành.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> AWD là một trang bị đắt giá, mang lại sự tự tin và an toàn vượt trội cho người lái, đặc biệt là trên các dòng xe SUV, Crossover và sedan cao cấp.</p>
+    `,
+    aiHint: 'awd car system'
+  },
+  {
+    title: 'Hệ thống treo khí nén',
+    excerpt: 'Tận hưởng sự êm ái tối đa và khả năng tùy chỉnh độ cao gầm xe linh hoạt với công nghệ Hệ thống treo khí nén cao cấp.',
+    content: `
+      <h3 class="font-bold text-xl my-4">1. Giới thiệu</h3>
+      <p>Hệ thống treo khí nén (Air Suspension) sử dụng các túi khí có thể bơm phồng hoặc xả hơi thay cho lò xo kim loại truyền thống. Hệ thống này được điều khiển bằng máy tính, cho phép điều chỉnh độ cứng và độ cao của hệ thống treo.</p>
+      <h3 class="font-bold text-xl my-4">2. Lợi ích chính</h3>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong>Êm ái vượt trội:</strong> Có khả năng hấp thụ các chấn động từ mặt đường một cách mượt mà, mang lại sự thoải mái tối đa cho hành khách.</li>
+        <li><strong>Tùy chỉnh độ cao gầm:</strong> Người lái có thể nâng cao gầm xe để vượt địa hình hoặc hạ thấp gầm xe để tăng tính khí động học và ổn định ở tốc độ cao.</li>
+        <li><strong>Tự động cân bằng tải trọng:</strong> Hệ thống có thể tự điều chỉnh để giữ cho xe luôn ở trạng thái cân bằng, ngay cả khi chở nặng hoặc kéo rơ-moóc.</li>
+      </ul>
+      <p class="mt-4"><strong>Kết luận:</strong> Hệ thống treo khí nén là một trang bị tiêu chuẩn trên các dòng xe sang và SUV cao cấp, mang đến một trải nghiệm vận hành đẳng cấp, kết hợp hoàn hảo giữa sự thoải mái và tính linh hoạt.</p>
+    `,
+    aiHint: 'air suspension car'
+  }
+];
+
+const featureBlogPosts: BlogPost[] = features.map(feature => ({
+  slug: feature.title.toLowerCase()
+    .replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a")
+    .replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e")
+    .replace(/ì|í|ị|ỉ|ĩ/g, "i")
+    .replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o")
+    .replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u")
+    .replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y")
+    .replace(/đ/g, "d")
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-'),
+  title: feature.title,
+  author: 'Chuyên gia TimeCarsAuto',
+  date: '25/07/2024',
+  image: `https://placehold.co/800x450.png?text=${encodeURIComponent(feature.title)}`,
+  aiHint: feature.aiHint,
+  excerpt: feature.excerpt,
+  content: feature.content,
+  category: 'Tính năng',
+}));
+
+
 export const blogPosts: BlogPost[] = [
+  ...featureBlogPosts,
   {
     slug: 'dau-diesel-so-sanh',
     title: 'Dầu Diesel – Ưu điểm, Nhược điểm, Chi tiết Kỹ thuật & So sánh với Xăng, Điện, Hybrid',

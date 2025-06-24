@@ -16,7 +16,7 @@ export default function BlogPage() {
     return acc;
   }, {} as Record<string, BlogPost[]>);
 
-  const categories: (keyof typeof groupedPosts)[] = ['Loại nhiên liệu', 'Hộp số', 'Dẫn động', 'Loại xe'];
+  const categories: (keyof typeof groupedPosts)[] = ['Tính năng', 'Loại nhiên liệu', 'Hộp số', 'Dẫn động', 'Loại xe'];
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
