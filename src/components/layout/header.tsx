@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { LayoutGrid, Handshake, Users, Camera, Rss, Mail, Menu, Briefcase } from 'lucide-react';
+import { LayoutGrid, Handshake, Users, Camera, Rss, Mail, Menu, Briefcase, Star } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
@@ -13,6 +13,7 @@ const navLinks = [
     { href: "/sell-car", label: "Thu Mua Xe", icon: Handshake },
     { href: "/about", label: "Giới thiệu", icon: Users },
     { href: "/gallery", label: "Hoạt động", icon: Camera },
+    { href: "/testimonials", label: "Đánh giá", icon: Star },
     { href: "/blog", label: "Kiến thức", icon: Rss },
     { href: "/careers", label: "Tuyển dụng", icon: Briefcase },
     { href: "/contact", label: "Liên hệ", icon: Mail },
@@ -38,7 +39,7 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-6">
                 {navLinks.map(link => {
                     const Icon = link.icon;
-                    const isActive = pathname === link.href;
+                    const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                     return (
                         <Link 
                             key={link.href}
@@ -74,7 +75,7 @@ export default function Header() {
                         <nav className="flex flex-col p-4 space-y-1">
                              {navLinks.map(link => {
                                 const Icon = link.icon;
-                                const isActive = pathname === link.href;
+                                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                                 return (
                                     <Link 
                                         key={link.href}
