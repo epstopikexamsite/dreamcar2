@@ -86,6 +86,19 @@ const colorMap: { [key: string]: string } = {
   'Brown': 'bg-amber-800'
 };
 
+const colorTranslations: { [key: string]: string } = {
+  'White': 'Trắng',
+  'Black': 'Đen',
+  'Silver': 'Bạc',
+  'Gray': 'Xám',
+  'Red': 'Đỏ',
+  'Blue': 'Xanh lam',
+  'Green': 'Xanh lá',
+  'Beige': 'Be',
+  'Tan': 'Nâu tan',
+  'Brown': 'Nâu',
+};
+
 
 export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
@@ -162,30 +175,6 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
     'AWD': 'AWD',
     '4WD': '4x4'
   }
-
-  const ColorButton = ({ color, isSelected, onClick }: { color: string; isSelected: boolean; onClick: () => void; }) => (
-    <TooltipProvider delayDuration={100}>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button
-            onClick={onClick}
-            className={cn(
-              'h-7 w-7 rounded-full border border-black/10 transition-all duration-200',
-              colorMap[color] || 'bg-gray-200',
-              'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
-              isSelected ? 'ring-2 ring-primary ring-offset-1' : 'hover:scale-110'
-            )}
-            title={color}
-          >
-            <span className="sr-only">{color}</span>
-          </button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{color}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
 
   return (
     <Card>
@@ -309,29 +298,61 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
         
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Palette className="w-4 h-4" /> Màu ngoại thất</Label>
-          <div className="flex flex-wrap gap-2 pt-2">
-            {exteriorColors.map((color) => (
-              <ColorButton
-                key={color}
-                color={color}
-                isSelected={filters.exteriorColor.includes(color)}
-                onClick={() => handleExteriorColorChange(color)}
-              />
-            ))}
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {exteriorColors.map((color) => {
+                const isSelected = filters.exteriorColor.includes(color);
+                return (
+                    <button
+                        key={color}
+                        onClick={() => handleExteriorColorChange(color)}
+                        className={cn(
+                            "p-2 border rounded-md flex items-center justify-start h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                            "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                            isSelected
+                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                            : "bg-card hover:bg-accent hover:text-accent-foreground"
+                        )}
+                        >
+                        <span
+                            className={cn(
+                            'h-4 w-4 rounded-full border border-black/20 shrink-0',
+                            colorMap[color] || 'bg-gray-200'
+                            )}
+                        />
+                        <span className="truncate">{colorTranslations[color] || color}</span>
+                    </button>
+                )
+            })}
           </div>
         </div>
         
         <div className="space-y-2">
           <Label className="font-semibold flex items-center gap-2"><Armchair className="w-4 h-4" /> Màu nội thất</Label>
-          <div className="flex flex-wrap gap-2 pt-2">
-            {interiorColors.map((color) => (
-              <ColorButton
-                key={color}
-                color={color}
-                isSelected={filters.interiorColor.includes(color)}
-                onClick={() => handleInteriorColorChange(color)}
-              />
-            ))}
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            {interiorColors.map((color) => {
+                const isSelected = filters.interiorColor.includes(color);
+                return (
+                    <button
+                        key={color}
+                        onClick={() => handleInteriorColorChange(color)}
+                        className={cn(
+                            "p-2 border rounded-md flex items-center justify-start h-10 transition-colors duration-200 text-sm font-medium gap-2",
+                            "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                            isSelected
+                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                            : "bg-card hover:bg-accent hover:text-accent-foreground"
+                        )}
+                        >
+                        <span
+                            className={cn(
+                            'h-4 w-4 rounded-full border border-black/20 shrink-0',
+                            colorMap[color] || 'bg-gray-200'
+                            )}
+                        />
+                        <span className="truncate">{colorTranslations[color] || color}</span>
+                    </button>
+                )
+            })}
           </div>
         </div>
 
