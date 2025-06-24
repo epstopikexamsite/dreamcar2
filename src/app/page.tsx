@@ -30,6 +30,8 @@ export default function Home() {
     exteriorColor: [] as string[],
     interiorColor: [] as string[],
     drivetrain: [] as string[],
+    seatingCapacity: [] as number[],
+    features: [] as string[],
     status: 'Available',
   });
   
@@ -47,8 +49,10 @@ export default function Home() {
       const exteriorColorMatch = filters.exteriorColor.length === 0 || filters.exteriorColor.includes(car.exteriorColor);
       const interiorColorMatch = filters.interiorColor.length === 0 || filters.interiorColor.includes(car.interiorColor);
       const drivetrainMatch = filters.drivetrain.length === 0 || filters.drivetrain.includes(car.drivetrain);
+      const seatingMatch = filters.seatingCapacity.length === 0 || filters.seatingCapacity.includes(car.seatingCapacity);
+      const featuresMatch = filters.features.length === 0 || filters.features.every(feature => car.features.includes(feature));
       const statusMatch = car.status === filters.status;
-      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch && statusMatch;
+      return brandMatch && priceMatch && yearMatch && fuelMatch && transmissionMatch && typeMatch && exteriorColorMatch && interiorColorMatch && drivetrainMatch && seatingMatch && featuresMatch && statusMatch;
     });
   }, [filters]);
 
@@ -99,13 +103,16 @@ export default function Home() {
   const exteriorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.exteriorColor)))].sort(), []);
   const interiorColors = useMemo(() => [...Array.from(new Set(allCars.map(car => car.interiorColor)))].sort(), []);
   const drivetrains = useMemo(() => [...Array.from(new Set(allCars.map(car => car.drivetrain)))].sort(), []);
+  const seatingCapacities = useMemo(() => [...new Set(allCars.map(car => car.seatingCapacity))].sort((a, b) => a - b), []);
+  const features = useMemo(() => [...new Set(allCars.flatMap(car => car.features))].sort(), []);
+
 
   const visibleCars = filteredCars.slice(0, visibleCount);
 
-  const handleRemoveFilter = (filterKey: keyof typeof filters, value: string) => {
+  const handleRemoveFilter = (filterKey: keyof typeof filters, value: string | number) => {
     const currentValues = filters[filterKey as keyof Omit<typeof filters, 'priceRange' | 'status'>];
     if (Array.isArray(currentValues)) {
-        const newValues = currentValues.filter((v: string) => v !== value);
+        const newValues = currentValues.filter((v: string | number) => v !== value);
         setFilters({ ...filters, [filterKey]: newValues });
     }
   };
@@ -125,13 +132,22 @@ export default function Home() {
       exteriorColor: [],
       interiorColor: [],
       drivetrain: [],
+      seatingCapacity: [],
+      features: [],
       status: 'Available',
     });
   };
 
+  const getFilterBadgeLabel = (key: string, value: any): string => {
+    if (key === 'seatingCapacity') {
+        return `${value} chỗ`;
+    }
+    return value.toString();
+  }
+
   const isPriceFiltered = filters.priceRange[1] !== NO_PRICE_LIMIT;
   const activeFiltersList = Object.entries(filters)
-    .filter(([key]) => !['priceRange', 'status'].includes(key) && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as string[]).length > 0)
+    .filter(([key]) => !['priceRange', 'status'].includes(key) && Array.isArray(filters[key as keyof typeof filters]) && (filters[key as keyof typeof filters] as any[]).length > 0)
     .flatMap(([key, values]) => {
         if (Array.isArray(values)) {
             return values.map(value => ({ key: key as keyof typeof filters, value }));
@@ -173,6 +189,8 @@ export default function Home() {
                                               exteriorColors={exteriorColors}
                                               interiorColors={interiorColors}
                                               drivetrains={drivetrains}
+                                              seatingCapacities={seatingCapacities}
+                                              features={features}
                                               filters={filters} 
                                               onFilterChange={setFilters}
                                               showTitle={false}
@@ -192,7 +210,7 @@ export default function Home() {
                           <span className="text-sm font-medium">Đang lọc:</span>
                           {activeFiltersList.map(({ key, value }) => (
                               <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
-                                  {value}
+                                  {getFilterBadgeLabel(key, value)}
                                   <button onClick={() => handleRemoveFilter(key, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
                               </Badge>
                           ))}

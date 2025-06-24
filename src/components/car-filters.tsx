@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -6,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal, Package, PackageCheck, PackageX } from 'lucide-react';
+import { Fuel, Zap, Leaf, Truck, Cog, Car, CarFront, Caravan, Tag, Calendar, Palette, Armchair, GitCommitHorizontal, Package, PackageCheck, PackageX, Users, Star } from 'lucide-react';
 import type { Car as CarType } from '@/lib/types';
 
 const ManualGearboxIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -38,6 +39,8 @@ interface CarFiltersProps {
   exteriorColors: string[];
   interiorColors: string[];
   drivetrains: string[];
+  seatingCapacities: number[];
+  features: string[];
   filters: { 
     brand: string[]; 
     priceRange: number[]; 
@@ -48,6 +51,8 @@ interface CarFiltersProps {
     exteriorColor: string[];
     interiorColor: string[];
     drivetrain: string[];
+    seatingCapacity: number[];
+    features: string[];
     status: string;
   };
   onFilterChange: (filters: any) => void;
@@ -100,7 +105,7 @@ const colorTranslations: { [key: string]: string } = {
 };
 
 
-export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
+export default function CarFilters({ brands, years, fuelTypes, transmissionTypes, carTypes, exteriorColors, interiorColors, drivetrains, seatingCapacities, features, filters, onFilterChange, showTitle = true }: CarFiltersProps) {
   const handleBrandChange = (brandName: string) => {
     const newBrands = filters.brand.includes(brandName)
       ? filters.brand.filter((b) => b !== brandName)
@@ -155,6 +160,20 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
       ? filters.drivetrain.filter((d) => d !== drivetrainValue)
       : [...filters.drivetrain, drivetrainValue];
     onFilterChange({ ...filters, drivetrain: newDrivetrains });
+  };
+
+  const handleSeatingCapacityChange = (capacity: number) => {
+    const newCapacities = filters.seatingCapacity.includes(capacity)
+      ? filters.seatingCapacity.filter((c) => c !== capacity)
+      : [...filters.seatingCapacity, capacity];
+    onFilterChange({ ...filters, seatingCapacity: newCapacities });
+  };
+
+  const handleFeatureChange = (feature: string) => {
+    const newFeatures = filters.features.includes(feature)
+      ? filters.features.filter((f) => f !== feature)
+      : [...filters.features, feature];
+    onFilterChange({ ...filters, features: newFeatures });
   };
 
   const fuelTypeTranslations: {[key: string]: string} = {
@@ -291,6 +310,27 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 )}
               >
                 {year}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="font-semibold flex items-center gap-2"><Users className="w-4 h-4" /> Số chỗ ngồi</Label>
+          <div className="grid grid-cols-4 gap-2 pt-2">
+            {seatingCapacities.map((capacity) => (
+              <button
+                key={capacity}
+                onClick={() => handleSeatingCapacityChange(capacity)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                  filters.seatingCapacity.includes(capacity)
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {capacity} chỗ
               </button>
             ))}
           </div>
@@ -456,6 +496,27 @@ export default function CarFilters({ brands, years, fuelTypes, transmissionTypes
                 {carType}
               </button>
             )})}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="font-semibold flex items-center gap-2"><Star className="w-4 h-4" /> Tính năng</Label>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {features.map((feature) => (
+              <button
+                key={feature}
+                onClick={() => handleFeatureChange(feature)}
+                className={cn(
+                  "p-2 border rounded-md flex items-center justify-center h-10 transition-colors duration-200 text-sm font-medium",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                  filters.features.includes(feature)
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-card hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                {feature}
+              </button>
+            ))}
           </div>
         </div>
 
