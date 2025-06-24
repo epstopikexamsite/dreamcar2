@@ -307,7 +307,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8">
             <section>
                 {filteredCars.length > 0 ? (
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {visibleCars.map(car => (
                     <CarCard key={car.id} car={car} />
                     ))}
@@ -372,4 +372,3 @@ export default function Home() {
     </div>
   );
 }
-
