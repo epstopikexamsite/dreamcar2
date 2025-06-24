@@ -184,65 +184,67 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
-        <div className="container mx-auto px-4 py-6 sticky top-[73px] bg-background/95 backdrop-blur-sm z-30 border-b">
-            <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                         <div>
-                            <Sheet>
-                                <SheetTrigger asChild>
-                                    <Button variant="outline">
-                                        <Filter className="mr-2 h-4 w-4" />
-                                        Bộ lọc ({activeFiltersCount})
-                                    </Button>
-                                </SheetTrigger>
-                                <SheetContent side="left" className="p-0">
-                                    <SheetHeader className="p-4 border-b">
-                                        <SheetTitle className="sr-only">Menu chính</SheetTitle>
-                                    </SheetHeader>
-                                    <ScrollArea className="h-[calc(100%-4rem)]">
-                                        <div className="p-4">
-                                        <CarFilters 
-                                            brands={brands} 
-                                            years={years}
-                                            fuelTypes={fuelTypes}
-                                            transmissionTypes={transmissionTypes}
-                                            carTypes={carTypes}
-                                            exteriorColors={exteriorColors}
-                                            interiorColors={interiorColors}
-                                            drivetrains={drivetrains}
-                                            filters={filters} 
-                                            onFilterChange={setFilters}
-                                            showTitle={false}
-                                        />
-                                        </div>
-                                    </ScrollArea>
-                                </SheetContent>
-                            </Sheet>
-                        </div>
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                        Hiển thị <span className="font-bold text-foreground">{filteredCars.length}</span> trên tổng số <span className="font-bold text-foreground">{allCars.length}</span> xe
-                    </div>
-                </div>
-                 {activeFiltersCount > 0 && (
-                    <div className="flex items-center flex-wrap gap-2">
-                        <span className="text-sm font-medium">Đang lọc:</span>
-                        {activeFiltersList.map(({ key, value }) => (
-                            <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
-                                {value}
-                                <button onClick={() => handleRemoveFilter(key, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
-                            </Badge>
-                        ))}
-                         {isPriceFiltered && (
-                            <Badge variant="secondary" className="pl-2 pr-1 py-1">
-                                Giá tối đa: {filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
-                                <button onClick={handlePriceRemove} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
-                            </Badge>
-                        )}
-                        <Button variant="ghost" size="sm" onClick={clearFilters} className="h-auto px-2 py-1 text-xs text-primary hover:bg-primary/10">Xóa tất cả</Button>
-                    </div>
-                )}
+        <div className="w-full py-6 sticky top-[73px] bg-background/95 backdrop-blur-sm z-30 border-b">
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                          <div>
+                              <Sheet>
+                                  <SheetTrigger asChild>
+                                      <Button variant="outline">
+                                          <Filter className="mr-2 h-4 w-4" />
+                                          Bộ lọc ({activeFiltersCount})
+                                      </Button>
+                                  </SheetTrigger>
+                                  <SheetContent side="left" className="p-0">
+                                      <SheetHeader className="p-4 border-b">
+                                          <SheetTitle className="sr-only">Menu chính</SheetTitle>
+                                      </SheetHeader>
+                                      <ScrollArea className="h-[calc(100%-4rem)]">
+                                          <div className="p-4">
+                                          <CarFilters 
+                                              brands={brands} 
+                                              years={years}
+                                              fuelTypes={fuelTypes}
+                                              transmissionTypes={transmissionTypes}
+                                              carTypes={carTypes}
+                                              exteriorColors={exteriorColors}
+                                              interiorColors={interiorColors}
+                                              drivetrains={drivetrains}
+                                              filters={filters} 
+                                              onFilterChange={setFilters}
+                                              showTitle={false}
+                                          />
+                                          </div>
+                                      </ScrollArea>
+                                  </SheetContent>
+                              </Sheet>
+                          </div>
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                          Hiển thị <span className="font-bold text-foreground">{filteredCars.length}</span> trên tổng số <span className="font-bold text-foreground">{allCars.length}</span> xe
+                      </div>
+                  </div>
+                  {activeFiltersCount > 0 && (
+                      <div className="flex items-center flex-wrap gap-2">
+                          <span className="text-sm font-medium">Đang lọc:</span>
+                          {activeFiltersList.map(({ key, value }) => (
+                              <Badge key={`${key}-${value}`} variant="secondary" className="pl-2 pr-1 py-1">
+                                  {value}
+                                  <button onClick={() => handleRemoveFilter(key, value)} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
+                              </Badge>
+                          ))}
+                          {isPriceFiltered && (
+                              <Badge variant="secondary" className="pl-2 pr-1 py-1">
+                                  Giá tối đa: {filters.priceRange[1].toLocaleString('vi-VN')} VNĐ
+                                  <button onClick={handlePriceRemove} className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"><X className="h-3 w-3"/></button>
+                              </Badge>
+                          )}
+                          <Button variant="ghost" size="sm" onClick={clearFilters} className="h-auto px-2 py-1 text-xs text-primary hover:bg-primary/10">Xóa tất cả</Button>
+                      </div>
+                  )}
+              </div>
             </div>
         </div>
 
