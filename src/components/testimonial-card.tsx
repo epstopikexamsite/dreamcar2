@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Star, MessageSquare, MapPin } from 'lucide-react';
+import { Star, MessageSquare, MapPin, Calendar } from 'lucide-react';
 import type { Testimonial } from '@/lib/testimonials-data';
 
 const StarRating = ({ rating }: { rating: number }) => (
@@ -21,7 +21,13 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
         <p className="italic">"{testimonial.quote}"</p>
       </CardContent>
       <CardFooter className="p-0 mt-auto flex flex-col items-start gap-4 border-t pt-4">
-        <StarRating rating={testimonial.rating} />
+        <div className="flex justify-between w-full items-center">
+            <StarRating rating={testimonial.rating} />
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Calendar className="w-4 h-4" />
+                <span>{testimonial.date}</span>
+            </div>
+        </div>
         <div>
             <p className="font-semibold text-foreground">{testimonial.name}</p>
             <p className="text-sm text-muted-foreground mt-1">{testimonial.role}</p>
