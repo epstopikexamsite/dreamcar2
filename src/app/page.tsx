@@ -9,7 +9,7 @@ import CarCard from '@/components/car-card';
 import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid, Grid2x2, Grid3x3, Car, Armchair, Cog, Wrench, BatteryCharging, Shield, Droplets, FileText } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
@@ -461,47 +461,48 @@ export default function Home() {
         </div>
 
         <section className="py-12 bg-background">
-            <div className="container mx-auto px-4 max-w-4xl">
+            <div className="container mx-auto px-4 max-w-5xl">
                 <Card className="border-2 border-primary/50 shadow-lg">
-                    <CardHeader className="p-6 text-center">
-                        <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
-                            <ShieldCheck className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                        <CardTitle className="font-headline text-3xl text-primary">Cam Kết Vàng</CardTitle>
-                        <p className="text-muted-foreground text-lg pt-2">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
-                    </CardHeader>
-                    <CardContent className="text-lg space-y-6 px-4 sm:px-6 pb-6 text-left">
-                        <div className="space-y-4 text-center">
-                            <p className="text-foreground/90">
-                                Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
-                            </p>
-                            <div className="border-t border-dashed my-4"></div>
-                            <p className="font-semibold text-foreground">
-                                Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
-                            </p>
-                        </div>
+                    <CardContent className="p-6 md:p-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                            {/* Left Column */}
+                            <div className="space-y-4">
+                                <h2 className="font-headline text-3xl text-primary font-bold">Cam Kết Vàng</h2>
+                                <p className="text-muted-foreground text-lg">Sự an tâm của bạn là ưu tiên hàng đầu của chúng tôi.</p>
+                                <div className="text-foreground/90 space-y-4 pt-2">
+                                    <p>
+                                        Showroom chúng tôi cam kết toàn bộ xe bán ra động cơ hộp số nguyên bản, xe không tai nạn ảnh hưởng tới kết cấu khung gầm của xe, xe không thủy kích, không ngập nước, pháp lý rõ ràng.
+                                    </p>
+                                    <div className="border-t border-dashed"></div>
+                                    <p className="font-semibold text-foreground">
+                                        Quý khách hàng được bảo hành xe trong <strong>01 năm</strong>. Nếu phát hiện xe không đúng cam kết nói trên, showroom chúng tôi sẽ nhận lại xe và hoàn lại tiền cho quý khách hàng.
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div className="pt-4">
-                            <h4 className="font-headline text-2xl text-center mb-4 text-primary font-bold">176 Hạng mục kiểm định chất lượng</h4>
-                            <Accordion type="single" collapsible className="w-full bg-primary/5 p-4 rounded-lg">
-                                {inspectionCategories.map((category, index) => (
-                                    <AccordionItem value={`item-${index}`} key={index} className="border-b last:border-b-0">
-                                        <AccordionTrigger className="hover:no-underline text-base font-semibold py-3">
-                                            <div className="flex items-center gap-3">
-                                                <category.icon className="h-5 w-5 text-accent" />
-                                                <span>{category.title}</span>
-                                            </div>
-                                        </AccordionTrigger>
-                                        <AccordionContent>
-                                            <ul className="list-disc list-inside space-y-2 pt-2 pl-6 text-base text-muted-foreground">
-                                                {category.items.map((item, itemIndex) => (
-                                                    <li key={itemIndex}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
+                            {/* Right Column */}
+                            <div className="space-y-4">
+                                <h2 className="font-headline text-3xl text-primary font-bold">176 Hạng mục kiểm định</h2>
+                                <Accordion type="single" collapsible className="w-full bg-primary/5 rounded-lg">
+                                    {inspectionCategories.map((category, index) => (
+                                        <AccordionItem value={`item-${index}`} key={index} className="border-b last:border-b-0 px-4">
+                                            <AccordionTrigger className="hover:no-underline text-base font-semibold py-3 text-left">
+                                                <div className="flex items-center gap-3">
+                                                    <category.icon className="h-5 w-5 text-accent" />
+                                                    <span>{category.title}</span>
+                                                </div>
+                                            </AccordionTrigger>
+                                            <AccordionContent>
+                                                <ul className="list-disc list-inside space-y-2 pt-2 pl-6 text-base text-muted-foreground">
+                                                    {category.items.map((item, itemIndex) => (
+                                                        <li key={itemIndex}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
                         </div>
                     </CardContent>
                 </Card>
@@ -582,3 +583,4 @@ export default function Home() {
     </div>
   );
 }
+
