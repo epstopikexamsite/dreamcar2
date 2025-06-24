@@ -10,7 +10,7 @@ import { cars as allCars } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid } from 'lucide-react';
+import { Award, Tag, Trophy, ShieldCheck, Filter, X, List, LayoutGrid, Grid2x2, Grid3x3 } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -247,13 +247,13 @@ export default function Home() {
                                               size="icon"
                                               className="h-7 w-7"
                                               onClick={() => setColumns(1)}
-                                              aria-label="Hiển thị một cột"
+                                              aria-label="Hiển thị 1 cột"
                                           >
                                               <List className="h-4 w-4" />
                                           </Button>
                                       </TooltipTrigger>
                                       <TooltipContent>
-                                          <p>Dạng danh sách</p>
+                                          <p>1 Cột</p>
                                       </TooltipContent>
                                   </Tooltip>
                               </TooltipProvider>
@@ -265,13 +265,49 @@ export default function Home() {
                                               size="icon"
                                               className="h-7 w-7"
                                               onClick={() => setColumns(2)}
-                                              aria-label="Hiển thị hai cột"
+                                              aria-label="Hiển thị 2 cột"
+                                          >
+                                              <Grid2x2 className="h-4 w-4" />
+                                          </Button>
+                                      </TooltipTrigger>
+                                      <TooltipContent>
+                                          <p>2 Cột</p>
+                                      </TooltipContent>
+                                  </Tooltip>
+                              </TooltipProvider>
+                              <TooltipProvider>
+                                  <Tooltip>
+                                      <TooltipTrigger asChild>
+                                          <Button
+                                              variant={columns === 3 ? 'secondary' : 'ghost'}
+                                              size="icon"
+                                              className="h-7 w-7"
+                                              onClick={() => setColumns(3)}
+                                              aria-label="Hiển thị 3 cột"
+                                          >
+                                              <Grid3x3 className="h-4 w-4" />
+                                          </Button>
+                                      </TooltipTrigger>
+                                      <TooltipContent>
+                                          <p>3 Cột</p>
+                                      </TooltipContent>
+                                  </Tooltip>
+                              </TooltipProvider>
+                              <TooltipProvider>
+                                  <Tooltip>
+                                      <TooltipTrigger asChild>
+                                          <Button
+                                              variant={columns === 4 ? 'secondary' : 'ghost'}
+                                              size="icon"
+                                              className="h-7 w-7"
+                                              onClick={() => setColumns(4)}
+                                              aria-label="Hiển thị 4 cột"
                                           >
                                               <LayoutGrid className="h-4 w-4" />
                                           </Button>
                                       </TooltipTrigger>
                                       <TooltipContent>
-                                          <p>Dạng lưới</p>
+                                          <p>4 Cột</p>
                                       </TooltipContent>
                                   </Tooltip>
                               </TooltipProvider>
@@ -352,7 +388,9 @@ export default function Home() {
                 <div className={cn(
                     'grid gap-6',
                     columns === 1 && 'grid-cols-1',
-                    columns === 2 && 'grid-cols-1 md:grid-cols-2'
+                    columns === 2 && 'grid-cols-1 md:grid-cols-2',
+                    columns === 3 && 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3',
+                    columns === 4 && 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
                   )}>
                     {visibleCars.map(car => (
                     <CarCard key={car.id} car={car} />
