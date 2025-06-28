@@ -33,7 +33,7 @@ export default function Footer() {
                     <div className="md:col-span-3 space-y-2 text-center md:text-left">
                         <Link href="/" className="inline-block">
                             <Image
-                                src="/logo-white.svg"
+                                src="/logo.jpg"
                                 alt="TimeCarsAuto"
                                 width={160}
                                 height={36}
