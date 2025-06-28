@@ -29,7 +29,7 @@ export default function Header() {
       <div className="flex items-center justify-between p-4">
         <Link href="/" aria-label="Trang chủ TimeCarsAuto">
           <Image
-              src="/time-car-white.svg"
+              src="/logo.png"
               alt="TimeCarsAuto"
               width={180}
               height={41}
@@ -65,7 +65,7 @@ export default function Header() {
                         <div className="p-4 border-b">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Image
-                                    src="/time-car-red.svg"
+                                    src="/logo.png"
                                     alt="TimeCarsAuto"
                                     width={180}
                                     height={41}
